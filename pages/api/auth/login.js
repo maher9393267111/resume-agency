@@ -14,6 +14,15 @@ export default async (req, res) => {
     if (!rightPassword)
       return res.status(422).json({ message: "Wrong password!" });
 
+
+       // Set CORS headers
+       res.setHeader('Access-Control-Allow-Origin', '*');
+       res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+       res.setHeader('Access-Control-Allow-Headers', 'Authorization, Content-Type');
+
+
+
+
     const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET, {
       expiresIn: "7d",
     });

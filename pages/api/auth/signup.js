@@ -23,6 +23,14 @@ export default async (req, res) => {
         .status(422)
         .json({ message: "Password be 6 - 32 characters long!" });
 
+
+         // Set CORS headers
+      res.setHeader('Access-Control-Allow-Origin', '*');
+      res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+      res.setHeader('Access-Control-Allow-Headers', 'Authorization, Content-Type');
+
+
+
     const userExist = await prisma.user.findUnique({ where: { email } });
 
     if (userExist)
