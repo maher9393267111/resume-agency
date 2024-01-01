@@ -16,6 +16,7 @@ model User {
   name       String
   email      String       @unique
   password   String
+  role       String      @default("user")
   // polls      Poll[]
   projects   Project[]
   appearence Appearence[]
@@ -63,6 +64,7 @@ model Education {
 }
 
 
+
 model Social {
   id           Int      @id @default(autoincrement())
   createdAt    DateTime @default(now())
@@ -83,7 +85,8 @@ model About {
   themeColor   String   @default("#1976D2")
   title        String
   desc         String
-
+  myImage      String
+  headImage    String
   link          String
   pdf           String
   user         User     @relation(fields: [userId], references: [id])

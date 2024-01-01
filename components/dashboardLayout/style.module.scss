@@ -1,0 +1,41 @@
+@mixin linkStyles {
+    color: #637381;
+    padding: 10px 15px;
+    border-radius: 0 100px 100px 0;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+
+    & > svg {
+        margin-right: 10px;
+    }
+
+    &:hover {
+        background-color: #EBF8F2;
+    }
+}
+
+.nav {
+    display: flex;
+    flex-direction: column;
+    margin-left: -16px;
+
+    button {
+        @include linkStyles;
+        justify-content: left;
+    }
+
+    a {
+        text-decoration: none;
+        @include linkStyles;
+
+        &:not(:last-child) {
+            margin-bottom: 20px;
+        }
+    }
+}
+
+a.activeLink {
+    color: #00AB55;
+    background-color: #EBF8F2;
+}

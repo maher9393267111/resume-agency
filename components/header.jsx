@@ -30,7 +30,7 @@ import {
           >
             <Box display="flex" alignItems="center">
               <Image
-                src="/logo.svg"
+                src="/logo.jpg"
                 width={50}
                 height={50}
                 objectFit="contain"

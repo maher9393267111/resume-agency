@@ -24,7 +24,63 @@ const theme = createTheme({
             "rgb(145 158 171 / 20%) 0px 0px 2px 0px, rgb(145 158 171 / 12%) 0px 12px 24px -4px",
         },
       },
+
+
+    
+
+
+
+
     },
+
+
+    components: {
+      MuiBox: {
+          styleOverrides: {
+              root: ({ ownerState, theme }) => ({
+                  ...{
+                      '&::-webkit-scrollbar': {
+                          width: '15px',
+                      },
+                      '&::-webkit-scrollbar-track': {
+                          backgroundColor: theme.palette.scroll.track,
+                      },
+                      '&::-webkit-scrollbar-thumb': {
+                          backgroundColor: theme.palette.scroll.thumb,
+                          borderRadius: '10px',
+                      },
+                      '&::-webkit-scrollbar-thumb:hover': {
+                          backgroundColor: theme.palette.scroll.hover,
+                      },
+                  },
+              }),
+          },
+      },
+      MuiDrawer: {
+          styleOverrides: {
+              paper: ({ ownerState, theme }) => ({
+                  ...{
+                      '&::-webkit-scrollbar': {
+                          width: '15px',
+                      },
+                      '&::-webkit-scrollbar-track': {
+                          backgroundColor: theme.palette.scroll.track,
+                      },
+                      '&::-webkit-scrollbar-thumb': {
+                          backgroundColor: theme.palette.scroll.thumb,
+                          borderRadius: '10px',
+                      },
+                      '&::-webkit-scrollbar-thumb:hover': {
+                          backgroundColor: theme.palette.scroll.hover,
+                      },
+                  },
+              }),
+          },
+      },
+  },
+
+
+
   },
 });
 
