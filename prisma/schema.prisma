@@ -1,0 +1,154 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id         Int          @id @default(autoincrement())
+  createdAt  DateTime     @default(now())
+  name       String
+  email      String       @unique
+  password   String
+  // polls      Poll[]
+  projects   Project[]
+  appearence Appearence[]
+  education Education[]
+  social     Social[]
+  about      About[]
+  slider     Slider[]
+}
+
+model Project {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  title     String
+  desc      String
+
+  themeColor String  @default("#1976D2")
+  enable     Boolean @default(true)
+  user       User    @relation(fields: [userId], references: [id])
+  userId     Int
+}
+
+model Appearence {
+  id           Int      @id @default(autoincrement())
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  themeColor   String   @default("#1976D2")
+  imageoverlay String   @default("")
+  user         User     @relation(fields: [userId], references: [id])
+  userId       Int
+}
+
+
+
+model Education {
+  id           Int      @id @default(autoincrement())
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  themeColor   String   @default("#1976D2")
+ title         String
+ year          Int
+ desc          String
+  user         User     @relation(fields: [userId], references: [id])
+  userId       Int
+}
+
+
+model Social {
+  id           Int      @id @default(autoincrement())
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  themeColor   String   @default("#1976D2")
+  iconColor    String   @default("#1976D2")
+
+  link          String
+  user         User     @relation(fields: [userId], references: [id])
+  userId       Int
+}
+
+
+model About {
+  id           Int      @id @default(autoincrement())
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  themeColor   String   @default("#1976D2")
+  title        String
+  desc         String
+
+  link          String
+  pdf           String
+  user         User     @relation(fields: [userId], references: [id])
+  userId       Int
+}
+
+
+
+
+model Slider {
+  id           Int      @id @default(autoincrement())
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  themeColor   String   @default("#1976D2")
+  title        String
+  link         String
+  
+
+  
+  user         User     @relation(fields: [userId], references: [id])
+  userId       Int
+}
+
+
+
+
+
+
+
+
+
+
+// model Poll {
+//   id            Int      @id @default(autoincrement())
+//   createdAt     DateTime @default(now())
+//   updatedAt     DateTime @updatedAt
+//   question      String
+//   thanksMessage String   @default("Thank You!")
+//   showResults   Boolean  @default(true)
+//   themeColor    String   @default("#1976D2")
+//   enable        Boolean  @default(true)
+//   user          User     @relation(fields: [userId], references: [id])
+//   userId        Int
+//   answers       Answer[]
+// }
+
+// model Answer {
+//   id        Int      @id @default(autoincrement())
+//   createdAt DateTime @default(now())
+//   name      String
+//   votes     Vote[]
+//   poll      Poll     @relation(fields: [pollId], references: [id], onDelete: Cascade)
+//   pollId    Int
+// }
+
+// model Vote {
+//   id        Int      @id @default(autoincrement())
+//   createdAt DateTime @default(now())
+//   device    Device
+//   answer    Answer   @relation(fields: [answerId], references: [id], onDelete: Cascade)
+//   answerId  Int
+// }
+
+// enum Device {
+//   Mobile
+//   Desktop
+//   Tablet
+// }
