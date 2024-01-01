@@ -4,10 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "prisma generate && next build",
     "start": "next start",
     "lint": "next lint",
-    "push": "git add . && git status && git commit -m `update` && git push origin dev"
+    "push": "git add . && git status && git commit -m `update` && git push origin dev",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@emotion/cache": "^11.9.3",
