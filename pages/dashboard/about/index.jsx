@@ -36,6 +36,7 @@ function AboutPage({ user, userdata }) {
   const [desc, setDesc] = useState(userdata?.about[0]?.desc || "");
   const [pdf, setPdf] = useState(userdata?.about[0]?.pdf || "");
   const [link, setLink] = useState(userdata?.about[0]?.link || "");
+  const [work, setWork] = useState(userdata?.about[0]?.work || "");
   const [whatsapp, setWhatsapp] = useState(userdata?.about[0]?.whatsapp || "");
   const [telgram, setTelgram] = useState(userdata?.about[0]?.telgram || "");
   const [instagram, setInstagram] = useState(
@@ -51,6 +52,8 @@ function AboutPage({ user, userdata }) {
   const [iconColor , setIconColor ] = useState(userdata?.about[0]?.iconColor || "");
   // iconColor themeColor 
   
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [previewImage, setPreviewImage] = useState(null);
 
   const handleColorChange = (newColor) => {
     setThemeColor(newColor.hex);
@@ -81,7 +84,8 @@ function AboutPage({ user, userdata }) {
         link,
         facebook,
         themeColor,
-        iconColor
+        iconColor,
+        work
       });
 
       console.log("AboutResponse Data", data);
@@ -93,6 +97,46 @@ function AboutPage({ user, userdata }) {
   };
 
 
+
+
+
+  // image upload
+
+  const handleImageSelect = (e) => {
+    const file = e.target.files[0];
+    setSelectedImage(file);
+    setPreviewImage(URL.createObjectURL(file)); // Create a preview URL for the selected image
+  };
+
+
+  const handleUploadImage = async (e) => {
+    
+
+    try {
+      const formData = new FormData();
+      formData.append("image", selectedImage);
+   
+      const response = await fetch("/api/upload", {
+        method: "POST",
+  
+        body: formData,
+      });
+
+      if (response.status === 200) {
+        const data = response.data;
+        console.log("response" ,data)
+        // Handle the response data
+       // setMyData(data.user);
+      //  setIsEditing(false);
+      //  handleSave();
+      } else {
+        // Handle error response
+        console.error(response.data.message);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
 
 
@@ -116,6 +160,27 @@ function AboutPage({ user, userdata }) {
           <form className="space-y-6" onSubmit={submitHandler}>
             {/* Name Field */}
 
+
+            <div className="file-upload">
+                        <label>Upload Profile Image</label>{" "}
+                        <input type="file" onChange={handleImageSelect} />
+        
+        
+     {selectedImage &&   <button onClick={handleUploadImage}>Upload to api</button>}
+
+
+                      </div>
+{previewImage &&
+
+
+
+<img className=" w-24 h-24  rounded-full" src={previewImage} alt="" />
+
+
+}
+
+
+
             <CustomInput
               value={title}
               setValue={setTitle}
@@ -130,6 +195,14 @@ function AboutPage({ user, userdata }) {
               label={"Description"}
               type={"text"}
             />
+    <CustomInput
+              value={work}
+              setValue={setWork}
+              label={"Work"}
+              type={"text"}
+            />
+
+
 
             <CustomInput
               value={whatsapp}

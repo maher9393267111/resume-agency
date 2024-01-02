@@ -25,7 +25,8 @@ handler.post(async (req, res) => {
     facebook,
     link,
     themeColor,
-    iconColor
+    iconColor, 
+    work
   } = req.body;
 
   console.log(req.body, "Body");
@@ -54,6 +55,7 @@ handler.post(async (req, res) => {
         link,
         themeColor,
         iconColor,
+        work,
 
         //   answers: {
         //     create: answers,
@@ -92,7 +94,8 @@ handler.post(async (req, res) => {
     headImage,
     link,
     themeColor,
-    iconColor
+    iconColor,
+    work
       },
     });
 

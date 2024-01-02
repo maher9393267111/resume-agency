@@ -88,6 +88,7 @@ model About {
   myImage      String  @default("")
   headImage    String  @default("")
   link         String  @default("")
+  work         String  @default("")
  
   pdf           String  @default("")
 
