@@ -73,6 +73,7 @@ const oldfile =req.query.oldfile
 
 
    
+   
     console.log("file")
     const fileBuffer = await sharp(file.buffer)
       .resize({ height: 500, width: 500, fit: "cover" })
