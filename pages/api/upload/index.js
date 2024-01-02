@@ -39,40 +39,48 @@ handler.post(
       const file = req.file;
 
       // Delete Old file before Upload new file
-      if (req.file && oldfile !== "") {
-        const deleteParams = {
-          Bucket: process.env.AWS_BUCKET_NAME,
-          Key: oldfile,
-        };
-        await s3Client.send(new DeleteObjectCommand(deleteParams));
-      }
 
-      console.log("file");
-      const fileBuffer = await sharp(file.buffer)
-        .resize({ height: 500, width: 500, fit: "cover" })
-        .toBuffer();
 
-      const fileName = crypto.randomBytes(32).toString("hex");
-      const params = {
-        Bucket: process.env.AWS_BUCKET_NAME,
-        Body: fileBuffer,
-        Key: fileName,
-        ContentType: file.mimetype,
-        ACL: "public-read",
-      };
+    //   if (req.file && oldfile !== "") {
+    //     const deleteParams = {
+    //       Bucket: process.env.AWS_BUCKET_NAME,
+    //       Key: oldfile,
+    //     };
+    //     await s3Client.send(new DeleteObjectCommand(deleteParams));
+    //   }
 
-      const newURL = `${cdnEndpoint}/${fileName}`;
+    //   console.log("file");
+    //   const fileBuffer = await sharp(file.buffer)
+    //     .resize({ height: 500, width: 500, fit: "cover" })
+    //     .toBuffer();
 
-      // await prisma.user.update({
-      //   where: { id: user.id},
-      //   data: { image: newURL },
-      // });
+    //   const fileName = crypto.randomBytes(32).toString("hex");
+    //   const params = {
+    //     Bucket: process.env.AWS_BUCKET_NAME,
+    //     Body: fileBuffer,
+    //     Key: fileName,
+    //     ContentType: file.mimetype,
+    //     ACL: "public-read",
+    //   };
 
-      //{ fileName: fileName ,imageUrl:`${cdnEndpoint}/${fileName}` }
+    //   const newURL = `${cdnEndpoint}/${fileName}`;
 
-      var result = await s3Client.send(new PutObjectCommand(params));
-      return res.status(201).json({ fileName: fileName, imageUrl: newURL });
+
+
+    //   var result = await s3Client.send(new PutObjectCommand(params));
+
+
+
+
+    //   return res.status(201).json({ fileName: fileName, imageUrl: newURL });
+
+
+    res.status(201).json('ok')
+
     } catch (err) {
+
+
+
       res.status(500).json(err.message);
     }
   }
@@ -86,3 +94,11 @@ export const config = {
 };
 
 export default handler;
+
+
+      // await prisma.user.update({
+      //   where: { id: user.id},
+      //   data: { image: newURL },
+      // });
+
+      //{ fileName: fileName ,imageUrl:`${cdnEndpoint}/${fileName}` }
