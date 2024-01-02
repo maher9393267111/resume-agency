@@ -16,11 +16,11 @@ model User {
   name       String
   email      String       @unique
   password   String
-  role       String      @default("user")
+  role       String       @default("user")
   // polls      Poll[]
   projects   Project[]
   appearence Appearence[]
-  education Education[]
+  education  Education[]
   social     Social[]
   about      About[]
   slider     Slider[]
@@ -30,8 +30,8 @@ model Project {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  title     String
-  desc      String
+  title     String   @default("")
+  desc      String   @default("")
 
   themeColor String  @default("#1976D2")
   enable     Boolean @default(true)
@@ -49,85 +49,66 @@ model Appearence {
   userId       Int
 }
 
-
-
 model Education {
-  id           Int      @id @default(autoincrement())
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
-  themeColor   String   @default("#1976D2")
- title         String
- year          Int
- desc          String
-  user         User     @relation(fields: [userId], references: [id])
-  userId       Int
+  id         Int      @id @default(autoincrement())
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  themeColor String   @default("#1976D2")
+  title      String
+  year       Int
+  desc       String
+  user       User     @relation(fields: [userId], references: [id])
+  userId     Int
 }
-
-
 
 model Social {
-  id           Int      @id @default(autoincrement())
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
-  themeColor   String   @default("#1976D2")
-  iconColor    String   @default("#1976D2")
+  id         Int      @id @default(autoincrement())
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  themeColor String   @default("#1976D2")
+  iconColor  String   @default("#1976D2")
 
-  link          String
-  user         User     @relation(fields: [userId], references: [id])
-  userId       Int
+  link   String
+  user   User   @relation(fields: [userId], references: [id])
+  userId Int
 }
-
 
 model About {
-  id           Int      @id @default(autoincrement())
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
-  themeColor   String   @default("#1976D2")
-  title        String  @default("")
-  desc         String  @default("")
-  myImage      String  @default("")
-  headImage    String  @default("")
-  link         String  @default("")
-  work         String  @default("")
- 
-  pdf           String  @default("")
+  id         Int      @id @default(autoincrement())
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  themeColor String   @default("#1976D2")
+  title      String   @default("")
+  desc       String   @default("")
+  myImage    String   @default("")
+  headImage  String   @default("")
+  link       String   @default("")
+  work       String   @default("")
 
-  whatsapp      String  @default("")
-  telgram       String  @default("")
-  facebook       String @default("")
-  instagram      String @default("")
-  twitter       String  @default("")
-  iconColor     String   @default("#1976D2")
-  
-  user         User     @relation(fields: [userId], references: [id])
-  userId       Int
+  pdf String @default("")
+
+  whatsapp  String @default("")
+  telgram   String @default("")
+  facebook  String @default("")
+  instagram String @default("")
+  twitter   String @default("")
+  iconColor String @default("#1976D2")
+
+  user   User @relation(fields: [userId], references: [id])
+  userId Int
 }
-
-
-
 
 model Slider {
-  id           Int      @id @default(autoincrement())
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
-  themeColor   String   @default("#1976D2")
-  title        String
-  link         String
-  
+  id         Int      @id @default(autoincrement())
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  themeColor String   @default("#1976D2")
+  title      String
+  link       String
 
-  
-  user         User     @relation(fields: [userId], references: [id])
-  userId       Int
+  user   User @relation(fields: [userId], references: [id])
+  userId Int
 }
-
-
-
-
-
-
-
-
-
 
 // model Poll {
 //   id            Int      @id @default(autoincrement())

@@ -1,6 +1,6 @@
 prisma
 
-npx prisma generate
+npm run update ----> THENNN  npx prisma generate  
 npx prisma migrate dev  ---> {update prisma schema} ---> then terminate terminal down and run
 --> { npm run generate} : {npx prisma generate}  for client schema side
 
