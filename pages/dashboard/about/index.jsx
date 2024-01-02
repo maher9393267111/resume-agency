@@ -118,7 +118,7 @@ function AboutPage({ user, userdata }) {
 
       console.log("AboutResponse Data", data);
 
-      router.reload()
+    //  router.reload()
 
       errorHandler("Updated Successfully");
     } catch (error) {
