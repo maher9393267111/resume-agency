@@ -146,10 +146,16 @@ function AboutPage({ user, userdata }) {
       console.log("selected", selected);
       formData.append("image", selected);
 
+
+      console.log("TYPE" ,imagetype )
+
       const oldfile =
         imagetype === "myImage"
           ? userdata?.about[0]?.myImage
           : userdata?.about[0]?.headImage;
+
+          console.log("OLDDDDDDD" ,oldfile )
+
 
       const data = await axios.post(
         `/api/upload/?type=${imagetype}&&oldfile=${oldfile}`,

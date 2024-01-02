@@ -145,14 +145,14 @@ const s3 = new S3Client({
     credentials: {
       
         accessKeyId:   process.env.AWS_ACCESS_KEY,
-        //"DO00TUAXQ8J6BUZQ3CDR",
+       
        
         secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-        // "MMHM398QV03sHeRO9FZcyc6ImN1pbMX8MpJhnRNfmeE"
+  
        
     },
 
-    //  process.env.AWS_BUCKET_REGION,
+    
 })
 
 
@@ -171,10 +171,10 @@ handler.post(
   (req, res, next) => {
     if (!req.file) return res.status(400).json({ error: "File is missing" });
 
-    if (!req.file.size) return res.status(400).json({ error: "File is empty" });
+    // if (!req.file.size) return res.status(400).json({ error: "File is empty" });
 
-    if (!req.file.mimetype.startsWith("image/"))
-      return res.status(415).json({ error: "File is not an image" });
+    // if (!req.file.mimetype.startsWith("image/"))
+    //   return res.status(415).json({ error: "File is not an image" });
 
     return next();
   },
@@ -202,6 +202,7 @@ handler.post(
 
     //const newURL = `${env.NEXT_PUBLIC_BUCKET_URL}/${key}`;
   
+    if (oldfile){
 
     await s3.send(
       new DeleteObjectCommand({
@@ -209,6 +210,10 @@ handler.post(
         Key: oldfile,
       })
     );
+    }
+
+
+
 
     res.status(201).send({fileName:fileName});
   }
