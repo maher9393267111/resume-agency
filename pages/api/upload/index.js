@@ -78,10 +78,11 @@ handler.post(
   }
 );
 
-export default handler;
 
 export const config = {
   api: {
     bodyParser: false,
   },
 };
+
+export default handler;
