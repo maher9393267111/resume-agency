@@ -22,8 +22,9 @@ handler.post(async (req, res) => {
     whatsapp,
     myImage,
     headImage,
+    facebook,
     link
-  } = req.body.values;
+  } = req.body;
 
   console.log(req.body, "Body");
 
@@ -45,6 +46,7 @@ handler.post(async (req, res) => {
         title,
         twitter,
         whatsapp,
+        facebook,
         myImage,
         headImage,
         link,
@@ -75,7 +77,7 @@ handler.post(async (req, res) => {
       },
       data: {
         desc,
-    
+        facebook,
     instagram,
     pdf,
     telgram,
