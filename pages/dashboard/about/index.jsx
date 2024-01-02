@@ -164,7 +164,7 @@ function AboutPage({ user, userdata }) {
 
       );
 
-      console.log("response setttt", data.data.fileName);
+      console.log("response setttt", data.data,data.data.fileName);
 
       return data.data.fileName;
     } catch (error) {
@@ -240,7 +240,7 @@ function AboutPage({ user, userdata }) {
 
 <div className=" flex gap-12  my-12">
 
-
+{/* {`${ImageEndpoint}/${myImage}`} */}
 
 
 
