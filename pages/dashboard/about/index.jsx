@@ -16,7 +16,9 @@ import { classNames } from "../../../src/lib/classes";
 import { errorHandler } from "../../../src/lib/errorHandler";
 import axios from "axios";
 import { prisma } from "../../../src/lib/prisma";
-import { HuePicker ,SketchPicker } from "react-color";
+import { HuePicker, SketchPicker } from "react-color";
+import { ImageEndpoint ,defaultImage } from "../../../src/lib/globall";
+import DriveFolderUploadIcon from '@mui/icons-material/DriveFolderUpload';
 
 function AboutPage({ user, userdata }) {
   console.log("userPrisma", userdata);
@@ -28,7 +30,6 @@ function AboutPage({ user, userdata }) {
   //   setValue,
   //   watch,
   // } = useForm();
-
 
   const router = useRouter();
 
@@ -48,31 +49,52 @@ function AboutPage({ user, userdata }) {
   );
   const [twitter, setTwitter] = useState(userdata?.about[0]?.twitter || "");
   const [facebook, setFacebook] = useState(userdata?.about[0]?.facebook || "");
-  const [themeColor , setThemeColor ] = useState(userdata?.about[0]?.themeColor || "");
-  const [iconColor , setIconColor ] = useState(userdata?.about[0]?.iconColor || "");
-  // iconColor themeColor 
-  
+  const [themeColor, setThemeColor] = useState(
+    userdata?.about[0]?.themeColor || ""
+  );
+  const [iconColor, setIconColor] = useState(
+    userdata?.about[0]?.iconColor || ""
+  );
+  // iconColor themeColor
+
   const [selectedImage, setSelectedImage] = useState(null);
   const [previewImage, setPreviewImage] = useState(null);
+  const [headpreviewImage, setHeadPreviewImage] = useState(null);
+
+  const [headSelectedImage, setHeadSelectedImage] = useState(null);
 
   const handleColorChange = (newColor) => {
     setThemeColor(newColor.hex);
   };
 
-
   const handleIconColorChange = (newColor) => {
     setIconColor(newColor.hex);
   };
 
-
-
-
-
   const submitHandler = async (e) => {
     console.log("values-->");
+    e.preventDefault();
 
     e.preventDefault();
     try {
+      const object = {
+        title,
+        desc,
+        whatsapp,
+        telgram,
+        instagram,
+        twitter,
+        pdf,
+        link,
+        facebook,
+        themeColor,
+        iconColor,
+        work,
+        myImage,
+        headImage,
+      };
+
+      console.log(myImage, "????????");
       const { data } = await axios.post("/api/about", {
         title,
         desc,
@@ -85,20 +107,24 @@ function AboutPage({ user, userdata }) {
         facebook,
         themeColor,
         iconColor,
-        work
+        work,
+        myImage: selectedImage
+          ? await handleUploadImage(selectedImage, "myImage")
+          : myImage,
+        headImage: headSelectedImage
+          ? await handleUploadImage(headSelectedImage, "headImage")
+          : headImage,
       });
 
       console.log("AboutResponse Data", data);
+
+      router.reload()
 
       errorHandler("Updated Successfully");
     } catch (error) {
       errorHandler(error);
     }
   };
-
-
-
-
 
   // image upload
 
@@ -108,46 +134,44 @@ function AboutPage({ user, userdata }) {
     setPreviewImage(URL.createObjectURL(file)); // Create a preview URL for the selected image
   };
 
+  const handleHeadImageSelect = (e) => {
+    const file = e.target.files[0];
+    setHeadSelectedImage(file);
+    setHeadPreviewImage(URL.createObjectURL(file)); // Create a preview URL for the selected image
+  };
 
-  const handleUploadImage = async (e) => {
-    
-
+  const handleUploadImage = async (selected, imagetype, collection) => {
     try {
       const formData = new FormData();
-      formData.append("image", selectedImage);
-   
-      const response = await fetch("/api/upload", {
-        method: "POST",
-  
-        body: formData,
-      });
+      console.log("selected", selected);
+      formData.append("image", selected);
 
-      if (response.status === 200) {
-        const data = response.data;
-        console.log("response" ,data)
-        // Handle the response data
-       // setMyData(data.user);
-      //  setIsEditing(false);
-      //  handleSave();
-      } else {
-        // Handle error response
-        console.error(response.data.message);
-      }
+      const oldfile =
+        imagetype === "myImage"
+          ? userdata?.about[0]?.myImage
+          : userdata?.about[0]?.headImage;
+
+      const data = await axios.post(
+        `/api/upload/?type=${imagetype}&&oldfile=${oldfile}`,
+
+        formData
+      );
+
+      console.log("response setttt", data.data.fileName);
+
+      return data.data.fileName;
     } catch (error) {
       console.error(error);
     }
   };
 
-
-
-
-
-
   return (
     <DashboardLayout user={user}>
       <Hero user={user} title="About Page" />
 
-      {user?.name}
+      {/* {`${ImageEndpoint}/${myImage}`} */}
+
+   
 
       <div
         // sm:mx-auto sm:w-full sm:max-w-md
@@ -156,28 +180,175 @@ function AboutPage({ user, userdata }) {
 "
       >
         <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-       
+          {/* <div className="file-upload">
+            <label>Upload Profile Image</label>{" "}
+            <input type="file" onChange={handleImageSelect} />
+            {selectedImage && (
+              <button onClick={() => handleUploadImage("myImage")}>
+                Upload to api
+              </button>
+            )}
+          </div>
+
+          {previewImage && (
+            <img
+              className=" w-24 h-24  rounded-full"
+              src={previewImage}
+              alt=""
+            />
+          )} */}
+
+    
+
           <form className="space-y-6" onSubmit={submitHandler}>
             {/* Name Field */}
 
 
-            <div className="file-upload">
-                        <label>Upload Profile Image</label>{" "}
-                        <input type="file" onChange={handleImageSelect} />
-        
-        
-     {selectedImage &&   <button onClick={handleUploadImage}>Upload to api</button>}
+            {/* <label className="w-24 h-24 cursor-pointer text-center flex flex-col items-center justify-center text-sm gap-1 text-primary rounded-sm bg-white shadow-sm border border-primary">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-6 h-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"
+              />
+            </svg>
+            <div>Add Your image</div>
+            <input
+              type="file"
+              onChange={handleImageSelect}
+              className="hidden"
+            />
+            {/* <button
+          onClick={()=>handleUploadImage("myImage",setSelectedImage ,setMyImage)}
+          className=" bg-pink-500 text-white">Upload</button> */}
+          {/* </label>  */}
 
 
-                      </div>
-{previewImage &&
+<div className=" flex gap-12  my-12">
 
 
 
-<img className=" w-24 h-24  rounded-full" src={previewImage} alt="" />
 
 
-}
+<div className=" w-[200px] h-[200px] object-cover ">
+
+
+<h1 className=" mb-2">
+Upload your image
+
+</h1>
+
+
+<div className=" relative">
+
+
+
+<img className=" object-cover w-full h-full " src={previewImage ? previewImage : myImage ? `${ImageEndpoint}/${myImage}` : defaultImage  } alt="" />
+
+
+
+<label>
+
+
+<DriveFolderUploadIcon className=" top-2 left-2 rounded-full text-indigo-500 absolute"/>
+
+<input
+              type="file"
+              onChange={handleImageSelect}
+              className="hidden"
+            />
+
+
+</label>
+</div>
+
+ 
+ 
+
+ 
+ 
+
+
+
+</div>
+
+
+
+
+<div className=" w-[200px] h-[200px] object-cover ">
+
+
+
+<h1 className=" mb-2">
+Upload header image
+
+</h1>
+
+
+<div className=" relative">
+
+
+
+<img className=" object-cover w-full h-full" src={headpreviewImage ? headpreviewImage : headImage ? `${ImageEndpoint}/${headImage}` : defaultImage  } alt="" />
+
+
+
+<label>
+
+
+<DriveFolderUploadIcon className=" top-2 left-2 rounded-full text-indigo-500 absolute"/>
+
+<input
+              type="file"
+              onChange={handleHeadImageSelect}
+              className="hidden"
+            />
+
+
+</label>
+</div>
+
+ 
+ 
+
+ 
+ 
+
+
+
+</div>
+
+
+
+
+
+
+</div>
+
+
+
+
+
+     
+
+          {/* <img src={`${ImageEndpoint}/${myImage}`} alt="" /> */}
+
+
+          {/* {previewImage && (
+            <img
+              className=" w-24 h-24  rounded-full"
+              src={previewImage}
+              alt=""
+            />
+          )}
+ */}
 
 
 
@@ -188,21 +359,18 @@ function AboutPage({ user, userdata }) {
               type={"text"}
             />
 
-
             <CustomInput
               value={desc}
               setValue={setDesc}
               label={"Description"}
               type={"text"}
             />
-    <CustomInput
+            <CustomInput
               value={work}
               setValue={setWork}
               label={"Work"}
               type={"text"}
             />
-
-
 
             <CustomInput
               value={whatsapp}
@@ -239,45 +407,29 @@ function AboutPage({ user, userdata }) {
               type={"text"}
             />
 
+            {/* ----------colors----- */}
 
+            <div className=" md:flex-row flex flex-col gap-4  max-w-md  ">
+              <div className="">
+                <h2 className="my-2">Theme Color</h2>
 
-{/* ----------colors----- */}
+                <SketchPicker
+                  // HuePicker
+                  color={themeColor}
+                  onChangeComplete={handleColorChange}
+                />
+              </div>
 
-<div className=" md:flex-row flex flex-col gap-4  max-w-md  ">
+              <div className="mt-6   md:mt-0">
+                <h2 className="my-2">Icons Color</h2>
 
-<div className="">
-
-<h2 className="my-2">Theme Color</h2>
-
-<SketchPicker
-  // HuePicker
-                      color={themeColor}
-                      onChangeComplete={handleColorChange}
-                    />
-
-</div>
-
-
-
-<div className="mt-6   md:mt-0">
-
-
-<h2 className="my-2">Icons Color</h2>
-
-<SketchPicker
-  // HuePicker
-                      color={iconColor}
-                      onChangeComplete={handleIconColorChange }
-                    />
-
-</div>
-
-
-
-
-</div>
-
-
+                <SketchPicker
+                  // HuePicker
+                  color={iconColor}
+                  onChangeComplete={handleIconColorChange}
+                />
+              </div>
+            </div>
 
             {/* Submit Button */}
             <div>

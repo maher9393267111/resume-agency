@@ -29,7 +29,7 @@ handler.post(async (req, res) => {
     work
   } = req.body;
 
-  console.log(req.body, "Body");
+  console.log(req.body.myImage, "Body");
 
   const userAbout = await prisma.about.findFirst({
     where: { userId: user.id },
