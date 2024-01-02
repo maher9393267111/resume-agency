@@ -96,6 +96,7 @@ model About {
   facebook       String @default("")
   instagram      String @default("")
   twitter       String  @default("")
+  iconColor     String   @default("#1976D2")
   
   user         User     @relation(fields: [userId], references: [id])
   userId       Int

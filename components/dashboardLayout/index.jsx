@@ -27,6 +27,13 @@ export const DashboardLayout = ({ children, user }) => {
   const router = useRouter();
   const { logoutHandler } = useContext(UserContext);
 
+
+
+  
+
+
+
+
   return (
     <>
       <Grid container sx={{ mb: "15px" }}>
@@ -75,6 +82,22 @@ export const DashboardLayout = ({ children, user }) => {
                   <DashboardIcon />
                   Dashboard
                 </Link>
+
+
+                <Link
+                  href="/dashboard/about"
+                  title="Manage About"
+                  className={
+                    router.pathname === "/dashboard/about"
+                      ? classes.activeLink
+                      : null
+                  }
+                >
+                  <HowToVoteIcon />
+                  About ME
+                </Link>
+
+
 
                 <Link
                   href="/dashboard/projects/create-project"
@@ -167,18 +190,7 @@ export const DashboardLayout = ({ children, user }) => {
                   Links
                 </Link>
 
-                <Link
-                  href="/dashboard/about"
-                  title="Manage About"
-                  className={
-                    router.pathname === "/dashboard/about"
-                      ? classes.activeLink
-                      : null
-                  }
-                >
-                  <HowToVoteIcon />
-                  About ME
-                </Link>
+           
 
                 {/*   
                   <Link

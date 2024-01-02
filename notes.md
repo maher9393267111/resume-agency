@@ -1,7 +1,8 @@
 prisma
 
 npx prisma generate
-npx prisma migrate dev  ---> {update prisma schema}
+npx prisma migrate dev  ---> {update prisma schema} ---> then terminate terminal down and run
+--> { npm run generate} : {npx prisma generate}  for client schema side
 
 mainColor = #00AB55
 

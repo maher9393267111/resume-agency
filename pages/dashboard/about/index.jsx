@@ -16,17 +16,20 @@ import { classNames } from "../../../src/lib/classes";
 import { errorHandler } from "../../../src/lib/errorHandler";
 import axios from "axios";
 import { prisma } from "../../../src/lib/prisma";
+import { HuePicker ,SketchPicker } from "react-color";
 
 function AboutPage({ user, userdata }) {
   console.log("userPrisma", userdata);
 
-  const {
-    handleSubmit,
-    formState: { errors },
-    register,
-    setValue,
-    watch,
-  } = useForm();
+  // const {
+  //   handleSubmit,
+  //   formState: { errors },
+  //   register,
+  //   setValue,
+  //   watch,
+  // } = useForm();
+
+
   const router = useRouter();
 
   const [title, setTitle] = useState(userdata?.about[0]?.title || "");
@@ -44,7 +47,24 @@ function AboutPage({ user, userdata }) {
   );
   const [twitter, setTwitter] = useState(userdata?.about[0]?.twitter || "");
   const [facebook, setFacebook] = useState(userdata?.about[0]?.facebook || "");
+  const [themeColor , setThemeColor ] = useState(userdata?.about[0]?.themeColor || "");
+  const [iconColor , setIconColor ] = useState(userdata?.about[0]?.iconColor || "");
+  // iconColor themeColor 
   
+
+  const handleColorChange = (newColor) => {
+    setThemeColor(newColor.hex);
+  };
+
+
+  const handleIconColorChange = (newColor) => {
+    setIconColor(newColor.hex);
+  };
+
+
+
+
+
   const submitHandler = async (e) => {
     console.log("values-->");
 
@@ -60,6 +80,8 @@ function AboutPage({ user, userdata }) {
         pdf,
         link,
         facebook,
+        themeColor,
+        iconColor
       });
 
       console.log("AboutResponse Data", data);
@@ -69,6 +91,13 @@ function AboutPage({ user, userdata }) {
       errorHandler(error);
     }
   };
+
+
+
+
+
+
+
 
   return (
     <DashboardLayout user={user}>
@@ -136,6 +165,46 @@ function AboutPage({ user, userdata }) {
               label={"Facebook"}
               type={"text"}
             />
+
+
+
+{/* ----------colors----- */}
+
+<div className=" md:flex-row flex flex-col gap-4  max-w-md  ">
+
+<div className="">
+
+<h2 className="my-2">Theme Color</h2>
+
+<SketchPicker
+  // HuePicker
+                      color={themeColor}
+                      onChangeComplete={handleColorChange}
+                    />
+
+</div>
+
+
+
+<div className="mt-6   md:mt-0">
+
+
+<h2 className="my-2">Icons Color</h2>
+
+<SketchPicker
+  // HuePicker
+                      color={iconColor}
+                      onChangeComplete={handleIconColorChange }
+                    />
+
+</div>
+
+
+
+
+</div>
+
+
 
             {/* Submit Button */}
             <div>

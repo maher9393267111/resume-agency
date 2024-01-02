@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE `About` ADD COLUMN `iconColor` VARCHAR(191) NOT NULL DEFAULT '#1976D2';
