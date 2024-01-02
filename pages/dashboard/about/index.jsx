@@ -15,6 +15,7 @@ import { classNames } from "../../../src/lib/classes";
 
 import { errorHandler } from "../../../src/lib/errorHandler";
 import axios from "axios";
+import { prisma } from "../../../src/lib/prisma";
 
 function AboutPage({ user, userdata }) {
   console.log("userPrisma", userdata);
