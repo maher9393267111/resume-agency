@@ -20,7 +20,7 @@ import {
   import DashboardIcon from "@mui/icons-material/Dashboard";
   import AddBoxIcon from "@mui/icons-material/AddBox";
   import classes from "./style.module.scss";
-  // import { UserContext } from "../../context/UserContext/";
+   import { UserContext } from "../../../src/context/index";
   import LogoutIcon from "@mui/icons-material/Logout";
   import LockOpenIcon from "@mui/icons-material/LockOpen";
   import HomeIcon from "@mui/icons-material/Home";
@@ -28,7 +28,7 @@ import {
   export const Navbar = ({ user }) => {
     const router = useRouter();
     const [open, setOpen] = useState(false);
-    // const { logoutHandler } = useContext(UserContext);
+     const { logoutHandler } = useContext(UserContext);
   
     const closeDrawer = () => setOpen(false);
     const openDrawer = () => setOpen(true);
@@ -41,6 +41,7 @@ import {
           height={40}
           objectFit="contain"
           alt="POLLE"
+          className=" rounded-full"
         />
   
         <IconButton onClick={openDrawer}>
@@ -169,7 +170,7 @@ import {
 
                 <ListItem disablePadding>
                   <ListItemButton 
-                  // onClick={logoutHandler}
+                   onClick={logoutHandler}
                   >
                     <ListItemIcon>
                       <LogoutIcon />

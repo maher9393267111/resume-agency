@@ -7,6 +7,7 @@ import theme from "../src/theme";
 import createEmotionCache from "../src/createEmotionCache";
 import "react-notifications/lib/notifications.css";
 import { useState ,useEffect } from 'react';
+import { UserContextProvider } from "../src/context/index";
 const clientSideEmotionCache = createEmotionCache();
 
 
@@ -39,10 +40,13 @@ useEffect(() => {
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
 
-      
+        <UserContextProvider>
+
+     
             <Component {...pageProps} />
 
 
+            </UserContextProvider>
 
 
 

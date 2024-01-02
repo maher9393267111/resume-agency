@@ -83,12 +83,20 @@ model About {
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
   themeColor   String   @default("#1976D2")
-  title        String
-  desc         String
-  myImage      String
-  headImage    String
-  link          String
-  pdf           String
+  title        String  @default("")
+  desc         String  @default("")
+  myImage      String  @default("")
+  headImage    String  @default("")
+  link         String  @default("")
+ 
+  pdf           String  @default("")
+
+  whatsapp      String  @default("")
+  telgram       String  @default("")
+  facebook       String @default("")
+  instagram      String @default("")
+  twitter       String  @default("")
+  
   user         User     @relation(fields: [userId], references: [id])
   userId       Int
 }

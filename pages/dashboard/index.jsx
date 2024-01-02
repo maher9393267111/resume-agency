@@ -59,7 +59,7 @@ const DashboardPage = ({ user, polls }) => {
             </Typography>
 
             <Typography sx={{ my: 2, color: "#212b36" }}>
-              Let start by creating a new poll!
+              Let start by creating 
             </Typography>
 
             <Link href="/dashboard/create-poll" passHref>
@@ -91,6 +91,9 @@ const DashboardPage = ({ user, polls }) => {
 
     
       </Box>
+
+
+
     </DashboardLayout>
   );
 };
@@ -108,7 +111,7 @@ export const getServerSideProps = async ({ req, res }) => {
     };
   }
 
-  const polls = await prisma.user.findMany({
+  const userdata = await prisma.user.findMany({
     where: {
       id: user.id,
     },
@@ -117,13 +120,14 @@ export const getServerSideProps = async ({ req, res }) => {
       projects: {
      
       },
+
     },
   });
 
   return {
     props: {
       user,
-      polls: JSON.parse(JSON.stringify(polls)),
+      userdata: JSON.parse(JSON.stringify(userdata)),
     },
   };
 };

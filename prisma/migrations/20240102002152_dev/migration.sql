@@ -1,0 +1,6 @@
+-- AlterTable
+ALTER TABLE `About` MODIFY `title` VARCHAR(191) NULL,
+    MODIFY `desc` VARCHAR(191) NULL,
+    MODIFY `link` VARCHAR(191) NULL,
+    MODIFY `headImage` VARCHAR(191) NULL,
+    MODIFY `myImage` VARCHAR(191) NULL;

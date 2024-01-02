@@ -35,6 +35,7 @@ import {
                 height={50}
                 objectFit="contain"
                 alt="POLLE"
+                className=" rounded-full"
               />
               <Typography
                 color="primary"
