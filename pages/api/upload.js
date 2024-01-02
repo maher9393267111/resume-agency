@@ -1,8 +1,8 @@
-import { prisma } from "../../../src/lib/prisma";
-import { getUser } from "../../../src/lib/getUser";
+import { prisma } from "../../src/lib/prisma";
+import { getUser } from "../../src/lib/getUser";
 import multer from "multer";
 import { PutObjectCommand, DeleteObjectCommand } from "@aws-sdk/client-s3";
-import s3Client from "./aws-config";
+import s3Client from "./upload/aws-config";
 import sharp from "sharp";
 import crypto from "crypto";
 
@@ -32,14 +32,11 @@ handler.post(
       // collection = req.query.collection
       const oldfile = req.query.oldfile;
 
-      // if (!req.file) return res.status(400).json({ error: "File is missing" });
-      //  if (!req.file.mimetype.startsWith("image/"))
-      // return res.status(415).json({ error: "File is not an image" });
+  
 
       const file = req.file;
 
       // Delete Old file before Upload new file
-
 
       if (req.file && oldfile !== "") {
         const deleteParams = {
@@ -65,27 +62,14 @@ handler.post(
 
       const newURL = `${cdnEndpoint}/${fileName}`;
 
-
-
       var result = await s3Client.send(new PutObjectCommand(params));
 
-
-
-
       return res.status(201).json({ fileName: fileName, imageUrl: newURL });
-
-
-    
-
     } catch (err) {
-
-
-
       res.status(500).json(err.message);
     }
   }
 );
-
 
 export const config = {
   api: {
@@ -96,9 +80,21 @@ export const config = {
 export default handler;
 
 
-      // await prisma.user.update({
-      //   where: { id: user.id},
-      //   data: { image: newURL },
-      // });
 
-      //{ fileName: fileName ,imageUrl:`${cdnEndpoint}/${fileName}` }
+
+
+
+    // if (!req.file) return res.status(400).json({ error: "File is missing" });
+      //  if (!req.file.mimetype.startsWith("image/"))
+      // return res.status(415).json({ error: "File is not an image" });
+
+
+// await prisma.user.update({
+//   where: { id: user.id},
+//   data: { image: newURL },
+// });
+
+//{ fileName: fileName ,imageUrl:`${cdnEndpoint}/${fileName}` }
+
+
+// ---------------------------
