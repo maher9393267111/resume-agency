@@ -154,7 +154,14 @@ function AboutPage({ user, userdata }) {
       const data = await axios.post(
         `/api/upload/?type=${imagetype}&&oldfile=${oldfile}`,
 
-        formData
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+
+
       );
 
       console.log("response setttt", data.data.fileName);

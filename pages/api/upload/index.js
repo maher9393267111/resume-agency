@@ -41,41 +41,41 @@ handler.post(
       // Delete Old file before Upload new file
 
 
-    //   if (req.file && oldfile !== "") {
-    //     const deleteParams = {
-    //       Bucket: process.env.AWS_BUCKET_NAME,
-    //       Key: oldfile,
-    //     };
-    //     await s3Client.send(new DeleteObjectCommand(deleteParams));
-    //   }
+      if (req.file && oldfile !== "") {
+        const deleteParams = {
+          Bucket: process.env.AWS_BUCKET_NAME,
+          Key: oldfile,
+        };
+        await s3Client.send(new DeleteObjectCommand(deleteParams));
+      }
 
-    //   console.log("file");
-    //   const fileBuffer = await sharp(file.buffer)
-    //     .resize({ height: 500, width: 500, fit: "cover" })
-    //     .toBuffer();
+      console.log("file");
+      const fileBuffer = await sharp(file.buffer)
+        .resize({ height: 500, width: 500, fit: "cover" })
+        .toBuffer();
 
-    //   const fileName = crypto.randomBytes(32).toString("hex");
-    //   const params = {
-    //     Bucket: process.env.AWS_BUCKET_NAME,
-    //     Body: fileBuffer,
-    //     Key: fileName,
-    //     ContentType: file.mimetype,
-    //     ACL: "public-read",
-    //   };
+      const fileName = crypto.randomBytes(32).toString("hex");
+      const params = {
+        Bucket: process.env.AWS_BUCKET_NAME,
+        Body: fileBuffer,
+        Key: fileName,
+        ContentType: file.mimetype,
+        ACL: "public-read",
+      };
 
-    //   const newURL = `${cdnEndpoint}/${fileName}`;
-
-
-
-    //   var result = await s3Client.send(new PutObjectCommand(params));
+      const newURL = `${cdnEndpoint}/${fileName}`;
 
 
 
+      var result = await s3Client.send(new PutObjectCommand(params));
 
-    //   return res.status(201).json({ fileName: fileName, imageUrl: newURL });
 
 
-    res.status(201).json('ok')
+
+      return res.status(201).json({ fileName: fileName, imageUrl: newURL });
+
+
+    
 
     } catch (err) {
 
