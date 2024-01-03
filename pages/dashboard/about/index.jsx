@@ -13,7 +13,7 @@ import { useForm } from "react-hook-form";
 
 import { classNames } from "../../../src/lib/classes";
 
-import { errorHandler } from "../../../src/lib/errorHandler";
+import { errorHandler, successHandler } from "../../../src/lib/errorHandler";
 import axios from "axios";
 import { prisma } from "../../../src/lib/prisma";
 import { HuePicker, SketchPicker } from "react-color";
@@ -56,6 +56,11 @@ function AboutPage({ user, userdata }) {
   const [iconColor, setIconColor] = useState(
     userdata?.about[0]?.iconColor || ""
   );
+  const [textColor, setTextColor] = useState(
+    userdata?.about[0]?.textColor || ""
+  );
+
+
   // iconColor themeColor
 
   const [selectedImage, setSelectedImage] = useState(null);
@@ -72,30 +77,41 @@ function AboutPage({ user, userdata }) {
     setIconColor(newColor.hex);
   };
 
+
+  // handleTextolorChange
+
+  const  handleTextolorChange = (newColor) => {
+    setTextColor(newColor.hex);
+  };
+
+
+
+
   const submitHandler = async (e) => {
     console.log("values-->");
     e.preventDefault();
 
     e.preventDefault();
     try {
-      const object = {
-        title,
-        desc,
-        whatsapp,
-        telgram,
-        instagram,
-        twitter,
-        pdf,
-        link,
-        facebook,
-        themeColor,
-        iconColor,
-        work,
-        myImage,
-        headImage,
-      };
+      // const object = {
+      //   title,
+      //   desc,
+      //   whatsapp,
+      //   telgram,
+      //   instagram,
+      //   twitter,
+      //   pdf,
+      //   link,
+      //   facebook,
+      //   themeColor,
+      //   iconColor,
+      //   textColor,
+      //   work,
+      //   myImage,
+      //   headImage,
+      // };
 
-      console.log(myImage, "????????");
+      console.log(textColor, "????????");
       const { data } = await axios.post("/api/about", {
         title,
         desc,
@@ -108,6 +124,7 @@ function AboutPage({ user, userdata }) {
         facebook,
         themeColor,
         iconColor,
+        textColor,
         work,
         myImage: selectedImage
           ? await handleUploadImage(selectedImage, "myImage")
@@ -121,7 +138,7 @@ function AboutPage({ user, userdata }) {
 
       //  router.reload()
 
-      errorHandler("Updated Successfully");
+      successHandler("Updated Successfully");
     } catch (error) {
       errorHandler(error);
     }
@@ -154,14 +171,17 @@ function AboutPage({ user, userdata }) {
           ? userdata?.about[0]?.myImage
           : userdata?.about[0]?.headImage;
 
-          const size  = imagetype === "myImage" ? 200 : 500
+          const size  = imagetype === "myImage" ? 200 : 900
+          const hieghtSize = imagetype === "myImage" ? 200 : 900
+
+          console.log("HEIGHTHH" , hieghtSize)
 
 
 
       console.log("OLDDDDDDD", oldfile);
 
       const data = await axios.post(
-        `/api/upload/?type=${imagetype}&&oldfile=${oldfile}&&size=${size}`,
+        `/api/upload/?type=${imagetype}&&oldfile=${oldfile}&&size=${size}&&hieghtsize=${hieghtSize}`,
 
         formData,
         {
@@ -387,6 +407,21 @@ function AboutPage({ user, userdata }) {
                   onChangeComplete={handleIconColorChange}
                 />
               </div>
+
+
+
+              <div className="mt-6   md:mt-0">
+                <h2 className="my-2">Text Color: {textColor}</h2>
+
+                <SketchPicker
+                  // HuePicker
+                  color={textColor}
+                  onChangeComplete={handleTextolorChange}
+                />
+              </div>
+
+
+
             </div>
 
             {/* Submit Button */}

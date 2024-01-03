@@ -1,0 +1,5 @@
+-- AlterTable
+ALTER TABLE `About` MODIFY `desc` VARCHAR(255) NOT NULL DEFAULT '';
+
+-- AlterTable
+ALTER TABLE `Project` MODIFY `desc` VARCHAR(255) NOT NULL DEFAULT '';

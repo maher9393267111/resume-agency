@@ -99,7 +99,7 @@ export const DashboardLayout = ({ children, user }) => {
 
 
 
-                <Link
+                {/* <Link
                   href="/dashboard/projects/create-project"
                   title="Create a Project"
                   className={
@@ -110,7 +110,7 @@ export const DashboardLayout = ({ children, user }) => {
                 >
                   <AddBoxIcon />
                   New Project
-                </Link>
+                </Link> */}
 
                 <Link
                   href="/dashboard/projects"
@@ -121,35 +121,11 @@ export const DashboardLayout = ({ children, user }) => {
                       : null
                   }
                 >
-                  <HowToVoteIcon />
+                  {/* <HowToVoteIcon /> */}
+                  <AddBoxIcon />
                   Projects
                 </Link>
 
-                <Link
-                  href="/dashboard/skills"
-                  title="Manage Skills"
-                  className={
-                    router.pathname === "/dashboard/skills"
-                      ? classes.activeLink
-                      : null
-                  }
-                >
-                  <HowToVoteIcon />
-                  Skills
-                </Link>
-
-                <Link
-                  href="/dashboard/skills/create-skill"
-                  title="Create a Project"
-                  className={
-                    router.pathname === "/dashboard/skills/create-skill"
-                      ? classes.activeLink
-                      : null
-                  }
-                >
-                  <AddBoxIcon />
-                  New Skill
-                </Link>
 
                 <Link
                   href="/dashboard/sliders"
@@ -160,22 +136,47 @@ export const DashboardLayout = ({ children, user }) => {
                       : null
                   }
                 >
-                  <HowToVoteIcon />
+                  {/* <HowToVoteIcon /> */}
+                  <AddBoxIcon />
                   Sliders
                 </Link>
 
-                <Link
-                  href="/dashboard/sliders/create-slider"
-                  title="Create a Slider"
+
+
+
+
+
+                {/* <Link
+                  href="/dashboard/skills"
+                  title="Manage Skills"
                   className={
-                    router.pathname === "/dashboard/slider/create-slider"
+                    router.pathname === "/dashboard/skills"
+                      ? classes.activeLink
+                      : null
+                  }
+                >
+                
+                  <AddBoxIcon />
+                  Skills
+                </Link> */}
+
+
+
+                {/* <Link
+                  href="/dashboard/skills/create-skill"
+                  title="Create a Project"
+                  className={
+                    router.pathname === "/dashboard/skills/create-skill"
                       ? classes.activeLink
                       : null
                   }
                 >
                   <AddBoxIcon />
-                  New Slider
-                </Link>
+                  New Skill
+                </Link> */}
+
+            
+           
 
                 <Link
                   href="/dashboard/links"

@@ -59,10 +59,13 @@ handler.post(
 
     
     const size = parseInt(req.query.size);
+    const hieghtsize =parseInt(req.query.hieghtsize)
+
+    console.log("HEEEEEEEE" ,hieghtsize)
 
 
     const fileBuffer = await sharp(req.file.buffer)
-      .resize({ height: size ?? 500, width: size ?? 500, fit: "cover" })
+      .resize({ height: hieghtsize ?? 500, width: size ?? 500, fit: "cover" })
       .toBuffer();
 
     await s3.send(

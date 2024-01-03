@@ -31,7 +31,7 @@ model Project {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   title     String   @default("")
-  desc      String   @default("")
+  desc      String @db.VarChar(255)    @default("")
 
   themeColor String  @default("#1976D2")
   enable     Boolean @default(true)
@@ -45,6 +45,7 @@ model Slider {
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
   themeColor String   @default("#1976D2")
+ 
   title      String   
   link       String
 
@@ -59,7 +60,7 @@ model About {
   updatedAt  DateTime @updatedAt
   themeColor String   @default("#1976D2")
   title      String   @default("")
-  desc       String   @default("")
+  desc       String  @db.VarChar(255)   @default("")
   myImage    String   @default("")
   headImage  String   @default("")
   link       String   @default("")
@@ -73,6 +74,7 @@ model About {
   instagram String @default("")
   twitter   String @default("")
   iconColor String @default("#1976D2")
+  textColor String   @default("#000000")
 
   user   User @relation(fields: [userId], references: [id])
   userId Int

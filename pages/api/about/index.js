@@ -26,6 +26,7 @@ handler.post(async (req, res) => {
     link,
     themeColor,
     iconColor, 
+    textColor,
     work
   } = req.body;
 
@@ -55,6 +56,7 @@ handler.post(async (req, res) => {
         link,
         themeColor,
         iconColor,
+        textColor,
         work,
 
         //   answers: {
@@ -95,6 +97,7 @@ handler.post(async (req, res) => {
     link,
     themeColor,
     iconColor,
+    textColor,
     work
       },
     });

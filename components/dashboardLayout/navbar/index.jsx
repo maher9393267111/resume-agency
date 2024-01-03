@@ -65,88 +65,7 @@ import {
                     <ListItemText primary="Dashboard" />
                   </ListItemButton>
                 </ListItem>
-  
-                <ListItem disablePadding>
-                  <ListItemButton
-                    onClick={() => router.push("/dashboard/projects/create-project")}
-                  >
-                    <ListItemIcon>
-                      <AddBoxIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="New Project" />
-                  </ListItemButton>
-                </ListItem>
-  
-                <ListItem disablePadding>
-                  <ListItemButton onClick={() => router.push("/dashboard/projects")}>
-                    <ListItemIcon>
-                      <HowToVoteIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="Projects" />
-                  </ListItemButton>
-                </ListItem>
-  
-                <ListItem disablePadding>
-                  <ListItemButton
-                    onClick={() => router.push("/dashboard/skills/create-skill")}
-                  >
-                    <ListItemIcon>
-                      <BarChartIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="New Skill" />
-                  </ListItemButton>
-                </ListItem>
-  
 
-                <ListItem disablePadding>
-                  <ListItemButton
-                    onClick={() => router.push("/dashboard/skills")}
-                  >
-                    <ListItemIcon>
-                      <BarChartIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="Manage Skills" />
-                  </ListItemButton>
-                </ListItem>
-  
-
-
-                <ListItem disablePadding>
-                  <ListItemButton
-                    onClick={() => router.push("/dashboard/sliders/create-slider")}
-                  >
-                    <ListItemIcon>
-                      <BarChartIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="New Slider" />
-                  </ListItemButton>
-                </ListItem>
-  
-
-  
-                <ListItem disablePadding>
-                  <ListItemButton
-                    onClick={() => router.push("/dashboard/sliders")}
-                  >
-                    <ListItemIcon>
-                      <BarChartIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="Manage Sliders" />
-                  </ListItemButton>
-                </ListItem>
-  
-
-                <ListItem disablePadding>
-                  <ListItemButton
-                    onClick={() => router.push("/dashboard/links")}
-                  >
-                    <ListItemIcon>
-                      <BarChartIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="Manage Links" />
-                  </ListItemButton>
-                </ListItem>
-  
 
 
                 <ListItem disablePadding>
@@ -160,6 +79,87 @@ import {
                   </ListItemButton>
                 </ListItem>
   
+
+
+
+
+
+
+  
+                {/* <ListItem disablePadding>
+                  <ListItemButton
+                    onClick={() => router.push("/dashboard/projects/create-project")}
+                  >
+                    <ListItemIcon>
+                      <AddBoxIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="New Project" />
+                  </ListItemButton>
+                </ListItem> */}
+  
+                <ListItem disablePadding>
+                  <ListItemButton onClick={() => router.push("/dashboard/projects")}>
+                    <ListItemIcon>
+                      {/* <HowToVoteIcon /> */}
+                      <AddBoxIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Projects" />
+                  </ListItemButton>
+                </ListItem>
+  
+                {/* <ListItem disablePadding>
+                  <ListItemButton
+                    onClick={() => router.push("/dashboard/skills/create-skill")}
+                  >
+                    <ListItemIcon>
+                      <BarChartIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="New Skill" />
+                  </ListItemButton>
+                </ListItem> */}
+  
+
+                <ListItem disablePadding>
+                  <ListItemButton
+                    onClick={() => router.push("/dashboard/skills")}
+                  >
+                    <ListItemIcon>
+                      {/* <BarChartIcon /> */}
+                      <AddBoxIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Manage Skills" />
+                  </ListItemButton>
+                </ListItem>
+  
+
+
+            
+  
+
+  
+                <ListItem disablePadding>
+                  <ListItemButton
+                    onClick={() => router.push("/dashboard/sliders")}
+                  >
+                    <ListItemIcon>
+                    <AddBoxIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Manage Sliders" />
+                  </ListItemButton>
+                </ListItem>
+  
+{/* 
+                <ListItem disablePadding>
+                  <ListItemButton
+                    onClick={() => router.push("/dashboard/links")}
+                  >
+                    <ListItemIcon>
+                      <BarChartIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Manage Links" />
+                  </ListItemButton>
+                </ListItem>
+   */}
 
 
 

@@ -427,7 +427,7 @@ export default function SlidersPage({ user, sliders }) {
               Close
             </Button>
             <Button className="   text-indigo-600" onClick={HandlerAdd}>
-              Add
+              {isedit ?  "Edit" : "Add"}
             </Button>
           </DialogActions>
         </Dialog>
