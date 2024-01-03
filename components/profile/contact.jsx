@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 import { errorHandler ,successHandler } from "../../src/lib/errorHandler";
-export default function ContactForm({color ,user ,textColor ,iconColor}) {
+export default function ContactForm({color ,user ,textColor ,iconColor ,portfoliemail}) {
 
     
 const router = useRouter()
@@ -30,6 +30,7 @@ const sendMessage = async (data) => {
           message:message,
           
            phone: number,
+           portfoliemail:portfoliemail
         }),
       });
 
@@ -107,6 +108,7 @@ const sendMessage = async (data) => {
             </div>
             <div className="flex flex-col mt-4 md:mr-16">
               <label
+               style={{color:textColor }}
                 htmlFor="email"
                 className="mb-2 text-sm font-bold leading-tight tracking-normal text-deep"
               >
@@ -125,6 +127,7 @@ const sendMessage = async (data) => {
             </div>
             <div className="flex flex-col mt-4 md:mr-16">
               <label
+   style={{color:textColor }}
                 htmlFor="number"
                 className="mb-2 text-sm font-bold leading-tight tracking-normal text-deep"
               >
@@ -154,6 +157,7 @@ const sendMessage = async (data) => {
                 id="message"
                 name="message"
                 required
+                style={{color:textColor }}
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 className="py-3 pl-3 text-sm  bg-transparent border border-gray-300 rounded shadow-xl  !bg-white resize-none focus:outline-none text-deep placeholder-black text-black "
@@ -172,7 +176,10 @@ style={{color:textColor ,backgroundColor:iconColor}}
             </button>
           </form>
 
-          <div className="flex items-center">
+          <div
+             style={{color:textColor }}
+          
+          className="flex items-center">
             <div className="flex flex-col items-center w-full space-y-2">
               <p className="text-2xl text-deep font-georgia">Head Office</p>
               <span className="flex text-sm text-deep">

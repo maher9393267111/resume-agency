@@ -72,7 +72,7 @@ return (
                             renderDots={({setActiveIndex, activeIndex}) => {
                                 return (
                                     <div
-                                        className={'absolute bottom-0 left-0 w-full h-10 bg-gray-800 bg-opacity-20 flex flex-row gap-2 items-center justify-center rounded-lg'}>
+                                        className={'absolute bottom-0 left-0 w-full h-10 bg-gry-800 bg-opacity-20 flex flex-row gap-2 items-center justify-center rounded-lg'}>
                                         {
                                             imagesData.map((image, index) => {
                                                 return (
