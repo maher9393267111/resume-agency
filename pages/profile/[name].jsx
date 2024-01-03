@@ -5,23 +5,27 @@ import { useRouter } from "next/router";
 import { ImageEndpoint, defaultImage } from "../../src/lib/globall";
 import { useEffect, useState } from "react";
 import { Box, Button, Container, Link as MuiLink } from "@mui/material";
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import Typography from '@mui/material/Typography';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { prisma } from "../../src/lib/prisma";
 import SectionBox from "../../components/profile/sectionBox";
+import SliderImages from "../../components/profile/sliderImages";
 import Image from "next/image";
 
 import {
-    FaFacebookF,
-    FaPinterestP,
-    FaInstagram,
-    FaYoutube,
-    FaTelegram,
-    FaWhatsapp,
-    FaPhone,
-    FaTwitter,
-    FaFacebook,
-    
-  } from 'react-icons/fa';
-
+  FaFacebookF,
+  FaPinterestP,
+  FaInstagram,
+  FaYoutube,
+  FaTelegram,
+  FaWhatsapp,
+  FaPhone,
+  FaTwitter,
+  FaFacebook,
+} from "react-icons/fa";
 
 import Contact from "../../components/profile/contact";
 
@@ -31,7 +35,6 @@ import { motion } from "framer-motion";
 // variants
 import { fadeIn } from "../../src/lib/animation";
 
-
 export default function ProfileNamePages({ name, userdata }) {
   // const router =useRouter()
   // const name =router.query.name
@@ -40,6 +43,7 @@ export default function ProfileNamePages({ name, userdata }) {
 
   const about = userdata[0]?.about[0];
   const sliders = userdata[0]?.slider;
+  console.log("slidersData" ,sliders)
   const projects = userdata[0]?.projects;
 
   console.log(userdata);
@@ -62,7 +66,7 @@ export default function ProfileNamePages({ name, userdata }) {
 min-h-[70vh]  pb-12 relative top-3 mb-10 mx-4 md:mx-10 lg:mx-[100px] xl:mx-[140px] shadow-md rounded-lg`}
       >
         <div
-          className="   h-[270px]  bg-cover  bg-center"
+          className=" cover-image  h-[290px]  bg-cover  bg-center"
           style={{
             backgroundImage: `url(${
               (about?.headImage && `${ImageEndpoint}/${about?.headImage}`) ||
@@ -70,8 +74,13 @@ min-h-[70vh]  pb-12 relative top-3 mb-10 mx-4 md:mx-10 lg:mx-[100px] xl:mx-[140p
             })`,
           }}
         >
-          {/* ---user Image--- */}
-          <div className="aspect-square border-4 border-gray-100 rounded-full w-48 h-48 mx-auto relative   top-32">
+     
+
+
+        </div>
+
+     {/* ---user Image--- */}
+     <div className="aspect-square border-4 border-gray-100 rounded-full w-[222px] h-[222px] mx-auto relative   top-[-140px]">
             <Image
               src={
                 about?.myImage
@@ -81,10 +90,13 @@ min-h-[70vh]  pb-12 relative top-3 mb-10 mx-4 md:mx-10 lg:mx-[100px] xl:mx-[140p
               alt="avatar"
               width={256}
               height={256}
-              className="rounded-full w-full h-full object-cover shadow-xl"
+              className="rounded-full w-full h-full object-cover shadow-xl cover-image"
             />
           </div>
-        </div>
+
+
+
+
 
         {/* ----about Section---- */}
 
@@ -101,18 +113,18 @@ min-h-[70vh]  pb-12 relative top-3 mb-10 mx-4 md:mx-10 lg:mx-[100px] xl:mx-[140p
 
             <h4 className=" text-3xl mb-8 underline">About me</h4>
 
-            <p className="  break-words mx-auto !w-full ">{about?.desc}</p>
+            <p className=" text-xl break-words mx-auto !w-full ">{about?.desc}</p>
 
             {/* ------social Links--- */}
-            <div className=" my-12">
-              <div className=" flex  flex-wrap justify-between items-center gap-12">
+            <div className=" my-4 md:my-12">
+              <div className=" flex  flex-wrap  lg:justify-between  items-center gap-12">
                 {about?.facebook && (
                   <div
                     style={{
                       color: about?.iconColor,
                       borderColor: about?.iconColor,
                     }}
-                    className="rounded-full p-[10px] w-20 h-20 border-2  hover:scale-125 transiton-all duration-300"
+                    className="rounded-full p-[10px] w-12 h-12 md:w-20 md:h-20 border-2  hover:scale-125 transiton-all duration-300"
                   >
                     <FaFacebook
                       color={about?.iconColor}
@@ -129,11 +141,10 @@ min-h-[70vh]  pb-12 relative top-3 mb-10 mx-4 md:mx-10 lg:mx-[100px] xl:mx-[140p
                       color: about?.iconColor,
                       borderColor: about?.iconColor,
                     }}
-                    className="rounded-full p-[10px] w-20 h-20 border-2 hover:scale-125 transiton-all duration-300"
+                    className="rounded-full p-[10px]  w-12 h-12 md:w-20 md:h-20 border-2 hover:scale-125 transiton-all duration-300"
                   >
                     <FaWhatsapp
                       color={about?.iconColor}
-                     
                       // size={20}
                       className="c !w-full !h-full transition-all"
                     />
@@ -146,7 +157,7 @@ min-h-[70vh]  pb-12 relative top-3 mb-10 mx-4 md:mx-10 lg:mx-[100px] xl:mx-[140p
                       color: about?.iconColor,
                       borderColor: about?.iconColor,
                     }}
-                    className="rounded-full p-[10px] w-20 h-20 border-2 hover:scale-125 transiton-all duration-300"
+                    className="rounded-full p-[10px]  w-12 h-12 md:w-20 md:h-20 border-2 hover:scale-125 transiton-all duration-300"
                   >
                     <FaInstagram
                       color={about?.iconColor}
@@ -163,7 +174,7 @@ min-h-[70vh]  pb-12 relative top-3 mb-10 mx-4 md:mx-10 lg:mx-[100px] xl:mx-[140p
                       color: about?.iconColor,
                       borderColor: about?.iconColor,
                     }}
-                    className="rounded-full p-[10px] w-20 h-20 border-2 hover:scale-125 transiton-all duration-300"
+                    className="rounded-full p-[10px]  w-12 h-12 md:w-20 md:h-20 border-2 hover:scale-125 transiton-all duration-300"
                   >
                     <FaTwitter
                       color={about?.iconColor}
@@ -174,49 +185,125 @@ min-h-[70vh]  pb-12 relative top-3 mb-10 mx-4 md:mx-10 lg:mx-[100px] xl:mx-[140p
                   </div>
                 )}
 
+                {/* <Linkedin size={40} color="#d10505" absoluteStrokeWidth /> */}
 
-
-
-{/* <Linkedin size={40} color="#d10505" absoluteStrokeWidth /> */}
-
-{about?.telgram && (
+                {about?.telgram && (
                   <div
                     style={{
                       color: about?.iconColor,
                       borderColor: about?.iconColor,
                     }}
-                    className="rounded-full p-[10px] w-20 h-20 border-2 hover:scale-125 transiton-all duration-300"
+                    className="rounded-full p-[10px]  w-12 h-12 md:w-20 md:h-20 border-2 hover:scale-125 transiton-all duration-300"
                   >
                     <FaTelegram
                       color={about?.iconColor}
-                       strokeWidth={1.5}
+                      strokeWidth={1.5}
                       // size={20}
                       className="c !w-full !h-full transition-all"
                     />
                   </div>
                 )}
-
-
-
-          
-
-
               </div>
-
-
-
             </div>
 
-
-
-
-
             {/* ------- Projects Accordion ---- */}
+
+
+   
+
+{/* //borderColor:about?.themeColor */}
+
+     
+
+<div
+style={{borderColor:about?.iconColor}}
+
+className=" p-4 shadow-3xl border-2 ">
+
+
+
+{projects && projects?.map((item ,index)=>{
+    return (
+    
+       
+            
+        <div key={index}>
+
+        <Accordion
+        style={{borderColor:about?.iconColor}}
+        
+        className=" shadow-2xl  !border-whie border "  
+        //   sx={{  border:'5px', borderColor:"white" ,color:about?.textColor }}
+          
+          
+          >
+                <AccordionSummary
+                style={{borderColor:about?.iconColor}}
+                sx={{ bgcolor:about?.themeColor , border:'5px' }} 
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel1a-content"
+                  id="panel1a-header"
+                >
+                  <Typography sx={{color:about?.textColor}} >{item?.title}</Typography>
+                </AccordionSummary>
+                <AccordionDetails >
+                  <Typography sx={{color:about?.textColor}}>
+                    {item?.desc}
+                    
+                  </Typography>
+                </AccordionDetails>
+              </Accordion>
+            </div>
+            
+    
+    
+    
+    
+        
+    )
+    
+    
+    })}
+    
+</div>
+
+
+
+
+
+
+
+
+    
+   
+    
+
+
+
+
+
+
+{/* ------slider images --- */}
+
+
+{sliders &&  (
+    <div>
+    <SliderImages imagesData={sliders}/>
+    </div>
+    
+    )
+}
+
 
             {/* ------Contact--- */}
 
             <div>
-              <Contact color={about?.themeColor} user={userdata} textColor={about?.textColor}  />
+              <Contact
+                color={about?.themeColor}
+                user={userdata}
+                textColor={about?.textColor}
+                iconColor={about?.iconColor}
+              />
             </div>
           </div>
         </motion.div>
