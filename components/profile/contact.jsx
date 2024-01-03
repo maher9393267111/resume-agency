@@ -181,7 +181,7 @@ style={{color:textColor ,backgroundColor:iconColor}}
           
           className="flex items-center">
             <div className="flex flex-col items-center w-full space-y-2">
-              <p className="text-2xl text-deep font-georgia">Head Office</p>
+              <p className="text-md md:text-2xl text-deep font-georgia">Head Office</p>
               <span className="flex text-sm text-deep">
                 <p className="font-bold ">Address:</p>
                 <p className="px-2">
@@ -196,7 +196,7 @@ style={{color:textColor ,backgroundColor:iconColor}}
                 <button
                 style={{color:textColor ,backgroundColor:iconColor}}
                   type="button"
-                  className="px-16 py-3 mt-4 text-lg font-medium uppercase rounded shadow-lg cursor-pointer   hover:shadow-xl"
+                  className="px-16 py-3 mt-4  text-md md:text-lg font-medium uppercase rounded shadow-lg cursor-pointer   hover:shadow-xl"
                 >
                   View Stores
                 </button>

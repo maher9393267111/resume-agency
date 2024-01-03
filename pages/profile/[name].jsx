@@ -108,13 +108,13 @@ min-h-[70vh]  pb-12 relative top-3 mb-10 mx-4 md:mx-10 lg:mx-[100px] xl:mx-[140p
           <div>
             {about !== undefined && (
               <div className=" text-center w-[80%] mx-auto mt-1 ">
-                <h1 className=" text-4xl mb-6">{about?.title}</h1>
+                <h1 className=" text-2xl md:text-4xl  mb-6">{about?.title}</h1>
 
-                <h3 className=" text-3xl mb-8">{about?.work}</h3>
+                <h3 className=" text-md md:text-3xl mb-8">{about?.work}</h3>
 
-                <h4 className=" text-3xl mb-8 underline">About me</h4>
+                <h4 className="text-2xl md:text-3xl mb-8 underline">About me</h4>
 
-                <p className=" text-xl break-words mx-auto !w-full ">
+                <p className=" text-sm md:text-xl break-words mx-auto !w-full ">
                   {about?.desc}
                 </p>
 
