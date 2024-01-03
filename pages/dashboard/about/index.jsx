@@ -387,7 +387,7 @@ function AboutPage({ user, userdata }) {
 
             {/* ----------colors----- */}
 
-            <div className=" md:flex-row flex flex-col gap-4  max-w-md  ">
+            <div className=" lg:flex-row flex flex-col gap-4  max-w-md  ">
               <div className="">
                 <h2 className="my-2">Theme Color</h2>
 

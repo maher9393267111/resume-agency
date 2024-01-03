@@ -105,7 +105,7 @@ min-h-[70vh]  pb-12 relative top-3 mb-10 mx-4 md:mx-10 lg:mx-[100px] xl:mx-[140p
 
             {/* ------social Links--- */}
             <div className=" my-12">
-              <div className=" flex justify-between items-center gap-12">
+              <div className=" flex  flex-wrap justify-between items-center gap-12">
                 {about?.facebook && (
                   <div
                     style={{
@@ -185,11 +185,11 @@ min-h-[70vh]  pb-12 relative top-3 mb-10 mx-4 md:mx-10 lg:mx-[100px] xl:mx-[140p
                       color: about?.iconColor,
                       borderColor: about?.iconColor,
                     }}
-                    className="rounded-full p-2 w-20 h-20 border-1 border hover:scale-125 transiton-all duration-300"
+                    className="rounded-full p-[10px] w-20 h-20 border-2 hover:scale-125 transiton-all duration-300"
                   >
                     <FaTelegram
                       color={about?.iconColor}
-                      strokeWidth={1.5}
+                       strokeWidth={1.5}
                       // size={20}
                       className="c !w-full !h-full transition-all"
                     />
@@ -216,7 +216,7 @@ min-h-[70vh]  pb-12 relative top-3 mb-10 mx-4 md:mx-10 lg:mx-[100px] xl:mx-[140p
             {/* ------Contact--- */}
 
             <div>
-              <Contact />
+              <Contact color={about?.themeColor} user={userdata} textColor={about?.textColor}  />
             </div>
           </div>
         </motion.div>

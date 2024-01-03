@@ -37,7 +37,7 @@ export const DashboardLayout = ({ children, user }) => {
   return (
     <>
       <Grid container sx={{ mb: "15px" }}>
-        <Hidden smDown>
+        <Hidden mdDown>
           <Grid
             item
             sx={{
@@ -218,7 +218,7 @@ export const DashboardLayout = ({ children, user }) => {
         </Hidden>
 
         <Grid item xs>
-          <Hidden smUp>
+          <Hidden mdUp>
             <Navbar user={user} />
           </Hidden>
           <Container sx={{ mb: 5, minHeight: "100vh" }}>{children}</Container>
