@@ -39,6 +39,49 @@ model Project {
   userId     Int
 }
 
+
+model Slider {
+  id         Int      @id @default(autoincrement())
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  themeColor String   @default("#1976D2")
+  title      String   
+  link       String
+
+  user   User @relation(fields: [userId], references: [id])
+  userId Int
+}
+
+
+model About {
+  id         Int      @id @default(autoincrement())
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  themeColor String   @default("#1976D2")
+  title      String   @default("")
+  desc       String   @default("")
+  myImage    String   @default("")
+  headImage  String   @default("")
+  link       String   @default("")
+  work       String   @default("")
+
+  pdf String @default("")
+
+  whatsapp  String @default("")
+  telgram   String @default("")
+  facebook  String @default("")
+  instagram String @default("")
+  twitter   String @default("")
+  iconColor String @default("#1976D2")
+
+  user   User @relation(fields: [userId], references: [id])
+  userId Int
+}
+
+
+
+
+
 model Appearence {
   id           Int      @id @default(autoincrement())
   createdAt    DateTime @default(now())
@@ -73,42 +116,8 @@ model Social {
   userId Int
 }
 
-model About {
-  id         Int      @id @default(autoincrement())
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
-  themeColor String   @default("#1976D2")
-  title      String   @default("")
-  desc       String   @default("")
-  myImage    String   @default("")
-  headImage  String   @default("")
-  link       String   @default("")
-  work       String   @default("")
 
-  pdf String @default("")
 
-  whatsapp  String @default("")
-  telgram   String @default("")
-  facebook  String @default("")
-  instagram String @default("")
-  twitter   String @default("")
-  iconColor String @default("#1976D2")
-
-  user   User @relation(fields: [userId], references: [id])
-  userId Int
-}
-
-model Slider {
-  id         Int      @id @default(autoincrement())
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
-  themeColor String   @default("#1976D2")
-  title      String
-  link       String
-
-  user   User @relation(fields: [userId], references: [id])
-  userId Int
-}
 
 // model Poll {
 //   id            Int      @id @default(autoincrement())

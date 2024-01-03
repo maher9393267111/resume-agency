@@ -154,10 +154,14 @@ function AboutPage({ user, userdata }) {
           ? userdata?.about[0]?.myImage
           : userdata?.about[0]?.headImage;
 
+          const size  = imagetype === "myImage" ? 200 : 500
+
+
+
       console.log("OLDDDDDDD", oldfile);
 
       const data = await axios.post(
-        `/api/upload/?type=${imagetype}&&oldfile=${oldfile}`,
+        `/api/upload/?type=${imagetype}&&oldfile=${oldfile}&&size=${size}`,
 
         formData,
         {

@@ -56,8 +56,13 @@ handler.post(
   async (req, res) => {
     const fileName = crypto.randomBytes(32).toString("hex");
 
+
+    
+    const size = parseInt(req.query.size);
+
+
     const fileBuffer = await sharp(req.file.buffer)
-      .resize({ height: 500, width: 500, fit: "cover" })
+      .resize({ height: size ?? 500, width: size ?? 500, fit: "cover" })
       .toBuffer();
 
     await s3.send(
@@ -92,6 +97,7 @@ handler.post(
     res.status(201).send({ fileName: fileName });
   }
 );
+
 
 // export default handler({
 //   onError: (error, _req, res) => {

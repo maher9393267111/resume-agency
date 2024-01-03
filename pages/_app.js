@@ -6,8 +6,10 @@ import { CacheProvider } from "@emotion/react";
 import theme from "../src/theme";
 import createEmotionCache from "../src/createEmotionCache";
 import "react-notifications/lib/notifications.css";
+import {NotificationContainer} from 'react-notifications'
 import { useState ,useEffect } from 'react';
 import { UserContextProvider } from "../src/context/index";
+
 const clientSideEmotionCache = createEmotionCache();
 
 
@@ -48,7 +50,7 @@ useEffect(() => {
 
             </UserContextProvider>
 
-
+            <NotificationContainer/>
 
       </ThemeProvider>
 
