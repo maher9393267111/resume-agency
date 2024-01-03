@@ -228,7 +228,7 @@ min-h-[70vh]  pb-12 relative top-3 mb-10 mx-4 md:mx-10 lg:mx-[100px] xl:mx-[140p
 
 
                 style={{ borderColor: about?.iconColor }}
-                className=" p-4 shadow-3xl border-2 "
+                className=" p-4 shadow-3xl border-2 w-[80%]  mx-auto "
               >
                 {projects?.map((item, index) => {
                   return (
