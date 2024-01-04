@@ -117,21 +117,24 @@ import {
                     <ListItemText primary="New Skill" />
                   </ListItemButton>
                 </ListItem> */}
+
+
+
   
 
-                <ListItem disablePadding>
+                {/* <ListItem disablePadding>
                   <ListItemButton
                     onClick={() => router.push("/dashboard/skills")}
                   >
                     <ListItemIcon>
-                      {/* <BarChartIcon /> */}
+                      
                       <AddBoxIcon />
                     </ListItemIcon>
                     <ListItemText primary="Manage Skills" />
                   </ListItemButton>
                 </ListItem>
   
-
+ */}
 
             
   

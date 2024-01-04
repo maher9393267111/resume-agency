@@ -8,6 +8,14 @@ mainColor = #00AB55
 
 ---------
 
+
+pdf link
+
+https://my-website-a-eiber.vercel.app/assets/Alec_Eiber_Resume.pdf
+------------
+
+
+
 export default async (req, res) => {
 //   let { name, email, password } = req.body;
 

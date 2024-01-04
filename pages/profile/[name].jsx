@@ -15,6 +15,7 @@ import SectionBox from "../../components/profile/sectionBox";
 import SliderImages from "../../components/profile/sliderImages";
 import Image from "next/image";
 import ReactPlayer from "react-player";
+import {  HiOutlineDocumentDownload } from 'react-icons/hi';
 
 import {
   FaFacebookF,
@@ -119,6 +120,37 @@ transition={{ duration: 0.8 }}
                 <h1 className=" text-2xl md:text-4xl  mb-6">{about?.title}</h1>
 
                 <h3 className=" text-md md:text-3xl mb-8">{about?.work}</h3>
+
+
+
+{/* ---pff resume link--- */}
+
+{about?.link &&
+                <div className="mx-auto w-1/2 my-4 ">
+                  <a
+                    href={about?.link}
+                    target="_blank"
+                    rel="noreferrer">
+                    <div
+                    
+                    style={{backgroundColor:about?.iconColor ,color:about?.textColor}}
+                    
+                    className="rounded-xl shadow-lg shadow-gray-400 p-4 cursor-pointer hover:scale-110 ease-in duration-300 dark:text-white dark:shadow-none   gap-3 ">
+
+
+                      <HiOutlineDocumentDownload className="mx-auto mb-1 text-4xl" />
+                      
+                      
+                    
+                       <p className=" te">Resume</p>
+                    </div>
+                  </a>
+                </div>
+             
+}
+
+
+
 
                 <h4 className="text-2xl md:text-3xl mb-8 underline">About me</h4>
 

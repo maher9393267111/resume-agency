@@ -1,18 +1,9 @@
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
-import {
-  Drawer,
-  IconButton,
-  Paper,
-  Button,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
-  Box,
-} from "@mui/material";
-import DashboardIcon from "@mui/icons-material/Dashboard";
+
+import {Navbar} from '../components/dashboardLayout/navbar'
+
+
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
@@ -23,6 +14,8 @@ export default function Home() {
       <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
 
  hello world
+
+<Navbar/>
 
 
 

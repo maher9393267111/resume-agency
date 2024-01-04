@@ -19,7 +19,7 @@ import { prisma } from "../../../src/lib/prisma";
 import { HuePicker, SketchPicker } from "react-color";
 import { ImageEndpoint, defaultImage } from "../../../src/lib/globall";
 import DriveFolderUploadIcon from "@mui/icons-material/DriveFolderUpload";
-import ImageIcon from '@mui/icons-material/Image';
+import ImageIcon from "@mui/icons-material/Image";
 
 function AboutPage({ user, userdata }) {
   console.log("userPrisma", userdata);
@@ -64,7 +64,6 @@ function AboutPage({ user, userdata }) {
     userdata?.about[0]?.textColor || ""
   );
 
-
   // iconColor themeColor
 
   const [selectedImage, setSelectedImage] = useState(null);
@@ -81,15 +80,11 @@ function AboutPage({ user, userdata }) {
     setIconColor(newColor.hex);
   };
 
-
   // handleTextolorChange
 
-  const  handleTextolorChange = (newColor) => {
+  const handleTextolorChange = (newColor) => {
     setTextColor(newColor.hex);
   };
-
-
-
 
   const submitHandler = async (e) => {
     console.log("values-->");
@@ -143,7 +138,7 @@ function AboutPage({ user, userdata }) {
 
       console.log("AboutResponse Data", data);
 
-        router.reload()
+      router.reload();
 
       successHandler("Updated Successfully");
     } catch (error) {
@@ -178,12 +173,10 @@ function AboutPage({ user, userdata }) {
           ? userdata?.about[0]?.myImage
           : userdata?.about[0]?.headImage;
 
-          const size  = imagetype === "myImage" ? 200 : 900
-          const hieghtSize = imagetype === "myImage" ? 200 : 900
+      const size = imagetype === "myImage" ? 200 : 900;
+      const hieghtSize = imagetype === "myImage" ? 200 : 900;
 
-          console.log("HEIGHTHH" , hieghtSize)
-
-
+      console.log("HEIGHTHH", hieghtSize);
 
       console.log("OLDDDDDDD", oldfile);
 
@@ -286,7 +279,7 @@ function AboutPage({ user, userdata }) {
                   />
 
                   <label>
-                    <ImageIcon  className=" top-2 left-2 rounded-full text-indigo-500 absolute" />
+                    <ImageIcon className=" top-2 left-2 rounded-full text-indigo-500 absolute" />
 
                     <input
                       type="file"
@@ -314,7 +307,7 @@ function AboutPage({ user, userdata }) {
                   />
 
                   <label>
-                    <ImageIcon  className=" top-2 left-2 rounded-full text-indigo-500 absolute" />
+                    <ImageIcon className=" top-2 left-2 rounded-full text-indigo-500 absolute" />
 
                     <input
                       type="file"
@@ -357,23 +350,28 @@ function AboutPage({ user, userdata }) {
               type={"text"}
             />
 
-            
-<CustomInput
+            <CustomInput
+              value={link}
+              setValue={setLink}
+              label={"Resume Link"}
+              type={"text"}
+            />
+
+            <CustomInput
               value={location}
               setValue={setLocation}
               label={"Location"}
               type={"text"}
             />
 
-
-<CustomInput
+            <CustomInput
               value={phone}
               setValue={setPhone}
               label={"Phone Number"}
               type={"text"}
             />
 
-<CustomInput
+            <CustomInput
               value={video}
               setValue={setVideo}
               label={"Video Link"}
@@ -415,8 +413,6 @@ function AboutPage({ user, userdata }) {
               type={"text"}
             />
 
-
-
             {/* ----------colors----- */}
 
             <div className=" lg:flex-row flex flex-col gap-4  max-w-md  ">
@@ -431,7 +427,7 @@ function AboutPage({ user, userdata }) {
               </div>
 
               <div className="mt-6   md:mt-0">
-                <h2 className="my-2">Icons Color</h2>
+                <h2 className="my-2">Icons and Buttons Color</h2>
 
                 <SketchPicker
                   // HuePicker
@@ -440,10 +436,8 @@ function AboutPage({ user, userdata }) {
                 />
               </div>
 
-
-
               <div className="mt-6   md:mt-0">
-                <h2 className="my-2">Text Color: {textColor}</h2>
+                <h2 className="my-2">Text Color</h2>
 
                 <SketchPicker
                   // HuePicker
@@ -451,9 +445,6 @@ function AboutPage({ user, userdata }) {
                   onChangeComplete={handleTextolorChange}
                 />
               </div>
-
-
-
             </div>
 
             {/* Submit Button */}

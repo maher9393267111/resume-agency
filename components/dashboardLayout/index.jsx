@@ -178,7 +178,7 @@ export const DashboardLayout = ({ children, user }) => {
             
            
 
-                <Link
+                {/* <Link
                   href="/dashboard/links"
                   title="Manage Links"
                   className={
@@ -189,7 +189,9 @@ export const DashboardLayout = ({ children, user }) => {
                 >
                   <HowToVoteIcon />
                   Links
-                </Link>
+                </Link> */}
+
+
 
            
 

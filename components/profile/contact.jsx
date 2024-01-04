@@ -205,9 +205,9 @@ style={{color:textColor ,backgroundColor:iconColor}}
                   View Stores
                 </button>
               </Link> */}
-              <p className="px-2 text-sm text-deep">
+              {/* <p className="px-2 text-sm text-deep">
                 to find your nearest African Expressions store
-              </p>
+              </p> */}
             </div>
           </div>
 
