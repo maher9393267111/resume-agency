@@ -12,6 +12,8 @@ mainColor = #00AB55
 pdf link
 
 https://my-website-a-eiber.vercel.app/assets/Alec_Eiber_Resume.pdf
+https://my-website-a-eiber.vercel.app/#contact
+https://github.com/a-eiber/portfolio/blob/b62efb6c9076c29c2c538a42d84d030e5ff7e8fc/components/Contact.jsx#L2
 ------------
 
 
@@ -73,3 +75,117 @@ export default async (req, res) => {
 //     res.status(424).json({ message: "Invalid method!" });
 //   }
 // };
+
+
+-------------
+
+        {/* <div>
+<Hidden mdDown>
+
+
+<Box  sx={{ flexGrow: 1 }}>
+      <AppBar position="static">
+        {/* <Toolbar>
+          <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            sx={{ mr: 2 }}
+          >
+            <MenuIcon />
+          </IconButton> */}
+
+
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            Dashboard
+          </Typography>
+
+
+
+          <Button color="inherit">Login</Button>
+
+
+
+
+        {/* </Toolbar> */}
+      {/* </AppBar>
+    </Box>
+    </Hidden>
+
+</div> */} */}
+
+
+-----------
+
+       <div>
+<Hidden mdDown>
+
+
+<Box className=' '  sx={{ flexGrow: 1 }}>
+      <AppBar position="static">
+      
+      <div className=" flex justify-between  my-4 mx-4">
+
+     
+
+
+      <div>
+Dashboard
+      </div>
+
+<div>
+  
+
+<Tooltip title="Open settings">
+              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+              </IconButton>
+            </Tooltip>
+            <Menu
+              sx={{ mt: '45px' }}
+              id="menu-appbar"
+              anchorEl={anchorElUser}
+              anchorOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              open={Boolean(anchorElUser)}
+              onClose={handleCloseUserMenu}
+            >
+
+
+
+              {settings.map((setting) => (
+                <Link href={setting.link} key={setting.title}>
+                  <MenuItem selected={setting.link === router.asPath}>
+                    <Typography textAlign="center">{setting.title}</Typography>
+                  </MenuItem>
+                </Link>
+              ))}
+              <MenuItem onClick={signOut}>
+                <Typography textAlign="center">Logout</Typography>
+              </MenuItem>
+            </Menu>
+
+
+
+</div>
+
+
+</div>
+
+
+      </AppBar>
+
+
+
+      </Box>
+
+      </Hidden>
+</div>

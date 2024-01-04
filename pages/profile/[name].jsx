@@ -135,7 +135,7 @@ transition={{ duration: 0.8 }}
                     
                     style={{backgroundColor:about?.iconColor ,color:about?.textColor}}
                     
-                    className="rounded-xl shadow-lg shadow-gray-400 p-4 cursor-pointer hover:scale-110 ease-in duration-300 dark:text-white dark:shadow-none   gap-3 ">
+                    className="rounded-xl shadow-lg shadow-gray-400 p-1 md:p-4 cursor-pointer hover:scale-110 ease-in duration-300 dark:text-white dark:shadow-none   gap-3 ">
 
 
                       <HiOutlineDocumentDownload className="mx-auto mb-1 text-4xl" />

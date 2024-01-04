@@ -7,6 +7,11 @@ import {
   Typography,
   Button,
   Hidden,
+Toolbar,
+
+AppBar
+
+
 } from "@mui/material";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -22,14 +27,47 @@ import { Footer } from "./footer";
 import { Navbar } from "./navbar";
 import { UserContext } from "../../src/context";
 import { useContext } from "react";
+import {useState ,useEffect} from 'react'
+
+
+import Avatar from '@mui/material/Avatar'
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
+import Tooltip from '@mui/material/Tooltip'
+import MenuItem from '@mui/material/MenuItem'
+import Menu from '@mui/material/Menu'
+
+
+
+
+
 
 export const DashboardLayout = ({ children, user }) => {
   const router = useRouter();
   const { logoutHandler } = useContext(UserContext);
 
+  const [anchorElUser, setAnchorElUser] = useState(null)
 
+  const handleOpenUserMenu = (event) => {
+    setAnchorElUser(event.currentTarget);
+  };
+  const handleCloseUserMenu = () => {
+    setAnchorElUser(null);
+  };
 
-  
+  const pages = [
+    { title: 'Home', link: '/' },
+    { title: 'Features', link: '/#features' },
+    { title: 'Pricing', link: '/#pricing' },
+  ]
+  const settings = [
+    { title: 'Dashboard', link: '/app/dashboard' },
+    { title: 'Settings', link: '/app/settings' },
+  ]
+  const signIn = [
+    { title: 'Sign-up', link: '/sign-up' },
+    { title: 'Login', link: '/login' },
+  ]
 
 
 
@@ -216,6 +254,10 @@ export const DashboardLayout = ({ children, user }) => {
                 </Button>
               </nav>
             </Paper>
+
+
+
+            
           </Grid>
         </Hidden>
 
@@ -223,9 +265,99 @@ export const DashboardLayout = ({ children, user }) => {
           <Hidden mdUp>
             <Navbar user={user} />
           </Hidden>
-          <Container sx={{ mb: 5, minHeight: "100vh" }}>{children}</Container>
+          <Container sx={{ mb: 5, minHeight: "100vh" }}>
 
-          {/* <Footer /> */}
+
+          <div>
+<Hidden mdDown>
+
+
+<Box className=' '  sx={{ flexGrow: 1 }}>
+      <AppBar position="static">
+      
+      <div className=" flex justify-between  my-4 mx-4">
+
+     
+
+
+      <div className=" flex items-center">
+<p>
+  Dashboard
+</p>
+      </div>
+
+<div>
+  
+
+<Tooltip title="Open settings">
+              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+              </IconButton>
+            </Tooltip>
+            <Menu
+              sx={{ mt: '45px' }}
+              id="menu-appbar"
+              anchorEl={anchorElUser}
+              anchorOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              open={Boolean(anchorElUser)}
+              onClose={handleCloseUserMenu}
+            >
+
+
+
+              {settings.map((setting) => (
+                <Link href={setting.link} key={setting.title}>
+                  <MenuItem selected={setting.link === router.asPath}>
+                    <Typography textAlign="center">{setting.title}</Typography>
+                  </MenuItem>
+                </Link>
+              ))}
+              <MenuItem >
+                <Typography textAlign="center">Logout</Typography>
+              </MenuItem>
+            </Menu>
+
+
+
+</div>
+
+
+</div>
+
+
+      </AppBar>
+
+
+
+      </Box>
+
+      </Hidden>
+</div>
+
+  
+
+
+  
+
+
+
+
+
+            {children}
+            
+            
+            
+            </Container>
+
+          
         </Grid>
       </Grid>
     </>
