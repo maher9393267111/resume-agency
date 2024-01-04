@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 import { errorHandler ,successHandler } from "../../src/lib/errorHandler";
-export default function ContactForm({color ,user ,textColor ,iconColor ,portfoliemail}) {
+export default function ContactForm({color ,user ,textColor ,iconColor ,portfoliemail ,about}) {
 
     
 const router = useRouter()
@@ -185,14 +185,18 @@ style={{color:textColor ,backgroundColor:iconColor}}
               <span className="flex text-sm text-deep">
                 <p className="font-bold ">Address:</p>
                 <p className="px-2">
-                  79 Burman Road, Deal Party, Port Elizabeth, Eastern Cape, 6012
+                  {about?.location}
+                  {/* 79 Burman Road, Deal Party, Port Elizabeth, Eastern Cape, 6012 */}
                 </p>
               </span>
               <span className="flex text-sm text-deep">
                 <p className="font-bold ">Phone:</p>
-                <p className="px-2">+27(0)41 486 2433</p>
+                <p className="px-2">
+{about?.phone}
+
+                </p>
               </span>
-              <Link href="/stores" passHref>
+              {/* <Link href="/stores" passHref>
                 <button
                 style={{color:textColor ,backgroundColor:iconColor}}
                   type="button"
@@ -200,7 +204,7 @@ style={{color:textColor ,backgroundColor:iconColor}}
                 >
                   View Stores
                 </button>
-              </Link>
+              </Link> */}
               <p className="px-2 text-sm text-deep">
                 to find your nearest African Expressions store
               </p>

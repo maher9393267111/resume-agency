@@ -27,7 +27,10 @@ handler.post(async (req, res) => {
     themeColor,
     iconColor, 
     textColor,
-    work
+    phone,
+    location,
+    work,
+    video
   } = req.body;
 
   console.log(req.body.myImage, "Body");
@@ -57,7 +60,10 @@ handler.post(async (req, res) => {
         themeColor,
         iconColor,
         textColor,
+        phone,
+        location,
         work,
+        video,
 
         //   answers: {
         //     create: answers,
@@ -98,7 +104,10 @@ handler.post(async (req, res) => {
     themeColor,
     iconColor,
     textColor,
-    work
+    phone,
+    location,
+    work,
+    video
       },
     });
 

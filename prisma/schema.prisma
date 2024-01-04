@@ -65,6 +65,9 @@ model About {
   headImage  String   @default("")
   link       String   @default("")
   work       String   @default("")
+  phone      String   @default("")
+  location     String   @default("")
+  video        String   @default("")
 
   pdf String @default("")
 

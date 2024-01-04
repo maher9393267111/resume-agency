@@ -14,6 +14,7 @@ import { prisma } from "../../src/lib/prisma";
 import SectionBox from "../../components/profile/sectionBox";
 import SliderImages from "../../components/profile/sliderImages";
 import Image from "next/image";
+import ReactPlayer from "react-player";
 
 import {
   FaFacebookF,
@@ -78,7 +79,7 @@ min-h-[70vh]  pb-12 relative top-3 mb-10 mx-4 md:mx-10 lg:mx-[100px] xl:mx-[140p
         ></div>
 
         {/* ---user Image--- */}
-        <div className="aspect-square border-4 border-gray-100 rounded-full w-[222px] h-[222px] mx-auto relative   top-[-140px]">
+        <div className="aspect-square border-4 border-gray-100 rounded-full w-[190px] h-[190px]  md:w-[222px] md:h-[222px] mx-auto relative   top-[-140px]">
           <Image
             src={
               about?.myImage
@@ -95,14 +96,21 @@ min-h-[70vh]  pb-12 relative top-3 mb-10 mx-4 md:mx-10 lg:mx-[100px] xl:mx-[140p
         {/* ----about Section---- */}
 
         <motion.div
-          variants={fadeIn("up", 0.2)}
-          initial="hidden"
-          animate="show"
-          exit="hidden"
+className="-mt-20"
+
+whileInView={{ x: [-100, 50, 0], opacity: [0, 2, 1] }}
+transition={{ duration: 0.8 }}
+
+
+
+        //   variants={fadeIn("up", 0.2)}
+        //   initial="hidden"
+        //   animate="show"
+        //   exit="hidden"
       
 
-          whileInView="visible"
-          viewport={{ once: false }}
+        //   whileInView="visible"
+        //   viewport={{ once: false }}
         >
           {/* ------About Section--- */}
           <div>
@@ -128,12 +136,24 @@ min-h-[70vh]  pb-12 relative top-3 mb-10 mx-4 md:mx-10 lg:mx-[100px] xl:mx-[140p
                         }}
                         className="rounded-full p-[10px] w-12 h-12 md:w-20 md:h-20 border-2  hover:scale-125 transiton-all duration-300"
                       >
+                              <a
+                    className=" "
+                    target="_blank"
+                    href={about?.facebook} 
+                    rel="noreferrer nofollow"
+                    title="Portfolio"
+                  >
+
                         <FaFacebook
                           color={about?.iconColor}
                           strokeWidth={1.5}
                           // size={20}
                           className="c !w-full !h-full transition-all"
                         />
+
+</a>
+
+
                       </div>
                     )}
 
@@ -145,11 +165,20 @@ min-h-[70vh]  pb-12 relative top-3 mb-10 mx-4 md:mx-10 lg:mx-[100px] xl:mx-[140p
                         }}
                         className="rounded-full p-[10px]  w-12 h-12 md:w-20 md:h-20 border-2 hover:scale-125 transiton-all duration-300"
                       >
+
+<a
+                    className=""
+                    target="_blank"
+                    href={about?.whatsapp} 
+                    rel="noreferrer nofollow"
+                    title="Portfolio"
+                  >
                         <FaWhatsapp
                           color={about?.iconColor}
                           // size={20}
                           className="c !w-full !h-full transition-all"
                         />
+                        </a>
                       </div>
                     )}
 
@@ -161,12 +190,21 @@ min-h-[70vh]  pb-12 relative top-3 mb-10 mx-4 md:mx-10 lg:mx-[100px] xl:mx-[140p
                         }}
                         className="rounded-full p-[10px]  w-12 h-12 md:w-20 md:h-20 border-2 hover:scale-125 transiton-all duration-300"
                       >
+                                          <a
+                    className=" text-xs"
+                    target="_blank"
+                    href={about?.instagram} 
+                    rel="noreferrer nofollow"
+                    title="Portfolio"
+                  >
                         <FaInstagram
                           color={about?.iconColor}
                           strokeWidth={1.5}
                           // size={20}
                           className="c !w-full !h-full transition-all"
                         />
+
+</a>
                       </div>
                     )}
 
@@ -178,12 +216,20 @@ min-h-[70vh]  pb-12 relative top-3 mb-10 mx-4 md:mx-10 lg:mx-[100px] xl:mx-[140p
                         }}
                         className="rounded-full p-[10px]  w-12 h-12 md:w-20 md:h-20 border-2 hover:scale-125 transiton-all duration-300"
                       >
+                        <a
+                    className=""
+                    target="_blank"
+                    href={about?.twitter} 
+                    rel="noreferrer nofollow"
+                    title="Portfolio"
+                  >
                         <FaTwitter
                           color={about?.iconColor}
                           strokeWidth={1.5}
                           // size={20}
                           className="c !w-full !h-full transition-all"
                         />
+                        </a>
                       </div>
                     )}
 
@@ -197,12 +243,20 @@ min-h-[70vh]  pb-12 relative top-3 mb-10 mx-4 md:mx-10 lg:mx-[100px] xl:mx-[140p
                         }}
                         className="rounded-full p-[10px]  w-12 h-12 md:w-20 md:h-20 border-2 hover:scale-125 transiton-all duration-300"
                       >
+                        <a
+                    className=""
+                    target="_blank"
+                    href={about?.telgram} 
+                    rel="noreferrer nofollow"
+                    title="Portfolio"
+                  >
                         <FaTelegram
                           color={about?.iconColor}
                           strokeWidth={1.5}
                           // size={20}
                           className="c !w-full !h-full transition-all"
                         />
+                        </a>
                       </div>
                     )}
                   </div>
@@ -216,14 +270,17 @@ min-h-[70vh]  pb-12 relative top-3 mb-10 mx-4 md:mx-10 lg:mx-[100px] xl:mx-[140p
             {projects && projects?.length > 0 && (
               <motion.div
 
-              variants={fadeIn("up", 0.2)}
-              initial="hidden"
-              animate="show"
-              exit="hidden"
+              whileInView={{ x: [-100, 50, 0], opacity: [0, 2, 1] }}
+              transition={{ duration: 0.8 }}
+
+            //   variants={fadeIn("up", 0.2)}
+            //   initial="hidden"
+            //   animate="show"
+            //   exit="hidden"
           
     
-              whileInView="visible"
-              viewport={{ once: false }}
+            //   whileInView="visible"
+            //   viewport={{ once: false }}
 
 
 
@@ -265,14 +322,19 @@ min-h-[70vh]  pb-12 relative top-3 mb-10 mx-4 md:mx-10 lg:mx-[100px] xl:mx-[140p
 
             {sliders && sliders?.length > 0 && (
               <motion.div
-              variants={fadeIn("up", 0.2)}
-              initial="hidden"
-              animate="show"
-              exit="hidden"
+              whileInView={{ x: [-100, 50, 0], opacity: [0, 2, 1] }}
+              transition={{ duration: 0.8 }}
+
+
+
+            //   variants={fadeIn("up", 0.2)}
+            //   initial="hidden"
+            //   animate="show"
+            //   exit="hidden"
           
     
-              whileInView="visible"
-              viewport={{ once: false }}
+            //   whileInView="visible"
+            //   viewport={{ once: false }}
               
               
               className="mx-auto w-[80%]">
@@ -280,17 +342,46 @@ min-h-[70vh]  pb-12 relative top-3 mb-10 mx-4 md:mx-10 lg:mx-[100px] xl:mx-[140p
               </motion.div>
             )}
 
+
+
+
+{/* ------video---- */}
+
+{about?.video &&
+<div className="relative w-[80%] h-[280px] mx-auto  md:h-[477px] ">
+        <ReactPlayer
+          className="absolute top-0 left-0"
+          width="100%"
+          height="100%"
+          url={about?.video}
+        />
+      </div>
+}
+
+
+
+
+
+
+
+
             {/* ------Contact--- */}
 
             <motion.div
-                 variants={fadeIn("up", 0.2)}
-                 initial="hidden"
-                 animate="show"
-                 exit="hidden"
+
+whileInView={{ x: [-100, 50, 0], opacity: [0, 2, 1] }}
+transition={{ duration: 0.8 }}
+
+
+
+                //  variants={fadeIn("up", 0.2)}
+                //  initial="hidden"
+                //  animate="show"
+                //  exit="hidden"
              
        
-                 whileInView="visible"
-                 viewport={{ once: false }}
+                //  whileInView="visible"
+                //  viewport={{ once: false }}
             
             
             className="mx-auto w-[80%]">
@@ -298,6 +389,7 @@ min-h-[70vh]  pb-12 relative top-3 mb-10 mx-4 md:mx-10 lg:mx-[100px] xl:mx-[140p
                 portfoliemail={portfoliemail}
                 color={about?.themeColor}
                 user={userdata}
+                about ={about}
                 textColor={about?.textColor}
                 iconColor={about?.iconColor}
               />

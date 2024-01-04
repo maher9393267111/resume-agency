@@ -37,7 +37,7 @@ import {
           password,
         });
 
-        console.log("Response", user)
+        console.log("Response")
 
         router.replace("/dashboard?ref=signup");
       } catch (error) {

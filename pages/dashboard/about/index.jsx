@@ -39,6 +39,10 @@ function AboutPage({ user, userdata }) {
   const [pdf, setPdf] = useState(userdata?.about[0]?.pdf || "");
   const [link, setLink] = useState(userdata?.about[0]?.link || "");
   const [work, setWork] = useState(userdata?.about[0]?.work || "");
+  const [phone, setPhone] = useState(userdata?.about[0]?.phone || "");
+  const [location, setLocation] = useState(userdata?.about[0]?.location || "");
+  const [video, setVideo] = useState(userdata?.about[0]?.video || "");
+
   const [whatsapp, setWhatsapp] = useState(userdata?.about[0]?.whatsapp || "");
   const [telgram, setTelgram] = useState(userdata?.about[0]?.telgram || "");
   const [instagram, setInstagram] = useState(
@@ -126,6 +130,9 @@ function AboutPage({ user, userdata }) {
         iconColor,
         textColor,
         work,
+        phone,
+        location,
+        video,
         myImage: selectedImage
           ? await handleUploadImage(selectedImage, "myImage")
           : myImage,
@@ -136,7 +143,7 @@ function AboutPage({ user, userdata }) {
 
       console.log("AboutResponse Data", data);
 
-      //  router.reload()
+        router.reload()
 
       successHandler("Updated Successfully");
     } catch (error) {
@@ -350,6 +357,29 @@ function AboutPage({ user, userdata }) {
               type={"text"}
             />
 
+            
+<CustomInput
+              value={location}
+              setValue={setLocation}
+              label={"Location"}
+              type={"text"}
+            />
+
+
+<CustomInput
+              value={phone}
+              setValue={setPhone}
+              label={"Phone Number"}
+              type={"text"}
+            />
+
+<CustomInput
+              value={video}
+              setValue={setVideo}
+              label={"Video Link"}
+              type={"text"}
+            />
+
             <CustomInput
               value={whatsapp}
               setValue={setWhatsapp}
@@ -384,6 +414,8 @@ function AboutPage({ user, userdata }) {
               label={"Facebook"}
               type={"text"}
             />
+
+
 
             {/* ----------colors----- */}
 

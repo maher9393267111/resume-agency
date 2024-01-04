@@ -86,7 +86,7 @@ export default function ProjectsPage({ user, projects }) {
           desc,
         });
 
-      //  console.log("Add", data?.cats);
+        //  console.log("Add", data?.cats);
 
         setIsEdit(false);
         setDesc("");
@@ -114,7 +114,7 @@ export default function ProjectsPage({ user, projects }) {
     try {
       const { data } = await axios.delete(`/api/projects?projectId=${id}`);
 
-  //    console.log("Add", data?.cats);
+      //    console.log("Add", data?.cats);
       // setAllData(data?.cats);
 
       setId(null);

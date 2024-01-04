@@ -85,8 +85,7 @@ export default function SlidersPage({ user, sliders }) {
 
       console.log("OLDDDDDDD", oldfile);
 
-
-      const hieghtSize = 600
+      const hieghtSize = 600;
 
       const data = await axios.post(
         `/api/upload/?type=${imagetype}&&oldfile=${oldfile}&&size=${600}&&hieghtsize=${hieghtSize}`,
@@ -114,19 +113,10 @@ export default function SlidersPage({ user, sliders }) {
 
     try {
       if (isedit) {
-
-
-        if (!title && (!selectedImage  || !image ))
-
-
-
-        {
-
-          errorHandler("All fields is requeired")
-          return
+        if (!title && (!selectedImage || !image)) {
+          errorHandler("All fields is requeired");
+          return;
         }
-
-
 
         const { data } = await axios.patch("/api/sliders", {
           title,
@@ -144,36 +134,21 @@ export default function SlidersPage({ user, sliders }) {
         setIsEdit(false);
         setDesc("");
         setTitle("");
-        setImage("")
+        setImage("");
 
         router.reload();
       } else {
-
-
-        if (!title )
-
-        {
-
-          errorHandler("title field is requeired")
-          return
+        if (!title) {
+          errorHandler("title field is requeired");
+          return;
         }
 
-        if (selectedImage ===""  && image === "" )
-
-
-        {
-
-          errorHandler("image field is requeired")
-          return
-
+        if (selectedImage === "" && image === "") {
+          errorHandler("image field is requeired");
+          return;
         }
 
-
-
-
-
-        console.log(selectedImage , image ,title)
-
+        console.log(selectedImage, image, title);
 
         const { data } = await axios.post("/api/sliders", {
           title,
@@ -182,7 +157,7 @@ export default function SlidersPage({ user, sliders }) {
             : image,
         });
 
-          console.log("Add workkk");
+        console.log("Add workkk");
         successHandler("Slider added successfully");
         setIsEdit(false);
         setDesc("");
@@ -205,23 +180,14 @@ export default function SlidersPage({ user, sliders }) {
 
   const imageDelete = async (ImageName) => {
     try {
+      const deleteimageResponse = await axios.post("/api/upload/delete", {
+        link: ImageName,
+      });
 
-    const deleteimageResponse = await axios.post("/api/upload/delete", {
-      link: ImageName,
-    });
-
-    console.log("deleteImage response-->", deleteimageResponse?.data);
-
-
-  }
-
-  catch(error){
-
-    errorHandler(error?.message)
-  }
-
-
-
+      console.log("deleteImage response-->", deleteimageResponse?.data);
+    } catch (error) {
+      errorHandler(error?.message);
+    }
   };
 
   const HandleDelete = async (item, e) => {
@@ -430,7 +396,7 @@ export default function SlidersPage({ user, sliders }) {
               Close
             </Button>
             <Button className="   text-indigo-600" onClick={HandlerAdd}>
-              {isedit ?  "Edit" : "Add"}
+              {isedit ? "Edit" : "Add"}
             </Button>
           </DialogActions>
         </Dialog>
