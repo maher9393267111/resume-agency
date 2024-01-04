@@ -1,32 +1,33 @@
 import { deleteCookie } from "cookies-next";
-import { useRouter } from "next/router";
+import { useRouter  } from "next/router";
 import { createContext , useState ,useEffect} from "react";
 
 export const UserContext = createContext();
 
 export const UserContextProvider = ({ children }) => {
   const router = useRouter();
+  const { locale, asPath } = useRouter()
+const [dir ,setDir] = useState('rtl')
 
+const [lang ,setLang]= useState("ar")
   const logoutHandler = () => {
     deleteCookie("token");
     router.push("/login");
   };
 
 
-  const [lang, setLang] = useState('en');
-  const changeLang = () => setLang(() => (lang === 'ar' ? 'en' : 'ar'));
+
+
+
   useEffect(() => {
-    const dir = lang === 'ar' ? 'rtl' : 'ltr';
-    // document.body.style.direction = dir;
-    // document.body.setAttribute('dir', dir);
+    console.log("chanege effect")
+
+    setDir(locale === 'en' ? 'ltr' : 'rtl')
 
 
-    var y=document.getElementById("main_page").setAttribute("class", dir)
-    //.setAttribute("dir", dir);
-   // y.setAttribute("dir" ,dir)
+  
+  }, [locale]);
 
-
-  }, [lang]);
 
 
 
@@ -34,7 +35,7 @@ export const UserContextProvider = ({ children }) => {
 
   
   return (
-    <UserContext.Provider value={{ logoutHandler, lang, changeLang }}>
+    <UserContext.Provider value={{ logoutHandler  , dir }}>
       {children}
     </UserContext.Provider>
   );
