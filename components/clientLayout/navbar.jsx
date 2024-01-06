@@ -5,6 +5,9 @@ import Link from "next/link";
 // import { SmallLogo } from "./Logo";
 import { useState } from "react";
 import Image from 'next/image'
+import { useRouter } from "next/router";
+import { fetchWord } from "@/src/lib/lang/fetchWord";
+
 
 
 export const NavLinks = [
@@ -12,22 +15,27 @@ export const NavLinks = [
       name: "Home",
       url: "/",
     },
+
+    {
+        name: "Features",
+        url: "/features",
+      },
+
     {
       name: "Pricing",
       url: "/pricing",
     },
+
     {
-      name: "Company",
-      url: "/company",
-    },
+        name: "Questions",
+        url: "/questions",
+      },
+  
     {
-      name: "Case Studies",
-      url: "/case-studies",
+      name: "Contact",
+      url: "/contact",
     },
-    {
-      name: "Products",
-      url: "/products",
-    },
+    
   ];
 
 
@@ -35,25 +43,29 @@ export const NavLinks = [
 
   export const ArNavLinks = [
     {
-      name: "Home",
+      name: "الرئسية",
       url: "/",
     },
     {
-      name: "Pricing",
-      url: "/pricing",
+      name: "الميزات",
+      url: "/features",
     },
     {
-      name: "Company",
-      url: "/company",
-    },
+        name: "الاسعار",
+        url: "/pricing",
+      },
     {
-      name: "Case Studies",
-      url: "/case-studies",
+      name: "الأسئلة الشائعة",
+      url: "/questions",
     },
+
     {
-      name: "Products",
-      url: "/products",
-    },
+        name: "اتصل بنا",
+        url: "/contact",
+      },
+
+
+
   ];
 
 
@@ -66,25 +78,20 @@ export const NavLinks = [
 
 
 const Header = () => {
-  // const [width, setWidth] = useState(window.innerWidth);
 
-  // const updateWidth = () => {
-  //   setWidth(window.innerWidth);
-  // };
-
-  // useEffect(() => {
-  //   window.addEventListener("resize", updateWidth);
-
-  //   return () => {
-  //     window.removeEventListener("resize", updateWidth);
-  //   };
-  // }, [window.innerWidth]);
-
-  // mobile navigation
   const [isOpen, setIsOpen] = useState(false);
 
+  const { locale, asPath } = useRouter()
+
+  console.log("locale" ,locale)
+  
+
+  const currentLinks = locale === 'ar' ? ArNavLinks : NavLinks
+
+
+
   return (
-    <>
+    <div className={`${locale ==='ar' && 'arabicfont'}`}>
       <div className="header absolute-center container top-10 z-20">
         <header className="z-50">
           <div className="py-3 px-7 tab-800:px-10 bg-white rounded-[50px] border border-[#00000014] flex justify-between w-full items-center">
@@ -105,7 +112,7 @@ const Header = () => {
 
             <nav className="max-tab-800:hidden">
               <ul className="flex transition-all duration-300 gap-[10px] lg-1150:gap-[30px]">
-                {NavLinks.map(({ name, url }) => (
+                {currentLinks?.map(({ name, url }) => (
                   <li key={name}>
                     <Link className="navlink" href={url}>
                       {name}
@@ -119,13 +126,13 @@ const Header = () => {
                 className="text-sm lg-1150:text-base text-blue-100 font-medium"
                 href="/login"
               >
-                Login
+                {fetchWord('login' ,locale)}
               </Link>
               <Link
                 className="text-sm lg-1150:text-base font-medium text-white bg-blue-200 py-4 px-8 rounded-3xl"
                 href="/signup"
               >
-                Sign up free
+                {fetchWord('register',locale)}
               </Link>
             </div>
             <div onClick={() => setIsOpen(!isOpen)} className="tab-800:hidden cursor-pointer">
@@ -165,7 +172,7 @@ const Header = () => {
       {isOpen ? (
         <nav className="h-screen tab-800:hidden fixed_center z-10 bg-white w-full">
           <ul className="flex-col text-center absolute-center mt-[150px] space-y-7 items-center justify-center top-60 transition-all duration-300 ">
-            {NavLinks.map(({ name, url }) => (
+            {currentLinks.map(({ name, url }) => (
               <li onClick={() => setIsOpen(false)} className="" key={name}>
                 <Link
                   className="text-lg font-medium text-gray-100 p-1 active:text-blue-100 hover:text-blue-100 transition-all duration-300"
@@ -177,13 +184,13 @@ const Header = () => {
             ))}
             <div className=" flex flex-col gap-[20px] transition-all duration-300 lg:gap-8 items-center">
               <Link className="text-lg text-blue-100 font-medium" href="/login">
-                Login
+              {fetchWord('login',locale)}
               </Link>
               <Link
                 className="text-lg font-medium text-white bg-blue-200 py-4 px-8 rounded-3xl"
                 href="/signup"
               >
-                Sign up free
+                  {fetchWord('login',locale)}
               </Link>
             </div>
           </ul>
@@ -191,7 +198,7 @@ const Header = () => {
       ) : (
         ""
       )}
-    </>
+    </div>
   );
 };
 

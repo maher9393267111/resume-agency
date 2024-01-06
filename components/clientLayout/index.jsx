@@ -6,7 +6,7 @@ export default function ClientLayout({ children }) {
   return (
 
 
-    <div>
+    <div className='  '>
 <Navbar/>
 
 

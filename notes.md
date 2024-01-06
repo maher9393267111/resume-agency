@@ -214,3 +214,8 @@ Dashboard
     dir={dir}
 
     ---------------------------
+    text title
+    text-[32px] leading-[42px] font-bold text-center md:text-5xl md:leading-[62px]
+
+    ----------
+    
