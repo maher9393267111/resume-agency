@@ -189,3 +189,28 @@ Dashboard
 
       </Hidden>
 </div>
+
+--------------
+
+  const { locale, asPath } = useRouter()
+
+  console.log("locale" ,locale)
+  const {dir} = useContext(UserContext)
+
+
+
+
+{locale}
+{/* <LangSwitcher/> */}
+
+
+<div className={`${locale ==='ar' && 'arabicfont'}`}> 
+
+{fetchWord('company', locale)}
+
+</div>
+
+
+    dir={dir}
+
+    ---------------------------

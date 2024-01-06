@@ -1,19 +1,23 @@
 import React from 'react'
 import { LangContextProvider } from '@/src/context/langContext';
-export default function ClientLayout({children}) {
+import Navbar from './navbar'
+import Footer from './footer'
+export default function ClientLayout({ children }) {
   return (
-    
-        
-        <div>
-        ClientLayout
 
 
-        {children}
-        </div>
-    
-        
-        
-        
-         
+    <div>
+<Navbar/>
+
+
+      {children}
+
+
+    </div>
+
+
+
+
+
   )
 }
