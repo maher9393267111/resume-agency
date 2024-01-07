@@ -100,21 +100,27 @@ const Contact = () => {
   return (
     <div dir={dir} className={`${locale === "ar" && "arabicfont"}`}>
       <div className="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8 my-12  shadow-2xl">
-        <div className="sm:mx-auto sm:w-full sm:max-w-lg0 ">
+        <div className="sm:mx-auto sm:w-full sm:max-w-lg ">
           <h2 className="text-[32px] leading-[42px] font-bold text-center md:text-5xl md:leading-[62px] ">
             {fetchWord("contactTitle", locale)}
           </h2>
           <p className="mt-2 text-center text-xl text-gray-600">
-            <span className="font-medium text-indigo-600 hover:text-indigo-500 cursor-pointer">
+            <span className="font-medium text-purple-100 hover:text-purble-200 cursor-pointer">
               {fetchWord("contactSend", locale)}
             </span>
           </p>
-          {subject} {email} {name} {message}
-          {phone}
+         
         </div>
         <div className="mt-8 sm:mx-auto w-[90%] mx-auto sm:w-full sm:max-w-lg">
           <div className="bg-white sm:py-12 py-6 px-6 sm:px-12 shadow-2xl sm:max-w-lg border border-1  border-purple-100 rounded-lg ">
             <form className="space-y-6" onSubmit={handleSubmit}>
+
+
+<div className=" flex-col sm:flex-row flex gap-2 justify-center">
+
+
+
+
               <div>
                 <label
                   htmlFor="password"
@@ -155,6 +161,11 @@ const Contact = () => {
                   />
                 </div>
               </div>
+
+
+</div>
+
+
 
               {/* number Field */}
               <div>
@@ -232,7 +243,7 @@ const Contact = () => {
                 <button
                   type="submit"
                   value="Sign in"
-                  className="w-full flex justify-center py-4 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 cursor-pointer"
+                  className="w-full text-xl flex justify-center py-4 px-4 border border-transparent rounded-md shadow-sm  font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 cursor-pointer"
                 >
                   {fetchWord("sendmessagebtn", locale)}
                 </button>
