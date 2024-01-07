@@ -1,5 +1,5 @@
 import React from 'react'
-
+import Image from 'next/image'
 export default function PriceCard({index ,image ,title ,desc , price}) {
   return (
     <div 
@@ -11,18 +11,21 @@ export default function PriceCard({index ,image ,title ,desc , price}) {
 <div className=''>
 
 <div>
-    <img className=' object-cover' src={image} alt="" />
+    {/* <img className=' object-cover' src={image} alt="" /> */}
+    <Image width={300} height={300} className=' mx-auto object-cover' src={image} alt="" /> 
+
+
 </div>
 
 
 <div className='my-4 text-center flex-col  space-y-2'>
 
-<h1 className=' text-4xl'>{title}</h1>
+<h1 className=' text-3xl font-bold'>{title}</h1>
 
 <p className=' text-xl font-semibold    text-purple-100'>{price}</p>
 
 
-<p className=''>{desc}</p>
+<p className=' font-semibold'>{desc}</p>
 
 
 

@@ -7,7 +7,7 @@ export const ServiceCard = ({ index, title, color ,desc }) => (
   <div
 key={index}
   
-  className={`    bg-purple-100  rounded-lg  !shadow-2xl  hover:sm:scale transition-all  duration-500 ` }>
+  className={`    bg-purple-100  rounded-lg  !shadow-3xl  hover:sm:scale transition-all  duration-500 ` }>
     <div
       // variants={fadeIn("right", "spring", index * 0.5, 0.75)}
       className='w-full green-pink-gradient p-[1px] rounded-[20px] '
