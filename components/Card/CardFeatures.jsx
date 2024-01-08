@@ -68,11 +68,11 @@ export default function CardFeatures() {
         locale === "ar" && "arabicfont"
       } container mb-4  sm:my-4`}
     >
-      <div variants={textVariant()}>
+      {/* <div variants={textVariant()}>
         <p className=" text-[32px] leading-[42px] font-bold text-center md:text-5xl md:leading-[62px] shimmer   ">
           {fetchWord("cardFeatureTitle", locale)}
         </p>
-      </div>
+      </div> */}
 
       <div className="mt-20 fle justify-cente  !pb-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3   flex-ro flex-wra gap-10 overflow-x-hidden container">
         {currentprice.map((price, index) => {

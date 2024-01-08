@@ -9,7 +9,7 @@ export default function SingleFeature({ index, image, title, desc }) {
           <Image
             width={200}
             height={200}
-            className=" mx-auto object-contain !w-[240px] !h-[153px]"
+            className=" mx-auto object-contain  w-[140px] h-[100px]  md:!w-[240px] md:!h-[153px]"
             src={image}
             alt=""
           />

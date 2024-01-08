@@ -238,7 +238,7 @@ body {
 
 
 .shimmer {
-  text-align: center;
+  /* text-align: center; */
   color: rgba(255, 255, 255, 0.1);
   background: -webkit-gradient(
       linear,

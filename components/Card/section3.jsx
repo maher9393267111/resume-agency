@@ -29,7 +29,7 @@ btn2: "اطلب الان",
         <div className="w-full    md:!-mt-[33px] h-full lg:w-1/2  !px-[40px] sm:px-0  lg:mt-[55px]">
           <div className="  md:mt-12 mb-4 sm:m-1 ">
             {/* <p className='text-base lg:text-xl text-ngc_secondary font-light lg:mb-4'>{subText}</p> */}
-            <h2 className="text-2xl md:text-3xl lg:text-5xl text-ngc_orange font-bold mb-2 lg:mb-8">
+            <h2 className="text-2xl md:text-3xl lg:text-5xl text-ngc_orange shimmer font-bold mb-2 lg:mb-8">
               {current.title}
             </h2>
             <p className="text-base lg:text-xl text-ngc_secondary  leading-6 lg:!leading-10 text-justify">
