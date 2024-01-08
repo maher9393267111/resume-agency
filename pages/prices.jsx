@@ -18,10 +18,10 @@ import Prices from "../components/Home/price";
 import MenuPrices from "../components/PricesMain/menuPrices";
 import Questions from "../components/Home/questions";
 import ContactHome from "../components/Home/homeContact";
-import PageHeaders from '../components/common/pageHeaders'
+import PageHeaders from "../components/common/pageHeaders";
 import SectionOne from "../components/Card/sectionOne";
-import CardFeatures from '../components/Card/CardFeatures'
-import SectionTwo from '../components/Card/sectionTwo'
+import CardFeatures from "../components/Card/CardFeatures";
+import SectionTwo from "../components/Card/sectionTwo";
 import SectionThree from "../components/Card/section3";
 
 export default function PricesPage() {
@@ -35,18 +35,16 @@ export default function PricesPage() {
       <main dir={dir} id="main_page " className={`englishfont`}>
         <div className=" ">
           <AnimationOnView>
-          <PageHeaders pt={true} pb={true} text={fetchWord('pricesPageTitle' ,locale)} gradient/>
+            <PageHeaders
+              pt={true}
+              pb={true}
+              text={fetchWord("pricesPageTitle", locale)}
+              gradient
+            />
 
-            
+            <Prices />
 
-
-<Prices/>
-
-         
-
-<MenuPrices locale={locale}/>
-
-
+            <MenuPrices locale={locale} />
           </AnimationOnView>
         </div>
       </main>

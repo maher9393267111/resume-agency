@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import {fetchWord} from '../../src/lib/lang/fetchWord'
 export default function MenuPrices({ locale }) {
   const pricingDataAr = [
     {
@@ -156,6 +157,20 @@ export default function MenuPrices({ locale }) {
 
   return (
     <div>
+
+
+{/* ---title--- */}
+
+<div>
+    
+
+    <h2 className="text-[32px] leading-[42px] font-bold text-center md:text-5xl md:leading-[62px] shimmer ">
+    {fetchWord('menupricesTitle' ,locale)} 
+          </h2>
+</div>
+
+
+
       <div className="mx-auto grid max-w-screen-lg gap-5 my-12 container bg-inherit py-5 md:grid-cols-3 lg:grid-cols-3">
         {currentData.map((offer) => (
           <div

@@ -7,7 +7,7 @@ import { useState, useContext } from "react";
 import { UserContext } from "@/src/context";
 import { useRouter } from "next/router";
 import { fetchWord } from "@/src/lib/lang/fetchWord";
-export default function Banner() {
+export default function HomeBanner() {
   const { locale, asPath } = useRouter();
 
   console.log("locale", locale);
@@ -19,26 +19,17 @@ export default function Banner() {
         <div className="container">
           <div className="grid tab:grid-cols-2 mb-[120px] items-start gap-[80px] tab:gap-[10px] max-md:pt-[190px] pt-[210px] pb-[120px] tab:pb-[35px]">
             <div>
-              <motion.h1
+              {/* <motion.h1
                 transition={{ duration: 0.5 }}
                 initial={{ y: 50 }}
                 animate={{ y: 0 }}
                 className="font-bold max-md:text-[42px] max-md:leading-[48px] max-md:mb-4 mb-10 leading-[68px] text-[64px] text-white"
               >
-                {/* Anyone, anywhere can teach live */}
+              
                 {fetchWord("bannerdesc", locale)}
-              </motion.h1>
-              <motion.p
-                transition={{ duration: 0.7 }}
-                initial={{ y: 50 }}
-                animate={{ y: 0 }}
-                className="text-2xl max-md:text-[18px] max-md:leading-[28px] mb-[40px] leading-8 text-[hsla(0,0%,100%,.8)]"
-              >
-                {/* Bring together live classes, community, and payments- all on
-                  Klas. */}
+              </motion.h1> */}
 
-                {fetchWord("bannertitle", locale)}
-              </motion.p>
+
 
               <motion.p
                 transition={{ duration: 0.7 }}
@@ -49,8 +40,9 @@ export default function Banner() {
                 {/* Bring together live classes, community, and payments- all on
                   Klas. */}
 
-                {fetchWord("bannertitle2", locale)}
+                {fetchWord("homeBannerTitle", locale)}
               </motion.p>
+
 
               <motion.div
                 transition={{ duration: 0.9 }}
@@ -64,23 +56,7 @@ export default function Banner() {
                 >
                   {fetchWord("register", locale)}
                 </Link>
-                {/* <Link
-                    className="text-white flex gap-[5px] hover:gap-[10px] duration-300 transition-all justify-center items-center text-base font-bold"
-                    href="https://calendly.com/nathanstark101/chat"
-                  >
-                    Request demo
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      fill="none"
-                    >
-                      <path
-                        fill="#fff"
-                        d="m9.29 8.119 3.88 3.88-3.88 3.88a.996.996 0 1 0 1.41 1.41l4.59-4.59a.996.996 0 0 0 0-1.41l-4.59-4.59a.996.996 0 0 0-1.41 0c-.38.39-.39 1.03 0 1.42Z"
-                      ></path>
-                    </svg>
-                  </Link> */}
+            
               </motion.div>
             </div>
             <motion.div

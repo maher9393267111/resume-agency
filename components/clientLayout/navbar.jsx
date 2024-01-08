@@ -46,12 +46,12 @@ export const ArNavLinks = [
     url: "/",
   },
   {
-    name: "المينيو الالكتروني ",
+    name: "المينيو الالكتروني",
     url: "/menu",
   },
 
   {
-    name: "البطاقة الذكية'",
+    name: "البطاقة الذكية",
     url: "/smartcard",
   },
 
