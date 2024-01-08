@@ -35,10 +35,10 @@ export default function SectionOne({ locale }) {
             <h2 className="text-2xl md:text-3xl lg:text-5xl text-ngc_orange shimmer font-bold mb-2 lg:mb-8">
               {current.title}
             </h2>
-            <p className="text-base lg:text-xl text-ngc_secondary  leading-6 lg:!leading-10 text-justify">
+            <p className="text-base lg:text-xl text-ngc_secondary font-semibold  leading-6 lg:!leading-10 text-justify">
               {current.text}
             </p>
-            <p className="text-base lg:text-xl text-ngc_secondary  leading-6 lg:!leading-10 text-justify mt-2">
+            <p className="text-base lg:text-xl text-ngc_secondary  font-semibold leading-6 lg:!leading-10 text-justify mt-2">
               {current.text2}
             </p>
           </div>

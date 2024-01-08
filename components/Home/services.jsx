@@ -66,7 +66,7 @@ export default function Services() {
 
 
   return (
-    <div dir={dir}  className={`${locale ==='ar' && 'arabicfont'} container  sm:my-24`}>
+    <div dir={dir}  className={`${locale ==='ar' && 'arabicfont'} container my-12 sm:my-24`}>
       <div  variants={textVariant()}>
         <p className=" text-[32px] leading-[42px] font-bold text-center md:text-5xl md:leading-[62px] shimmer ">
           {fetchWord('servicesTitle',locale)}

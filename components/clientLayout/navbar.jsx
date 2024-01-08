@@ -4,94 +4,83 @@ import Link from "next/link";
 
 // import { SmallLogo } from "./Logo";
 import { useState } from "react";
-import Image from 'next/image'
+import Image from "next/image";
 import { useRouter } from "next/router";
 import { fetchWord } from "@/src/lib/lang/fetchWord";
 
-
-
 export const NavLinks = [
-    {
-      name: "Home",
-      url: "/",
-    },
+  {
+    name: "Home",
+    url: "/",
+  },
 
-    {
-        name: "Features",
-        url: "/features",
-      },
+  {
+    name: "menu",
+    url: "/menu",
+  },
 
-    {
-      name: "Pricing",
-      url: "/pricing",
-    },
+  {
+    name: "smart cards",
+    url: "/smartcard",
+  },
 
-    {
-        name: "Questions",
-        url: "/questions",
-      },
-  
-    {
-      name: "Contact",
-      url: "/contact",
-    },
-    
-  ];
+  {
+    name: "Prices",
+    url: "/prices",
+  },
 
+  {
+    name: "aboutus",
+    url: "/aboutus",
+  },
 
+  {
+    name: "Contact",
+    url: "/contact",
+  },
+];
 
+export const ArNavLinks = [
+  {
+    name: "الرئسية",
+    url: "/",
+  },
+  {
+    name: "المينيو الالكتروني ",
+    url: "/menu",
+  },
 
-  export const ArNavLinks = [
-    {
-      name: "الرئسية",
-      url: "/",
-    },
-    {
-      name: "الميزات",
-      url: "/features",
-    },
-    {
-        name: "الاسعار",
-        url: "/pricing",
-      },
-    {
-      name: "الأسئلة الشائعة",
-      url: "/questions",
-    },
+  {
+    name: "البطاقة الذكية'",
+    url: "/smartcard",
+  },
 
-    {
-        name: "اتصل بنا",
-        url: "/contact",
-      },
+  {
+    name: "الاسعار",
+    url: "/prices",
+  },
+  {
+    name: "من نحن ",
+    url: "/aboutus",
+  },
 
-
-
-  ];
-
-
-
-
-
-
-
-
-
+  {
+    name: "اتصل بنا",
+    url: "/contact",
+  },
+];
 
 const Header = () => {
-
   const [isOpen, setIsOpen] = useState(false);
 
-  const { locale, asPath } = useRouter()
+  const { locale, asPath } = useRouter();
 
-  console.log("locale" ,locale)
-  
+  console.log("locale", locale);
 
-  const currentLinks = locale === 'ar' ? ArNavLinks : NavLinks
-
-
+  const currentLinks = locale === "ar" ? ArNavLinks : NavLinks;
 
   return (
-    <div className={`${locale ==='ar' && 'arabicfont'}`}>
+    <div className={`${locale === "ar" && "arabicfont"}`}>
       <div className="header absolute-center container top-10 z-20">
         <header className="z-50">
           <div className="py-3 px-7 tab-800:px-10 bg-white rounded-[50px] border border-[#00000014] flex justify-between w-full items-center">
@@ -99,16 +88,13 @@ const Header = () => {
             {/* <Logo /> */}
 
             <Image
-                src="/logo.jpg"
-                width={50}
-                height={50}
-                objectFit="contain"
-                alt="POLLE"
-                className=" rounded-full"
-              />
-
-
-
+              src="/logo.jpg"
+              width={50}
+              height={50}
+              objectFit="contain"
+              alt="POLLE"
+              className=" rounded-full"
+            />
 
             <nav className="max-tab-800:hidden">
               <ul className="flex transition-all duration-300 gap-[10px] lg-1150:gap-[30px]">
@@ -126,16 +112,19 @@ const Header = () => {
                 className="text-sm lg-1150:text-base text-blue-100 font-medium"
                 href="/login"
               >
-                {fetchWord('login' ,locale)}
+                {fetchWord("login", locale)}
               </Link>
               <Link
                 className="text-sm lg-1150:text-base font-medium text-white bg-blue-200 py-4 px-8 rounded-3xl"
                 href="/signup"
               >
-                {fetchWord('register',locale)}
+                {fetchWord("register", locale)}
               </Link>
             </div>
-            <div onClick={() => setIsOpen(!isOpen)} className="tab-800:hidden cursor-pointer">
+            <div
+              onClick={() => setIsOpen(!isOpen)}
+              className="tab-800:hidden cursor-pointer"
+            >
               {!isOpen ? (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -184,13 +173,13 @@ const Header = () => {
             ))}
             <div className=" flex flex-col gap-[20px] transition-all duration-300 lg:gap-8 items-center">
               <Link className="text-lg text-blue-100 font-medium" href="/login">
-              {fetchWord('login',locale)}
+                {fetchWord("login", locale)}
               </Link>
               <Link
                 className="text-lg font-medium text-white bg-blue-200 py-4 px-8 rounded-3xl"
                 href="/signup"
               >
-                  {fetchWord('login',locale)}
+                {fetchWord("login", locale)}
               </Link>
             </div>
           </ul>

@@ -27,7 +27,11 @@ export const ar = {
   
   sendmessagebtn:'ارسال الرسالة',
   smartcardTitle :'البطاقة الذكية',
-  cardFeatureTitle:'ميزات البطاقة الذكية'
+  cardFeatureTitle:'ميزات البطاقة الذكية',
+  pricesPageTitle:'الأسعار' ,
+  navmenu:'',
+  navhome:'',
+  navcard:'',
   };
   export const getWordAr = (key) => {
     return ar[key];
