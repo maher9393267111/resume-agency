@@ -102,10 +102,10 @@ export default function Features() {
 
   //   featurestitle
   return (
-    <div dir={dir} className={`${locale === "ar" && "arabicfont"}`}>
+    <div dir={dir} className={`${locale === "ar" && "arabicfont"}  sm:my-32 my:16`}>
       <div className="flex flex-col items-center justify-center">
         <div className=" flex-col gap-4  items-center justify-center container">
-          <h1 className="text-[32px] leading-[42px] font-bold text-center md:text-5xl md:leading-[62px]">
+          <h1 className="text-[32px] leading-[42px] font-bold text-center md:text-5xl md:leading-[62px] shimmer">
             {fetchWord("featuresTitle", locale)}
           </h1>
 

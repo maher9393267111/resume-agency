@@ -99,9 +99,9 @@ const Contact = () => {
 
   return (
     <div dir={dir} className={`${locale === "ar" && "arabicfont"}`}>
-      <div className="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8 my-12  shadow-2xl">
+      <div className="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8 mt-16 sm:my-24  shadow-2xl">
         <div className="sm:mx-auto sm:w-full sm:max-w-lg ">
-          <h2 className="text-[32px] leading-[42px] font-bold text-center md:text-5xl md:leading-[62px] ">
+          <h2 className="text-[32px] leading-[42px] font-bold text-center md:text-5xl md:leading-[62px] shimmer ">
             {fetchWord("contactTitle", locale)}
           </h2>
           <p className="mt-2 text-center text-xl text-gray-600">
@@ -109,63 +109,52 @@ const Contact = () => {
               {fetchWord("contactSend", locale)}
             </span>
           </p>
-         
         </div>
         <div className="mt-8 sm:mx-auto w-[90%] mx-auto sm:w-full sm:max-w-lg">
           <div className="bg-white sm:py-12 py-6 px-6 sm:px-12 shadow-2xl sm:max-w-lg border border-1  border-purple-100 rounded-lg ">
             <form className="space-y-6" onSubmit={handleSubmit}>
+              <div className=" flex-col sm:flex-row flex gap-2 justify-center">
+                <div>
+                  <label
+                    htmlFor="password"
+                    className="block text-lg mb-1 font-medium text-gray-700"
+                  >
+                    {fetchWord("contactname", locale)}
+                  </label>
+                  <div className="mt-1 relative rounded-md shadow-sm">
+                    <input
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      disabled={isLoading}
+                      id="text"
+                      name="text"
+                      type="text"
+                      autoComplete="current-password"
+                      className="appearance-none block py-4 border-2  border-purple-100 w-full px-3   border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    />
+                  </div>
+                </div>
 
-
-<div className=" flex-col sm:flex-row flex gap-2 justify-center">
-
-
-
-
-              <div>
-                <label
-                  htmlFor="password"
-                  className="block text-lg mb-1 font-medium text-gray-700"
-                >
-                  {fetchWord("contactname", locale)}
-                </label>
-                <div className="mt-1 relative rounded-md shadow-sm">
-                  <input
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    disabled={isLoading}
-                    id="text"
-                    name="text"
-                    type="text"
-                    autoComplete="current-password"
-                    className="appearance-none block py-4 border-2  border-purple-100 w-full px-3   border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                  />
+                <div>
+                  <label
+                    htmlFor="password"
+                    className="block text-xl mb-1 font-medium text-gray-700"
+                  >
+                    {fetchWord("contectemail", locale)}
+                  </label>
+                  <div className="mt-1 relative rounded-md shadow-sm">
+                    <input
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      disabled={isLoading}
+                      id="email"
+                      name="email"
+                      type="email"
+                      className="appearance-none block py-4 border-2  border-purple-100 w-full px-3   border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    />
+                  </div>
                 </div>
               </div>
-
-              <div>
-                <label
-                  htmlFor="password"
-                  className="block text-xl mb-1 font-medium text-gray-700"
-                >
-                  {fetchWord("contectemail", locale)}
-                </label>
-                <div className="mt-1 relative rounded-md shadow-sm">
-                  <input
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    disabled={isLoading}
-                    id="email"
-                    name="email"
-                    type="email"
-                    className="appearance-none block py-4 border-2  border-purple-100 w-full px-3   border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                  />
-                </div>
-              </div>
-
-
-</div>
-
-
 
               {/* number Field */}
               <div>

@@ -25,7 +25,9 @@ export const ar = {
   option4:'بطاقة عمل ذكية  NFC',
   contactsubject:'الخدمة المطلوبة',
   
-  sendmessagebtn:'ارسال الرسالة'
+  sendmessagebtn:'ارسال الرسالة',
+  smartcardTitle :'البطاقة الذكية',
+  cardFeatureTitle:'ميزات البطاقة الذكية'
   };
   export const getWordAr = (key) => {
     return ar[key];

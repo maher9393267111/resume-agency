@@ -24,7 +24,9 @@ export const en = {
    option2:'menu-with-order',
    option3:'paper-menu"',
    option4:'nfc',
-   sendmessagebtn:'send'
+   sendmessagebtn:'send',
+   smartcardTitle :'Smart card',
+   cardFeatureTitle:'Smart card features'
   };
   
   export const getWordEn = (key) => {

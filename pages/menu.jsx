@@ -14,12 +14,12 @@ import LangSwitcher from "@/components/clientLayout/langSwitcher";
 import Banner from "../components/Home/banner";
 import Featurs from "../components/Home/features";
 import Services from "../components/Home/services";
-import Prices from '../components/Home/price'
-import Questions from '../components/Home/questions'
-import ContactHome from '../components/Home/homeContact'
+import Prices from "../components/Home/price";
+import Questions from "../components/Home/questions";
+import ContactHome from "../components/Home/homeContact";
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home() {
+export default function Menu() {
   const { locale, asPath } = useRouter();
 
   console.log("locale", locale);
@@ -28,41 +28,12 @@ export default function Home() {
   return (
     <ClientLayout>
       <main dir={""} id="main_page " className={`englishfont`}>
-
-
-
-
         <div className=" ">
-
           <AnimationOnView>
             <Banner />
-          </AnimationOnView>
 
-
-          
-
-          <AnimationOnView>
             <Featurs />
           </AnimationOnView>
-
-          <AnimationOnView>
-            <Services />
-          </AnimationOnView>
-
-
-          <AnimationOnView>
-            <Prices />
-          </AnimationOnView>
-
-          <AnimationOnView>
-            <Questions />
-          </AnimationOnView>
-
-          <AnimationOnView>
-            <ContactHome />
-          </AnimationOnView>
-
-
         </div>
       </main>
     </ClientLayout>
