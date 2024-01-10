@@ -9,7 +9,7 @@ export default function PriceCard({ index, image, title, desc, price }) {
           <Image
             width={300}
             height={300}
-            className=" mx-auto object-cover"
+            className=" mx-auto object-cover rounded-mc"
             src={image}
             alt=""
           />

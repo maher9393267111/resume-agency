@@ -10,7 +10,7 @@ import { AnimationOnView } from "@/src/lib/animateView";
 
 import Link from "next/link";
 import { useRouter } from "next/router";
-
+import ContactForm from '../components/Home/homeContact'
 
 
 import PageHeaders from "../components/common/pageHeaders";
@@ -29,12 +29,15 @@ export default function PricesPage() {
             <PageHeaders
               pt={true}
               pb={true}
-              text={fetchWord("AboutPageTitle", locale)}
+              text={fetchWord("contactUsTitle", locale)}
               gradient
             />
 
             <div className="  mb-14 mt-12 px-8 container text-lg sm:text-xl font-semibold">
          
+
+         <ContactForm/>
+
             </div>
           </AnimationOnView>
         </div>

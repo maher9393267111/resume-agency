@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import {fetchWord} from '../../src/lib/lang/fetchWord'
+import { fetchWord } from "../../src/lib/lang/fetchWord";
 export default function MenuPrices({ locale }) {
   const pricingDataAr = [
     {
@@ -13,15 +13,13 @@ export default function MenuPrices({ locale }) {
       priceYear: 2000,
       desc: "",
       list: [
-      
         "تخصيص كامل للصحفة",
         "روابط غير محدودة",
         "احصائيات لإخر 30 يوم",
         "متابعة الإحصائيات",
         "انشاء 5 رموز QR",
-
       ],
-      color:'#EE2658'
+      color: "#EE2658",
     },
 
     {
@@ -41,13 +39,10 @@ export default function MenuPrices({ locale }) {
         "ربط نطاق خاص",
         "اكواد CSS & JS مخصصة",
         "بيع منتج رقمي",
-        "بيع خدمات رقمية"
-
-
-
+        "بيع خدمات رقمية",
       ],
 
-      color:'#00B7B3'
+      color: "#00B7B3",
     },
     {
       title: "المتقدمة",
@@ -64,112 +59,85 @@ export default function MenuPrices({ locale }) {
         "تغيير العلامة التجارية",
         "الوصول الى API",
         "احصائيات متقدمة",
-        "روابط مؤقتة"
-      
+        "روابط مؤقتة",
       ],
-      color:'#FEBE10'
+      color: "#FEBE10",
     },
   ];
 
-
-
-
   const pricingDataEn = [
     {
-        title: "Starter",
-        freemonth: "first month free",
-        starter: "Everything you need to start teaching online",
-        btn: "get started",
-        price: 150,
-        priceYear: 2000,
-        desc: "",
-        list: [
-          "Complete dedication to the newspaper",
-          "Unlimited links",
-          "Statistics for the last 30 days",
-          "Follow the statistics",
-          "Create 5 QR codes",
-          
-        ],
-        color:'#EE2658'
+      title: "Starter",
+      freemonth: "first month free",
+      starter: "Everything you need to start teaching online",
+      btn: "get started",
+      price: 150,
+      priceYear: 2000,
+      desc: "",
+      list: [
+        "Complete dedication to the newspaper",
+        "Unlimited links",
+        "Statistics for the last 30 days",
+        "Follow the statistics",
+        "Create 5 QR codes",
+      ],
+      color: "#EE2658",
+    },
 
-      }, 
+    {
+      title: "Pro",
+      freemonth: "first month free",
+      starter: "Everything you need to start teaching online",
+      btn: "get started",
+      price: 200,
+      priceYear: 2000,
+      desc: "",
+      list: [
+        "All features of the starter package",
+        "Create two bio pages",
+        "Create two bio pages",
+        "Hide the brand",
+        "Connect a private domain",
+        "Custom CSS & JS codes",
+        "Selling a digital product",
+        "Selling digital services",
+      ],
+      color: "#00B7B3",
+    },
 
-
-      {
-        title: "Pro",
-        freemonth: "first month free",
-        starter: "Everything you need to start teaching online",
-        btn: "get started",
-        price: 200,
-        priceYear: 2000,
-        desc: "",
-        list: [
-            "All features of the starter package",
-          "Create two bio pages",
-          "Create two bio pages",
-          "Hide the brand",
-          "Connect a private domain",
-          "Custom CSS & JS codes",
-          "Selling a digital product",
-          "Selling digital services",
-          
-
-        ],
-        color:'#00B7B3'
-
-
-      }, 
-
-
-      {
-        title: "Advanced",
-        freemonth: "first month free",
-        starter: "Everything you need to start teaching online",
-        btn: "get started",
-        price: 250,
-        priceYear: 2000,
-        desc: "",
-        list: [
-         "All features of the Business Package",
+    {
+      title: "Advanced",
+      freemonth: "first month free",
+      starter: "Everything you need to start teaching online",
+      btn: "get started",
+      price: 250,
+      priceYear: 2000,
+      desc: "",
+      list: [
+        "All features of the Business Package",
         "Create 5 bio pages",
-         "Unlimited QR codes",
-         "Connect 5 private domains",
-         "Rebranding",
-         "Access to API",
-         "Advanced statistics",
-         "Temporary links"
-        ],
-        color:'#FEBE10'
-      }, 
-
-
-
-
-
-  ]
-
-
-
-
+        "Unlimited QR codes",
+        "Connect 5 private domains",
+        "Rebranding",
+        "Access to API",
+        "Advanced statistics",
+        "Temporary links",
+      ],
+      color: "#FEBE10",
+    },
+  ];
 
   const currentData = locale === "ar" ? pricingDataAr : pricingDataEn;
 
   return (
     <div>
+      {/* ---title--- */}
 
-
-{/* ---title--- */}
-
-<div>
-    
-
-    <h2 className="text-[32px] leading-[42px] font-bold text-center md:text-5xl md:leading-[62px] shimmer ">
-    {fetchWord('menupricesTitle' ,locale)} 
-          </h2>
-</div>
-
-
+      <div>
+        <h2 className="text-[32px] leading-[42px] font-bold text-center md:text-5xl md:leading-[62px] shimmer ">
+          {fetchWord("menupricesTitle", locale)}
+        </h2>
+      </div>
 
       <div className="mx-auto grid max-w-screen-lg gap-5 my-12 container bg-inherit py-5 md:grid-cols-3 lg:grid-cols-3">
         {currentData.map((offer) => (
@@ -177,13 +145,9 @@ export default function MenuPrices({ locale }) {
             className="relative  flex flex-col overflow-hidden rounded-xl border-2 shadow-2xl border-gray-50"
             key={offer.title}
           >
-            <div 
-            style={{backgroundColor:offer.color}}
-            
-            className={`min-h-[150px] bg-[${offer.color}] items-start space-y-4   p-6`}
-            
-            
-            
+            <div
+              style={{ backgroundColor: offer.color }}
+              className={`min-h-[150px] bg-[${offer.color}] items-start space-y-4   p-6`}
             >
               <p className="flex font-urban text-white text-center  text-xl font-bold uppercase tracking-wider text-muted-foreground">
                 {offer.title}
@@ -198,10 +162,10 @@ export default function MenuPrices({ locale }) {
                         <span>${offer.prices.yearly / 12}</span>
                       </>
                     ) : `$${offer.prices.monthly}`} */}
-                    49
+                    {offer.price}
                   </div>
                   <div className="-mb-1 ml-2 text-white text-left text-3xl font-medium">
-                    <div>/{locale  === 'ar' ? 'شهريا' : 'monthly'}</div>
+                    <div>/{locale === "ar" ? "شهريا" : "monthly"}</div>
                   </div>
                 </div>
               </div>
@@ -214,7 +178,7 @@ export default function MenuPrices({ locale }) {
                     {/* <Icons.check className="mr-3 h-5 w-5 shrink-0" /> */}
 
                     <svg
-                    className="mx-2"
+                      className="mx-2"
                       width="16"
                       height="17"
                       fill="none"
@@ -229,16 +193,13 @@ export default function MenuPrices({ locale }) {
                       ></path>
                     </svg>
 
-
-
                     <p className="  pl-4">{feature}</p>
                   </li>
                 ))}
               </ul>
 
               <button className=" bg-purple-100  text-white font-semibold  block  px-4 py-2 rounded-2xl">
-               
-                {locale  === 'ar' ? 'اشتراك' : ' Sign in'}
+                {locale === "ar" ? "اشتراك" : " Sign in"}
               </button>
             </div>
           </div>

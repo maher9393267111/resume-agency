@@ -16,7 +16,7 @@ export const ar = {
   contactTitle:'تواصل معنا',
   contactSend:'أرسل لنا رسالة',
   contactname:'الاسم',
-  contectemail:'الإيميل',
+  contactemail:'الإيميل',
   contactnumber:'رقم الهاتف',
   contactmessage:'الرسالة',
   serviceoptionsTitle:'اختيار نوع الخدمة',
@@ -29,7 +29,7 @@ export const ar = {
   sendmessagebtn:'ارسال الرسالة',
   smartcardTitle :'البطاقة الذكية',
   cardFeatureTitle:'ميزات البطاقة الذكية',
-  menupricesTitle:' أسعار المينو',
+  menupricesTitle:' أسعار المنيو',
   pricesPageTitle:'الأسعار' ,
   AboutPageTitle:"من نحن",
   AboutSecOne:'شركة Ultra Tech رائدة في مجال الخدمات الرقمية، حيث ندرك أن تقدم الحلول التكنولوجية المبتكرة هو السبيل الوحيد لتلبية احتياجات وتفضيلات العملاء في عالم يتسارع بسرعة. نحن نسعى باستمرار لمواكبة  التطورات الرقمية الحديثة، ونقدم حلولاً مبتكرة تعزز عمليات الشركات وتحسن تجربة العملاء' ,
@@ -49,6 +49,7 @@ sec2Title:'ابتعد عن الكروت الورقية التقليدية، وا
   login:'تسجيل دخول',
   loginPageTitle:'صفحة تسجيل الدخول',
   nothaveAcoount:'ليس لديك حساب؟',
+  contactUsTitle:"اتصل بنا"
 
   };
   export const getWordAr = (key) => {

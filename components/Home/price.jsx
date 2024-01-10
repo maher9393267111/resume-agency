@@ -15,20 +15,22 @@ export default function Services() {
       title: "ابيض كلاسيكي",
       desc: "لون ابيض كلاسيكي، يجمع بين التوفير و جميع الخدمات الموجودة بالبطائق الاخرى",
       price: "100 ر.س",
-
-      image: "/silver-card.webp",
+      image: "/lacicart.png"
+      // image: "/silver-card.webp",
     },
     {
       title: "ابيض ذهبي",
       desc: "تم طباعة العلامة الخلفية من طبقة لونها ذهبي لامع، ومصنوعة من البلاستيك الفاخر.",
       price: "100 ر.س",
-      image: "/golden-card.webp",
+      // image: "/golden-card.webp",
+      image: "/silvercartahmad.png"
     },
     {
       title: "اسود فاخر",
       desc: "مصنوعة من البلاستيك غير اللامع الفاخر، وهذه البطاقة مصممة لتدوم مدى الحياة.",
       price: "100 ر.س",
-      image: "/black-card.webp",
+      // image: "/black-card.webp",
+      image: "/whitecartahmad.png"
     },
   ];
 
@@ -37,19 +39,25 @@ export default function Services() {
       title: "Classic white",
       desc: "Classic white color, combining savings with all the services found on other cards",
       price: "100$",
-      image: "/silver-card.webp",
+      image: "/whitecartahmad.png",
+     
+      // image: "/lacicart.png"
+      //"/silver-card.webp",
+
     },
     {
       title: "Golden white",
       desc: "The back tag is printed from a shiny gold tone film and made of premium plastic",
       price: "100$",
-      image: "/golden-card.webp",
+      image: "/silvercartahmad.png"
+      // image: "/golden-card.webp",
     },
     {
       title: "Luxurious black",
       desc: "Made of premium matte plastic, this card is designed to last a lifetime.",
       price: "100$",
-      image: "/black-card.webp",
+      // image: "/black-card.webp",
+      image: "/lacicart.png"
     },
   ];
 

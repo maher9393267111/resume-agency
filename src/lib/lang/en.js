@@ -21,7 +21,7 @@ export const en = {
   contactTitle: "contact us",
   contactSend: "send message",
   contactname: "name",
-  contectemail: "email",
+  contactemail: "email",
   contactnumber: "phone number",
   contactmessage: "message",
   contactsubject: "service",
@@ -50,7 +50,8 @@ export const en = {
   signup:"signup",
   login:'login',
   loginPageTitle:'Login page',
-  nothaveAcoount:'Dont have an account?'
+  nothaveAcoount:'Dont have an account?',
+  contactUsTitle:'Contact Us'
 };
 
 export const getWordEn = (key) => {

@@ -17,10 +17,10 @@ import Services from "../components/Home/services";
 import Prices from "../components/Home/price";
 import Questions from "../components/Home/questions";
 import ContactHome from "../components/Home/homeContact";
-import PageHeaders from '../components/common/pageHeaders'
+import PageHeaders from "../components/common/pageHeaders";
 import SectionOne from "../components/Card/sectionOne";
-import CardFeatures from '../components/Card/CardFeatures'
-import SectionTwo from '../components/Card/sectionTwo'
+import CardFeatures from "../components/Card/CardFeatures";
+import SectionTwo from "../components/Card/sectionTwo";
 import SectionThree from "../components/Card/section3";
 
 export default function SmartCard() {
@@ -34,30 +34,22 @@ export default function SmartCard() {
       <main dir={dir} id="main_page " className={`englishfont`}>
         <div className=" ">
           <AnimationOnView>
-          <PageHeaders pt={true} pb={true} text={fetchWord('smartcardTitle' ,locale)} gradient/>
+            <PageHeaders
+              pt={true}
+              pb={true}
+              text={fetchWord("smartcardTitle", locale)}
+              gradient
+            />
 
-            
+            <SectionOne locale={locale} />
 
-            <SectionOne locale={locale}/>
+            <CardFeatures />
 
-         
+            <SectionTwo locale={locale} />
 
+            <Services />
 
-<CardFeatures/>
-
-
-
-
-
-<SectionTwo locale={locale}/>
-
-
-<Services/>
-
-
-
-<SectionThree locale={locale}/>
-
+            <SectionThree locale={locale} />
           </AnimationOnView>
         </div>
       </main>

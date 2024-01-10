@@ -98,150 +98,185 @@ const Contact = () => {
   };
 
   return (
-    <div dir={dir} className={`${locale === "ar" && "arabicfont"}`}>
-      <div className="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8 mt-16 sm:my-24  shadow-2xl">
-        <div className="sm:mx-auto sm:w-full sm:max-w-lg ">
-          <h2 className="text-[32px] leading-[42px] font-bold text-center md:text-5xl md:leading-[62px] shimmer ">
-            {fetchWord("contactTitle", locale)}
-          </h2>
-          <p className="mt-2 text-center text-xl text-gray-600">
-            <span className="font-medium text-purple-100 hover:text-purble-200 cursor-pointer">
-              {fetchWord("contactSend", locale)}
-            </span>
-          </p>
-        </div>
-        <div className="mt-8 sm:mx-auto w-[90%] mx-auto sm:w-full sm:max-w-lg">
-          <div className="bg-white sm:py-12 py-6 px-6 sm:px-12 shadow-2xl sm:max-w-lg border border-1  border-purple-100 rounded-lg ">
-            <form className="space-y-6" onSubmit={handleSubmit}>
-              <div className=" flex-col sm:flex-row flex gap-2 justify-center">
-                <div>
-                  <label
-                    htmlFor="password"
-                    className="block text-lg mb-1 font-medium text-gray-700"
-                  >
-                    {fetchWord("contactname", locale)}
-                  </label>
-                  <div className="mt-1 relative rounded-md shadow-sm">
-                    <input
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                      disabled={isLoading}
-                      id="text"
-                      name="text"
-                      type="text"
-                      autoComplete="current-password"
-                      className="appearance-none block py-4 border-2  border-purple-100 w-full px-3   border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="password"
-                    className="block text-xl mb-1 font-medium text-gray-700"
-                  >
-                    {fetchWord("contectemail", locale)}
-                  </label>
-                  <div className="mt-1 relative rounded-md shadow-sm">
-                    <input
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      disabled={isLoading}
-                      id="email"
-                      name="email"
-                      type="email"
-                      className="appearance-none block py-4 border-2  border-purple-100 w-full px-3   border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                    />
-                  </div>
-                </div>
-              </div>
-
-              {/* number Field */}
-              <div>
-                <label
-                  htmlFor=""
-                  className="block text-lg mb-1 font-medium text-gray-700"
-                >
-                  {fetchWord("contactnumber", locale)}
-                </label>
-                <div className="mt-1 relative rounded-md shadow-sm">
-                  <input
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                    disabled={isLoading}
-                    id=""
-                    name="number"
-                    type="text"
-                    className="appearance-none block py-4 border-2  border-purple-100 w-full px-3   border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label
-                  htmlFor=""
-                  className="block text-lg mb-1 font-medium text-gray-700"
-                >
-                  {fetchWord("contactsubject", locale)}
-                </label>
-
-                <select
-                  onChange={(e) => setSubject(e.target.value)}
-                  value={subject}
-                  className="appearance-none block py-4 border-2  border-purple-100 w-full px-3   border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                  name=""
-                  id=""
-                >
-                  <option value=""></option>
-                  <option value="qr">{fetchWord("option1", locale)}</option>
-
-                  <option value="menu-with-order">
-                    {" "}
-                    {fetchWord("option2", locale)}
-                  </option>
-
-                  <option value="paper-menu">
-                    {fetchWord("option3", locale)}
-                  </option>
-                  <option value="nfc">{fetchWord("option4", locale)}</option>
-                </select>
-              </div>
-
-              <div>
-                <label
-                  htmlFor="password"
-                  className="block text-lg mb-1 font-medium text-gray-700"
-                >
-                  {fetchWord("contactmessage", locale)}
-                </label>
-                <div className="mt-1 relative rounded-md shadow-sm">
-                  <textarea
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
-                    disabled={isLoading}
-                    column={"4"}
-                    type="text"
-                    autoComplete="current-password"
-                    className="appearance-none block py-4 border-2  border-purple-100 w-full px-3   border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                  />
-                </div>
-              </div>
-
-              {/* Submit Button */}
-              <div>
-                <button
-                  type="submit"
-                  value="Sign in"
-                  className="w-full text-xl flex justify-center py-4 px-4 border border-transparent rounded-md shadow-sm  font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 cursor-pointer"
-                >
-                  {fetchWord("sendmessagebtn", locale)}
-                </button>
-              </div>
-            </form>
+    <div dir={dir} className=" px-4 sm:px-6 lg:px-8 pb-20  englishfont">
+      {/* We've used 3xl here, but feel free to try other max-widths based on your needs */}
+      <div className="max-w-5xl mx-auto">
+        {/* Content goes here */}
+        <div className="space-y-3 text-center p-8">
+          <div className="text-[#162A43] font-semibold text-4xl shimmer ">
+            <h1 className="leading-snug">
+              {/* Contact Us */}
+            {fetchWord("contactUsTitle", locale)}
+            
+            </h1>
           </div>
+
+          {/* <p className="text-[#565151] font-normal text-lg font-sans w-4/5 mx-auto">
+            We're here to help you find the perfect rental property. Whether
+            it's a cozy apartment or a spacious house, our dedicated team is
+            ready to assist you. Contact us today to start your journey toward
+            your dream space!
+          </p> */}
+        </div>
+
+        <div className="py-5 px-6 sm:px-10 lg:col-span-2 xl:p-6 max-w-4xl mx-auto">
+          <form
+             onSubmit={handleSubmit}
+            className="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8"
+          >
+            <div>
+              <label
+                htmlFor="first-name"
+                className="block text-sm font-medium text-gray-500"
+              >
+                 {/* Name */}
+                 {fetchWord("contactname", locale)}
+                 
+                  <span className="text-red-500 font-bold ">*</span>
+              </label>
+              <div className="mt-1">
+                <input
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  type="text"
+                  name="first-name"
+                  id="first-name"
+                  autoComplete="given-name"
+                  placeholder={fetchWord("contactname", locale)}
+                  className={`py-2 px-4 block w-full shadow-sm ${"border-gray-100"} focus:ring-purple-600 focus:border-purple-600 border-2 rounded-md`}
+                />
+              </div>
+            </div>
+
+            <div>
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-gray-500"
+              >
+                 {fetchWord("contactemail", locale)}
+                
+                
+                <span className="text-red-500 font-bold ">*</span>
+              </label>
+              <div className="mt-1">
+                <input
+                 value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                  id="email"
+                  name="email"
+                  type="email"
+                  autoComplete="email"
+                  placeholder={ fetchWord("contactemail", locale)}
+                  className={`py-2 px-4 block w-full shadow-sm ${"border-gray-100"} focus:ring-purple-600 focus:border-purple-600 border-2 rounded-md`}
+                />
+              </div>
+            </div>
+            <div>
+              <label
+                htmlFor="subject"
+                className="block text-sm font-medium text-gray-500"
+              >
+                 {fetchWord("contactsubject", locale)}
+                
+                <span className="text-red-500 font-bold ">*</span>
+              </label>
+              <div className="mt-1">
+                <input
+                 value={subject}
+                                    onChange={(e) => setSubject(e.target.value)}
+                  type="text"
+                  name="Subject"
+                  id="subject"
+                  autoComplete="family-name"
+                  placeholder= {fetchWord("contactsubject", locale)}
+                  className={`py-2 px-4 block w-full shadow-sm ${"border-gray-100"} focus:ring-purple-600 focus:border-purple-600 border-2 rounded-md`}
+                />
+              </div>
+            </div>
+
+            <div>
+              <div>
+                <label
+                  htmlFor="phone"
+                  className="block text-sm font-medium text-gray-500"
+                >
+                   {fetchWord("contactnumber", locale)}
+                  
+                   <span className="text-red-500 font-bold ">*</span>
+                </label>
+              </div>
+              <div className="mt-1">
+                <input
+                 value={phone}
+                                    onChange={(e) => setPhone(e.target.value)}
+                  type="text"
+                  name="phone"
+                  id="phone"
+                  autoComplete="tel"
+                  placeholder= {fetchWord("contactnumber", locale)}
+                  className={`py-2 px-4 block w-full shadow-sm ${"border-gray-100"} focus:ring-purple-600 focus:border-purple-600 border-2 rounded-md`}
+                  aria-describedby="phone-optional"
+                />
+              </div>
+            </div>
+
+            <div className="sm:col-span-2">
+              <div className="flex justify-between">
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-medium text-gray-500"
+                >
+                   {fetchWord("contactmessage", locale)}
+                  <span className="text-red-500 font-bold ">*</span>
+                </label>
+                <span
+                  id="message-max"
+                  className="text-sm text-warm-gray-500"
+                ></span>
+              </div>
+              <div className="mt-1">
+                <textarea
+                 value={message}
+                                    onChange={(e) => setMessage(e.target.value)}
+                  id="message"
+                  name="message"
+                  rows={4}
+                  className={`py-2 px-4 block w-full shadow-sm ${
+                    // errors.tenantMessage
+                    //   ? "border-red-500"
+                    // :
+
+                    "border-gray-100"
+                  } focus:ring-purple-600 focus:border-purple-600 border-2 rounded-md`}
+                  // {...register("tenantMessage", {
+                  //   required: "Message is required",
+                  // })}
+
+                  aria-describedby="message-max"
+                  placeholder= {fetchWord("contactmessage", locale)}
+                />
+                {/* {errors.tenantMessage && (
+                <p className="text-red-500 mt-2">
+                  {errors.tenantMessage.message}
+                </p>
+              )} */}
+              </div>
+            </div>
+            <div className="sm:col-span-2 sm:flex sm:justify-end lg:justify-center">
+              <button
+                disabled={isLoading}
+                type="submit"
+                className="mt-2 w-full inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white  bg-purple-100 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#BD8472] sm:w-auto disabled:cursor-not-allowed"
+              >
+                {isLoading ? "Sending Message" : "Send Message"}
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
+
+
   );
 };
 

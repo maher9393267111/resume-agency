@@ -15,8 +15,8 @@ export default function CardFeatures() {
       title: "بطاقة عمل واحدة",
       desc: "تحتاج  بطاقة واحدة فقط لتتمكن من مشاركة تفاصيل الاتصال الخاصة بك سواء كان ذلك في اجتماعات أو وجهًا لوجه أو عبر الإنترنت.",
       price: "100 ر.س",
-
-      image: "/silver-card.webp",
+image:"/lacicart.png"
+   //   image: "/silver-card.webp",
     },
     {
       title: "لمسة واحدة",
