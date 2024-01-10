@@ -39,6 +39,17 @@ sec2Title:'ابتعد عن الكروت الورقية التقليدية، وا
   navmenu:'',
   navhome:'',
   navcard:'',
+  registerPageTitle:' مستخدم جديد',
+  nameauth:'الاسم',
+  emailauth:' الايميل',
+  passwauth:'كلمة المرور',
+  welcomeRegister:'اهلا بك في Ultra Tech',
+  alreadyhaveaccoutn:"هل تملك حساب مسبقا",
+  signup:"اشترك",
+  login:'تسجيل دخول',
+  loginPageTitle:'صفحة تسجيل الدخول',
+  nothaveAcoount:'ليس لديك حساب؟',
+
   };
   export const getWordAr = (key) => {
     return ar[key];

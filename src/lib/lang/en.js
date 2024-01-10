@@ -39,7 +39,18 @@ export const en = {
 
   AboutSecOne:'Ultra Tech is a pioneer in the field of digital services, as we realize that providing innovative technological solutions is the only way to meet the needs and preferences of customers in a rapidly accelerating world. We constantly strive to keep pace with modern digital developments, and provide innovative solutions that enhance corporate operations and improve customer experience',
   AboutSecTwo:'In our mission to innovate, we provide effective digital products that range from creating informational websites, advanced electronic menus that support orders, and smart identification cards. We also take dynamic software development as a base to support large enterprises, startups, and Internet service providers by expanding the scope of cloud software solutions',
-  AboutSecThree:'Our company is distinguished by providing complete infrastructure and cost-effective business solutions, as our technical products and services seek to provide our customers with the necessary tools and procedures to develop their businesses and take them to new heights. We work passionately to ensure we meet our clients aspirations and contribute to their success in the digitally advanced business world'
+  AboutSecThree:'Our company is distinguished by providing complete infrastructure and cost-effective business solutions, as our technical products and services seek to provide our customers with the necessary tools and procedures to develop their businesses and take them to new heights. We work passionately to ensure we meet our clients aspirations and contribute to their success in the digitally advanced business world',
+
+  registerPageTitle:"Register",
+  nameauth:'name',
+  emailauth:"email",
+  passauth:'password',
+  welcomeRegister:'welcome to Ultra Tech',
+  alreadyhaveaccoutn:"already have account",
+  signup:"signup",
+  login:'login',
+  loginPageTitle:'Login page',
+  nothaveAcoount:'Dont have an account?'
 };
 
 export const getWordEn = (key) => {

@@ -1,4 +1,5 @@
 import { TranslateTwoTone } from '@mui/icons-material'
+import { MdOutlineGTranslate } from "react-icons/md";
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
@@ -12,7 +13,8 @@ const LangSwitcher = () => {
           aria-label='LangSwitcher'
           className='p-2  cursor-pointer rounded-lg '
         >
-          <TranslateTwoTone className='h-5 w-5' />
+          <MdOutlineGTranslate className=' w-12  text-black h-12'/>
+          {/* <TranslateTwoTone className='h-5 w-5' /> */}
         </button>
       </Link>
     </>
