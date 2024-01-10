@@ -35,7 +35,12 @@ export default function HomeBanner() {
                 transition={{ duration: 0.7 }}
                 initial={{ y: 50 }}
                 animate={{ y: 0 }}
-                className="text-2xl max-md:text-[18px] max-md:leading-[28px] mb-[40px] leading-8 text-[hsla(0,0%,100%,.8)]"
+                //  text-2xl max-md:text-[18px] max-md:leading-[28px] mb-[40px] leading-8 text-[hsla(0,0%,100%,.8)]
+                className="
+                text-xl leading-[31px] font-bold md:text-3xl md:leading-[47px]
+            text-white mb-4
+                
+                "
               >
                 {/* Bring together live classes, community, and payments- all on
                   Klas. */}

@@ -15,13 +15,8 @@ import Questions from "../components/Home/questions";
 
 import PageHeaders from "../components/common/pageHeaders";
 
-
 export default function PricesPage() {
   const { locale, asPath } = useRouter();
-
-
-
-
 
   console.log("locale", locale);
   const { dir } = useContext(UserContext);
@@ -38,89 +33,67 @@ export default function PricesPage() {
               gradient
             />
 
+            <div className="  mb-14 mt-12 px-8 container text-lg sm:text-xl font-semibold">
+              <h3 className="my-6 flex gap-2">
+                <svg
+                  className="w-[44px] md:mt-[5px] hidden md:block"
+                  width="16"
+                  height="17"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="m2.668 8.973 4 4 6.667-8"
+                    stroke="#1127E3"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                </svg>
 
-<div className="  mb-14 mt-12 px-8 container text-lg sm:text-xl font-semibold">
+                {fetchWord("AboutSecOne", locale)}
+              </h3>
 
-<h3 className="my-6 flex gap-2">
+              <h3 className="my-6 flex gap-2">
+                <svg
+                  className="w-[44px] md:mt-[5px] hidden md:block"
+                  width="16"
+                  height="17"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="m2.668 8.973 4 4 6.667-8"
+                    stroke="#1127E3"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                </svg>
 
+                {fetchWord("AboutSecTwo", locale)}
+              </h3>
 
-<svg
-className='w-[44px] md:mt-[5px] hidden md:block'
-                    
-                      width="16"
-                      height="17"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="m2.668 8.973 4 4 6.667-8"
-                        stroke="#1127E3"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      ></path>
-                    </svg>
+              <h3 className="my-6 flex gap-2">
+                <svg
+                  className="w-[44px]  hidden md:block md:mt-[5px]"
+                  width="16"
+                  height="17"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="m2.668 8.973 4 4 6.667-8"
+                    stroke="#1127E3"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                </svg>
 
-
-    {fetchWord("AboutSecOne" ,locale)}
-    
-    
-    </h3>
-
-
-<h3 className="my-6 flex gap-2">
-    
-<svg
-className='w-[44px] md:mt-[5px] hidden md:block'
-                    
-                      width="16"
-                      height="17"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="m2.668 8.973 4 4 6.667-8"
-                        stroke="#1127E3"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      ></path>
-                    </svg>
-
-
-    
-    
-    {fetchWord("AboutSecTwo" ,locale)}</h3>
-
-
-<h3 className="my-6 flex gap-2">
-    
-<svg
-className='w-[44px]  hidden md:block md:mt-[5px]'
-                    
-                      width="16"
-                      height="17"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="m2.668 8.973 4 4 6.667-8"
-                        stroke="#1127E3"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      ></path>
-                    </svg>
-    
-    
-    {fetchWord("AboutSecThree" ,locale)}</h3>
-
-</div>
-
-
-
-            
-
+                {fetchWord("AboutSecThree", locale)}
+              </h3>
+            </div>
           </AnimationOnView>
         </div>
       </main>

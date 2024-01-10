@@ -18,6 +18,7 @@ import Services from "../components/Home/services";
 import Prices from "../components/Home/price";
 import Questions from "../components/Home/questions";
 import ContactHome from "../components/Home/homeContact";
+import Sec2 from '../components/Home/sect2'
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
@@ -33,15 +34,21 @@ export default function Home() {
           <HomeBanner />
 
           <AnimationOnView>
-            <Featurs />
+            <Sec2/>
 
-            <Services />
+            
+            {/* <Featurs /> */}
 
-            <Prices />
+            {/* <Services /> */}
+
+            {/* <Prices /> */}
 
             <Questions />
 
-            <ContactHome />
+            {/* <ContactHome /> */}
+
+
+
           </AnimationOnView>
         </div>
       </main>

@@ -151,7 +151,7 @@ export default function Questions() {
 
 
   return (
-    <div dir={dir}  className={`${locale ==='ar' && 'arabicfont'} container mb-14 pt-14  sm:my-24`}>
+    <div dir={dir}  className={`${locale ==='ar' && 'arabicfont'} container mb-24 pb-24 pt-14  mt-4 mb-[60px]`}>
       <div  variants={textVariant()}>
         <p className=" text-[32px] leading-[42px] font-bold text-center md:text-5xl md:leading-[62px] shimmer   ">
           {fetchWord('questionsTitle',locale)}

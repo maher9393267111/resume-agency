@@ -3,12 +3,15 @@
 import Link from "next/link";
 
 // import { SmallLogo } from "./Logo";
-import { useState } from "react";
+
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { fetchWord } from "@/src/lib/lang/fetchWord";
+import LangSwitcher from "./langSwitcher";
+import { UserContext } from "@/src/context";
+import { useContext, useState } from "react";
 
-export const NavLinks = [
+const NavLinks = [
   {
     name: "Home",
     url: "/",
@@ -40,7 +43,7 @@ export const NavLinks = [
   },
 ];
 
-export const ArNavLinks = [
+ const ArNavLinks = [
   {
     name: "الرئسية",
     url: "/",
@@ -79,8 +82,11 @@ const Header = () => {
 
   const currentLinks = locale === "ar" ? ArNavLinks : NavLinks;
 
+  const { dir } = useContext(UserContext);
+
+
   return (
-    <div className={`${locale === "ar" && "arabicfont"}`}>
+    <div dir={dir} className={`${locale === "ar" && "arabicfont"}`}>
       <div className="header absolute-center container top-10 z-20">
         <header className="z-50">
           <div className="py-3 px-7 tab-800:px-10 bg-white rounded-[50px] border border-[#00000014] flex justify-between w-full items-center">
@@ -120,8 +126,18 @@ const Header = () => {
               >
                 {fetchWord("register", locale)}
               </Link>
+
+              {/* <div>
+                <LangSwitcher/>
+              </div> */}
+
+
+
             </div>
+
+            <div className=" flex gap-2 items-center">
             <div
+
               onClick={() => setIsOpen(!isOpen)}
               className="tab-800:hidden cursor-pointer"
             >
@@ -153,6 +169,20 @@ const Header = () => {
                   ></path>
                 </svg>
               )}
+
+              
+
+
+            </div>
+
+            <div className=" lg:hidde">
+
+<LangSwitcher/>
+
+
+
+</div>
+
             </div>
           </div>
         </header>

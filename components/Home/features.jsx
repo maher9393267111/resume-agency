@@ -28,7 +28,7 @@ export const Features_en = {
 };
 
 export const Features_ar = {
-   name: "",
+  name: "",
   text: {
     heading: "",
     list: [
@@ -45,25 +45,18 @@ export const Features_ar = {
   reverse: true,
 };
 
-
-
 const feature_twoEn = {
   title: "digital QR menu",
-
 
   text: {
     heading: "Its easy to create an interactive digital QR menu",
 
-
-  list: [
-    "Quickly add, edit or update your list from our system. A QR code will be generated for a digital menu. Diners can simply scan the QR code to load the menu into their devices",
-    "Are you looking for digital menus to replace printed menus?",
-    "Send us your list and we will build one for you.",
-  ],
-
-
-},
-
+    list: [
+      "Quickly add, edit or update your list from our system. A QR code will be generated for a digital menu. Diners can simply scan the QR code to load the menu into their devices",
+      "Are you looking for digital menus to replace printed menus?",
+      "Send us your list and we will build one for you.",
+    ],
+  },
 
   img: "/details-2.png",
   color: "#fff",
@@ -72,20 +65,16 @@ const feature_twoEn = {
 const feature_twoAr = {
   title: " قائمة QR",
 
-
-  
   text: {
     heading: "من السهل إنشاء قائمة QR رقمية تفاعلية",
 
-  list: [
-    "قم بإضافة أو تعديل أو تحديث قائمتك من نظامنا بسرعة. سيتم إنشاء رمز الاستجابة السريعة لقائمة رقمية. يمكن لداينرز ببساطة مسح رمز الاستجابة السريعة لتحميل القائمة في أجهزتهم.",
-    "هل تبحث عن قوائم رقمية لتحل محل القوائم المطبوعة؟",
-    "أرسل إلينا قائمتك وسنقوم ببناء واحدة لك.",
-    "/details-2.png",
-  ],
-
-}
-,
+    list: [
+      "قم بإضافة أو تعديل أو تحديث قائمتك من نظامنا بسرعة. سيتم إنشاء رمز الاستجابة السريعة لقائمة رقمية. يمكن لداينرز ببساطة مسح رمز الاستجابة السريعة لتحميل القائمة في أجهزتهم.",
+      "هل تبحث عن قوائم رقمية لتحل محل القوائم المطبوعة؟",
+      "أرسل إلينا قائمتك وسنقوم ببناء واحدة لك.",
+      "/details-2.png",
+    ],
+  },
   img: "/details-2.png",
 
   color: "#fff",
@@ -102,7 +91,10 @@ export default function Features() {
 
   //   featurestitle
   return (
-    <div dir={dir} className={`${locale === "ar" && "arabicfont"}  sm:my-32 my:16`}>
+    <div
+      dir={dir}
+      className={`${locale === "ar" && "arabicfont"}  sm:my-32 my:16`}
+    >
       <div className="flex flex-col items-center justify-center">
         <div className=" flex-col gap-4  items-center justify-center container">
           <h1 className="text-[32px] leading-[42px] font-bold text-center md:text-5xl md:leading-[62px] shimmer">

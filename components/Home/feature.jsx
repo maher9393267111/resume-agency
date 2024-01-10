@@ -32,17 +32,17 @@ const Feature = ({ data }) => {
 
   
   return (
-    <div className="mb-[16px] ">
+    <div className="mb-[16px]   pb-4">
       <div
         className={`flex w-[98%]  md:w-[90%] mx-auto flex-col items-center gap-[7px] lg-1150:gap-[10px] ${
           data.reverse ? "md:flex-row-reverse" : "md:flex-row"
         }`}
       >
-        <div className="flex-1">
+        <div className="flex-1 px-14  ">
           <img src={data.img} alt={data.name} />
         </div>
-        <div className="lg-1150:w-485px flex flex-col gap-[24px] flex-1">
-          <h3 className="text-xl leading-[31px] font-bold md:text-4xl md:leading-[47px]">
+        <div className="lg-1150:w-485px px-14 mt-4 flex flex-col gap-[24px] flex-1">
+          <h3 className="text-xl leading-[31px] font-bold md:text-3xl md:leading-[47px]">
             {data.text.heading}
           </h3>
           <ul className="text-lg  leading-[23px] md:text-[20px] md:leading-[26px] font-normal flex flex-col gap-[20px]">
