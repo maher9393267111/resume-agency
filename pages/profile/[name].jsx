@@ -134,7 +134,7 @@ min-h-[70vh]  pb-12 relative top-3 mb-10 mx-4 md:mx-10 lg:mx-[100px] xl:mx-[140p
               className=" relative text-center w-[80%] pb-[12px] pt-[20px] rounded-md mx-auto mt-1  bg-cover    ">
 
 
-{about?.bgImage && <div className="relative h-auto"> 
+{about?.bgImage && <div className="relative  min-h-[400px]"> 
 
 <img className="  h-full w-full  object-cover object-center z-10" src={`${ImageEndpoint}/${about?.bgImage}`} alt="" />
 
@@ -177,12 +177,12 @@ min-h-[70vh]  pb-12 relative top-3 mb-10 mx-4 md:mx-10 lg:mx-[100px] xl:mx-[140p
                   About me
                 </h4>
 
-                <p className=" text-sm md:text-xl break-words mx-auto !w-full ">
+                <p className=" text-sm font-semibold md:text-xl break-words mx-auto !w-full ">
                   {about?.desc}
                 </p>
 
                 <div className=" my-4 md:my-12">
-                  <div className=" flex  flex-wrap  lg:justify-between  items-center gap-12">
+                  <div className=" flex  flex-wrap    justify-center  items-center gap-12">
                     {about?.facebook && (
                       <div
                         style={{
