@@ -496,7 +496,7 @@ function AboutPage({ user, userdata }) {
                   value={iconColor}
                   onChange={handleIconColorChange}
                 />
-                
+
 
                 {/* 
                 <SketchPicker
@@ -509,6 +509,7 @@ function AboutPage({ user, userdata }) {
 
               <div className="mt-6   md:mt-0">
                 <h2 className="my-2">Text Color</h2>
+                {textColor}
                 <MuiColorInput
                   value={textColor}
                   onChange={handleTextolorChange}
