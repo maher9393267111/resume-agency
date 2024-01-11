@@ -82,17 +82,17 @@ function AboutPage({ user, userdata }) {
   const [headSelectedImage, setHeadSelectedImage] = useState(null);
 
   const handleColorChange = (newColor) => {
-    setThemeColor(newColor);
+    setThemeColor(newColor.hex);
   };
 
   const handleIconColorChange = (newColor) => {
-    setIconColor(newColor);
+    setIconColor(newColor.hex);
   };
 
   // handleTextolorChange
 
   const handleTextolorChange = (newColor) => {
-    setTextColor(newColor);
+    setTextColor(newColor.hex);
   };
 
   const submitHandler = async (e) => {
@@ -478,48 +478,52 @@ function AboutPage({ user, userdata }) {
               <div className="">
                 <h2 className="my-2">Theme Color</h2>
 
-                {/* <SketchPicker
+                <SketchPicker
                   
                   color={themeColor}
                   onChangeComplete={handleColorChange}
-                /> */}
-                <MuiColorInput
+                />
+
+
+                {/* <MuiColorInput
                   value={themeColor}
                   onChange={handleColorChange}
-                />
+                /> */}
               </div>
 
               <div className="mt-6   md:mt-0">
                 <h2 className="my-2">Icons Buttons</h2>
 
-                <MuiColorInput
+                {/* <MuiColorInput
                   value={iconColor}
                   onChange={handleIconColorChange}
-                />
+                /> */}
 
 
-                {/* 
+                 
                 <SketchPicker
                   // HuePicker
                   color={iconColor}
                   onChangeComplete={handleIconColorChange}
                 />
- */}
-              </div>
+ 
+             </div>
 
               <div className="mt-6   md:mt-0">
                 <h2 className="my-2">Text Color</h2>
-                {textColor}
+                {/* {textColor}
                 <MuiColorInput
                   value={textColor}
                   onChange={handleTextolorChange}
-                />
+                /> */}
 
-                {/* <SketchPicker
+
+
+                <SketchPicker
                   // HuePicker
                   color={textColor}
                   onChangeComplete={handleTextolorChange}
-                /> */}
+                />
               </div>
             </div>
 
