@@ -144,7 +144,7 @@ function AboutPage({ user, userdata }) {
           : headImage,
         bgImage: bgSelectedImage
           ? await handleUploadImage(bgSelectedImage, "bgImage")
-          : headImage,
+          : bgImage,
       });
 
       console.log("AboutResponse Data", data);

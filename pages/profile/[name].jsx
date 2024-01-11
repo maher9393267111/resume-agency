@@ -83,7 +83,7 @@ min-h-[70vh]  pb-12 relative top-3 mb-10 mx-4 md:mx-10 lg:mx-[100px] xl:mx-[140p
         ></div>
 
         {/* ---user Image--- */}
-        <div className="aspect-square border-4 border-gray-100 rounded-full w-[140px] h-[140px]  md:w-[222px] md:h-[222px] mx-auto relative   top-[-140px]">
+        <div className="aspect-square border-4 border-gray-100 rounded-full w-[140px] h-[140px]  md:w-[222px] md:h-[222px] mx-auto relative   top-[-130px]">
           <Image
             src={
               about?.myImage
@@ -131,12 +131,12 @@ min-h-[70vh]  pb-12 relative top-3 mb-10 mx-4 md:mx-10 lg:mx-[100px] xl:mx-[140p
               // }}
 
 
-              className=" relative text-center w-[80%] pb-[12px] pt-[20px] rounded-md mx-auto mt-1  bg-cover    ">
+              className=" relative text-center w-[80%] pb-[12px] pt-[20px] rounded-md mx-auto mt-1     ">
 
 
 {about?.bgImage && <div className="relative  min-h-[400px]"> 
 
-<img className="  h-full w-full  object-cover object-center z-10" src={`${ImageEndpoint}/${about?.bgImage}`} alt="" />
+<img className=" !min-h-[400px]  !h-full !w-full  object-cover object-center z-10" src={`${ImageEndpoint}/${about?.bgImage}`} alt="" />
 
 
 
