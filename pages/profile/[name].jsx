@@ -451,9 +451,6 @@ min-h-[70vh]  pb-12 relative top-3 mb-10 mx-4 md:mx-10 lg:mx-[100px] xl:mx-[140p
                   />
                 </a>
 
-
-
-
                 <a
                   href={`mailto:?subject=sahre&body=Share your website: ${domainUrl}/${name}`}
                   target="_blank"
@@ -466,10 +463,7 @@ min-h-[70vh]  pb-12 relative top-3 mb-10 mx-4 md:mx-10 lg:mx-[100px] xl:mx-[140p
                   />
                 </a>
 
-
-
-
-{/* 
+                {/* 
                 <img
                   className="w-12 h-12 object-cover"
                   src="/whatsapp.png"
@@ -481,8 +475,6 @@ min-h-[70vh]  pb-12 relative top-3 mb-10 mx-4 md:mx-10 lg:mx-[100px] xl:mx-[140p
                   src="/twit.png"
                   alt=""
                 /> */}
-
-
               </div>
             </motion.div>
           </div>

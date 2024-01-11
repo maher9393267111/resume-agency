@@ -21,6 +21,7 @@ import { ImageEndpoint, defaultImage } from "../../../src/lib/globall";
 import DriveFolderUploadIcon from "@mui/icons-material/DriveFolderUpload";
 import DeleteIcon from "@mui/icons-material/Delete";
 import ImageIcon from "@mui/icons-material/Image";
+import { MuiColorInput } from 'mui-color-input'
 
 function AboutPage({ user, userdata }) {
   console.log("userPrisma", userdata);
@@ -81,17 +82,17 @@ function AboutPage({ user, userdata }) {
   const [headSelectedImage, setHeadSelectedImage] = useState(null);
 
   const handleColorChange = (newColor) => {
-    setThemeColor(newColor.hex);
+    setThemeColor(newColor);
   };
 
   const handleIconColorChange = (newColor) => {
-    setIconColor(newColor.hex);
+    setIconColor(newColor);
   };
 
   // handleTextolorChange
 
   const handleTextolorChange = (newColor) => {
-    setTextColor(newColor.hex);
+    setTextColor(newColor);
   };
 
   const submitHandler = async (e) => {
@@ -473,35 +474,46 @@ function AboutPage({ user, userdata }) {
 
             {/* ----------colors----- */}
 
-            <div className=" lg:flex-row flex flex-col gap-4  max-w-md  ">
+            <div className=" lg:flex-row flex flex-col gap-12 justify-center  max-w-md  ">
               <div className="">
                 <h2 className="my-2">Theme Color</h2>
 
-                <SketchPicker
-                  // HuePicker
+                {/* <SketchPicker
+                  
                   color={themeColor}
                   onChangeComplete={handleColorChange}
-                />
+                /> */}
+ <MuiColorInput value={themeColor} onChange={handleColorChange} />
+
+
               </div>
 
               <div className="mt-6   md:mt-0">
-                <h2 className="my-2">Icons and Buttons Color</h2>
+                <h2 className="my-2">Icons Buttons</h2>
 
+                <MuiColorInput value={iconColor} onChange={handleIconColorChange} />
+
+
+{/* 
                 <SketchPicker
                   // HuePicker
                   color={iconColor}
                   onChangeComplete={handleIconColorChange}
                 />
+ */}
+
+
               </div>
 
               <div className="mt-6   md:mt-0">
                 <h2 className="my-2">Text Color</h2>
+                <MuiColorInput value={textColor} onChange={handleTextolorChange} />
 
-                <SketchPicker
+                {/* <SketchPicker
                   // HuePicker
                   color={textColor}
                   onChangeComplete={handleTextolorChange}
-                />
+                /> */}
               </div>
             </div>
 
