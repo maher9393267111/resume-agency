@@ -58,12 +58,13 @@ export default function SlidersPage({ user, sliders }) {
   };
 
   const handleSelect = (item) => {
+
     console.log(item);
     setOpen(true);
     setIsEdit(true);
     setTitle(item?.title);
     setDesc(item?.desc);
-    setImage(item.link);
+    setImage(item?.link);
     setId(item?.id);
   };
 
@@ -310,7 +311,9 @@ export default function SlidersPage({ user, sliders }) {
                               objectFit="fit"
                               className=""
                               src={`${ImageEndpoint}/${project?.link}`}
+
                             />
+                        
                           </td>
                           {/* <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
     {project?.themeColor}

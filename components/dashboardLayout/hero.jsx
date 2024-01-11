@@ -46,7 +46,8 @@ export default function Hero({title ,user}) {
                 ${user?.name}
                 !`
                 : `Welcome Back ${user?.name}!`} */}
-welcome
+
+Welcome {user?.name}
 
             </Typography>
 
@@ -54,7 +55,7 @@ welcome
               Let start by creating 
             </Typography>
 
-            <Link href="/dashboard/create-poll" passHref>
+            {/* <Link href="/dashboard/create-poll" passHref>
               <Button
                 variant="contained"
                 component="a"
@@ -62,10 +63,12 @@ welcome
                 color="primary"
                 endIcon={<AddIcon />}
               >
-                {/* Create a Poll */}
+                
                 {title}
               </Button>
-            </Link>
+            </Link> */}
+
+
           </Grid>
 
           <Hidden smDown>

@@ -53,31 +53,38 @@ const navigation = {
     },
   ],
 
+
+  "Twitter": null,
+  "Instagram":"https://www.instagram.com/logic.4tech/?hl=ar",
+  "Facebook": "https://www.facebook.com/profile.php?id=61554600908983",
+  "website":"https://www.getmenu.ps", 
+
+
   social: [
     {
       name: "Twitter",
-      href: "https://twitter.com/driwwwle",
+      href: null,
       icon: (props) => <FaTwitter {...props} />,
     },
     {
       name: "Facebook",
-      href: "https://github.com/itsnitinr/driwwwle-v2",
+      href: "https://www.facebook.com/profile.php?id=61554600908983",
       icon: (props) => <FaFacebook {...props} />,
     },
     {
       name: "Whatsapp",
-      href: "https://discord.gg/YER2pF6CZS",
+      href: null,
       icon: (props) => <FaWhatsapp {...props} />,
     },
     {
       name: "Telgram",
-      href: "https://discord.gg/YER2pF6CZS",
+      href: null,
       icon: (props) => <FaTelegram {...props} />,
     },
 
     {
       name: "Instagram",
-      href: "https://discord.gg/YER2pF6CZS",
+      href: "https://www.instagram.com/logic.4tech/?hl=ar",
       icon: (props) => <FaInstagram {...props} />,
     },
   ],
@@ -109,6 +116,7 @@ const Footer = () => {
         <div className="mt-8 flex justify-center space-x-6">
           {navigation.social.map((item) => (
             <a
+            target="_blank"
               key={item.name}
               href={item.href}
               className="text-gray-400 hover:text-gray-500"

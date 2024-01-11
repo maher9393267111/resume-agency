@@ -19,6 +19,7 @@ import { prisma } from "../../../src/lib/prisma";
 import { HuePicker, SketchPicker } from "react-color";
 import { ImageEndpoint, defaultImage } from "../../../src/lib/globall";
 import DriveFolderUploadIcon from "@mui/icons-material/DriveFolderUpload";
+import DeleteIcon from "@mui/icons-material/Delete";
 import ImageIcon from "@mui/icons-material/Image";
 
 function AboutPage({ user, userdata }) {
@@ -52,6 +53,13 @@ function AboutPage({ user, userdata }) {
   const [headImage, setheadImage] = useState(
     userdata?.about[0]?.headImage || ""
   );
+
+  //BG IMAGE
+  const [bgImage, setBgImage] = useState(userdata?.about[0]?.bgImage || "");
+  const [bgpreviewImage, setBgPreviewImage] = useState(null);
+
+  const [bgSelectedImage, setBgSelectedImage] = useState(null);
+
   const [twitter, setTwitter] = useState(userdata?.about[0]?.twitter || "");
   const [facebook, setFacebook] = useState(userdata?.about[0]?.facebook || "");
   const [themeColor, setThemeColor] = useState(
@@ -130,9 +138,12 @@ function AboutPage({ user, userdata }) {
         video,
         myImage: selectedImage
           ? await handleUploadImage(selectedImage, "myImage")
-          : myImage,
+          : myImage ,
         headImage: headSelectedImage
           ? await handleUploadImage(headSelectedImage, "headImage")
+          : headImage,
+        bgImage: bgSelectedImage
+          ? await handleUploadImage(bgSelectedImage, "bgImage")
           : headImage,
       });
 
@@ -160,6 +171,18 @@ function AboutPage({ user, userdata }) {
     setHeadPreviewImage(URL.createObjectURL(file)); // Create a preview URL for the selected image
   };
 
+  const handleBgImageSelect = (e) => {
+    const file = e.target.files[0];
+    setBgSelectedImage(file);
+    setBgPreviewImage(URL.createObjectURL(file)); // Create a preview URL for the selected image
+  };
+
+  const handleResetMyImage = () => {
+    setSelectedImage("");
+    setPreviewImage("");
+    setMyImage("");
+  };
+
   const handleUploadImage = async (selected, imagetype, collection) => {
     try {
       const formData = new FormData();
@@ -171,10 +194,14 @@ function AboutPage({ user, userdata }) {
       const oldfile =
         imagetype === "myImage"
           ? userdata?.about[0]?.myImage
+          : imagetype === "bgImage"
+          ? userdata?.about[0]?.bgImage
           : userdata?.about[0]?.headImage;
 
-      const size = imagetype === "myImage" ? 200 : 900;
-      const hieghtSize = imagetype === "myImage" ? 200 : 900;
+      const size =
+        imagetype === "myImage" ? 200 : imagetype === "bgImage" ? 1000 : 900;
+      const hieghtSize =
+        imagetype === "myImage" ? 200 : imagetype === "bgImage" ? 700 : 900;
 
       console.log("HEIGHTHH", hieghtSize);
 
@@ -287,6 +314,9 @@ function AboutPage({ user, userdata }) {
                       className="hidden"
                     />
                   </label>
+                  {/* <div>
+                    <DeleteIcon className=" top-2 right-2 rounded-full text-indigo-500 absolute" />
+                  </div> */}
                 </div>
               </div>
 
@@ -312,6 +342,34 @@ function AboutPage({ user, userdata }) {
                     <input
                       type="file"
                       onChange={handleHeadImageSelect}
+                      className="hidden"
+                    />
+                  </label>
+                </div>
+              </div>
+
+              <div className=" w-[200px] h-[200px] object-cover ">
+                <h1 className=" mb-2">Upload Background image</h1>
+
+                <div className=" relative">
+                  <img
+                    className=" object-cover w-full h-full"
+                    src={
+                      bgpreviewImage
+                        ? bgpreviewImage
+                        : bgImage
+                        ? `${ImageEndpoint}/${bgImage}`
+                        : defaultImage
+                    }
+                    alt=""
+                  />
+
+                  <label>
+                    <ImageIcon className=" top-2 left-2 rounded-full text-indigo-500 absolute" />
+
+                    <input
+                      type="file"
+                      onChange={handleBgImageSelect}
                       className="hidden"
                     />
                   </label>

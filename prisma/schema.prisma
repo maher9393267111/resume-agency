@@ -63,6 +63,7 @@ model About {
   desc       String  @db.VarChar(255)   @default("")
   myImage    String   @default("")
   headImage  String   @default("")
+  bgImage  String   @default("")
   link       String   @default("")
   work       String   @default("")
   phone      String   @default("")

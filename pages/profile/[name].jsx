@@ -15,7 +15,8 @@ import SectionBox from "../../components/profile/sectionBox";
 import SliderImages from "../../components/profile/sliderImages";
 import Image from "next/image";
 import ReactPlayer from "react-player";
-import { HiOutlineDocumentDownload } from "react-icons/hi";
+import { HiOutlineDocumentDownload  } from "react-icons/hi";
+
 
 import {
   FaFacebookF,
@@ -54,19 +55,22 @@ export default function ProfileNamePages({ name, userdata }) {
   return (
     <div
       style={{ color: `${about?.textColor}` }}
-      className={`bg-gray-200 
+      className={`bg-gray-50 
 
     
     text-blue-90 py-3  font-semibold`}
     >
       <SectionBox
+  
+      
+      
         themeColor={about?.themeColor}
         className={`
 
 
 
 
-min-h-[70vh]  pb-12 relative top-3 mb-10 mx-4 md:mx-10 lg:mx-[100px] xl:mx-[140px] shadow-md rounded-xl  shadow-2xl`}
+min-h-[70vh]  pb-12 relative top-3 mb-10 mx-4 md:mx-10 lg:mx-[100px] xl:mx-[140px]  rounded-xl  shadow-2xl`}
       >
         <div
           className=" cover-image  h-[290px]  bg-cover  bg-center"
@@ -79,7 +83,7 @@ min-h-[70vh]  pb-12 relative top-3 mb-10 mx-4 md:mx-10 lg:mx-[100px] xl:mx-[140p
         ></div>
 
         {/* ---user Image--- */}
-        <div className="aspect-square border-4 border-gray-100 rounded-full w-[190px] h-[190px]  md:w-[222px] md:h-[222px] mx-auto relative   top-[-140px]">
+        <div className="aspect-square border-4 border-gray-100 rounded-full w-[140px] h-[140px]  md:w-[222px] md:h-[222px] mx-auto relative   top-[-140px]">
           <Image
             src={
               about?.myImage
@@ -96,9 +100,15 @@ min-h-[70vh]  pb-12 relative top-3 mb-10 mx-4 md:mx-10 lg:mx-[100px] xl:mx-[140p
         {/* ----about Section---- */}
 
         <motion.div
-          className="-mt-20"
+          className="-mt-20  bg-center   bg-cover pb-12  "
           whileInView={{ x: [-100, 50, 0], opacity: [0, 2, 1] }}
           transition={{ duration: 0.8 }}
+          // style={{
+          //   backgroundImage: `url(${
+          //     (about?.bgImage && `${ImageEndpoint}/${about?.bgImage}`) ||
+          //     defaultImage
+          //   })`,
+          // }}
 
           //   variants={fadeIn("up", 0.2)}
           //   initial="hidden"
@@ -111,10 +121,37 @@ min-h-[70vh]  pb-12 relative top-3 mb-10 mx-4 md:mx-10 lg:mx-[100px] xl:mx-[140p
           {/* ------About Section--- */}
           <div>
             {about !== undefined && (
-              <div className=" text-center w-[80%] mx-auto mt-1 ">
-                <h1 className=" text-2xl md:text-4xl  mb-6">{about?.title}</h1>
+              <div
+              
+              // style={{
+              //   backgroundImage: `url(${
+              //     (about?.bgImage && `${ImageEndpoint}/${about?.bgImage}`) ||
+              //     defaultImage
+              //   })`,
+              // }}
 
-                <h3 className=" text-md md:text-3xl mb-8">{about?.work}</h3>
+
+              className=" relative text-center w-[80%] pb-[12px] pt-[20px] rounded-md mx-auto mt-1  bg-cover    ">
+
+
+{about?.bgImage && <div className="relative h-auto"> 
+
+<img className="  h-full w-full  object-cover object-center z-10" src={`${ImageEndpoint}/${about?.bgImage}`} alt="" />
+
+
+
+<div className=" top-0 absolute w-full h-full">
+
+
+                {about?.title && (
+                  <h1 className=" text-2xl md:text-4xl mt-4  mb-6">
+                    {about?.title}
+                  </h1>
+                )}
+
+                {about?.work && (
+                  <h3 className=" text-md md:text-3xl mb-8">{about?.work}</h3>
+                )}
 
                 {/* ---pff resume link--- */}
 
@@ -274,7 +311,24 @@ min-h-[70vh]  pb-12 relative top-3 mb-10 mx-4 md:mx-10 lg:mx-[100px] xl:mx-[140p
                   </div>
                 </div>
               </div>
+
+
+
+</div>}
+
+
+
+
+              </div>
+
+
+
+
+
             )}
+
+
+
 
             {/* ------- Projects Accordion ---- */}
 

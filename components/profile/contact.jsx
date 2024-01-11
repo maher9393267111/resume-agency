@@ -99,10 +99,8 @@ const sendMessage = async (data) => {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 id="name"
-                // bg-white border border-gray-300
-                style={{borderColor:color }}
-                className="flex items-center w-full h-10 pl-3 text-sm font-normal
-                    bg-white shadow-lg text-deep focus:outline-none  rounded-md placeholder-black text-black"
+                style={{borderColor:`${iconColor}`,}}
+                className={`flex items-center w-full h-10 pl-3 text-sm font-normal bg-whit borde  shadow-xl rounded-md  text-deep focus:outline-non  focus:border-none  focus:ring-[${iconColor}] placeholder-black text-black `}
                 placeholder="Full Name  "
               />
             </div>
@@ -115,13 +113,14 @@ const sendMessage = async (data) => {
                 Email
               </label>
               <input
+              
                 type="email"
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 id="email"
-                style={{borderColor:color }}
-                className="flex items-center w-full h-10 pl-3 text-sm font-normal bg-white border  shadow-xl rounded-md  text-deep focus:outline-none placeholder-black text-black"
+                style={{borderColor:`${iconColor}`,}}
+                className={`flex items-center w-full h-10 pl-3 text-sm font-normal bg-whit borde  shadow-xl rounded-md  text-deep focus:outline-non  focus:border-none  focus:ring-[${iconColor}] placeholder-black text-black `}
                 placeholder="email@example.com"
               />
             </div>
@@ -137,11 +136,12 @@ const sendMessage = async (data) => {
                 type="tel"
                 required
                 id="number"
-                style={{borderColor:color }}
+                
                 value={number}
 
                 onChange={(e) => setNumber(e.target.value)}
-                className="flex items-center w-full h-10 pl-3 text-sm font-normal bg-white border  shadow-xl rounded  text-deep focus:outline-none placeholder-black text-black"
+                style={{borderColor:`${iconColor}`,}}
+                className={`flex items-center w-full h-10 pl-3 text-sm font-normal bg-whit borde  shadow-xl rounded-md  text-deep focus:outline-non  focus:border-none  focus:ring-[${iconColor}] placeholder-black text-black `}
                 placeholder="Contact Number"
               />
             </div>
@@ -157,10 +157,11 @@ const sendMessage = async (data) => {
                 id="message"
                 name="message"
                 required
-                style={{color:textColor }}
+               
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
-                className="py-3 pl-3 text-sm  bg-transparent border border-gray-300 rounded shadow-xl  !bg-white resize-none focus:outline-none text-deep placeholder-black text-black "
+                style={{borderColor:`${iconColor}`,}}
+                className={`flex items-center w-full h-10 pl-3 text-sm font-normal bg-whit borde  shadow-xl rounded-md  text-deep focus:outline-non  focus:border-none  focus:ring-[${iconColor}] placeholder-black text-black `}
                 placeholder="Message"
                 rows={5}
               />

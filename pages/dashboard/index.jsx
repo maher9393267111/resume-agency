@@ -62,7 +62,7 @@ const DashboardPage = ({ user, polls }) => {
               Let start by creating 
             </Typography>
 
-            <Link href="/dashboard/create-poll" passHref>
+            {/* <Link href="/dashboard/create-poll" passHref>
               <Button
                 variant="contained"
                 component="a"
@@ -72,7 +72,7 @@ const DashboardPage = ({ user, polls }) => {
               >
                 Create a Poll
               </Button>
-            </Link>
+            </Link> */}
           </Grid>
 
           <Hidden smDown>
