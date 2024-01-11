@@ -134,9 +134,9 @@ min-h-[70vh]  pb-12 relative top-3 mb-10 mx-4 md:mx-10 lg:mx-[100px] xl:mx-[140p
               className=" relative text-center w-[80%] pb-[12px] pt-[20px] rounded-md mx-auto mt-1     ">
 
 
-{about?.bgImage && <div className="relative  min-h-[400px]"> 
+{about?.bgImage && <div className="relative  min-h-[500px]"> 
 
-<img className=" !min-h-[400px]  !h-full !w-full  object-cover object-center z-10" src={`${ImageEndpoint}/${about?.bgImage}`} alt="" />
+<img className=" !min-h-[500px]  !h-full !w-full  object-cover object-center z-10" src={`${ImageEndpoint}/${about?.bgImage}`} alt="" />
 
 
 
