@@ -22,15 +22,16 @@ import SectionOne from "../components/Card/sectionOne";
 import CardFeatures from "../components/Card/CardFeatures";
 import SectionTwo from "../components/Card/sectionTwo";
 import SectionThree from "../components/Card/section3";
+import { getUser } from "../src/lib/getUser";
 
-export default function SmartCard() {
+export default function SmartCard({user}) {
   const { locale, asPath } = useRouter();
 
   console.log("locale", locale);
   const { dir } = useContext(UserContext);
 
   return (
-    <ClientLayout>
+    <ClientLayout user={user}>
       <main dir={dir} id="main_page " className={`englishfont`}>
         <div className=" ">
           <AnimationOnView>
@@ -56,3 +57,16 @@ export default function SmartCard() {
     </ClientLayout>
   );
 }
+
+
+
+export const getServerSideProps = async ({ req, res }) => {
+  const user = await getUser(req, res);
+
+ 
+
+
+  return {
+    props: {user},
+  };
+};

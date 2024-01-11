@@ -11,18 +11,18 @@ import { AnimationOnView } from "@/src/lib/animateView";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import ContactForm from '../components/Home/homeContact'
-
+import { getUser } from "../src/lib/getUser";
 
 import PageHeaders from "../components/common/pageHeaders";
 
-export default function PricesPage() {
+export default function PricesPage(user) {
   const { locale, asPath } = useRouter();
 
   console.log("locale", locale);
   const { dir } = useContext(UserContext);
 
   return (
-    <ClientLayout>
+    <ClientLayout user={user}>
       <main dir={dir} id="main_page " className={`englishfont`}>
         <div className=" ">
           <AnimationOnView>
@@ -45,3 +45,16 @@ export default function PricesPage() {
     </ClientLayout>
   );
 }
+
+
+
+export const getServerSideProps = async ({ req, res }) => {
+  const user = await getUser(req, res);
+
+ 
+
+
+  return {
+    props: {user},
+  };
+};
