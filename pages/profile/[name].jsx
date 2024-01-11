@@ -15,8 +15,7 @@ import SectionBox from "../../components/profile/sectionBox";
 import SliderImages from "../../components/profile/sliderImages";
 import Image from "next/image";
 import ReactPlayer from "react-player";
-import { HiOutlineDocumentDownload  } from "react-icons/hi";
-
+import { HiOutlineDocumentDownload } from "react-icons/hi";
 
 import {
   FaFacebookF,
@@ -52,6 +51,9 @@ export default function ProfileNamePages({ name, userdata }) {
   const portfoliemail = userdata[0]?.email;
 
   console.log(userdata);
+
+  const domainUrl = "https://resume-agency.vercel.app/profile";
+
   return (
     <div
       style={{ color: `${about?.textColor}` }}
@@ -61,9 +63,6 @@ export default function ProfileNamePages({ name, userdata }) {
     text-blue-90 py-3  font-semibold`}
     >
       <SectionBox
-  
-      
-      
         themeColor={about?.themeColor}
         className={`
 
@@ -122,213 +121,202 @@ min-h-[70vh]  pb-12 relative top-3 mb-10 mx-4 md:mx-10 lg:mx-[100px] xl:mx-[140p
           <div>
             {about !== undefined && (
               <div
-              
-              // style={{
-              //   backgroundImage: `url(${
-              //     (about?.bgImage && `${ImageEndpoint}/${about?.bgImage}`) ||
-              //     defaultImage
-              //   })`,
-              // }}
+                // style={{
+                //   backgroundImage: `url(${
+                //     (about?.bgImage && `${ImageEndpoint}/${about?.bgImage}`) ||
+                //     defaultImage
+                //   })`,
+                // }}
 
+                className=" relative text-center w-[80%] pb-[12px] pt-[20px] rounded-md mx-auto mt-1     "
+              >
+                {about?.bgImage && (
+                  <div className="relative  min-h-[500px]">
+                    <img
+                      className=" !min-h-[500px]  !h-full !w-full  object-cover object-center z-10"
+                      src={`${ImageEndpoint}/${about?.bgImage}`}
+                      alt=""
+                    />
 
-              className=" relative text-center w-[80%] pb-[12px] pt-[20px] rounded-md mx-auto mt-1     ">
+                    <div className=" top-0 absolute w-full h-full">
+                      {about?.title && (
+                        <h1 className=" text-2xl md:text-4xl mt-4  mb-6">
+                          {about?.title}
+                        </h1>
+                      )}
 
+                      {about?.work && (
+                        <h3 className=" text-md md:text-3xl mb-8">
+                          {about?.work}
+                        </h3>
+                      )}
 
-{about?.bgImage && <div className="relative  min-h-[500px]"> 
+                      {/* ---pff resume link--- */}
 
-<img className=" !min-h-[500px]  !h-full !w-full  object-cover object-center z-10" src={`${ImageEndpoint}/${about?.bgImage}`} alt="" />
+                      {about?.link && (
+                        <div className="mx-auto w-1/2 my-4 ">
+                          <a
+                            href={about?.link}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            <div
+                              style={{
+                                backgroundColor: about?.iconColor,
+                                color: about?.textColor,
+                              }}
+                              className="rounded-xl shadow-lg shadow-gray-400 p-1 md:p-4 cursor-pointer hover:scale-110 ease-in duration-300 dark:text-white dark:shadow-none   gap-3 "
+                            >
+                              <HiOutlineDocumentDownload className="mx-auto mb-1 text-4xl" />
 
+                              <p className=" te">Resume</p>
+                            </div>
+                          </a>
+                        </div>
+                      )}
 
+                      <h4 className="text-2xl md:text-3xl mb-8 underline">
+                        About me
+                      </h4>
 
-<div className=" top-0 absolute w-full h-full">
+                      <p className=" text-sm font-semibold md:text-xl break-words mx-auto !w-full ">
+                        {about?.desc}
+                      </p>
 
+                      <div className=" my-4 md:my-12">
+                        <div className=" flex  flex-wrap    justify-center  items-center gap-12">
+                          {about?.facebook && (
+                            <div
+                              style={{
+                                color: about?.iconColor,
+                                borderColor: about?.iconColor,
+                              }}
+                              className="rounded-full p-[10px] w-12 h-12 md:w-20 md:h-20 border-2  hover:scale-125 transiton-all duration-300"
+                            >
+                              <a
+                                className=" "
+                                target="_blank"
+                                href={about?.facebook}
+                                rel="noreferrer nofollow"
+                                title="Portfolio"
+                              >
+                                <FaFacebook
+                                  color={about?.iconColor}
+                                  strokeWidth={1.5}
+                                  // size={20}
+                                  className="c !w-full !h-full transition-all"
+                                />
+                              </a>
+                            </div>
+                          )}
 
-                {about?.title && (
-                  <h1 className=" text-2xl md:text-4xl mt-4  mb-6">
-                    {about?.title}
-                  </h1>
-                )}
+                          {about?.whatsapp && (
+                            <div
+                              style={{
+                                color: about?.iconColor,
+                                borderColor: about?.iconColor,
+                              }}
+                              className="rounded-full p-[10px]  w-12 h-12 md:w-20 md:h-20 border-2 hover:scale-125 transiton-all duration-300"
+                            >
+                              <a
+                                className=""
+                                target="_blank"
+                                href={about?.whatsapp}
+                                rel="noreferrer nofollow"
+                                title="Portfolio"
+                              >
+                                <FaWhatsapp
+                                  color={about?.iconColor}
+                                  // size={20}
+                                  className="c !w-full !h-full transition-all"
+                                />
+                              </a>
+                            </div>
+                          )}
 
-                {about?.work && (
-                  <h3 className=" text-md md:text-3xl mb-8">{about?.work}</h3>
-                )}
+                          {about?.instagram && (
+                            <div
+                              style={{
+                                color: about?.iconColor,
+                                borderColor: about?.iconColor,
+                              }}
+                              className="rounded-full p-[10px]  w-12 h-12 md:w-20 md:h-20 border-2 hover:scale-125 transiton-all duration-300"
+                            >
+                              <a
+                                className=" text-xs"
+                                target="_blank"
+                                href={about?.instagram}
+                                rel="noreferrer nofollow"
+                                title="Portfolio"
+                              >
+                                <FaInstagram
+                                  color={about?.iconColor}
+                                  strokeWidth={1.5}
+                                  // size={20}
+                                  className="c !w-full !h-full transition-all"
+                                />
+                              </a>
+                            </div>
+                          )}
 
-                {/* ---pff resume link--- */}
+                          {about?.twitter && (
+                            <div
+                              style={{
+                                color: about?.iconColor,
+                                borderColor: about?.iconColor,
+                              }}
+                              className="rounded-full p-[10px]  w-12 h-12 md:w-20 md:h-20 border-2 hover:scale-125 transiton-all duration-300"
+                            >
+                              <a
+                                className=""
+                                target="_blank"
+                                href={about?.twitter}
+                                rel="noreferrer nofollow"
+                                title="Portfolio"
+                              >
+                                <FaTwitter
+                                  color={about?.iconColor}
+                                  strokeWidth={1.5}
+                                  // size={20}
+                                  className="c !w-full !h-full transition-all"
+                                />
+                              </a>
+                            </div>
+                          )}
 
-                {about?.link && (
-                  <div className="mx-auto w-1/2 my-4 ">
-                    <a href={about?.link} target="_blank" rel="noreferrer">
-                      <div
-                        style={{
-                          backgroundColor: about?.iconColor,
-                          color: about?.textColor,
-                        }}
-                        className="rounded-xl shadow-lg shadow-gray-400 p-1 md:p-4 cursor-pointer hover:scale-110 ease-in duration-300 dark:text-white dark:shadow-none   gap-3 "
-                      >
-                        <HiOutlineDocumentDownload className="mx-auto mb-1 text-4xl" />
+                          {/* <Linkedin size={40} color="#d10505" absoluteStrokeWidth /> */}
 
-                        <p className=" te">Resume</p>
+                          {about?.telgram && (
+                            <div
+                              style={{
+                                color: about?.iconColor,
+                                borderColor: about?.iconColor,
+                              }}
+                              className="rounded-full p-[10px]  w-12 h-12 md:w-20 md:h-20 border-2 hover:scale-125 transiton-all duration-300"
+                            >
+                              <a
+                                className=""
+                                target="_blank"
+                                href={about?.telgram}
+                                rel="noreferrer nofollow"
+                                title="Portfolio"
+                              >
+                                <FaTelegram
+                                  color={about?.iconColor}
+                                  strokeWidth={1.5}
+                                  // size={20}
+                                  className="c !w-full !h-full transition-all"
+                                />
+                              </a>
+                            </div>
+                          )}
+                        </div>
                       </div>
-                    </a>
+                    </div>
                   </div>
                 )}
-
-                <h4 className="text-2xl md:text-3xl mb-8 underline">
-                  About me
-                </h4>
-
-                <p className=" text-sm font-semibold md:text-xl break-words mx-auto !w-full ">
-                  {about?.desc}
-                </p>
-
-                <div className=" my-4 md:my-12">
-                  <div className=" flex  flex-wrap    justify-center  items-center gap-12">
-                    {about?.facebook && (
-                      <div
-                        style={{
-                          color: about?.iconColor,
-                          borderColor: about?.iconColor,
-                        }}
-                        className="rounded-full p-[10px] w-12 h-12 md:w-20 md:h-20 border-2  hover:scale-125 transiton-all duration-300"
-                      >
-                        <a
-                          className=" "
-                          target="_blank"
-                          href={about?.facebook}
-                          rel="noreferrer nofollow"
-                          title="Portfolio"
-                        >
-                          <FaFacebook
-                            color={about?.iconColor}
-                            strokeWidth={1.5}
-                            // size={20}
-                            className="c !w-full !h-full transition-all"
-                          />
-                        </a>
-                      </div>
-                    )}
-
-                    {about?.whatsapp && (
-                      <div
-                        style={{
-                          color: about?.iconColor,
-                          borderColor: about?.iconColor,
-                        }}
-                        className="rounded-full p-[10px]  w-12 h-12 md:w-20 md:h-20 border-2 hover:scale-125 transiton-all duration-300"
-                      >
-                        <a
-                          className=""
-                          target="_blank"
-                          href={about?.whatsapp}
-                          rel="noreferrer nofollow"
-                          title="Portfolio"
-                        >
-                          <FaWhatsapp
-                            color={about?.iconColor}
-                            // size={20}
-                            className="c !w-full !h-full transition-all"
-                          />
-                        </a>
-                      </div>
-                    )}
-
-                    {about?.instagram && (
-                      <div
-                        style={{
-                          color: about?.iconColor,
-                          borderColor: about?.iconColor,
-                        }}
-                        className="rounded-full p-[10px]  w-12 h-12 md:w-20 md:h-20 border-2 hover:scale-125 transiton-all duration-300"
-                      >
-                        <a
-                          className=" text-xs"
-                          target="_blank"
-                          href={about?.instagram}
-                          rel="noreferrer nofollow"
-                          title="Portfolio"
-                        >
-                          <FaInstagram
-                            color={about?.iconColor}
-                            strokeWidth={1.5}
-                            // size={20}
-                            className="c !w-full !h-full transition-all"
-                          />
-                        </a>
-                      </div>
-                    )}
-
-                    {about?.twitter && (
-                      <div
-                        style={{
-                          color: about?.iconColor,
-                          borderColor: about?.iconColor,
-                        }}
-                        className="rounded-full p-[10px]  w-12 h-12 md:w-20 md:h-20 border-2 hover:scale-125 transiton-all duration-300"
-                      >
-                        <a
-                          className=""
-                          target="_blank"
-                          href={about?.twitter}
-                          rel="noreferrer nofollow"
-                          title="Portfolio"
-                        >
-                          <FaTwitter
-                            color={about?.iconColor}
-                            strokeWidth={1.5}
-                            // size={20}
-                            className="c !w-full !h-full transition-all"
-                          />
-                        </a>
-                      </div>
-                    )}
-
-                    {/* <Linkedin size={40} color="#d10505" absoluteStrokeWidth /> */}
-
-                    {about?.telgram && (
-                      <div
-                        style={{
-                          color: about?.iconColor,
-                          borderColor: about?.iconColor,
-                        }}
-                        className="rounded-full p-[10px]  w-12 h-12 md:w-20 md:h-20 border-2 hover:scale-125 transiton-all duration-300"
-                      >
-                        <a
-                          className=""
-                          target="_blank"
-                          href={about?.telgram}
-                          rel="noreferrer nofollow"
-                          title="Portfolio"
-                        >
-                          <FaTelegram
-                            color={about?.iconColor}
-                            strokeWidth={1.5}
-                            // size={20}
-                            className="c !w-full !h-full transition-all"
-                          />
-                        </a>
-                      </div>
-                    )}
-                  </div>
-                </div>
               </div>
-
-
-
-</div>}
-
-
-
-
-              </div>
-
-
-
-
-
             )}
-
-
-
 
             {/* ------- Projects Accordion ---- */}
 
@@ -435,6 +423,67 @@ min-h-[70vh]  pb-12 relative top-3 mb-10 mx-4 md:mx-10 lg:mx-[100px] xl:mx-[140p
                 textColor={about?.textColor}
                 iconColor={about?.iconColor}
               />
+
+              {/* ---social links share---- */}
+
+              <div className="flex gap-2 justify-center mt-3 ">
+                <a
+                  href={`https://www.facebook.com/sharer/sharer.php?u=${domainUrl}/${name}`}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <img
+                    className="w-12 h-12 object-cover"
+                    src="/face.png"
+                    alt=""
+                  />
+                </a>
+
+                <a
+                  href={`https://twitter.com/intent/tweet?text=share&url=${domainUrl}/${name}`}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <img
+                    className="w-12 h-12 object-cover"
+                    src="/twit.png"
+                    alt=""
+                  />
+                </a>
+
+
+
+
+                <a
+                  href={`mailto:?subject=sahre&body=Share your website: ${domainUrl}/${name}`}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <img
+                    className="w-12 h-12 object-cover"
+                    src="/mail.png"
+                    alt=""
+                  />
+                </a>
+
+
+
+
+{/* 
+                <img
+                  className="w-12 h-12 object-cover"
+                  src="/whatsapp.png"
+                  alt=""
+                />
+                
+                <img
+                  className="w-12 h-12 object-cover"
+                  src="/twit.png"
+                  alt=""
+                /> */}
+
+
+              </div>
             </motion.div>
           </div>
         </motion.div>
