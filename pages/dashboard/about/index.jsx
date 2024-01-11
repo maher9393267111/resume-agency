@@ -21,7 +21,7 @@ import { ImageEndpoint, defaultImage } from "../../../src/lib/globall";
 import DriveFolderUploadIcon from "@mui/icons-material/DriveFolderUpload";
 import DeleteIcon from "@mui/icons-material/Delete";
 import ImageIcon from "@mui/icons-material/Image";
-import { MuiColorInput } from 'mui-color-input'
+import { MuiColorInput } from "mui-color-input";
 
 function AboutPage({ user, userdata }) {
   console.log("userPrisma", userdata);
@@ -139,7 +139,7 @@ function AboutPage({ user, userdata }) {
         video,
         myImage: selectedImage
           ? await handleUploadImage(selectedImage, "myImage")
-          : myImage ,
+          : myImage,
         headImage: headSelectedImage
           ? await handleUploadImage(headSelectedImage, "headImage")
           : headImage,
@@ -483,31 +483,36 @@ function AboutPage({ user, userdata }) {
                   color={themeColor}
                   onChangeComplete={handleColorChange}
                 /> */}
- <MuiColorInput value={themeColor} onChange={handleColorChange} />
-
-
+                <MuiColorInput
+                  value={themeColor}
+                  onChange={handleColorChange}
+                />
               </div>
 
               <div className="mt-6   md:mt-0">
                 <h2 className="my-2">Icons Buttons</h2>
 
-                <MuiColorInput value={iconColor} onChange={handleIconColorChange} />
+                <MuiColorInput
+                  value={iconColor}
+                  onChange={handleIconColorChange}
+                />
+                
 
-
-{/* 
+                {/* 
                 <SketchPicker
                   // HuePicker
                   color={iconColor}
                   onChangeComplete={handleIconColorChange}
                 />
  */}
-
-
               </div>
 
               <div className="mt-6   md:mt-0">
                 <h2 className="my-2">Text Color</h2>
-                <MuiColorInput value={textColor} onChange={handleTextolorChange} />
+                <MuiColorInput
+                  value={textColor}
+                  onChange={handleTextolorChange}
+                />
 
                 {/* <SketchPicker
                   // HuePicker
