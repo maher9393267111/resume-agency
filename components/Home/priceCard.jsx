@@ -2,7 +2,11 @@ import React from "react";
 import Image from "next/image";
 export default function PriceCard({ index, image, title, desc, price, list }) {
   return (
-    <div dir="rtl" key={index} className=" shadow-2xl bg-white  rounded-2xl p-12">
+    <div
+      dir="rtl"
+      key={index}
+      className=" shadow-2xl bg-white  rounded-2xl p-12"
+    >
       <div className="">
         <div>
           {/* <img className=' object-cover' src={image} alt="" /> */}
@@ -15,7 +19,6 @@ export default function PriceCard({ index, image, title, desc, price, list }) {
           />
         </div>
 
-
         <div className="my-4 text-center flex-col  space-y-2">
           <h1 className=" text-3xl font-bold">{title}</h1>
 
@@ -23,9 +26,9 @@ export default function PriceCard({ index, image, title, desc, price, list }) {
 
           {/* <p className=" font-semibold">{desc}</p> */}
 
-{/* ---list-- */}
+          {/* ---list-- */}
 
-{/* <div className="space-y-2 text-left text-md font-medium leading-normal">
+          {/* <div className="space-y-2 text-left text-md font-medium leading-normal">
 
 {list?.map((item,index)=>{
 
@@ -57,15 +60,16 @@ return(
 
 </div> */}
 
-
-<div className="flex h-full flex-col justify-between gap-16 p-3">
-              <ul className="space-y-2 text-lef text-md font-medium leading-normal">
-                {list.map((feature) => (
-                  <li className="flex justify-start items-start mt-2" key={feature}>
-                    {/* <Icons.check className="mr-3 h-5 w-5 shrink-0" /> */}
-<p>
-
-<svg
+          <div className="flex h-full flex-col justify-between gap-16 p-3">
+            <ul className="space-y-2 text-lef text-sm font-medium leading-normal">
+              {list.map((feature) => (
+                <li
+                  className="flex justify-start items-start mt-2"
+                  key={feature}
+                >
+                  {/* <Icons.check className="mr-3 h-5 w-5 shrink-0" /> */}
+                  <p>
+                    <svg
                       className="mx-2 w-[28px]"
                       width="16"
                       height="17"
@@ -80,24 +84,13 @@ return(
                         stroke-linejoin="round"
                       ></path>
                     </svg>
-</p>
-             
+                  </p>
 
-
-
-
-                    <p className="  text-justify  pl-4">{feature}</p>
-                  </li>
-                ))}
-              </ul>
-
-              
-            </div>
-
-
-
-
-
+                  <p className="  text-justify  pl-4">{feature}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </div>
