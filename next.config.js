@@ -6,8 +6,18 @@ const nextConfig = {
     domains: ["dash93.nyc3.cdn.digitaloceanspaces.com" ,"cdn.vectorstock.com"],
   },
 
-i18n
+i18n,
+
+
+
+
 
 }
+
+
+
+
+
+
 
 module.exports = nextConfig

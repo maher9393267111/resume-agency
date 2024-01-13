@@ -150,7 +150,7 @@ function AboutPage({ user, userdata }) {
 
       console.log("AboutResponse Data", data);
 
-      router.reload();
+     // router.reload();
 
       successHandler("Updated Successfully");
     } catch (error) {
@@ -218,6 +218,11 @@ function AboutPage({ user, userdata }) {
           },
         }
       );
+
+
+
+   
+
 
       console.log("response setttt", data.data, data.data.fileName);
 
