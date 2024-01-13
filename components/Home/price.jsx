@@ -15,6 +15,7 @@ export default function Services() {
       title: "ابتدائي  350 ش.ج",
       desc: "لون ابيض كلاسيكي، يجمع بين التوفير و جميع الخدمات الموجودة بالبطائق الاخرى",
       price: "100 ر.س",
+      color: "#EE2658",
 
       list: [
         " لون كرت اختياري ",
@@ -35,9 +36,11 @@ export default function Services() {
         " لون كرت اختياري ",
         "اسود, ابيض ذهبي, ابيض كلاسيكي",
         "مصنوع من البلاستيك غير اللامع الفاخر",
-        "تصميم جهة واحدة من الكرت (تصميم خاص بك حسب الطلب) ",
+        "تصميم الكرت من الجهتين ",
+        "تصميم خاص بك حسب الطلب",
         "يشمل موقع تعريفي متقدم",
       ],
+      color: "#00B7B3",
 
       // image: "/silvercartahmad.png",
       image: "/ahmadcartwhite.jpg",
@@ -50,10 +53,12 @@ export default function Services() {
         " لون كرت اختياري ",
         "اسود, ابيض ذهبي, ابيض كلاسيكي",
         "مصنوع من البلاستيك غير اللامع الفاخر",
-        "تصميم الكرت من الجهتين (تصميم خاص بك حسب الطلب) ",
+        "تصميم الكرت من الجهتين ",
+        "تصميم خاص بك حسب الطلب",
         "يشمل موقع تعريفي متقدم دائم",
       ],
       image: "/lacivert.jpg",
+      color: "#FEBE10",
     },
   ];
 
@@ -63,6 +68,7 @@ export default function Services() {
       desc: "Classic white color, combining savings with all the services found on other cards",
       price: "100$",
       image: "/ahmadcartwhite.jpg",
+      color: "#EE2658",
 
       list: [
         "Optional card color ",
@@ -81,6 +87,7 @@ export default function Services() {
       price: "500$",
       // image: "/silvercartahmad.png",
       image: "/ahmadcartwhite.jpg",
+      color: "#00B7B3",
       list: [
         "Optional card color ",
         "black, golden white, classic white",
@@ -104,6 +111,7 @@ export default function Services() {
         "Includes permanent  some words "
         // "Includes permanent advanced introductory site",
       ],
+      color: "#FEBE10",
     },
   ];
 
@@ -127,13 +135,91 @@ export default function Services() {
         </p>
       </div>
       
-      <div className="mt-20 fle justify-cente  !pb-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3   flex-ro flex-wra gap-10 overflow-x-hidden container">
+      {/* <div className="mt-20 fle justify-cente  !pb-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3   flex-ro flex-wra gap-10 overflow-x-hidden container">
         {currentprice.map((price, index) => {
           console.log(price); // Log the service object
 
           return <PriceCard key={price.title} index={index} {...price} />;
         })}
+      </div> */}
+
+
+<div className="mx-auto grid max-w-screen-lg gap-5 my-12 container bg-inherit py-5 md:grid-cols-3 lg:grid-cols-3">
+        {currentprice.map((offer) => (
+          <div
+            className="relative  flex flex-col overflow-hidden rounded-xl border-2 shadow-2xl border-gray-50"
+            key={offer.title}
+          >
+            <div
+              style={{ backgroundColor:offer.color }}
+              className={`min-h-[150px] bg-[${offer.color}] items-start space-y-4   p-6`}
+            >
+              <p className="flex font-urban text-white text-center  text-xl font-bold uppercase tracking-wider text-muted-foreground">
+                {offer.title}
+              </p>
+
+              <div className="flex flex-row">
+                <div className="flex items-end">
+                  <div className="flex text-center text-lef text-white text-3xl font-semibold leading-6">
+                    {/* {isYearly && offer.prices.monthly > 0 ? (
+                      <>
+                        <span className="mr-2 text-muted-foreground line-through">${offer.prices.monthly}</span>
+                        <span>${offer.prices.yearly / 12}</span>
+                      </>
+                    ) : `$${offer.prices.monthly}`} */}
+                    {offer.price}
+                  </div>
+                  <div className="-mb-1 ml-2 text-white text-left text-3xl font-medium">
+                    <div>/{locale === "ar" ? "شهريا" : "monthly"}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+{/* --image-- */}
+
+<div className=" h-[200px] w-[84%] mx-auto my-[22px]">
+  <img className=" w-full h-full object-cover  shadow-md rounded-md    " src={offer?.image} alt="" />
+</div>
+
+
+
+            <div className="flex h-full flex-col justify-between gap-16 p-6">
+              <ul className="space-y-2 text-left text-lg font-medium leading-normal">
+                {offer.list.map((feature) => (
+                  <li dir={dir} className="flex items-start" key={feature}>
+                    {/* <Icons.check className="mr-3 h-5 w-5 shrink-0" /> */}
+
+                    <svg
+                      className="mx-2 w-[10%]"
+                      width="16"
+                      height="17"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="m2.668 8.973 4 4 6.667-8"
+                        stroke="#1127E3"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+
+                      ></path>
+                    </svg>
+
+                    <p className="  pl-4">{feature}</p>
+                  </li>
+                ))}
+              </ul>
+
+            
+            </div>
+          </div>
+        ))}
       </div>
+
+
+
     </div>
   );
 }
