@@ -37,7 +37,7 @@ image:"/lacicart.png"
       title: "One business card",
       desc: "You only need one card to be able toshare your contact details whether it's in meetings, face to face or online.",
      
-      image: "/silver-card.webp",
+      image: "/lacivert.jpg",
       
     },
     {

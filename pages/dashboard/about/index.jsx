@@ -17,7 +17,11 @@ import { errorHandler, successHandler } from "../../../src/lib/errorHandler";
 import axios from "axios";
 import { prisma } from "../../../src/lib/prisma";
 import { HuePicker, SketchPicker } from "react-color";
-import { ImageEndpoint, defaultImage, uploadApi } from "../../../src/lib/globall";
+import {
+  ImageEndpoint,
+  defaultImage,
+  uploadApi,
+} from "../../../src/lib/globall";
 import DriveFolderUploadIcon from "@mui/icons-material/DriveFolderUpload";
 import DeleteIcon from "@mui/icons-material/Delete";
 import ImageIcon from "@mui/icons-material/Image";
@@ -231,13 +235,6 @@ function AboutPage({ user, userdata }) {
           },
         }
       );
-
-
-
-
-
-   
-
 
       console.log("response setttt", data.data, data.data.fileName);
 
@@ -494,16 +491,14 @@ function AboutPage({ user, userdata }) {
 
             {/* ----------colors----- */}
 
-            <div className=" lg:flex-row flex flex-col gap-12 justify-center  max-w-md  ">
+            <div className="mx-auto w-full lg:flex-row flex flex-col gap-12 justify-center  max-w-md  ">
               <div className="">
                 <h2 className="my-2">Theme Color</h2>
 
                 <SketchPicker
-                  
                   color={themeColor}
                   onChangeComplete={handleColorChange}
                 />
-
 
                 {/* <MuiColorInput
                   value={themeColor}
@@ -519,15 +514,12 @@ function AboutPage({ user, userdata }) {
                   onChange={handleIconColorChange}
                 /> */}
 
-
-                 
                 <SketchPicker
                   // HuePicker
                   color={iconColor}
                   onChangeComplete={handleIconColorChange}
                 />
- 
-             </div>
+              </div>
 
               <div className="mt-6   md:mt-0">
                 <h2 className="my-2">Text Color</h2>
@@ -536,8 +528,6 @@ function AboutPage({ user, userdata }) {
                   value={textColor}
                   onChange={handleTextolorChange}
                 /> */}
-
-
 
                 <SketchPicker
                   // HuePicker

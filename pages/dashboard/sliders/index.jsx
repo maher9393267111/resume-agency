@@ -212,7 +212,7 @@ export default function SlidersPage({ user, sliders }) {
 
       setId(null);
 
-      //router.reload();
+      router.reload();
     } catch (error) {
       errorHandler(error?.message);
     }
@@ -424,7 +424,7 @@ export const getServerSideProps = async ({ req, res }) => {
 
   const userdata = await prisma.user.findMany({
     where: {
-      id: user.id,
+      id: user?.id,
     },
 
     include: {

@@ -138,14 +138,14 @@ export default function ProjectsPage({ user, projects }) {
         <Hero user={user} title="Projects Page" />
 
         <div className="px-4 sm:px-6 lg:px-8">
-          <div className="sm:flex sm:items-center">
+          <div className="sm:flex sm:items-center mt-12">
             <div className="sm:flex-auto">
               <h1 className="text-base font-semibold leading-6 text-gray-900">
                 Projects
               </h1>
-              <p className="mt-2 text-sm text-gray-700">
+              {/* <p className="mt-2 text-sm text-gray-700">
                 A list of all Projects
-              </p>
+              </p> */}
             </div>
             <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
               <button
@@ -154,7 +154,7 @@ export default function ProjectsPage({ user, projects }) {
                 className="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
                 Add Project
-                {allData?.length}
+                
               </button>
             </div>
           </div>
