@@ -52,6 +52,7 @@ export const DashboardLayout = ({ children, user }) => {
     { title: "Pricing", link: "/#pricing" },
   ];
   const settings = [
+    {title:"profile" ,link:`/profile/${user?.name}`},
     { title: "Dashboard", link: "/app/dashboard" },
     { title: "Settings", link: "/app/settings" },
   ];

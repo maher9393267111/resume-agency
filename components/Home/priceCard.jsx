@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function PriceCard({ index, image, title, desc, price, list }) {
   return (
     <div
-      dir="rtl"
+   
       key={index}
       className=" shadow-2xl bg-white  rounded-2xl p-12"
     >

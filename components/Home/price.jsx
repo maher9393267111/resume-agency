@@ -126,7 +126,7 @@ export default function Services() {
           {fetchWord("priceTitle", locale)}
         </p>
       </div>
-      {dir}
+      
       <div className="mt-20 fle justify-cente  !pb-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3   flex-ro flex-wra gap-10 overflow-x-hidden container">
         {currentprice.map((price, index) => {
           console.log(price); // Log the service object

@@ -92,17 +92,25 @@ const ArNavLinks = [
   },
 ];
 
-const settingsAr = [
-  { title: "لوحة التحكم", link: "/dashboard" },
-  { title: "الاعدادات", link: "/dashbord/about" },
-];
 
-const settingsEn = [
-  { title: "Dashboard", link: "/dashboard" },
-  { title: "Settings", link: "/dashboard/about" },
-];
 
 const Header = ({ user }) => {
+
+  const settingsAr = [
+    { title: "الملف الشخصي", link: `/profile/${user?.name}` },
+    { title: "لوحة التحكم", link: "/dashboard" },
+    { title: "الاعدادات", link: "/dashbord/about" },
+  ];
+  
+  const settingsEn = [
+    { title: "profile", link: `/profile/${user?.name}` },
+    { title: "Dashboard", link: "/dashboard" },
+    { title: "Settings", link: "/dashboard/about" },
+  ];
+
+
+
+
   const [isOpen, setIsOpen] = useState(false);
 
   const { logoutHandler } = useContext(UserContext);
