@@ -77,6 +77,8 @@ export const DashboardLayout = ({ children, user }) => {
               sx={{ minHeight: "100vh", px: 2, position: "sticky", top: 0 }}
             >
               <Box display="flex" justifyContent="center" mt={3}>
+                <Link href={'/'}>
+               
                 <Image
                   src="/logo.jpg"
                   width={55}
@@ -85,8 +87,8 @@ export const DashboardLayout = ({ children, user }) => {
                   alt="POLLE"
                   className=" rounded-full"
                 />
-
-                {/* <img src="/logo.jpg" className=" w-24 object-fill h-24" alt="" /> */}
+ </Link>
+            
               </Box>
 
               <Typography
