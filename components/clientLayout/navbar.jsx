@@ -30,9 +30,6 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
 
-
-
-
 const NavLinks = [
   {
     name: "Home",
@@ -55,7 +52,7 @@ const NavLinks = [
   },
 
   {
-    name: "aboutus",
+    name: "about us",
     url: "/aboutus",
   },
 
@@ -93,25 +90,20 @@ const ArNavLinks = [
     name: "اتصل بنا",
     url: "/contact",
   },
-
-
 ];
-
 
 const settingsAr = [
   { title: "لوحة التحكم", link: "/dashboard" },
-   { title: "الاعدادات", link: "/dashbord/about" },
+  { title: "الاعدادات", link: "/dashbord/about" },
 ];
 
 const settingsEn = [
   { title: "Dashboard", link: "/dashboard" },
-   { title: "Settings", link: "/dashboard/about" },
+  { title: "Settings", link: "/dashboard/about" },
 ];
 
-
-const Header = ({user}) => {
+const Header = ({ user }) => {
   const [isOpen, setIsOpen] = useState(false);
-
 
   const { logoutHandler } = useContext(UserContext);
 
@@ -124,16 +116,12 @@ const Header = ({user}) => {
     setAnchorElUser(null);
   };
 
-
-
-
   const { locale, asPath } = useRouter();
-
 
   console.log("locale", locale);
 
   const currentLinks = locale === "ar" ? ArNavLinks : NavLinks;
-  const cureentSettings = locale === 'ar' ? settingsAr : settingsEn
+  const cureentSettings = locale === "ar" ? settingsAr : settingsEn;
   const { dir } = useContext(UserContext);
 
   return (
@@ -165,87 +153,67 @@ const Header = ({user}) => {
               </ul>
             </nav>
 
-{/* ---user dropdown-- */}
-{user && user?.name ?  <div className="max-ta-800:hidden">
-
-  <div>
-                        <Tooltip title="Open settings">
-                          <IconButton
-                            onClick={handleOpenUserMenu}
-                            sx={{ p: 0 }}
-                          >
-                            <Avatar
-                              alt="Remy Sharp"
-                              src="/static/images/avatar/2.jpg"
-                            />
-                          </IconButton>
-                        </Tooltip>
-                        <Menu
-                          sx={{ mt: "45px" }}
-                          id="menu-appbar"
-                          anchorEl={anchorElUser}
-                          anchorOrigin={{
-                            vertical: "top",
-                            horizontal: "right",
-                          }}
-                          keepMounted
-                          transformOrigin={{
-                            vertical: "top",
-                            horizontal: "right",
-                          }}
-                          open={Boolean(anchorElUser)}
-                          onClose={handleCloseUserMenu}
-                        >
-                          {cureentSettings.map((setting) => (
-                            <Link href={setting.link} key={setting.title}>
-                              <MenuItem
-                                selected={setting.link === asPath}
-                              >
-                                <Typography textAlign="center">
-                                  {setting.title}
-                                </Typography>
-                              </MenuItem>
-                            </Link>
-                          ))}
-                          <MenuItem>
-                            <Typography onClick={logoutHandler} textAlign="center">Logout</Typography>
-                          </MenuItem>
-                        </Menu>
-                      </div>
-
-
-
-
-
-
-</div>
-:
-            <div className="flex max-tab-800:hidden gap-[10px] transition-all duration-300 lg:gap-8 items-center">
-
-
-
-              <Link
-                className="text-sm lg-1150:text-base text-blue-100 font-medium"
-                href="/login"
-              >
-                {fetchWord("login", locale)}
-              </Link>
-              <Link
-                className="text-sm lg-1150:text-base font-medium text-white bg-blue-200 py-4 px-8 rounded-3xl"
-                href="/signup"
-              >
-                {fetchWord("register", locale)}
-              </Link>
-
-
-
-
-            
-            </div>
-
-}
-
-
+            {/* ---user dropdown-- */}
+            {user && user?.name ? (
+              <div className="max-ta-800:hidden">
+                <div>
+                  <Tooltip title="Open settings">
+                    <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                      <Avatar
+                        alt="Remy Sharp"
+                        src="/static/images/avatar/2.jpg"
+                      />
+                    </IconButton>
+                  </Tooltip>
+                  <Menu
+                    sx={{ mt: "45px" }}
+                    id="menu-appbar"
+                    anchorEl={anchorElUser}
+                    anchorOrigin={{
+                      vertical: "top",
+                      horizontal: "right",
+                    }}
+                    keepMounted
+                    transformOrigin={{
+                      vertical: "top",
+                      horizontal: "right",
+                    }}
+                    open={Boolean(anchorElUser)}
+                    onClose={handleCloseUserMenu}
+                  >
+                    {cureentSettings.map((setting) => (
+                      <Link href={setting.link} key={setting.title}>
+                        <MenuItem selected={setting.link === asPath}>
+                          <Typography textAlign="center">
+                            {setting.title}
+                          </Typography>
+                        </MenuItem>
+                      </Link>
+                    ))}
+                    <MenuItem>
+                      <Typography onClick={logoutHandler} textAlign="center">
+                        Logout
+                      </Typography>
+                    </MenuItem>
+                  </Menu>
+                </div>
+              </div>
+            ) : (
+              <div className="flex max-tab-800:hidden gap-[10px] transition-all duration-300 lg:gap-8 items-center">
+                <Link
+                  className="text-sm lg-1150:text-base text-blue-100 font-medium"
+                  href="/login"
+                >
+                  {fetchWord("login", locale)}
+                </Link>
+                <Link
+                  className="text-sm lg-1150:text-base font-medium text-white bg-blue-200 py-4 px-8 rounded-3xl"
+                  href="/signup"
+                >
+                  {fetchWord("register", locale)}
+                </Link>
+              </div>
+            )}
 
             <div className=" flex gap-2 items-center">
               <div
@@ -304,21 +272,22 @@ const Header = ({user}) => {
               </li>
             ))}
 
-{!user  &&
-            <div className=" flex flex-col gap-[20px] transition-all duration-300 lg:gap-8 items-center">
-              <Link className="text-lg text-blue-100 font-medium" href="/login">
-                {fetchWord("login", locale)}
-              </Link>
-              <Link
-                className="text-lg font-medium text-white bg-blue-200 py-4 px-8 rounded-3xl"
-                href="/signup"
-              >
-                {fetchWord("login", locale)}
-              </Link>
-            </div>
-}
-
-
+            {!user && (
+              <div className=" flex flex-col gap-[20px] transition-all duration-300 lg:gap-8 items-center">
+                <Link
+                  className="text-lg text-blue-100 font-medium"
+                  href="/login"
+                >
+                  {fetchWord("login", locale)}
+                </Link>
+                <Link
+                  className="text-lg font-medium text-white bg-blue-200 py-4 px-8 rounded-3xl"
+                  href="/signup"
+                >
+                  {fetchWord("login", locale)}
+                </Link>
+              </div>
+            )}
           </ul>
         </nav>
       ) : (

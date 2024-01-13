@@ -15,14 +15,9 @@ const handler = async (req, res) => {
       return res.status(400).json({ message: "Cannot find a user " });
     }
 
-
-    if (!link){
-
-        return res.status(400).json({ message: "No image to delete" });
-
+    if (!link) {
+      return res.status(400).json({ message: "No image to delete" });
     }
-
-
 
     if (link) {
       const deleteParams = {

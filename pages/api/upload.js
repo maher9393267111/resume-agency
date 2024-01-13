@@ -1,5 +1,3 @@
-
-
 import multer, { MulterError } from "multer";
 
 import {
@@ -32,6 +30,8 @@ const s3 = new S3Client({
   },
 });
 
+
+
 handler.post(
   // @ts-ignore
   upload.single("image"),
@@ -56,12 +56,10 @@ handler.post(
   async (req, res) => {
     const fileName = crypto.randomBytes(32).toString("hex");
 
-
-    
     const size = parseInt(req.query.size);
-    const hieghtsize =parseInt(req.query.hieghtsize)
+    const hieghtsize = parseInt(req.query.hieghtsize);
 
-    console.log("HEEEEEEEE" ,hieghtsize)
+    console.log("HEEEEE🐦  ❤️🐦  ❤️🐦  ❤️🐦  ❤️EEE" ,req.file);
 
 
     const fileBuffer = await sharp(req.file.buffer)
@@ -101,7 +99,6 @@ handler.post(
   }
 );
 
-
 // export default handler({
 //   onError: (error, _req, res) => {
 //     if (error instanceof MulterError) {
@@ -126,7 +123,6 @@ export const config = {
     bodyParser: false,
   },
 };
-
 
 // ------------------
 
