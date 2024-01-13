@@ -124,6 +124,22 @@ export const DashboardLayout = ({ children, user }) => {
                   About ME
                 </Link>
 
+
+                <Link
+                  href={`/profile/${user?.name}`}
+                  title="Manage About"
+                  className={
+                    router.pathname === `/profile/${user?.name}`
+                      ? classes.activeLink
+                      : null
+                  }
+                >
+                  <HowToVoteIcon />
+                  Profile
+                </Link>
+
+
+
                 {/* <Link
                   href="/dashboard/projects/create-project"
                   title="Create a Project"
