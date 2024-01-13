@@ -30,8 +30,6 @@ const s3 = new S3Client({
   },
 });
 
-
-
 handler.post(
   // @ts-ignore
   upload.single("image"),
@@ -59,8 +57,7 @@ handler.post(
     const size = parseInt(req.query.size);
     const hieghtsize = parseInt(req.query.hieghtsize);
 
-    console.log("HEEEEE🐦  ❤️🐦  ❤️🐦  ❤️🐦  ❤️EEE" ,req.file);
-
+    console.log("HEEEEE🐦  ❤️🐦  ❤️🐦  ❤️🐦  ❤️EEE", req.file);
 
     const fileBuffer = await sharp(req.file.buffer)
       .resize({ height: hieghtsize ?? 500, width: size ?? 500, fit: "cover" })

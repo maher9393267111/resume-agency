@@ -17,7 +17,7 @@ import { errorHandler, successHandler } from "../../../src/lib/errorHandler";
 import axios from "axios";
 import { prisma } from "../../../src/lib/prisma";
 import { HuePicker, SketchPicker } from "react-color";
-import { ImageEndpoint, defaultImage } from "../../../src/lib/globall";
+import { ImageEndpoint, defaultImage, uploadApi } from "../../../src/lib/globall";
 import DriveFolderUploadIcon from "@mui/icons-material/DriveFolderUpload";
 import DeleteIcon from "@mui/icons-material/Delete";
 import ImageIcon from "@mui/icons-material/Image";
@@ -150,7 +150,7 @@ function AboutPage({ user, userdata }) {
 
       console.log("AboutResponse Data", data);
 
-     // router.reload();
+      router.reload();
 
       successHandler("Updated Successfully");
     } catch (error) {
@@ -208,8 +208,21 @@ function AboutPage({ user, userdata }) {
 
       console.log("OLDDDDDDD", oldfile);
 
+      // const data = await axios.post(
+      //   `/api/upload/?type=${imagetype}&&oldfile=${oldfile}&&size=${size}&&hieghtsize=${hieghtSize}`,
+
+      //   formData,
+      //   {
+      //     headers: {
+      //       "Content-Type": "multipart/form-data",
+      //     },
+      //   }
+      // );
+
+      //localhost:8000/file/upload
+
       const data = await axios.post(
-        `/api/upload/?type=${imagetype}&&oldfile=${oldfile}&&size=${size}&&hieghtsize=${hieghtSize}`,
+        `${uploadApi}/file/upload?type=${imagetype}&&oldfile=${oldfile}&&size=${size}&&hieghtsize=${hieghtSize}`,
 
         formData,
         {
@@ -218,6 +231,8 @@ function AboutPage({ user, userdata }) {
           },
         }
       );
+
+
 
 
 

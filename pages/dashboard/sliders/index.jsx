@@ -8,6 +8,7 @@ import AddIcon from "@mui/icons-material/Add";
 import PollIcon from "@mui/icons-material/Poll";
 import HowToVoteIcon from "@mui/icons-material/HowToVote";
 import { prisma } from "../../../src/lib/prisma";
+import { uploadApi } from "../../../src/lib/globall";
 
 import Link from "next/link";
 
@@ -89,7 +90,7 @@ export default function SlidersPage({ user, sliders }) {
       const hieghtSize = 600;
 
       const data = await axios.post(
-        `/api/upload/?type=${imagetype}&&oldfile=${oldfile}&&size=${600}&&hieghtsize=${hieghtSize}`,
+        `${uploadApi}/file/upload?type=${imagetype}&&oldfile=${oldfile}&&size=${600}&&hieghtsize=${hieghtSize}`,
 
         formData,
         {
@@ -181,7 +182,7 @@ export default function SlidersPage({ user, sliders }) {
 
   const imageDelete = async (ImageName) => {
     try {
-      const deleteimageResponse = await axios.post("/api/upload/delete", {
+      const deleteimageResponse = await axios.post(`${uploadApi}/file/delete`, {
         link: ImageName,
       });
 
@@ -211,7 +212,7 @@ export default function SlidersPage({ user, sliders }) {
 
       setId(null);
 
-      router.reload();
+      //router.reload();
     } catch (error) {
       errorHandler(error?.message);
     }
