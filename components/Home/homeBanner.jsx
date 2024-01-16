@@ -21,7 +21,7 @@ export default function HomeBanner() {
           <div className="grid tab:grid-cols-2 mb-[120px] items-start gap-[80px] tab:gap-[10px] max-md:pt-[190px] pt-[210px] pb-[120px] tab:pb-[35px]">
             <div
             
-            className=" md:mt-24"
+            className=" md:mt-2"
             
             >
               {/* <motion.h1
@@ -73,17 +73,18 @@ export default function HomeBanner() {
               transition={{ duration: 0.7 }}
               initial={{ x: 50 }}
               animate={{ x: 0 }}
-              className="flex justify-center"
+              className="flex justify-center   mx-4 md:mx-2"
             >
               {/* <Image src={HeroImage} width={640} height={640} /> */}
 
               <ReactPlayer
-className='rounded-xl'
+className='rounded-xl '
 
               
               controls
-              width="400px"
-              height="400px"
+                  width="auto"
+                 height="400px"
+                
               
               url='/carts-video.mp4' />
 
