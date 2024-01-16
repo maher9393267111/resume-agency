@@ -18,7 +18,7 @@ export const Features_en = {
       "We believe that technology can enhance the dining experience. Let us take you on a journey of taste and innovation through the electronic menu system"
     ],
   },
-  img: "/details-2.png",
+  img:"/menusection.jpg", 
   color: "#fff",
   reverse: false,
 };
@@ -34,7 +34,8 @@ export const Features_ar = {
 
     ],
   },
-  img: "/details-2.png",
+  img:"/menusection.jpg", 
+  // "/details-2.png",
   color: "#fff",
   reverse: true,
 };
@@ -59,7 +60,8 @@ const feature_twoEn = {
     ],
   },
 
-  img: "/details-2.png",
+  // img: "/details-2.png",
+  img:"/cardsection.jpg", 
   color: "#fff",
 };
 
@@ -78,7 +80,7 @@ const feature_twoAr = {
      
     ],
   },
-  img: "/details-2.png",
+  img:"/cardsection.jpg",
 
   color: "#fff",
 };

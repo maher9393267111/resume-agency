@@ -7,6 +7,7 @@ import { useState, useContext } from "react";
 import { UserContext } from "@/src/context";
 import { useRouter } from "next/router";
 import { fetchWord } from "@/src/lib/lang/fetchWord";
+import ReactPlayer from 'react-player'
 export default function HomeBanner() {
   const { locale, asPath } = useRouter();
 
@@ -18,7 +19,11 @@ export default function HomeBanner() {
       <section className="gradient">
         <div className="container">
           <div className="grid tab:grid-cols-2 mb-[120px] items-start gap-[80px] tab:gap-[10px] max-md:pt-[190px] pt-[210px] pb-[120px] tab:pb-[35px]">
-            <div>
+            <div
+            
+            className=" md:mt-24"
+            
+            >
               {/* <motion.h1
                 transition={{ duration: 0.5 }}
                 initial={{ y: 50 }}
@@ -70,7 +75,19 @@ export default function HomeBanner() {
               animate={{ x: 0 }}
               className="flex justify-center"
             >
-              <Image src={HeroImage} width={640} height={640} />
+              {/* <Image src={HeroImage} width={640} height={640} /> */}
+
+              <ReactPlayer
+className='rounded-xl'
+
+              
+              controls
+              width="400px"
+              height="400px"
+              
+              url='/carts-video.mp4' />
+
+
             </motion.div>
           </div>
         </div>

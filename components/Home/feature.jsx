@@ -39,7 +39,7 @@ const Feature = ({ data }) => {
         }`}
       >
         <div className="flex-1 px-14  ">
-          <img src={data.img} alt={data.name} />
+          <img className=" object-cover  rounded-md" src={data.img} alt={data.name} />
         </div>
         <div className="lg-1150:w-485px px-14 mt-4 flex flex-col gap-[24px] flex-1">
           <h3 className="text-xl leading-[31px] font-bold md:text-3xl md:leading-[47px]">
