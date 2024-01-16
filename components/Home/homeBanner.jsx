@@ -14,6 +14,17 @@ export default function HomeBanner() {
   console.log("locale", locale);
   const { dir } = useContext(UserContext);
 
+  const handleClick = () => {
+    const whatsappNumber = "+972507301710";
+  
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=Hello%2C%20I%20want%20to%20chat%20with%20you!`;
+  
+    window.open(whatsappUrl, "_blank");
+  };
+
+
+
+
   return (
     <div dir={dir} className={`${locale === "ar" && "arabicfont"}`}>
       <section className="gradient">
@@ -60,12 +71,19 @@ export default function HomeBanner() {
                 animate={{ y: 0 }}
                 className="flex items-center gap-6"
               >
-                <Link
-                  href="/login"
-                  className="bg-white rounded-[50px] text-base font-bold py-[14px] px-[30px] text-blue-100"
+                <div
+                  // href="/login"
+                  className="bg-white rounded-[50px] cursor-pointer text-base font-bold py-[14px] px-[30px] text-blue-100"
                 >
-                  {fetchWord("register", locale)}
-                </Link>
+
+<p onClick={handleClick}>
+{locale === 'ar' ? 'اطلب الان' :'order now'}
+</p>
+                
+
+
+
+                </div>
             
               </motion.div>
             </div>
@@ -78,13 +96,14 @@ export default function HomeBanner() {
               {/* <Image src={HeroImage} width={640} height={640} /> */}
 
               <ReactPlayer
-className='rounded-xl '
+className='!rounded-2xl '
 
               
               controls
                   width="auto"
-                 height="400px"
-                
+                 height="500px"
+                playing={true}
+                muted={true}
               
               url='/carts-video.mp4' />
 

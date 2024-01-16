@@ -58,6 +58,9 @@ const navigation = {
   "Instagram":"https://www.instagram.com/logic.4tech/?hl=ar",
   "Facebook": "https://www.facebook.com/profile.php?id=61554600908983",
   "website":"https://www.getmenu.ps", 
+  
+  
+  "whatsapp" : `https://wa.me/+972507301710?text=Hello%2C%20I%20want%20to%20chat%20with%20you!`,
 
 
   social: [
@@ -73,7 +76,7 @@ const navigation = {
     },
     {
       name: "Whatsapp",
-      href: null,
+      href: "https://wa.me/+972507301710?text=Hello%2C%20I%20want%20to%20chat%20with%20you!",
       icon: (props) => <FaWhatsapp {...props} />,
     },
     {

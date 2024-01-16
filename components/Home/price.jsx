@@ -219,8 +219,8 @@ export default function Services() {
 {/* ---title--- */}
 
 <div>
-  <h2 className="text-[32px] leading-[42px] font-bold text-center md:text-5xl md:leading-[62px] shimmer ">
-    {fetchWord("menupricesTitle", locale)}
+  <h2 className="text-[32px] leading-[42px] mt-6 font-bold text-center md:text-5xl md:leading-[62px] shimmer ">
+    {fetchWord("cardFeatureTitle", locale)}
   </h2>
 </div>
 

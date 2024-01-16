@@ -28,7 +28,7 @@ export const ar = {
   
   sendmessagebtn:'ارسال الرسالة',
   smartcardTitle :'البطاقة الذكية',
-  cardFeatureTitle:'ميزات البطاقة الذكية',
+  cardFeatureTitle:'ميزات و أسعار البطاقة الذكية',
   menupricesTitle:' أسعار المنيو',
   pricesPageTitle:'الأسعار' ,
   AboutPageTitle:"من نحن",

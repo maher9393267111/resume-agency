@@ -92,24 +92,18 @@ const ArNavLinks = [
   },
 ];
 
-
-
 const Header = ({ user }) => {
-
   const settingsAr = [
     { title: "الملف الشخصي", link: `/profile/${user?.name}` },
     { title: "لوحة التحكم", link: "/dashboard" },
     { title: "الاعدادات", link: "/dashbord/about" },
   ];
-  
+
   const settingsEn = [
     { title: "profile", link: `/profile/${user?.name}` },
     { title: "Dashboard", link: "/dashboard" },
     { title: "Settings", link: "/dashboard/about" },
   ];
-
-
-
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -164,7 +158,7 @@ const Header = ({ user }) => {
             {/* ---user dropdown-- */}
             {user && user?.name ? (
               <div className="max-ta-800:hidden">
-                <div>
+                {/* <div>
                   <Tooltip title="Open settings">
                     <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                       <Avatar
@@ -204,7 +198,10 @@ const Header = ({ user }) => {
                       </Typography>
                     </MenuItem>
                   </Menu>
-                </div>
+                </div> */}
+
+
+
               </div>
             ) : (
               <div className="flex max-tab-800:hidden gap-[10px] transition-all duration-300 lg:gap-8 items-center">
