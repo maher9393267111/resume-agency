@@ -24,7 +24,7 @@ export default function SectionTwo({ locale }) {
       <div className="flex flex-col container  items-center my-2 md:flex-row gap-2 md:gap-6 lg:gap-12 justify-center  ">
       <div className="w-full lg:w-1/2 rounded-xl lg:rounded-3xl overflow-hidden h-[300px] sm:h-[433px] md:h-[525px] flex max-md:mb-4">
           <img
-            src={"/carssec2.webp"}
+            src={"/profile-banner.png"}
             alt="image"
             className="w-[80%] mx-auto object-contain  transition-all"
           />

@@ -87,7 +87,7 @@ const navigation = {
 
     {
       name: "Instagram",
-      href: "https://www.instagram.com/logic.4tech/?hl=ar",
+      href: "https://www.instagram.com/ultratech.ut",
       icon: (props) => <FaInstagram {...props} />,
     },
   ],

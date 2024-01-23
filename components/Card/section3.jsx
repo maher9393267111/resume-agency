@@ -56,7 +56,11 @@ export default function SectionThree({ locale }) {
 
         <div className="w-full lg:w-1/2 rounded-xl lg:rounded-3xl overflow-hidden h-[300px] sm:h-[433px] md:h-[525px] flex max-md:mb-4">
           <img
-            src={"/section3.webp"}
+            src={
+              "/sect2-banner.png"
+              // "/section3.webp"
+            
+            }
             alt="image"
             className="w-[80%] mx-auto object-contain  transition-all"
           />

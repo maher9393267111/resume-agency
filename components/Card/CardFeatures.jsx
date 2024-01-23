@@ -22,13 +22,15 @@ image:"/lacicart.png"
       title: "لمسة واحدة",
       desc: "ليس عليك تثبيت أي شيء. تعمل بطاقة uCard من خلال متصفح الإنترنت الخاص بالهاتف الذكي.",
       price: "100 ر.س",
-      image: "/onetouch.webp",
+      image: "/touch.png"
+      //"/onetouch.webp",
     },
     {
       title: "ملف عمل واحد",
       desc: "يمكن تعديل تفاصيل الاتصال الخاصة بك في أي وقت. كرقم الجوال، وصفحات التواصل الاجتماعي و البريد الالكتروني وما الى ذلك.",
       price: "100 ر.س",
-      image: "/oneprofile.webp",
+      image:"/one-file.png" 
+      // "/oneprofile.webp",
     },
   ];
 

@@ -58,8 +58,8 @@ export default function SectionOne({ locale }) {
         <div className="w-full lg:w-1/2 rounded-xl lg:rounded-3xl overflow-hidden h-[300px] sm:h-[433px] md:h-[525px] flex max-md:mb-4">
           <img
             src={
-               "/sectionone.jpg"
-            // "/lacicart.png"
+               "/sec1-banner.png"
+            
             }
             alt="image"
             className="w-full object-cover hover:scale-125 transition-all"
