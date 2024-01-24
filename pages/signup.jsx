@@ -128,8 +128,8 @@ const SignupPage = () => {
     <ClientLayout>
       <div dir={dir} className=" englishfont">
         <Seo
-          title="Signup - Polle"
-          description="POLLE is the easiest and fastest way to create, distribute and analyze your polls, from start to finish!"
+          title="Signup "
+          description=""
         />
 
         <PageHeaders

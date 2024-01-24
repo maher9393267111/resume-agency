@@ -42,7 +42,6 @@ const LoginPage = () => {
   // const [loading, setLoading] = useState(false);
   const router = useRouter();
   const [user, setUser] = useState({
-    
     email: "",
     password: "",
   });
@@ -50,15 +49,12 @@ const LoginPage = () => {
   const { locale, asPath } = useRouter();
 
   console.log("locale", locale);
-  const { dir ,profile ,signInUser } = useContext(UserContext);
+  const { dir, profile, signInUser } = useContext(UserContext);
 
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState(null);
   const [formLoading, setFormLoading] = useState(false);
   const [submitDisabled, setSubmitDisabled] = useState(true);
-
-
- 
 
   const { name, email, password } = user;
 
@@ -67,15 +63,10 @@ const LoginPage = () => {
   };
 
   useEffect(() => {
-    if (profile){
- 
-     router.push('/')
+    if (profile) {
+      router.push("/");
     }
-   }, [profile]);
- 
- 
-
-
+  }, [profile]);
 
   useEffect(() => {
     const isUser = Object.values({ email, password }).every((item) =>
@@ -90,12 +81,10 @@ const LoginPage = () => {
     setFormLoading(true);
 
     try {
-
-
-await signInUser(email,password)
+      await signInUser(email, password);
 
       // const { data } = await axios.post("/api/auth/login", {
-        
+
       //   email,
       //   password,
       // });
@@ -109,8 +98,6 @@ await signInUser(email,password)
       // router.replace("/"
       //   // "/dashboard?ref=login"
       //   );
-
-
     } catch (error) {
       errorHandler(error);
     }
@@ -122,8 +109,8 @@ await signInUser(email,password)
     <ClientLayout>
       <div dir={dir} className=" englishfont">
         <Seo
-          title="Signup - Polle"
-          description="POLLE is the easiest and fastest way to create, distribute and analyze your polls, from start to finish!"
+          title="SignIn"
+          description=""
         />
 
         <PageHeaders
@@ -132,8 +119,6 @@ await signInUser(email,password)
           text={fetchWord("loginPageTitle", locale)}
           gradient
         />
-
-        
 
         <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
           <div className="max-w-md w-full space-y-8">
@@ -148,10 +133,6 @@ await signInUser(email,password)
             </div>
             <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
               <div className="rounded-md shadow-sm space-y-4">
-              
-                
-      
-
                 {/* Email */}
                 <div>
                   <label
@@ -286,8 +267,3 @@ await signInUser(email,password)
 // };
 
 export default LoginPage;
-
-
-
-
-
