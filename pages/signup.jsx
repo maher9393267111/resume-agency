@@ -50,7 +50,8 @@ const SignupPage = () => {
   const { locale, asPath } = useRouter();
 
   console.log("locale", locale);
-  const { dir } = useContext(UserContext);
+  const { dir ,register ,profile} = useContext(UserContext);
+  console.log("???" ,profile)
 
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState(null);
@@ -76,31 +77,52 @@ const SignupPage = () => {
     isUser ? setSubmitDisabled(false) : setSubmitDisabled(true);
   }, [user]);
 
+
+
+  useEffect(() => {
+   if (profile){
+
+    router.push('/')
+   }
+  }, [profile]);
+
+
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     setFormLoading(true);
 
     try {
-      const { data } = await axios.post("/api/auth/signup", {
-        name,
-        email,
-        password,
-      });
 
-      console.log("Response");
+    await  register(email ,password ,name)
+      // const { data } = await axios.post("/api/auth/signup", {
+      //   name,
+      //   email,
+      //   password,
+      // });
 
-      successHandler(
-        `${locale === "ar" ? "تم الاشتراك بنجاح" : "signup success"}`
-      );
+      // console.log("Response");
 
-      router.replace("/dashboard?ref=signup");
+      // successHandler(
+      //   `${locale === "ar" ? "تم الاشتراك بنجاح" : "signup success"}`
+      // );
+
+      // router.replace("/"
+      //   // "/dashboard?ref=signup"
+        
+      //   );
     } catch (error) {
       errorHandler(error);
     }
 
     setFormLoading(false);
   };
+
+
+
+
 
   return (
     <ClientLayout>

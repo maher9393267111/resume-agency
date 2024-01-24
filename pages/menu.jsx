@@ -17,17 +17,17 @@ import Services from "../components/Home/services";
 import Prices from "../components/Home/price";
 import Questions from "../components/Home/questions";
 import ContactHome from "../components/Home/homeContact";
-import { getUser } from "../src/lib/getUser";
+// import { getUser } from "../src/lib/getUser";
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Menu({user}) {
+export default function Menu({}) {
   const { locale, asPath } = useRouter();
 
   console.log("locale", locale);
   const { dir } = useContext(UserContext);
 
   return (
-    <ClientLayout user={user}>
+    <ClientLayout >
       <main dir={""} id="main_page " className={`englishfont`}>
         <div className=" ">
           <AnimationOnView>
@@ -43,13 +43,13 @@ export default function Menu({user}) {
 
 
 
-export const getServerSideProps = async ({ req, res }) => {
-  const user = await getUser(req, res);
+// export const getServerSideProps = async ({ req, res }) => {
+//   const user = await getUser(req, res);
 
  
 
 
-  return {
-    props: {user},
-  };
-};
+//   return {
+//     props: {user},
+//   };
+// };

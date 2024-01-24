@@ -19,7 +19,7 @@ import Prices from "../components/Home/price";
 import Questions from "../components/Home/questions";
 import ContactHome from "../components/Home/homeContact";
 import Sec2 from "../components/Home/sect2";
-import { getUser } from "../src/lib/getUser";
+// import { getUser } from "../src/lib/getUser";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home({user}) {
@@ -29,7 +29,7 @@ export default function Home({user}) {
   const { dir } = useContext(UserContext);
 
   return (
-    <ClientLayout user={user}>
+    <ClientLayout>
       <main dir={""} id="main_page " className={`englishfont`}>
         <div className=" ">
           <HomeBanner />
@@ -55,13 +55,13 @@ export default function Home({user}) {
 
 
 
-export const getServerSideProps = async ({ req, res }) => {
-  const user = await getUser(req, res);
+// export const getServerSideProps = async ({ req, res }) => {
+//   const user = await getUser(req, res);
 
  
 
 
-  return {
-    props: {user},
-  };
-};
+//   return {
+//     props: {user},
+//   };
+// };

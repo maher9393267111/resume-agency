@@ -9,6 +9,7 @@ import {
   FaPhone,
   FaTwitter,
   FaFacebook,
+  FaLinkedin
 } from "react-icons/fa";
 import { useRouter } from "next/router";
 
@@ -79,6 +80,13 @@ const navigation = {
       href: "https://wa.me/+972507301710?text=Hello%2C%20I%20want%20to%20chat%20with%20you!",
       icon: (props) => <FaWhatsapp {...props} />,
     },
+    {
+      name: "Linkden",
+      href: "https://www.linkedin.com/company/ultra-tech1/?viewAsMember=true",
+      icon: (props) => <FaLinkedin {...props} />,
+    },
+    
+
     {
       name: "Telgram",
       href: null,

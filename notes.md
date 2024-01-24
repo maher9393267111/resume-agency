@@ -1,10 +1,20 @@
 prisma
 
+Starter
+1- npx prisma migrate dev --name init
+
 npm run update ----> THENNN  npx prisma generate  
 npx prisma migrate dev  ---> {update prisma schema} ---> then terminate terminal down and run
 --> { npm run generate} : {npx prisma generate}  for client schema side
 
-mainColor = #00AB55
+
+++++++++++++++++++++++++++++
+***PLANETSCALE
+
+1- npx prisma db push
+2- npm run generate
+
+
 
 ---------
 

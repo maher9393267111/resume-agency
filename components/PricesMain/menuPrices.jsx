@@ -198,9 +198,16 @@ export default function MenuPrices({ locale }) {
                 ))}
               </ul>
 
-              <button className=" bg-purple-100  text-white font-semibold  block  px-4 py-2 rounded-2xl">
+
+              <Link href='/login' className="bg-purple-100 text-center  text-white font-semibold  block  px-4 py-2 rounded-2xl ">
+        <button className=" ">
                 {locale === "ar" ? "اشتراك" : " Sign in"}
               </button>
+              </Link>
+            
+
+
+
             </div>
           </div>
         ))}

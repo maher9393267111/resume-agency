@@ -1,5 +1,5 @@
 import React from "react";
-
+import Link from 'next/link'
 export default function SectionTwo({ locale }) {
   const textsAr = {
     subText: "مبادرة استراتيجية لتعزيز الأمن الغذائي",
@@ -42,9 +42,12 @@ export default function SectionTwo({ locale }) {
 
           {/* --buttons--- */}
           <div className="">
+            <Link href={'/contact'}>
+           
             <button className=" mx-2 md:mt-0 mt-4 border px-4 py-2 bg-purple-100 hover:bg-purple-600 transition-all  duration-200 text-white font-semibold  rounded-xl border-gray-50">
               {current.btn1}
             </button>
+            </Link>
           </div>
         </div>
 

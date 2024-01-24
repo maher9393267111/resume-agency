@@ -92,22 +92,22 @@ const ArNavLinks = [
   },
 ];
 
-const Header = ({ user }) => {
+const Header = ({  }) => {
   const settingsAr = [
-    { title: "الملف الشخصي", link: `/profile/${user?.name}` },
-    { title: "لوحة التحكم", link: "/dashboard" },
-    { title: "الاعدادات", link: "/dashbord/about" },
+    // { title: "الملف الشخصي", link: `/profile/${user?.name}` },
+    // { title: "لوحة التحكم", link: "/dashboard" },
+    // { title: "الاعدادات", link: "/dashbord/about" },
   ];
 
   const settingsEn = [
-    { title: "profile", link: `/profile/${user?.name}` },
-    { title: "Dashboard", link: "/dashboard" },
-    { title: "Settings", link: "/dashboard/about" },
+    // { title: "profile", link: `/profile/${user?.name}` },
+    // { title: "Dashboard", link: "/dashboard" },
+    // { title: "Settings", link: "/dashboard/about" },
   ];
 
   const [isOpen, setIsOpen] = useState(false);
 
-  const { logoutHandler } = useContext(UserContext);
+  const { logoutHandler ,profile:user ,logoutfirebase } = useContext(UserContext);
 
   const [anchorElUser, setAnchorElUser] = useState(null);
 
@@ -158,7 +158,24 @@ const Header = ({ user }) => {
             {/* ---user dropdown-- */}
             {user && user?.name ? (
               <div className="max-ta-800:hidden">
-                {/* <div>
+
+    {/* <div>
+                  <Tooltip title="profile">
+                    <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                      <Avatar
+                        alt="Remy Sharp"
+                        src="/static/images/avatar/2.jpg"
+                      />
+                    </IconButton>
+                    
+                  </Tooltip>
+
+                  </div>  */}
+
+
+
+
+                 <div>
                   <Tooltip title="Open settings">
                     <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                       <Avatar
@@ -183,7 +200,7 @@ const Header = ({ user }) => {
                     open={Boolean(anchorElUser)}
                     onClose={handleCloseUserMenu}
                   >
-                    {cureentSettings.map((setting) => (
+                    {/* {cureentSettings.map((setting) => (
                       <Link href={setting.link} key={setting.title}>
                         <MenuItem selected={setting.link === asPath}>
                           <Typography textAlign="center">
@@ -191,15 +208,15 @@ const Header = ({ user }) => {
                           </Typography>
                         </MenuItem>
                       </Link>
-                    ))}
+                    ))} */}
                     <MenuItem>
-                      <Typography onClick={logoutHandler} textAlign="center">
+                      <Typography onClick={logoutfirebase} textAlign="center">
                         Logout
                       </Typography>
                     </MenuItem>
                   </Menu>
-                </div> */}
-
+                </div> 
+ 
 
 
               </div>

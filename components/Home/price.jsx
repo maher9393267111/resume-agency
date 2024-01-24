@@ -6,6 +6,7 @@ import { fadeIn, textVariant } from "../../src/lib/animateView";
 import { useState, useContext } from "react";
 import { UserContext } from "@/src/context";
 import { useRouter } from "next/router";
+import Link from 'next/link'
 import { fetchWord } from "@/src/lib/lang/fetchWord";
 import PriceCard from "./priceCard";
 
@@ -289,6 +290,13 @@ export default function Services() {
             </li>
           ))}
         </ul>
+
+        <Link href='/login' className="bg-purple-100 text-center  text-white font-semibold  block  px-4 py-2 rounded-2xl ">
+        <button className=" ">
+                {locale === "ar" ? "اشتراك" : " Sign in"}
+              </button>
+              </Link>
+            
 
       </div>
     </div>

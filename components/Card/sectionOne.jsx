@@ -1,4 +1,5 @@
 import React from "react";
+import Link from 'next/link'
 
 export default function SectionOne({ locale }) {
   const textsAr = {
@@ -45,13 +46,16 @@ export default function SectionOne({ locale }) {
 
           {/* --buttons--- */}
           <div className="">
+            <Link href='/contact'>
             <button className=" mx-2 border px-4 py-2 bg-purple-100 hover:bg-purple-600 transition-all  duration-200 text-white font-semibold  rounded-xl border-gray-50">
-              {current.btn1}
-            </button>
 
-            <button className="mx-2  px-4 py-2 hover:border-black  hover:border transition-all duration-200 bg-white text-black font-semibold rounded-xl ">
               {current.btn2}
             </button>
+            </Link>
+
+            {/* <button className="mx-2  px-4 py-2 hover:border-black  hover:border transition-all duration-200 bg-white text-black font-semibold rounded-xl ">
+              {current.btn2}
+            </button> */}
           </div>
         </div>
 

@@ -14,7 +14,7 @@ import { useRouter } from "next/router";
 import Questions from "../components/Home/questions";
 
 import PageHeaders from "../components/common/pageHeaders";
-import { getUser } from "../src/lib/getUser";
+// import { getUser } from "../src/lib/getUser";
 export default function PricesPage() {
   const { locale, asPath } = useRouter();
 
@@ -101,10 +101,10 @@ export default function PricesPage() {
   );
 }
 
-export const getServerSideProps = async ({ req, res }) => {
-  const user = await getUser(req, res);
+// export const getServerSideProps = async ({ req, res }) => {
+//   const user = await getUser(req, res);
 
-  return {
-    props: { user },
-  };
-};
+//   return {
+//     props: { user },
+//   };
+// };
