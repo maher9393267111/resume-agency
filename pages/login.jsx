@@ -231,7 +231,7 @@ await signInUser(email,password)
               <div className="flex items-center justify-between">
                 <div className="text-sm">
                   <Link
-                    href="/login"
+                    href="/signup"
                     className="font-medium text-purple-600   hover:text-purple-700"
                   >
                     {fetchWord("nothaveAcoount", locale)}
