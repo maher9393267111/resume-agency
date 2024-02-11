@@ -4,6 +4,7 @@ import AccordionComponent from "../../components/profilee/accordion";
 import SliderImages from "../../components/profilee/slider";
 const inter = Inter({ subsets: ["latin"] });
 import Link from 'next/link'
+import NextLink from 'next/link';
 import { FaPlus } from "react-icons/fa";
 
 import { FaWhatsapp ,FaInstagram ,FaTelegram ,FaTwitter , FaFacebookF  } from "react-icons/fa"
@@ -467,7 +468,7 @@ export default function Home3({ name, userdata }) {
             <div className=" my-6">
               {/* // 🌐🌐  text and Bg color dynamic */}
 
-              <a href={"tel:"+about?.phone}
+              <NextLink href={"tel:"+about?.phone}
                 target={'_self'}
               
               >
@@ -475,16 +476,13 @@ export default function Home3({ name, userdata }) {
               <div
                 className={`telbtn ${phoneBtnBgColor} ${phoneBtnTextAndIconColor}`}
               >
-                <a
-                  className=" flex items-center gap-2 justify-center px-4"
-                  href=""
-                >
+              
                   <FaPlus />
 
                   <span> שמרו אותנו באנשי הקשר</span>
-                </a>
+                
               </div>
-              </a>
+              </NextLink>
 
 
 
