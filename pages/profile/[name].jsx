@@ -467,7 +467,10 @@ export default function Home3({ name, userdata }) {
             <div className=" my-6">
               {/* // 🌐🌐  text and Bg color dynamic */}
 
-              <a href={"tel:"+about?.phone}>
+              <a href={"tel:"+about?.phone}
+                target={'_self'}
+              
+              >
              
               <div
                 className={`telbtn ${phoneBtnBgColor} ${phoneBtnTextAndIconColor}`}
@@ -568,6 +571,7 @@ export default function Home3({ name, userdata }) {
               arrowsColor={arrowsColor}
               sliderUnderlineBorderColor={sliderUnderlineBorderColor}
               video ={about?.video}
+              sliders={sliders}
             />
           </div>
 
