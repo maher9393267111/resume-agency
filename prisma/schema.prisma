@@ -62,7 +62,7 @@ model About {
   updatedAt  DateTime @updatedAt
   themeColor String   @default("#1976D2")
   title      String   @default("")
-  desc       String  @db.VarChar(255)   @default("")
+  desc       String  @db.VarChar(555)   @default("")
   myImage    String   @default("")
   headImage  String   @default("")
   bgImage  String   @default("")
@@ -71,6 +71,7 @@ model About {
   phone      String   @default("")
   location     String   @default("")
   video        String   @default("")
+  temp        Int   @default(1)
 
   pdf String @default("")
 

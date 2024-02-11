@@ -21,7 +21,7 @@ import {
 } from "react-icons/ri";
 import Carousel from "framer-motion-carousel";
 
-export default function SliderImages({ imagesData }) {
+export default function SliderImages({ imagesData , about }) {
   return (
     <div className="mt-6">
       {/* <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">

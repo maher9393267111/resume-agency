@@ -14,15 +14,15 @@ import { useRouter } from "next/router";
 import Questions from "../components/Home/questions";
 
 import PageHeaders from "../components/common/pageHeaders";
-// import { getUser } from "../src/lib/getUser";
-export default function PricesPage() {
+ import { getUser } from "../src/lib/getUser";
+export default function PricesPage({user}) {
   const { locale, asPath } = useRouter();
 
   console.log("locale", locale);
   const { dir } = useContext(UserContext);
 
   return (
-    <ClientLayout>
+    <ClientLayout user={user}>
       <main dir={dir} id="main_page " className={`englishfont`}>
         <div className=" ">
           <AnimationOnView>
@@ -101,10 +101,10 @@ export default function PricesPage() {
   );
 }
 
-// export const getServerSideProps = async ({ req, res }) => {
-//   const user = await getUser(req, res);
+export const getServerSideProps = async ({ req, res }) => {
+  const user = await getUser(req, res);
 
-//   return {
-//     props: { user },
-//   };
-// };
+  return {
+    props: { user },
+  };
+};

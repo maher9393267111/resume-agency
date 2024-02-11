@@ -301,7 +301,9 @@ export const DashboardLayout = ({ children, user }) => {
                             </Link>
                           ))}
                           <MenuItem>
-                            <Typography textAlign="center">Logout</Typography>
+                            <Typography
+                            onClick={logoutHandler}
+                            textAlign="center">Logout</Typography>
                           </MenuItem>
                         </Menu>
                       </div>

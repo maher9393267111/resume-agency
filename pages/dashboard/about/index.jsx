@@ -39,7 +39,7 @@ function AboutPage({ user, userdata }) {
   // } = useForm();
 
   const router = useRouter();
-
+  const [temp, setTemp] = useState(userdata?.about[0]?.temp || 1);
   const [title, setTitle] = useState(userdata?.about[0]?.title || "");
   const [desc, setDesc] = useState(userdata?.about[0]?.desc || "");
   const [pdf, setPdf] = useState(userdata?.about[0]?.pdf || "");
@@ -99,6 +99,16 @@ function AboutPage({ user, userdata }) {
     setTextColor(newColor.hex);
   };
 
+
+
+  const handleTempChange = (selectedTemp) => {
+    setTemp(selectedTemp)
+  };
+
+
+
+
+
   const submitHandler = async (e) => {
     console.log("values-->");
     e.preventDefault();
@@ -125,6 +135,7 @@ function AboutPage({ user, userdata }) {
 
       console.log(textColor, "????????");
       const { data } = await axios.post("/api/about", {
+        temp,
         title,
         desc,
         whatsapp,
@@ -493,12 +504,21 @@ function AboutPage({ user, userdata }) {
 
             <div className="mx-auto w-full lg:flex-row flex flex-col gap-12 justify-center  max-w-md  ">
               <div className="">
-                <h2 className="my-2">Theme Color</h2>
+                <h2 className={`my-2  ${temp === 1 &&  'text-red-500 font-semibold'}`}>Dark Theme</h2>
 
-                <SketchPicker
+
+
+<h1
+onClick={()=> handleTempChange(1)}
+
+className=" w-[90px] h-[90px] rounded-full  bg-temp1-coverbg"></h1>
+
+
+                {/* <SketchPicker
                   color={themeColor}
                   onChangeComplete={handleColorChange}
-                />
+                /> */}
+
 
                 {/* <MuiColorInput
                   value={themeColor}
@@ -507,34 +527,62 @@ function AboutPage({ user, userdata }) {
               </div>
 
               <div className="mt-6   md:mt-0">
-                <h2 className="my-2">Icons Buttons</h2>
+                <h2 className={`my-2  ${temp === 2 &&  'text-red-500 font-semibold'}`}>Red Theme </h2>
+                <h1
+                onClick={()=> handleTempChange(2)}
+
+                className=" w-[90px] h-[90px] rounded-full  bg-temp2-coverbg"></h1>
+
 
                 {/* <MuiColorInput
                   value={iconColor}
                   onChange={handleIconColorChange}
                 /> */}
 
-                <SketchPicker
+                {/* <SketchPicker
                   // HuePicker
                   color={iconColor}
                   onChangeComplete={handleIconColorChange}
-                />
+                /> */}
               </div>
 
               <div className="mt-6   md:mt-0">
-                <h2 className="my-2">Text Color</h2>
+                <h2 className={`my-2  ${temp === 3 &&  'text-red-500 font-semibold'}`}>Blue Theme</h2>
+
+                <h1
+                onClick={()=> handleTempChange(3)}
+
+                className=" w-[90px] h-[90px] rounded-full    bg-temp3-icon_color"></h1>
+
                 {/* {textColor}
                 <MuiColorInput
                   value={textColor}
                   onChange={handleTextolorChange}
                 /> */}
 
-                <SketchPicker
+                {/* <SketchPicker
                   // HuePicker
                   color={textColor}
                   onChangeComplete={handleTextolorChange}
-                />
+                /> */}
               </div>
+
+
+              <div className="mt-6   md:mt-0">
+                <h2 className={`my-2  ${temp === 4 &&  'text-red-500 font-semibold'}`}>Red Theme</h2>
+
+                <h1
+                onClick={()=> handleTempChange(4)}
+
+                className=" w-[90px] h-[90px] rounded-full    bg-temp4-icon_color"></h1>
+
+            
+              </div>
+
+
+
+
+
             </div>
 
             {/* Submit Button */}

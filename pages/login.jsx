@@ -9,7 +9,7 @@ import {
 
 import axios from "axios";
 import { errorHandler, successHandler } from "../src/lib/errorHandler";
-// import { getUser } from "../src/lib/getUser";
+ import { getUser } from "../src/lib/getUser";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import PageHeaders from "../components/common/pageHeaders";
@@ -62,11 +62,14 @@ const LoginPage = () => {
     setUser((prevState) => ({ ...prevState, [e.target.name]: e.target.value }));
   };
 
-  useEffect(() => {
-    if (profile) {
-      router.push("/");
-    }
-  }, [profile]);
+  // useEffect(() => {
+  //   if (profile) {
+  //     router.push("/");
+  //   }
+  // }, [profile]);
+
+
+
 
   useEffect(() => {
     const isUser = Object.values({ email, password }).every((item) =>
@@ -81,23 +84,25 @@ const LoginPage = () => {
     setFormLoading(true);
 
     try {
-      await signInUser(email, password);
+    //  await signInUser(email, password);
 
-      // const { data } = await axios.post("/api/auth/login", {
+      const { data } = await axios.post("/api/auth/login", {
 
-      //   email,
-      //   password,
-      // });
+        email,
+        password,
+      });
 
       console.log("Response");
 
-      // successHandler(
-      //   `${locale === "ar" ? "تم التسجيل بنجاح" : "login success"}`
-      // );
+      successHandler(
+        `${locale === "ar" ? "تم التسجيل بنجاح" : "login success"}`
+      );
 
-      // router.replace("/"
-      //   // "/dashboard?ref=login"
-      //   );
+      router.replace("/"
+        // "/dashboard?ref=login"
+        );
+
+
     } catch (error) {
       errorHandler(error);
     }
@@ -249,21 +254,25 @@ const LoginPage = () => {
   );
 };
 
-// export const getServerSideProps = async ({ req, res }) => {
-//   const user = await getUser(req, res);
+export const getServerSideProps = async ({ req, res }) => {
+  const user = await getUser(req, res);
 
-//   if (user) {
-//     return {
-//       redirect: {
-//         permanent: false,
-//         destination: "/",
-//       },
-//       props: {},
-//     };
-//   }
-//   return {
-//     props: {},
-//   };
-// };
+  if (user) {
+    return {
+      redirect: {
+        permanent: false,
+        destination: "/",
+      },
+      props: {},
+    };
+  }
+  return {
+    props: {},
+  };
+};
+
+
+
+
 
 export default LoginPage;

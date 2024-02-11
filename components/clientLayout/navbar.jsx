@@ -92,22 +92,25 @@ const ArNavLinks = [
   },
 ];
 
-const Header = ({  }) => {
+const Header = ({ user }) => {
   const settingsAr = [
-    // { title: "الملف الشخصي", link: `/profile/${user?.name}` },
-    // { title: "لوحة التحكم", link: "/dashboard" },
-    // { title: "الاعدادات", link: "/dashbord/about" },
+    { title: "الملف الشخصي", link: `/profile/${user?.name}` },
+    { title: "لوحة التحكم", link: "/dashboard" },
+    { title: "الاعدادات", link: "/dashbord/about" },
   ];
 
   const settingsEn = [
-    // { title: "profile", link: `/profile/${user?.name}` },
-    // { title: "Dashboard", link: "/dashboard" },
-    // { title: "Settings", link: "/dashboard/about" },
+    { title: "profile", link: `/profile/${user?.name}` },
+    { title: "Dashboard", link: "/dashboard" },
+    { title: "Settings", link: "/dashboard/about" },
   ];
 
   const [isOpen, setIsOpen] = useState(false);
 
-  const { logoutHandler ,profile:user ,logoutfirebase } = useContext(UserContext);
+  const { logoutHandler ,
+    // profile:user ,logoutfirebase 
+  
+  } = useContext(UserContext);
 
   const [anchorElUser, setAnchorElUser] = useState(null);
 
@@ -200,7 +203,7 @@ const Header = ({  }) => {
                     open={Boolean(anchorElUser)}
                     onClose={handleCloseUserMenu}
                   >
-                    {/* {cureentSettings.map((setting) => (
+                    {cureentSettings.map((setting) => (
                       <Link href={setting.link} key={setting.title}>
                         <MenuItem selected={setting.link === asPath}>
                           <Typography textAlign="center">
@@ -208,9 +211,9 @@ const Header = ({  }) => {
                           </Typography>
                         </MenuItem>
                       </Link>
-                    ))} */}
+                    ))}
                     <MenuItem>
-                      <Typography onClick={logoutfirebase} textAlign="center">
+                      <Typography onClick={logoutHandler} textAlign="center">
                         Logout
                       </Typography>
                     </MenuItem>

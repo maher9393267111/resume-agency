@@ -96,23 +96,25 @@ const SignupPage = () => {
 
     try {
 
-    await  register(email ,password ,name)
-      // const { data } = await axios.post("/api/auth/signup", {
-      //   name,
-      //   email,
-      //   password,
-      // });
+  //  await  register(email ,password ,name)
+      const { data } = await axios.post("/api/auth/signup", {
+        name,
+        email,
+        password,
+      });
 
-      // console.log("Response");
+      console.log("Response");
 
-      // successHandler(
-      //   `${locale === "ar" ? "تم الاشتراك بنجاح" : "signup success"}`
-      // );
+      successHandler(
+        `${locale === "ar" ? "تم الاشتراك بنجاح" : "signup success"}`
+      );
 
-      // router.replace("/"
-      //   // "/dashboard?ref=signup"
+      router.replace("/"
+        //  "/dashboard?ref=signup"
         
-      //   );
+        );
+
+
     } catch (error) {
       errorHandler(error);
     }

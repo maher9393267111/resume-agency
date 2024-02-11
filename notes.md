@@ -2,8 +2,12 @@ prisma
 
 Starter
 1- npx prisma migrate dev --name init
+2- npm run generate     {cliet prisma data types generate}
 
-npm run update ----> THENNN  npx prisma generate  
+
+- TO UPDATE PRISMA TABLES SCHEMA :
+
+npm run update ----> THENNN  npm prisma generate  
 npx prisma migrate dev  ---> {update prisma schema} ---> then terminate terminal down and run
 --> { npm run generate} : {npx prisma generate}  for client schema side
 
@@ -25,6 +29,9 @@ https://my-website-a-eiber.vercel.app/assets/Alec_Eiber_Resume.pdf
 https://my-website-a-eiber.vercel.app/#contact
 https://github.com/a-eiber/portfolio/blob/b62efb6c9076c29c2c538a42d84d030e5ff7e8fc/components/Contact.jsx#L2
 ------------
+
+
+-whats
 
 
 
