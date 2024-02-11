@@ -12,12 +12,13 @@ import { FaWhatsapp ,FaInstagram ,FaTelegram ,FaTwitter , FaFacebookF  } from "r
 import Contact from "../../components/profilee/contact";
 import { useState } from "react";
 import { prisma } from "../../src/lib/prisma";
+import { ImageEndpoint, defaultImage } from "../../src/lib/globall";
 
 export default function Home3({ name, userdata }) {
   const [temp, setTemp] = useState(userdata[0]?.about[0]?.temp);
 
   const about = userdata[0]?.about[0];
-  console.log(about?.video , "A$$$$$$$$$$$$$$$$$$$$ASS");
+  console.log(about?.bgImage , "A$$$$$$$$$$$$$$$$$$$$ASS");
   const sliders = userdata[0]?.slider;
   console.log("slidersDatas", sliders);
   const projects = userdata[0]?.projects;
@@ -64,7 +65,7 @@ export default function Home3({ name, userdata }) {
 
   const iconBorderColor =
     temp === 1
-      ? "border-temp1-main_icon_border_color"
+      ? "border-temp1-icon_border_color"
       : temp === 2
       ? "border-temp2-icon_border_color"
       : temp === 3
@@ -250,6 +251,22 @@ export default function Home3({ name, userdata }) {
       ? "border-temp4-contact_input_border_color"
       : temp === 5 && "border-temp5-contact_input_border_color";
 
+
+//contact_overlay_bg
+const contactBgOverlayColor =
+temp === 1
+  ? "bg-temp1-contact_overlay_bg"
+  : temp === 2
+  ? "bg-temp2-contact_overlay_bg"
+  : temp === 3
+  ? "bg-temp3-contact_overlay_bg"
+  : temp === 4
+  ? "bg-temp4-contact_overlay_bg"
+  : temp === 5 && "bg-temp5-contact_overlay_bg";
+
+
+
+
   return (
     <main className=" bg-gray-50 font-serif">
       <div className="layoutContainer">
@@ -265,17 +282,33 @@ export default function Home3({ name, userdata }) {
               temp
             )}-coverbg  coverb`}
           >
+
+
+
+
+
             <img
               className="cove w-full h-[300px] lg:h-[400px] m-auto object-cover rounded-b-xl"
-              src="https://e0.pxfuel.com/wallpapers/393/237/desktop-wallpaper-facebook-cover-grey-abstract-3440x1440-abstract.jpg"
+              src={
+                (about?.headImage && `${ImageEndpoint}/${about?.headImage}`) ||
+                
+                "https://e0.pxfuel.com/wallpapers/393/237/desktop-wallpaper-facebook-cover-grey-abstract-3440x1440-abstract.jpg"}
               alt=""
             />
+
+
+
 
             {/* ----userImage--- */}
             <div className="  flex justify-center  ">
               <img
                 className="md:w-[13rem] relative -top-[80px] bg-white md:h-[13rem] w-[8rem] h-[8rem] shadow border-4 border-white rounded-full object-cover"
-                src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dXNlcnxlbnwwfHwwfHx8MA%3D%3D"
+                src=
+           {    about?.myImage
+            ? `${ImageEndpoint}/${about?.myImage}`
+            : defaultImage}
+                
+                // "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dXNlcnxlbnwwfHwwfHx8MA%3D%3D"
                 alt=""
               />
             </div>
@@ -578,10 +611,12 @@ export default function Home3({ name, userdata }) {
 
           <div>
             <Contact
+
+            bgImage={ about?.bgImage}
               mainTextColor={mainTextColor}
               contactBtnTextColor={contactBtnTextColor}
               contactBTnBgColor={contactBTnBgColor}
-              coverbg={coverbg}
+              coverbg={contactBgOverlayColor}
               contactInputBorderColor={contactInputBorderColor}
               domainUrl={domainUrl }
 

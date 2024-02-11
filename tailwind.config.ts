@@ -19,6 +19,7 @@ const config: Config = {
           "coverbg": "#1F2544",
           "main_text_color": "#ffffff",
           "icon_color": "#F6ECA9",
+          
           "icon_border_color": "#F6ECA9",
           "accordion_border": "#ffffff",
           "accordion_title": "#F6ECA9",
@@ -36,7 +37,8 @@ const config: Config = {
            "slider_underline_border":"#1F2544",
            "contact_btn_bg":"#F6ECA9",
            "contact_btn_text_color":"#ffffff",
-           "contact_input_border_color":"#ffffff"
+           "contact_input_border_color":"#ffffff",
+           "contact_overlay_bg":"#F6ECA9",
 
          
       },
@@ -61,7 +63,8 @@ const config: Config = {
          "slider_underline_border":"#000000",
          "contact_btn_bg":"#8BBA83",
          "contact_btn_text_color":"#000000",
-         "contact_input_border_color":"#ffffff"
+         "contact_input_border_color":"#ffffff",
+         "contact_overlay_bg":"#8BBA83",
       },
       temp3: {
         "coverbg": "FFE3BB",
@@ -84,7 +87,8 @@ const config: Config = {
          "slider_underline_border":"#C59169",
          "contact_btn_bg":"#C59169",
          "contact_btn_text_color":"#000000",
-         "contact_input_border_color":"#000000"
+         "contact_input_border_color":"#000000",
+         "contact_overlay_bg":"#022C57",
       },
       temp4: {
         "coverbg": "FFE3BB",
@@ -107,7 +111,8 @@ const config: Config = {
          "slider_underline_border":"#ffffff",
          "contact_btn_bg":"#000000",
          "contact_btn_text_color":"#ffffff",
-         "contact_input_border_color":"#000000"
+         "contact_input_border_color":"#000000",
+         "contact_overlay_bg":"#BE1E2D",
       },
 
 
