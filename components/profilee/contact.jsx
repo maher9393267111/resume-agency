@@ -88,7 +88,7 @@ export default function Contact({bgImage,portfoliemail ,about, domainUrl,mainTex
 
   return (
    
-    <div className={`${coverbg} relative -mt-[62px] bg-blac pb-12`}>
+    <div className={`${coverbg} relative -mt-[62px] bg-blac pb-1`}>
 
 {/* without BACKGROUND 🐦  🐦  🐦 */}
 
@@ -267,7 +267,7 @@ export default function Contact({bgImage,portfoliemail ,about, domainUrl,mainTex
           src={`${ImageEndpoint}/${bgImage}`}
           // "https://sample-store-nu.vercel.app/hero.jpg"
           alt="Hero"
-          className="object-cover object-center    !w-full md:!h-[110vh] lg:!h-[100vh] xl:!h-[80vh] !h-[77vh]"
+          className="object-cover object-center  !w-full md:!h-[110vh] lg:!h-[100vh] xl:!h-[80vh] !h-[77vh]   "
         />
 
 
