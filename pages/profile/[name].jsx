@@ -476,11 +476,14 @@ export default function Home3({ name, userdata }) {
               <div
                 className={`telbtn ${phoneBtnBgColor} ${phoneBtnTextAndIconColor}`}
               >
-              
+                <div
+                  className=" flex items-center gap-2 justify-center px-4"
+                  
+                >
                   <FaPlus />
 
                   <span> שמרו אותנו באנשי הקשר</span>
-                
+                </div>
               </div>
               </NextLink>
 
