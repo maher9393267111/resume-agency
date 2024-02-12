@@ -171,7 +171,7 @@ const sendMessage = async (data) => {
 
 style={{color:textColor ,backgroundColor:iconColor}}
               type="submit"
-              className="px-16 py-3 mt-4 text-lg font-medium uppercase rounded-md shadow-lg cursor-pointer "
+              className="  px-16 py-3 mt-4 text-lg font-medium uppercase rounded-xl shadow-lg cursor-pointer "
             >
               Submit
             </button>

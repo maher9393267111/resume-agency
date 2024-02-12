@@ -503,9 +503,9 @@ function AboutPage({ user, userdata }) {
 
             {/* ----------colors----- */}
 
-            <div className="mx-auto w-full lg:flex-row flex flex-col gap-12 justify-center  max-w-md  ">
-              <div className="">
-                <h2 className={`my-2  ${temp === 1 &&  'text-red-500 font-semibold'}`}>Dark Theme</h2>
+            <div className="mx-auto w-full md:flex-row flex flex-col gap-12 justify-center  max-w-md  ">
+              <div className=" mx-auto ">
+                <h2 className={`my-2  text-center  ${temp === 1 &&  'text-red-500 font-semibold'}`}>Dark </h2>
 
 
 
@@ -527,12 +527,12 @@ className=" w-[90px] h-[90px] rounded-full  bg-temp1-coverbg"></h1>
                 /> */}
               </div>
 
-              <div className="mt-6   md:mt-0">
-                <h2 className={`my-2  ${temp === 2 &&  'text-red-500 font-semibold'}`}>Red Theme </h2>
+              <div className="mt-6 mx-auto  md:mt-0">
+                <h2 className={`my-2 text-center  ${temp === 2 &&  'text-red-500 font-semibold'}`}>Red  </h2>
                 <h1
                 onClick={()=> handleTempChange(2)}
 
-                className=" w-[90px] h-[90px] rounded-full  bg-temp2-coverbg"></h1>
+                className=" w-[90px] h-[90px] rounded-full mx-auto  bg-temp2-coverbg"></h1>
 
 
                 {/* <MuiColorInput
@@ -547,13 +547,13 @@ className=" w-[90px] h-[90px] rounded-full  bg-temp1-coverbg"></h1>
                 /> */}
               </div>
 
-              <div className="mt-6   md:mt-0">
-                <h2 className={`my-2  ${temp === 3 &&  'text-red-500 font-semibold'}`}>Blue Theme</h2>
+              <div className="mt-6 mx-auto   md:mt-0">
+                <h2 className={`my-2 text-center ${temp === 3 &&  'text-red-500 font-semibold'}`}>Blue</h2>
 
                 <h1
                 onClick={()=> handleTempChange(3)}
 
-                className=" w-[90px] h-[90px] rounded-full    bg-temp3-icon_color"></h1>
+                className=" w-[90px] h-[90px] rounded-full mx-auto   bg-temp3-icon_color"></h1>
 
                 {/* {textColor}
                 <MuiColorInput
@@ -569,16 +569,32 @@ className=" w-[90px] h-[90px] rounded-full  bg-temp1-coverbg"></h1>
               </div>
 
 
-              <div className="mt-6   md:mt-0">
-                <h2 className={`my-2  ${temp === 4 &&  'text-red-500 font-semibold'}`}>Red Theme</h2>
+              <div className="mt-6 mx-auto  md:mt-0">
+                <h2 className={`my-2 text-center  ${temp === 4 &&  'text-red-500 font-semibold'}`}>Red </h2>
 
                 <h1
                 onClick={()=> handleTempChange(4)}
 
-                className=" w-[90px] h-[90px] rounded-full    bg-temp4-icon_color"></h1>
+                className=" w-[90px] h-[90px] rounded-full mx-auto    bg-temp4-icon_color"></h1>
 
             
               </div>
+
+
+              {/* #ccae32 */}
+
+
+              <div className="mt-6 mx-auto  md:mt-0">
+                <h2 className={`my-2 text-center  ${temp === 5 &&  'text-red-500 font-semibold'}`}>Golden </h2>
+
+                <h1
+                onClick={()=> handleTempChange(5)}
+
+                className=" w-[90px] h-[90px] rounded-full mx-auto   bg-temp5-icon_color"></h1>
+
+            
+              </div>
+
 
 
 

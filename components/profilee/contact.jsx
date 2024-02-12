@@ -157,7 +157,7 @@ export default function Contact({
               <div className="w-full">
                 <button
                   type="submit"
-                  className={`${contactBTnBgColor} ${contactBtnTextColor} w-full mainBgColor text-whit font-bold text-center text-xl rounded-sm  py-3 px-6`}
+                  className={`${contactBTnBgColor} ${contactBtnTextColor} rounded-md w-full mainBgColor text-whit font-bold text-center text-xl  py-3 px-6`}
                 >
                   Submit
                 </button>
@@ -311,7 +311,7 @@ export default function Contact({
                 <div className="w-full">
                   <button
                     type="submit"
-                    className={`${contactBTnBgColor} ${contactBtnTextColor} w-full mainBgColor text-whit font-bold text-center text-xl rounded-sm  py-3 px-6`}
+                    className={`${contactBTnBgColor} ${contactBtnTextColor} w-full mainBgColor text-whit font-bold text-center text-xl rounded-md  py-3 px-6`}
                   >
                     Submit
                   </button>
