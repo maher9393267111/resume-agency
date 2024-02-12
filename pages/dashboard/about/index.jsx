@@ -40,6 +40,7 @@ function AboutPage({ user, userdata }) {
 
   const router = useRouter();
   const [temp, setTemp] = useState(userdata?.about[0]?.temp || 1);
+  console.log("TEMPssss----->" ,userdata, userdata?.about[0] )
   const [title, setTitle] = useState(userdata?.about[0]?.title || "");
   const [desc, setDesc] = useState(userdata?.about[0]?.desc || "");
   const [pdf, setPdf] = useState(userdata?.about[0]?.pdf || "");

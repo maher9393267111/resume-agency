@@ -15,7 +15,7 @@ import { prisma } from "../../src/lib/prisma";
 import { ImageEndpoint, defaultImage } from "../../src/lib/globall";
 
 export default function Home3({ name, userdata }) {
-  const [temp, setTemp] = useState(userdata[0]?.about[0]?.temp);
+  const [temp, setTemp] = useState(userdata[0]?.about[0]?.temp || 1);
 
 console.log(temp , "Temp");
   const about = userdata[0]?.about[0];
