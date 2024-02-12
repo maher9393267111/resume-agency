@@ -63,7 +63,9 @@ const DashboardPage = ({ user, polls }) => {
             </Typography>
 
 
-            <Typography sx={{ my: 2, color: "#212b36" }}>
+      
+
+            <Typography className={` ${user?.status === 'accepted' ? ' text-white  bg-green-500 ' : ' text-white bg-red-600'} text-center   rounded-xl mt-2 text-xl font-semibold  py-2 `} sx={{ my: 2, color: "#212b36" }}>
               {user?.status}
             </Typography>
 
