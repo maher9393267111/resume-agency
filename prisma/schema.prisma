@@ -78,7 +78,7 @@ model About {
   phone      String   @default("")
   location     String   @default("")
   video        String   @default("")
-  temp        Int   @default(1)
+  temp        Int   @default(2)
 
   pdf String @default("")
 

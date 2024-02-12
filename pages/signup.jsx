@@ -79,12 +79,12 @@ const SignupPage = () => {
 
 
 
-  useEffect(() => {
-   if (profile){
+  // useEffect(() => {
+  //  if (profile){
 
-    router.push('/')
-   }
-  }, [profile]);
+  //   router.push('/')
+  //  }
+  // }, [profile]);
 
 
 
