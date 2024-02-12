@@ -62,6 +62,12 @@ const DashboardPage = ({ user, polls }) => {
               Let start by creating 
             </Typography>
 
+
+            <Typography sx={{ my: 2, color: "#212b36" }}>
+              {user?.status}
+            </Typography>
+
+
             {/* <Link href="/dashboard/create-poll" passHref>
               <Button
                 variant="contained"

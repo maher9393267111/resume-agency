@@ -26,6 +26,7 @@ model User {
   email      String       @unique
   password   String
   role       String       @default("user")
+  status     String       @default("pending")
   // polls      Poll[]
   projects   Project[]
   appearence Appearence[]
@@ -44,7 +45,7 @@ model Project {
 
   themeColor String  @default("#1976D2")
   enable     Boolean @default(true)
-  user       User    @relation(fields: [userId], references: [id])
+  user       User    @relation(fields: [userId], references: [id] ,onDelete: Cascade) 
   userId     Int
 }
 
@@ -58,7 +59,7 @@ model Slider {
   title      String   
   link       String
 
-  user   User @relation(fields: [userId], references: [id])
+  user   User @relation(fields: [userId], references: [id] ,onDelete: Cascade)
   userId Int
 }
 
@@ -90,7 +91,7 @@ model About {
   iconColor String @default("#1976D2")
   textColor String   @default("#000000")
 
-  user   User @relation(fields: [userId], references: [id])
+  user   User @relation(fields: [userId], references: [id] ,onDelete: Cascade)
   userId Int
 }
 

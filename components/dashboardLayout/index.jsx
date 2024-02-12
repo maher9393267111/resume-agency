@@ -113,6 +113,26 @@ export const DashboardLayout = ({ children, user }) => {
                   Dashboard
                 </Link>
 
+
+                {user?.email === 'admin@gmail.com' &&
+
+
+<Link
+href="/dashboard/users"
+title="Users"
+className={
+  router.pathname === "/dashboard/users" ? classes.activeLink : null
+}
+>
+<DashboardIcon />
+Users
+</Link>
+
+}
+
+
+
+
                 <Link
                   href="/dashboard/about"
                   title="Manage About"

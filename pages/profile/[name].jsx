@@ -17,7 +17,9 @@ import { ImageEndpoint, defaultImage } from "../../src/lib/globall";
 export default function Home3({ name, userdata }) {
   const [temp, setTemp] = useState(userdata[0]?.about[0]?.temp || 1);
 
-console.log(temp , "Temp");
+
+const status = userdata[0]?.status;
+console.log(status , "Status");
   const about = userdata[0]?.about[0];
   console.log(about?.bgImage , "A$$$$$$$$$$$$$$$$$$$$ASS");
   const sliders = userdata[0]?.slider;
@@ -270,6 +272,9 @@ temp === 1
 
   return (
     <main className=" bg-gray-50 font-serif">
+
+{status  === 'accepted' ?
+
       <div className="layoutContainer">
         <div
           // style={{ backgroundImage: 'url("https://media.istockphoto.com/id/1268759368/photo/close-up-of-a-black-slate-texture-background-stone-grunge-texture.webp?b=1&s=612x612&w=0&k=20&c=LfMAojas-XL8kBuLO-1av_2ITfr8am-Lmwgrla-yFRc=")' }}
@@ -636,6 +641,19 @@ temp === 1
           </div>
         </div>
       </div>
+
+:
+
+<div className=" text-center text-4xl mt-24  font-bold text-red-600">
+  <h1>Your Account is not accepted yet</h1>
+</div>
+
+
+}
+
+
+
+
     </main>
   );
 }
