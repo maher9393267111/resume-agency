@@ -320,7 +320,7 @@ function AboutPage({ user, userdata }) {
               {/* {`${ImageEndpoint}/${myImage}`} */}
 
               <div className=" w-[200px] h-[200px] object-cover ">
-                <h1 className=" mb-2">Upload your image</h1>
+                <h1 className=" mb-2 text-sm md:text-lg">user</h1>
 
                 <div className=" relative">
                   <img
@@ -351,7 +351,7 @@ function AboutPage({ user, userdata }) {
               </div>
 
               <div className=" w-[200px] h-[200px] object-cover ">
-                <h1 className=" mb-2">Upload header image</h1>
+                <h1 className=" mb-2 text-sm md:text-lg">header </h1>
 
                 <div className=" relative">
                   <img
@@ -379,7 +379,7 @@ function AboutPage({ user, userdata }) {
               </div>
 
               <div className=" w-[200px] h-[200px] object-cover ">
-                <h1 className=" mb-2">Upload Background image</h1>
+                <h1 className=" mb-2 text-sm md:text-lg" >back </h1>
 
                 <div className=" relative">
                   <img
