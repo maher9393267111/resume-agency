@@ -66,6 +66,19 @@ import {
                   </ListItemButton>
                 </ListItem>
 
+                <ListItem disablePadding>
+                  <ListItemButton onClick={() => router.push(`/profile/${user?.name}`)}>
+                    <ListItemIcon>
+                      <DashboardIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Profile" />
+                  </ListItemButton>
+                </ListItem>
+
+
+
+
+
 
 
                 <ListItem disablePadding>
