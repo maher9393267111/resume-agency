@@ -1,3 +1,0 @@
--- AlterTable
-ALTER TABLE `About` ADD COLUMN `location` VARCHAR(191) NOT NULL DEFAULT '',
-    ADD COLUMN `phone` VARCHAR(191) NOT NULL DEFAULT '';

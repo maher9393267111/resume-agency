@@ -17,6 +17,7 @@ import { ImageEndpoint, defaultImage } from "../../src/lib/globall";
 export default function Home3({ name, userdata }) {
   const [temp, setTemp] = useState(userdata[0]?.about[0]?.temp);
 
+console.log(temp , "Temp");
   const about = userdata[0]?.about[0];
   console.log(about?.bgImage , "A$$$$$$$$$$$$$$$$$$$$ASS");
   const sliders = userdata[0]?.slider;
@@ -327,7 +328,7 @@ temp === 1
 
             
 
-{about?.title && (
+{about?.work && (
 
 
               <h3 className=" text-2xl md:text-3xl my-3">{about?.work}</h3>
@@ -546,10 +547,11 @@ temp === 1
               {about?.desc &&
 
               <div className="my-3">
-                משה פסחוב- משרד עורכי דין הוא משרד מוביל במימוש זכויות רפואיות
+                {about?.desc}
+                {/* משה פסחוב- משרד עורכי דין הוא משרד מוביל במימוש זכויות רפואיות
                 מול המוסד לביטוח לאומי, חברות הביטוח וקרנות הפנסיה. משרדנו מעניק
                 ללקוחותיו ליווי מלא וצמוד במימוש הזכויות הרפואיות, לרבות ייצוג
-                בוועדות הרפואיות, בבית
+                בוועדות הרפואיות, בבית */}
               </div>
 }
 
@@ -612,11 +614,17 @@ temp === 1
           <div>
             <Contact
 
+
+
             bgImage={ about?.bgImage}
               mainTextColor={mainTextColor}
               contactBtnTextColor={contactBtnTextColor}
               contactBTnBgColor={contactBTnBgColor}
               coverbg={contactBgOverlayColor}
+
+              tempBg={ coverbg}
+
+
               contactInputBorderColor={contactInputBorderColor}
               domainUrl={domainUrl }
 

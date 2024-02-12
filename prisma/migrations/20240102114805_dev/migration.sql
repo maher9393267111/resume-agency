@@ -1,2 +1,0 @@
--- AlterTable
-ALTER TABLE `About` ADD COLUMN `work` VARCHAR(191) NOT NULL DEFAULT '';

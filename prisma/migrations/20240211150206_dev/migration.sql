@@ -1,2 +1,0 @@
--- AlterTable
-ALTER TABLE `About` MODIFY `desc` VARCHAR(555) NOT NULL DEFAULT '';

@@ -1,2 +1,0 @@
--- AlterTable
-ALTER TABLE `Slider` ADD COLUMN `textColor` VARCHAR(191) NOT NULL DEFAULT '#000000';
