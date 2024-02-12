@@ -421,7 +421,7 @@ function AboutPage({ user, userdata }) {
             <CustomInput
               value={title}
               setValue={setTitle}
-              label={"Title"}
+              label={"Name"}
               type={"text"}
             />
 
