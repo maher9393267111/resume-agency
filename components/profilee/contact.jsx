@@ -96,6 +96,7 @@ export default function Contact({
       {!bgImage ? (
         <div className={` relative `}>
           <p
+          dir="rtl"
             className={` ${mainTextColor} text-whit text-2xl md:text-3xl py-8 text-center underline `}
           >
             השאירו פרטים ונחזור אליכם:
@@ -168,7 +169,7 @@ export default function Contact({
               <div
                 className={`${mainTextColor}  text-whit font-semibold text-lg`}
               >
-                <p>שתפו את כרטיס הביקור שלנו עם חברים:</p>
+                <p dir="rtl">שתפו את כרטיס הביקור שלנו עם חברים:</p>
               </div>
 
               <div className="flex gap-2 justify-center mt-3 ">
@@ -251,6 +252,7 @@ export default function Contact({
           ></div>
           <div className={` absolute inset-0 `}>
             <p
+            dir="rtl"
               className={`${mainTextColor} text-whit text-2xl md:text-3xl py-8 text-center underline `}
             >
               השאירו פרטים ונחזור אליכם:
@@ -320,7 +322,7 @@ export default function Contact({
 
               <div className="text-center mb-4 mt-10">
                 <div className="text-white font-semibold text-lg">
-                  <p>שתפו את כרטיס הביקור שלנו עם חברים:</p>
+                  <p dir="rtl">שתפו את כרטיס הביקור שלנו עם חברים:</p>
                 </div>
 
                 <div className="flex gap-2 justify-center mt-3 ">

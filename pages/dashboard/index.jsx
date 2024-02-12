@@ -1,7 +1,5 @@
-
-
-import { getUser } from "../../src/lib/getUser" ;
-import { DashboardLayout } from '../../components/dashboardLayout';
+import { getUser } from "../../src/lib/getUser";
+import { DashboardLayout } from "../../components/dashboardLayout";
 import {
   Box,
   Button,
@@ -59,16 +57,19 @@ const DashboardPage = ({ user, polls }) => {
             </Typography>
 
             <Typography sx={{ my: 2, color: "#212b36" }}>
-              Let start by creating 
+              Let start by creating
             </Typography>
 
-
-      
-
-            <Typography className={` ${user?.status === 'accepted' ? ' text-white  bg-green-500 ' : ' text-white bg-red-600'} text-center   rounded-xl mt-2 text-xl font-semibold  py-2 `} sx={{ my: 2, color: "#212b36" }}>
+            <Typography
+              className={` ${
+                user?.status === "accepted"
+                  ? " text-white  bg-green-500 "
+                  : " text-white bg-red-600"
+              } text-center   rounded-xl mt-2 text-xl font-semibold  py-2 `}
+              sx={{ my: 2, color: "#212b36" }}
+            >
               {user?.status}
             </Typography>
-
 
             {/* <Link href="/dashboard/create-poll" passHref>
               <Button
@@ -95,13 +96,7 @@ const DashboardPage = ({ user, polls }) => {
             </Grid>
           </Hidden>
         </Grid>
-      
-
-    
       </Box>
-
-
-
     </DashboardLayout>
   );
 };
@@ -125,10 +120,7 @@ export const getServerSideProps = async ({ req, res }) => {
     },
 
     include: {
-      projects: {
-     
-      },
-
+      projects: {},
     },
   });
 

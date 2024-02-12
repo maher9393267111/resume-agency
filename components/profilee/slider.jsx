@@ -86,7 +86,7 @@ export default function SliderImages({
     >
       <h3 className="font-semibold py-8   md:text-2xl  textColor text-medicus-2 dark:text-white">
         <TypeAnimation
-          sequence={["seamless", 2000, "tidier", 2000, "clearer", 2000]}
+          sequence={["images", 2000, "gallery", 2000, "projects", 2000]}
           wrapper="span"
           className={`${sliderTitleColor} textColo text-2xl md:text-5xl leading-normal font-black sm:text-4xl  lg:text-6xl lg:leading-relaxed `}
           cursor={true}

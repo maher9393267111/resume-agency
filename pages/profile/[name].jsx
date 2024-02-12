@@ -521,7 +521,7 @@ temp === 1
                 >
                   <FaPlus />
 
-                  <span> שמרו אותנו באנשי הקשר</span>
+                  <span dir="rtl"> שמרו אותנו באנשי הקשר</span>
                 </div>
               </div>
               </NextLink>
