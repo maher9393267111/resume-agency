@@ -309,7 +309,7 @@ const Header = ({ user }) => {
                   className="text-lg font-medium text-white bg-blue-200 py-4 px-8 rounded-3xl"
                   href="/signup"
                 >
-                  {fetchWord("login", locale)}
+                  {fetchWord("register", locale)}
                 </Link>
               </div>
             )}
