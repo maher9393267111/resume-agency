@@ -334,6 +334,9 @@ export default function ProjectsPage({ user, projects }) {
 }
 
 export const getServerSideProps = async ({ req, res }) => {
+try {
+
+
   const user = await getUser(req, res);
 
   if (!user) {
@@ -369,4 +372,23 @@ export const getServerSideProps = async ({ req, res }) => {
       projects: JSON.parse(JSON.stringify(projects)),
     },
   };
+
+
+}
+
+
+
+catch (e) {
+  console.error(e)
+  return {
+    props: { 
+      user:{},
+      
+      userdata:[],
+      projects: [],
+     },
+  }
+}
+
+
 };

@@ -662,6 +662,9 @@ className=" w-[90px] h-[90px] rounded-full  bg-temp1-coverbg"></h1>
 }
 
 export const getServerSideProps = async ({ req, res }) => {
+
+try {
+
   const user = await getUser(req, res);
 
   if (!user) {
@@ -690,6 +693,21 @@ export const getServerSideProps = async ({ req, res }) => {
       userdata: JSON.parse(JSON.stringify(userdata)),
     },
   };
+
+}
+
+catch (e) {
+  console.error(e)
+  return {
+    props: { 
+      user:{},
+      userdata: []
+     },
+  }
+}
+
+
+
 };
 
 export default AboutPage;
