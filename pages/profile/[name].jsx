@@ -627,7 +627,7 @@ const CreateVCard= () => {
               {/* --- telephone button --- */}
 
               {(  userdata[0]?.email ) && (
-                <div className=" my-6">
+                <div dir="rt" className=" my-6">
                   {/* // 🌐🌐  text and Bg color dynamic */}
 
 
@@ -674,7 +674,7 @@ const CreateVCard= () => {
                 </div>
 
                 {about?.desc && (
-                  <div className="my-3">
+                  <div dir={'rtl'} className="my-3   text-right">
                     {parse(about?.desc)}
 
                     {/* {about?.desc} */}

@@ -58,7 +58,7 @@ const FaqCard = ({projects,mainTextColor , accordionTitleColor , accordionDescCo
 
             <Disclosure.Panel className={` ${accordionDescBgColor}  relative z-2 rounded-md shadow-md mb-2 -mt-4 px-6  text-md text-gray coverbg text-left post-content  bg-whit py-6`}>
              
-<p dir='rtl' className={` ${accordionDescColor}`}>
+<p dir='rtl' className={` ${accordionDescColor} text-right`}>
   
 {parse(f?.desc)}  
   
