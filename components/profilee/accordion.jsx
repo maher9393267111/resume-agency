@@ -37,7 +37,7 @@ const faq = [
 
 const FaqCard = ({projects,mainTextColor , accordionTitleColor , accordionDescColor , accordionBorderColor ,accordionBgColor ,accordionDescBgColor  }) => (
 
-  <div className=' pb-8'>
+  <div dir='rtl' className=' pb-8'>
 
  
   
@@ -48,7 +48,7 @@ const FaqCard = ({projects,mainTextColor , accordionTitleColor , accordionDescCo
         {({ open }) => (
           <>
             <Disclosure.Button className={`${accordionBorderColor} ${accordionBgColor} fadeinup  relative shadow-md z-1 mb- flex w-full justify-between rounded-md p-4 text-left text-m sm:text-lg font-medium coverb text-medicus hover:bg-gra-100 focus:outline-none focus-visible:ring focus-visible:ring-gray-300 focus-visible:ring-opacity-75 border-whit border-b`}>
-              <span className={` ${accordionTitleColor} mainTextColo `}>{f?.title}</span>
+              <span dir='rtl' className={` ${accordionTitleColor} mainTextColo `}>{f?.title}</span>
               <FaChevronUp
                 className={`${
                   open ? '' : 'rotate-180 transform'
@@ -58,7 +58,7 @@ const FaqCard = ({projects,mainTextColor , accordionTitleColor , accordionDescCo
 
             <Disclosure.Panel className={` ${accordionDescBgColor}  relative z-2 rounded-md shadow-md mb-2 -mt-4 px-6  text-md text-gray coverbg text-left post-content  bg-whit py-6`}>
              
-<p className={` ${accordionDescColor}`}>
+<p dir='rtl' className={` ${accordionDescColor}`}>
   
 {parse(f?.desc)}  
   

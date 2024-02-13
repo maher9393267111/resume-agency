@@ -336,7 +336,7 @@ export default function Home3({ name, userdata }) {
               )}-coverbg  coverb`}
             >
               <img
-                className="cove w-full h-[300px] lg:h-[500px] m-auto object-cover  object-center rounded-b-xl"
+                className="cover w-full h-[300px] lg:h-[500px] m-auto object-cover  object-center rounded-b-xl"
                 src={
                   (about?.headImage &&
                     `${ImageEndpoint}/${about?.headImage}`) ||
@@ -606,6 +606,7 @@ export default function Home3({ name, userdata }) {
               {/* desc about 🌐🌐🌐🌐--- */}
 
               <div
+              dir="rtl"
                 className={` ${mainTextColor} text-whit w-[90%] mx-auto  font-semibold text-center container`}
               >
                 {/* title-- */}
@@ -674,8 +675,13 @@ export default function Home3({ name, userdata }) {
             <div>
               <Contact
                 bgImage={about?.bgImage}
-                mainTextColor={mainTextColor}
-                contactBtnTextColor={contactBtnTextColor}
+                mainTextColor={ about?.textColor
+               //   mainTextColor
+                }
+                contactBtnTextColor={
+                 
+                  contactBtnTextColor
+                }
                 contactBTnBgColor={contactBTnBgColor}
                 coverbg={contactBgOverlayColor}
                 tempBg={coverbg}

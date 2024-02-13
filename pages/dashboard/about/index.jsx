@@ -646,6 +646,21 @@ className=" w-[90px] h-[90px] rounded-full  bg-temp1-coverbg"></h1>
 
             </div>
 
+
+{/* -------ContactColor--- */}
+  <div className="my-4 mx-auto w-1/2 md:w-full   p-2">
+<h1 className="py-4  "> Contact text color </h1>
+     <SketchPicker
+                  // HuePicker
+                  color={textColor}
+                  onChangeComplete={handleTextolorChange}
+                /> 
+ 
+
+
+  </div>
+
+
             {/* Submit Button */}
             <div>
               <input

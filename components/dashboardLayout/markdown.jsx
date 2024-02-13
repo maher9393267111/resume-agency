@@ -35,7 +35,7 @@ export default function Markdown({setDesc ,desc}) {
 
 
   return (
-    <div className="w-full h-64">
+    <div className="w-full h-[300px]">
         <QuillNoSSRWrapper
           modules={modules}
           theme="snow"

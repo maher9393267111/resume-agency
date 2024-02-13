@@ -109,48 +109,44 @@ export default function SliderImages({
           >
             {sliders?.map((image, index) => (
               <div
-              
-              // style={{
-              //   backgroundImage: `url(${
-              //     ( `${ImageEndpoint}/${image?.link}`) ||
-              //     defaultImage
-              //   })`,
-              // }}
-              
-              
-              className=" cursor-pointer  bg-no-repeat bg-center bg-contain  w-[100%] h-295px] md:h-[72vh] mx-auto">
+                // style={{
+                //   backgroundImage: `url(${
+                //     ( `${ImageEndpoint}/${image?.link}`) ||
+                //     defaultImage
+                //   })`,
+                // }}
+
+                className=" cursor-pointer  bg-no-repeat bg-center bg-contain  w-[100%] h-295px] md:h-[72vh] mx-auto"
+              >
                 <img
                   className=" rounded-md   object-center    object-cover w-full h-full"
                   src={`${ImageEndpoint}/${image?.link}`}
                   alt=""
                 />
-
-
-
               </div>
             ))}
           </Carousel>
         </div>
       ) : (
         <div>
-        <Carousel
-          infinite
-          customLeftArrow={customLeftArrow}
-          customRightArrow={customRightArrow}
-          responsive={responsive}
-          itemClass="px-4"
-        >
-          {images.map((image, index) => (
-            <div className=" cursor-pointer w-full h-[45vh] md:h-[40vh]">
-              <img
-                className=" rounded-md object-cover object-center w-full h-full"
-                src={image?.img}
-                alt=""
-              />
-            </div>
-          ))}
-        </Carousel>
-      </div>
+          <Carousel
+            infinite
+            customLeftArrow={customLeftArrow}
+            customRightArrow={customRightArrow}
+            responsive={responsive}
+            itemClass="px-4"
+          >
+            {images.map((image, index) => (
+              <div className=" cursor-pointer w-full h-[45vh] md:h-[40vh]">
+                <img
+                  className=" rounded-md object-cover object-center w-full h-full"
+                  src={image?.img}
+                  alt=""
+                />
+              </div>
+            ))}
+          </Carousel>
+        </div>
       )}
 
       {/* ----video--- */}
