@@ -34,22 +34,6 @@ const QuillNoSSRWrapper = dynamic(import("react-quill"), {
   loading: () => <div>...Loading</div>,
 });
 
-const modules = {
-  toolbar: [
-    [{ header: "1" }, { header: "2" }, { font: [] }],
-    [{ size: [] }],
-    ["bold", "italic", "underline", "strike", "blockquote"],
-    [
-      { list: "ordered" },
-      { list: "bullet" },
-      { indent: "-1" },
-      { indent: "+1" },
-    ],
-    ["link", "image", "video"],
-    ["clean"],
-  ],
-};
-
 
 
 
@@ -57,6 +41,27 @@ const modules = {
 
 export default function ProjectsPage({ user, projects }) {
   console.log("projects", projects);
+
+
+
+  const modules = {
+    toolbar: [
+      [{ header: "1" }, { header: "2" }, { font: [] }],
+      [{ size: [] }],
+      ["bold", "italic", "underline", "strike", "blockquote"],
+      [
+        { list: "ordered" },
+        { list: "bullet" },
+        { indent: "-1" },
+        { indent: "+1" },
+      ],
+      ["link", "image", "video"],
+      ["clean"],
+    ],
+  };
+  
+
+
 
   const [allData, setAllData] = [projects ? projects : []];
 
@@ -310,7 +315,7 @@ export default function ProjectsPage({ user, projects }) {
           theme="snow"
           className="h-full pb-[2.5rem] border-[2.5px] text-black font-medium rounded-md  border-indigo-600 hover:border-blue-600"
           value={desc}
-          setValue={setDesc}
+          // setValue={setDesc}
           label={"Description"}
           onChange={setDesc}
         

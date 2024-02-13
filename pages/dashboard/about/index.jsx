@@ -465,18 +465,18 @@ function AboutPage({ user, userdata }) {
               type={"text"}
             /> */}
 
-{/* <div className="w-full h-64">
+<div className="w-full h-64">
         <QuillNoSSRWrapper
           modules={modules}
           theme="snow"
           className="h-full pb-[2.5rem] border-[2.5px] text-black font-medium rounded-md    border-indigo-500 hover:border-blue-600"
           value={desc}
-          setValue={setDesc}
+          // setValue={setDesc}
           label={"Description"}
           onChange={setDesc}
         
         />
-      </div> */}
+      </div>
 
 
 
