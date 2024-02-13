@@ -108,12 +108,25 @@ export default function SliderImages({
             itemClass="px-4"
           >
             {sliders?.map((image, index) => (
-              <div className=" cursor-pointer w-[57%] h-[40vh] md:h-[67vh] mx-auto">
+              <div
+              
+              // style={{
+              //   backgroundImage: `url(${
+              //     ( `${ImageEndpoint}/${image?.link}`) ||
+              //     defaultImage
+              //   })`,
+              // }}
+              
+              
+              className=" cursor-pointer  bg-no-repeat bg-center bg-contain  w-[100%] h-[320px] md:h-[72vh] mx-auto">
                 <img
                   className=" rounded-md   object-center    object-cover w-full h-full"
                   src={`${ImageEndpoint}/${image?.link}`}
                   alt=""
                 />
+
+
+
               </div>
             ))}
           </Carousel>

@@ -87,10 +87,11 @@ export default function SlidersPage({ user, sliders }) {
 
       console.log("OLDDDDDDD", oldfile);
 
-      const hieghtSize = 600;
+      const hieghtSize = 700;
+      
 
       const data = await axios.post(
-        `${uploadApi}/file/upload?type=${imagetype}&&oldfile=${oldfile}&&size=${600}&&hieghtsize=${hieghtSize}`,
+        `${uploadApi}/file/upload?type=${imagetype}&&oldfile=${oldfile}&&size=${1000}&&hieghtsize=${hieghtSize}`,
 
         formData,
         {
