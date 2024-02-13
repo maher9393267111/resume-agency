@@ -26,31 +26,32 @@ import DriveFolderUploadIcon from "@mui/icons-material/DriveFolderUpload";
 import DeleteIcon from "@mui/icons-material/Delete";
 import ImageIcon from "@mui/icons-material/Image";
 import { MuiColorInput } from "mui-color-input";
-import "react-quill/dist/quill.snow.css";
+import MarkdownInput from "../../../components/dashboardLayout/markdown";
+// import "react-quill/dist/quill.snow.css";
 
-import dynamic from "next/dynamic";
+// import dynamic from "next/dynamic";
 
-const  QuillNoSSRWrapper = dynamic(import('react-quill'), {
-  ssr: false,
-  loading: () => <p className="loading">Loading ...</p>,
-})
+// const  QuillNoSSRWrapper = dynamic(import('react-quill'), {
+//   ssr: false,
+//   loading: () => <p className="loading">Loading ...</p>,
+// })
 
 
-const modules = {
-  toolbar: [
-    [{ header: "1" }, { header: "2" }, { font: [] }],
-    [{ size: [] }],
-    ["bold", "italic", "underline", "strike", "blockquote"],
-    [
-      { list: "ordered" },
-      { list: "bullet" },
-      { indent: "-1" },
-      { indent: "+1" },
-    ],
-    ["link", "image", "video"],
-    ["clean"],
-  ],
-};
+// const modules = {
+//   toolbar: [
+//     [{ header: "1" }, { header: "2" }, { font: [] }],
+//     [{ size: [] }],
+//     ["bold", "italic", "underline", "strike", "blockquote"],
+//     [
+//       { list: "ordered" },
+//       { list: "bullet" },
+//       { indent: "-1" },
+//       { indent: "+1" },
+//     ],
+//     ["link", "image", "video"],
+//     ["clean"],
+//   ],
+// };
 
 
 
@@ -488,7 +489,7 @@ useEffect(() => {
               type={"text"}
             /> */}
 
-<div className="w-full h-64">
+{/* <div className="w-full h-64">
         <QuillNoSSRWrapper
           modules={modules}
           theme="snow"
@@ -499,7 +500,11 @@ useEffect(() => {
           onChange={setDesc}
         
         />
-      </div>
+      </div> */}
+
+
+<MarkdownInput desc={desc}  setDesc={setDesc}/>
+
 
 
 
