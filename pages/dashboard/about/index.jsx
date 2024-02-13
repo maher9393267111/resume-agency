@@ -291,6 +291,20 @@ function AboutPage({ user, userdata }) {
     }
   };
 
+
+
+  const [isSSR, setIsSSR] = useState(true);
+
+useEffect(() => {
+	setIsSSR(false);
+
+}, []);
+
+
+
+
+
+
   return (
     <DashboardLayout user={user}>
       <Hero user={user} title="About Page" />
@@ -453,12 +467,19 @@ function AboutPage({ user, userdata }) {
           )}
  */}
 
+
+ {!isSSR &&
+
             <CustomInput
               value={title}
               setValue={setTitle}
               label={"Name"}
               type={"text"}
             />
+
+ }
+
+
 
             {/* <CustomInput
               value={desc}
