@@ -318,30 +318,23 @@ export default function Home3({ name, userdata }) {
 
 
 const handleSubmit = () => {
-  const element = document.createElement('a');
+  const blob = new Blob([`BEGIN:VCARD
+  VERSION:3.0
+  N:${name }
+ 
+  TEL:${about?.phone}
+  EMAIL:${userdata[0]?.email}
+  URL:${domainUrl}
+  END:VCARD`], { type: 'text/vcard' });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = 'contact.vcf';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  URL.revokeObjectURL(url);
 
-  // https://en.wikipedia.org/wiki/VCard
-  var content = 'BEGIN:VCARD' + '\r\n';
-  content += 'VERSION:2.1' + '\r\n';
-  content += 'N:' + name +'\r\n';
-  content += 'TITLE:' + name + '\r\n';
-  
-  content += 'TEL;WORK;VOICE:' + about?.phone + '\r\n';
-  content += 'EMAIL:' + userdata[0]?.email + '\r\n';
-  
-
-  content += 'REV:' + new Date().toISOString() + '\r\n';
-  content +=
-  'URI:' +
-  domainUrl +
-  '\r\n';
-  content += 'END:VCARD' + '\r\n';
-
-  const file = new Blob([content], { type: 'text/plain' });
-  element.href = URL.createObjectURL(file);
-  element.download = name + '.vcf';
-  document.body.appendChild(element); // Required for this to work in FireFox
-  element.click();
 };
 
 
