@@ -327,10 +327,14 @@ const handleSubmit = () => {
   content += 'TITLE:' + name + '\r\n';
   
   content += 'TEL;WORK;VOICE:' + about?.phone + '\r\n';
-  content += 'EMAIL:' + about?.email + '\r\n';
+  content += 'EMAIL:' + userdata[0]?.email + '\r\n';
   
 
   content += 'REV:' + new Date().toISOString() + '\r\n';
+  content +=
+  'URI:' +
+  domainUrl +
+  '\r\n';
   content += 'END:VCARD' + '\r\n';
 
   const file = new Blob([content], { type: 'text/plain' });
