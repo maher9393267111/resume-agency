@@ -118,7 +118,7 @@ export default function SliderImages({
               // }}
               
               
-              className=" cursor-pointer  bg-no-repeat bg-center bg-contain  w-[100%] h-[320px] md:h-[72vh] mx-auto">
+              className=" cursor-pointer  bg-no-repeat bg-center bg-contain  w-[100%] h-295px] md:h-[72vh] mx-auto">
                 <img
                   className=" rounded-md   object-center    object-cover w-full h-full"
                   src={`${ImageEndpoint}/${image?.link}`}

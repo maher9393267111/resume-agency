@@ -572,7 +572,7 @@ className=" w-[90px] h-[90px] rounded-full  bg-temp1-coverbg"></h1>
               </div>
 
               <div className="mt-6 mx-auto  md:mt-0">
-                <h2 className={`my-2 text-center  ${temp === 2 &&  'text-red-500 font-semibold'}`}>Red  </h2>
+                <h2 className={`my-2 text-center  ${temp === 2 &&  'text-red-500 font-semibold'}`}>Black  </h2>
                 <h1
                 onClick={()=> handleTempChange(2)}
 
