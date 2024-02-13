@@ -13,6 +13,7 @@ import {
   FaTelegram,
   FaTwitter,
   FaFacebookF,
+  FaPhone
 } from "react-icons/fa";
 import { LuExternalLink } from "react-icons/lu";
 import { FaLocationDot } from "react-icons/fa6";
@@ -546,6 +547,30 @@ export default function Home3({ name, userdata }) {
 
 
 
+                  {/* <NextLink href={"tel:" + about?.phone} target={"_self"}> */}
+
+
+
+                  {about?.location && (
+                  <div
+                    className={` ${mainTextColor} iconsMain  w-[30%] md:w-1/6 text-center  text-[11px] md:text-lg  font-semibold `}
+                  >
+                    <div className={`iconCircle ${iconBorderColor}`}>
+                    <NextLink href={"tel:" + about?.phone} target={"_self"}> 
+                        <FaPhone
+                          className={` ${iconColor} block w-[30px] top-[12px] left-[12px] md:left-[22px]  md:top-[22px] h-[30px] absolute  text-yellow-10`}
+                        />
+                      </NextLink>
+                    </div>
+
+                    {/* text */}
+                    <p className="w-[75px] mx-auto  ">Phone</p>
+                  </div>
+                )}
+
+
+
+
 
 
               </div>
@@ -556,19 +581,24 @@ export default function Home3({ name, userdata }) {
                 <div className=" my-6">
                   {/* // 🌐🌐  text and Bg color dynamic */}
 
-                  <NextLink href={"tel:" + about?.phone} target={"_self"}>
+
+                  {/* <NextLink href={"tel:" + about?.phone} target={"_self"}> */}
                     <div
-                      className={`telbtn ${phoneBtnBgColor} ${phoneBtnTextAndIconColor}`}
+                      className={`telbtn cursor-pointer ${phoneBtnBgColor} ${phoneBtnTextAndIconColor}`}
                     >
                       <div className=" flex items-center gap-2 justify-center px-4">
                         <FaPlus onClick={() => downloadTxtFile(CreateVCard())} />
                         {/* <button onClick={() => downloadTxtFile(CreateVCard())}>Add</button> */}
 
 
-                        <span dir="rtl"> שמרו אותנו באנשי הקשר</span>
+                        <span onClick={() => downloadTxtFile(CreateVCard())} dir="rtl"> שמרו אותנו באנשי הקשר</span>
                       </div>
                     </div>
-                  </NextLink>
+                  {/* </NextLink> */}
+
+
+
+
                 </div>
               )}
 
