@@ -24,15 +24,8 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import CustomInput from "../../../components/common/customInput";
+import MarkdownInput from "../../../components/dashboardLayout/markdown";
 
-
-import "react-quill/dist/quill.snow.css";
-
-import dynamic from "next/dynamic";
-const  QuillNoSSRWrapper = dynamic(import('react-quill'), {
-  ssr: false,
-  loading: () => <p className="loading">Loading ...</p>,
-})
 
 
 
@@ -44,21 +37,6 @@ export default function ProjectsPage({ user, projects }) {
 
 
 
-  const modules = {
-    toolbar: [
-      [{ header: "1" }, { header: "2" }, { font: [] }],
-      [{ size: [] }],
-      ["bold", "italic", "underline", "strike", "blockquote"],
-      [
-        { list: "ordered" },
-        { list: "bullet" },
-        { indent: "-1" },
-        { indent: "+1" },
-      ],
-      ["link", "image", "video"],
-      ["clean"],
-    ],
-  };
   
 
 
@@ -309,18 +287,12 @@ export default function ProjectsPage({ user, projects }) {
               setValue={setDesc}
             /> */}
 
-<div className="w-full mt-4 h-64">
-        <QuillNoSSRWrapper
-          modules={modules}
-          theme="snow"
-          className="h-full pb-[2.5rem] border-[2.5px] text-black font-medium rounded-md  border-indigo-600 hover:border-blue-600"
-          value={desc}
-          // setValue={setDesc}
-          label={"Description"}
-          onChange={setDesc}
-        
-        />
-      </div>
+
+
+<div>
+<MarkdownInput desc={desc}  setDesc={setDesc}/>
+</div>
+
 
 
           </DialogContent>

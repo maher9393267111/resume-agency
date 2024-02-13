@@ -27,31 +27,6 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import ImageIcon from "@mui/icons-material/Image";
 import { MuiColorInput } from "mui-color-input";
 import MarkdownInput from "../../../components/dashboardLayout/markdown";
-// import "react-quill/dist/quill.snow.css";
-
-// import dynamic from "next/dynamic";
-
-// const  QuillNoSSRWrapper = dynamic(import('react-quill'), {
-//   ssr: false,
-//   loading: () => <p className="loading">Loading ...</p>,
-// })
-
-
-// const modules = {
-//   toolbar: [
-//     [{ header: "1" }, { header: "2" }, { font: [] }],
-//     [{ size: [] }],
-//     ["bold", "italic", "underline", "strike", "blockquote"],
-//     [
-//       { list: "ordered" },
-//       { list: "bullet" },
-//       { indent: "-1" },
-//       { indent: "+1" },
-//     ],
-//     ["link", "image", "video"],
-//     ["clean"],
-//   ],
-// };
 
 
 
@@ -293,13 +268,6 @@ function AboutPage({ user, userdata }) {
   };
 
 
-
-  const [isSSR, setIsSSR] = useState(true);
-
-useEffect(() => {
-	setIsSSR(false);
-
-}, []);
 
 
 
