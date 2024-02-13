@@ -317,58 +317,30 @@ export default function Home3({ name, userdata }) {
 // --------------------------------
 
 
+const handleSubmit = () => {
+  const element = document.createElement('a');
+
+  // https://en.wikipedia.org/wiki/VCard
+  var content = 'BEGIN:VCARD' + '\r\n';
+  content += 'VERSION:2.1' + '\r\n';
+  content += 'N:' + name +'\r\n';
+  content += 'TITLE:' + name + '\r\n';
+  
+  content += 'TEL;WORK;VOICE:' + about?.phone + '\r\n';
+  content += 'EMAIL:' + about?.email + '\r\n';
+  
+
+  content += 'REV:' + new Date().toISOString() + '\r\n';
+  content += 'END:VCARD' + '\r\n';
+
+  const file = new Blob([content], { type: 'text/plain' });
+  element.href = URL.createObjectURL(file);
+  element.download = name + '.vcf';
+  document.body.appendChild(element); // Required for this to work in FireFox
+  element.click();
+};
 
 
-
-// Function to create a VCF file content
-function createVCFContent(contact) {
-  return `BEGIN:VCARD
-VERSION:4.0
-N:${name}
-
-TEL;TYPE=cell:${contact.phone}
-EMAIL:${contact.email}
-
-
-URL:${contact.url}
-
-END:VCARD`;
-}
-
-
-  // Function to handle form submission
-
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    // Create the VCF file content
-const contact = {
-  title : name,
-  url : domainUrl,
-  email :userdata[0]?.email,
-  phone : about?.phone  ? about?.phone : '11111111'
-}
-
-
-
-
-    const vcfContent = createVCFContent(contact);
-
-    // Create a Blob object with the VCF content
-    const vcfBlob = new Blob([vcfContent], { type: 'text/x-vcard' });
-
-    // Create a URL for the VCF file
-    const vcfUrl = URL.createObjectURL(vcfBlob);
-
-    // Create a link element with the VCF file URL and the desired filename
-    const vcfLink = document.createElement('a');
-    vcfLink.href = vcfUrl;
-    vcfLink.download = `${name}.vcf`;
-
-    // Click the link to trigger the download
-    vcfLink.click();
-  };
 
 
 
