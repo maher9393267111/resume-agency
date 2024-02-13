@@ -38,9 +38,9 @@ export default function Home3({ name, userdata }) {
 
   console.log(userdata);
 
-  const domainUrl1 = "https://resume-agency.vercel.app/profilee";
+  const domainUrl1 = "https://resume-agency.vercel.app/profile";
 
-  const domainUrl = `https://resume-agency.vercel.app/profilee/${name}`;
+  const domainUrl = `https://resume-agency.vercel.app/profile/${name}`;
 
   const coverbg =
     temp === 1
