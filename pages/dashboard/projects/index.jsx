@@ -29,10 +29,10 @@ import CustomInput from "../../../components/common/customInput";
 import "react-quill/dist/quill.snow.css";
 
 import dynamic from "next/dynamic";
-const QuillNoSSRWrapper = dynamic(import("react-quill"), {
+const  QuillNoSSRWrapper = dynamic(import('react-quill'), {
   ssr: false,
-  loading: () => <div>...Loading</div>,
-});
+  loading: () => <p className="loading">Loading ...</p>,
+})
 
 
 

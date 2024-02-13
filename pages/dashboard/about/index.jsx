@@ -29,10 +29,29 @@ import { MuiColorInput } from "mui-color-input";
 import "react-quill/dist/quill.snow.css";
 
 import dynamic from "next/dynamic";
-const QuillNoSSRWrapper = dynamic(import("react-quill"), {
+
+const  QuillNoSSRWrapper = dynamic(import('react-quill'), {
   ssr: false,
-  // loading: () => <div>...Loading</div>,
-});
+  loading: () => <p className="loading">Loading ...</p>,
+})
+
+
+const modules = {
+  toolbar: [
+    [{ header: "1" }, { header: "2" }, { font: [] }],
+    [{ size: [] }],
+    ["bold", "italic", "underline", "strike", "blockquote"],
+    [
+      { list: "ordered" },
+      { list: "bullet" },
+      { indent: "-1" },
+      { indent: "+1" },
+    ],
+    ["link", "image", "video"],
+    ["clean"],
+  ],
+};
+
 
 
 
@@ -41,23 +60,6 @@ const QuillNoSSRWrapper = dynamic(import("react-quill"), {
 function AboutPage({ user, userdata }) {
   console.log("userPrisma", userdata);
 
-  const modules = {
-    toolbar: [
-      [{ header: "1" }, { header: "2" }, { font: [] }],
-      [{ size: [] }],
-      ["bold", "italic", "underline", "strike", "blockquote"],
-      [
-        { list: "ordered" },
-        { list: "bullet" },
-        { indent: "-1" },
-        { indent: "+1" },
-      ],
-      ["link", "image", "video"],
-      ["clean"],
-    ],
-  };
-  
-  
   
 
 
