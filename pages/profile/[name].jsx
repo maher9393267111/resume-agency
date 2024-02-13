@@ -341,16 +341,18 @@ const CreateVCard= () => {
 
   vcard.firstName = name;
   vcard.email = userdata[0]?.email;
-  vcard.organization = "Internacional de electricos";
+  vcard.organization = 'information';
   vcard.photo.attachFromUrl(
     "https://avatars.githubusercontent.com/u/56592200?v=4"
   );
   vcard.workPhone = about?.phone;
-  vcard.socialUrls["linkedin"] = "https://www.linkedin.com/company/ie-grupo/";
-  vcard.socialUrls["twitter"] = "https://twitter.com/ie_grupo";
-  vcard.socialUrls["facebook"] = "https://www.facebook.com/ie.grupo";
-  vcard.socialUrls["instagram"] = "https://www.instagram.com/iegrupo/";
-  vcard.socialUrls["website"] = "https://www.iegrupo.co/";
+
+  vcard.socialUrls["website"] = domainUrl;
+
+    // vcard.socialUrls["linkedin"] = "https://www.linkedin.com/company/ie-grupo/";
+  // vcard.socialUrls["twitter"] = domainUrl;
+  // vcard.socialUrls["facebook"] = "https://www.facebook.com/ie.grupo";
+  // vcard.socialUrls["instagram"] = "https://www.instagram.com/iegrupo/";
 
   // console.log(vcard.getFormattedString());
   let vCardString = vcard.getFormattedString();
