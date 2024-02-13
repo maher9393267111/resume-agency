@@ -344,7 +344,7 @@ END:VCARD`;
 
     // Create the VCF file content
 const contact = {
-  title : "Information",
+  title : name,
   url : domainUrl,
   email :userdata[0]?.email,
   phone : about?.phone  ? about?.phone : '11111111'
