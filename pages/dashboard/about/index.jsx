@@ -29,10 +29,10 @@ import { MuiColorInput } from "mui-color-input";
 import "react-quill/dist/quill.snow.css";
 
 import dynamic from "next/dynamic";
-// const QuillNoSSRWrapper = dynamic(import("react-quill"), {
-//   ssr: false,
-//   // loading: () => <div>...Loading</div>,
-// });
+const QuillNoSSRWrapper = dynamic(import("react-quill"), {
+  ssr: false,
+  // loading: () => <div>...Loading</div>,
+});
 
 
 
