@@ -23,7 +23,7 @@ import { useState } from "react";
 import { prisma } from "../../src/lib/prisma";
 import { ImageEndpoint, defaultImage } from "../../src/lib/globall";
 import parse from "html-react-parser";
-
+import vCardFactory from "vcards-js";
 export default function Home3({ name, userdata }) {
   const [temp, setTemp] = useState(userdata[0]?.about[0]?.temp || 1);
 
@@ -277,7 +277,7 @@ export default function Home3({ name, userdata }) {
 
 
 
-      const downloadTxtFile = vcfText => {
+      const downloadTxtFile1 = vcfText => {
         const element = document.createElement("a");
         const file = new Blob([vcfText], { type: "text/plain;charset=utf-8" });
         element.href = URL.createObjectURL(file);
@@ -286,7 +286,7 @@ export default function Home3({ name, userdata }) {
         element.click();
       };
     
-      const CreateVCard = () => {
+      const CreateVCard1 = () => {
         var vCardsJS = require("vcards-js");
     
         //create a new vCard
@@ -316,26 +316,50 @@ export default function Home3({ name, userdata }) {
 
 // --------------------------------
 
+function cleanVCardString(vCardString) {
+  let vCardCleaner = vCardString.replace(/;CHARSET=UTF-8/g, '');
+  vCardCleaner = vCardCleaner.replace(/X-SOCIALPROFILE/g, 'URL');
+  console.log(vCardCleaner);
+  return vCardCleaner;
+}
 
-const handleSubmit = () => {
-  const blob = new Blob([`BEGIN:VCARD
-  VERSION:3.0
-  N:${name }
- 
-  TEL:${about?.phone}
-  EMAIL:${userdata[0]?.email}
-  URL:${domainUrl}
-  END:VCARD`], { type: 'text/vcard' });
-  const url = URL.createObjectURL(blob);
-  const link = document.createElement('a');
-  link.href = url;
-  link.download = 'contact.vcf';
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-  URL.revokeObjectURL(url);
 
+
+const downloadTxtFile = vcfText => {
+  console.log(vcfText)
+  const element = document.createElement("a");
+  const file = new Blob([vcfText], { type: "text/vcard;charset=utf-8" });
+  element.href = URL.createObjectURL(file);
+  element.download = "contact.vcf";
+  document.body.appendChild(element);
+  element.click();
 };
+
+
+const CreateVCard= () => {
+  const vcard = vCardFactory();
+
+  vcard.firstName = name;
+  vcard.email = userdata[0]?.email;
+  vcard.organization = "Internacional de electricos";
+  vcard.photo.attachFromUrl(
+    "https://avatars.githubusercontent.com/u/56592200?v=4"
+  );
+  vcard.workPhone = about?.phone;
+  vcard.socialUrls["linkedin"] = "https://www.linkedin.com/company/ie-grupo/";
+  vcard.socialUrls["twitter"] = "https://twitter.com/ie_grupo";
+  vcard.socialUrls["facebook"] = "https://www.facebook.com/ie.grupo";
+  vcard.socialUrls["instagram"] = "https://www.instagram.com/iegrupo/";
+  vcard.socialUrls["website"] = "https://www.iegrupo.co/";
+
+  // console.log(vcard.getFormattedString());
+  let vCardString = vcard.getFormattedString();
+  vCardString = cleanVCardString(vCardString);
+  console.log(vCardString);
+  return vCardString;
+};
+
+
 
 
 
@@ -611,16 +635,16 @@ const handleSubmit = () => {
                     >
                       <div className=" flex items-center gap-2 justify-center px-4">
                         <FaPlus 
-                         onClick={handleSubmit} 
-                        // onClick={() => downloadTxtFile(CreateVCard())}
+                         // onClick={handleSubmit} 
+                          onClick={() => downloadTxtFile(CreateVCard())}
                          />
                        
 
 
                         <span 
-                              onClick={handleSubmit} 
+                            //  onClick={handleSubmit} 
                         
-                        // onClick={() => downloadTxtFile(CreateVCard())}
+                         onClick={() => downloadTxtFile(CreateVCard())}
                         
                         dir="rtl"> שמרו אותנו באנשי הקשר</span>
                       </div>
