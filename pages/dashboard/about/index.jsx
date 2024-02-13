@@ -464,7 +464,7 @@ function AboutPage({ user, userdata }) {
         <QuillNoSSRWrapper
           modules={modules}
           theme="snow"
-          className="h-full pb-[2.5rem] border-[2.5px] text-black font-medium rounded-md border-teal-400 hover:border-blue-600"
+          className="h-full pb-[2.5rem] border-[2.5px] text-black font-medium rounded-md    border-indigo-500 hover:border-blue-600"
           value={desc}
           setValue={setDesc}
           label={"Description"}
