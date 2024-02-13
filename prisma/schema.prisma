@@ -27,6 +27,7 @@ model User {
   password   String
   role       String       @default("user")
   status     String       @default("pending")
+  status4     String       @default("pending")
   // polls      Poll[]
   projects   Project[]
   appearence Appearence[]
@@ -41,7 +42,7 @@ model Project {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   title     String   @default("")
-  desc      String @db.VarChar(255)    @default("")
+  desc      String @db.VarChar(855)    @default("")
 
   themeColor String  @default("#1976D2")
   enable     Boolean @default(true)
@@ -70,7 +71,7 @@ model About {
   updatedAt  DateTime @updatedAt
   themeColor String   @default("#1976D2")
   title      String   @default("")
-  desc       String  @db.VarChar(555)   @default("")
+  desc       String  @db.VarChar(2500)   @default("")
   myImage    String   @default("")
   headImage  String   @default("")
   bgImage  String   @default("")

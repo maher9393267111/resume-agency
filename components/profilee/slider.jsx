@@ -108,9 +108,9 @@ export default function SliderImages({
             itemClass="px-4"
           >
             {sliders?.map((image, index) => (
-              <div className=" cursor-pointer w-full h-[45vh] md:h-[70vh]">
+              <div className=" cursor-pointer w-[57%] h-[40vh] md:h-[67vh] mx-auto">
                 <img
-                  className=" rounded-md object-cover w-full h-full"
+                  className=" rounded-md   object-center    object-cover w-full h-full"
                   src={`${ImageEndpoint}/${image?.link}`}
                   alt=""
                 />
@@ -128,9 +128,9 @@ export default function SliderImages({
           itemClass="px-4"
         >
           {images.map((image, index) => (
-            <div className=" cursor-pointer w-full h-[45vh] md:h-[70vh]">
+            <div className=" cursor-pointer w-full h-[45vh] md:h-[40vh]">
               <img
-                className=" rounded-md object-cover w-full h-full"
+                className=" rounded-md object-cover object-center w-full h-full"
                 src={image?.img}
                 alt=""
               />

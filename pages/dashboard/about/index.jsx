@@ -26,6 +26,34 @@ import DriveFolderUploadIcon from "@mui/icons-material/DriveFolderUpload";
 import DeleteIcon from "@mui/icons-material/Delete";
 import ImageIcon from "@mui/icons-material/Image";
 import { MuiColorInput } from "mui-color-input";
+import "react-quill/dist/quill.snow.css";
+
+import dynamic from "next/dynamic";
+const QuillNoSSRWrapper = dynamic(import("react-quill"), {
+  ssr: false,
+  loading: () => <div>...Loading</div>,
+});
+
+const modules = {
+  toolbar: [
+    [{ header: "1" }, { header: "2" }, { font: [] }],
+    [{ size: [] }],
+    ["bold", "italic", "underline", "strike", "blockquote"],
+    [
+      { list: "ordered" },
+      { list: "bullet" },
+      { indent: "-1" },
+      { indent: "+1" },
+    ],
+    ["link", "image", "video"],
+    ["clean"],
+  ],
+};
+
+
+
+
+
 
 function AboutPage({ user, userdata }) {
   console.log("userPrisma", userdata);
@@ -425,12 +453,28 @@ function AboutPage({ user, userdata }) {
               type={"text"}
             />
 
-            <CustomInput
+            {/* <CustomInput
               value={desc}
               setValue={setDesc}
               label={"Description"}
               type={"text"}
-            />
+            /> */}
+
+<div className="w-full h-64">
+        <QuillNoSSRWrapper
+          modules={modules}
+          theme="snow"
+          className="h-full pb-[2.5rem] border-[2.5px] text-black font-medium rounded-md border-teal-400 hover:border-blue-600"
+          value={desc}
+          setValue={setDesc}
+          label={"Description"}
+          onChange={setDesc}
+        
+        />
+      </div>
+
+
+
             <CustomInput
               value={work}
               setValue={setWork}
@@ -441,7 +485,7 @@ function AboutPage({ user, userdata }) {
             <CustomInput
               value={link}
               setValue={setLink}
-              label={"Resume Link"}
+              label={"Site Link"}
               type={"text"}
             />
 

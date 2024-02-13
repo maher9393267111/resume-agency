@@ -2,6 +2,11 @@
 import React from 'react'
 import { Disclosure } from '@headlessui/react'
 import { FaChevronUp } from "react-icons/fa";
+import parse from "html-react-parser";
+
+
+
+
 
 const faq = [
 
@@ -53,7 +58,14 @@ const FaqCard = ({projects,mainTextColor , accordionTitleColor , accordionDescCo
 
             <Disclosure.Panel className={` ${accordionDescBgColor}  relative z-2 rounded-md shadow-md mb-2 -mt-4 px-6  text-md text-gray coverbg text-left post-content  bg-whit py-6`}>
              
-<p className={` ${accordionDescColor}`}>{f?.desc}</p>
+<p className={` ${accordionDescColor}`}>
+  
+{parse(f?.desc)}  
+  
+  {/* {f?.desc} */}
+
+
+</p>
 
             </Disclosure.Panel>
           </>

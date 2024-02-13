@@ -25,6 +25,36 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import CustomInput from "../../../components/common/customInput";
 
+
+import "react-quill/dist/quill.snow.css";
+
+import dynamic from "next/dynamic";
+const QuillNoSSRWrapper = dynamic(import("react-quill"), {
+  ssr: false,
+  loading: () => <div>...Loading</div>,
+});
+
+const modules = {
+  toolbar: [
+    [{ header: "1" }, { header: "2" }, { font: [] }],
+    [{ size: [] }],
+    ["bold", "italic", "underline", "strike", "blockquote"],
+    [
+      { list: "ordered" },
+      { list: "bullet" },
+      { indent: "-1" },
+      { indent: "+1" },
+    ],
+    ["link", "image", "video"],
+    ["clean"],
+  ],
+};
+
+
+
+
+
+
 export default function ProjectsPage({ user, projects }) {
   console.log("projects", projects);
 
@@ -168,13 +198,13 @@ export default function ProjectsPage({ user, projects }) {
                         scope="col"
                         className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0"
                       >
-                        Title
+                      Id
                       </th>
                       <th
                         scope="col"
                         className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
                       >
-                        Description
+                        Title
                       </th>
 
                       <th
@@ -208,10 +238,10 @@ export default function ProjectsPage({ user, projects }) {
                       return (
                         <tr key={index}>
                           <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">
-                            {project?.title}
+                            {project?.id}
                           </td>
                           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                            {project?.desc}
+                            {project?.title}
                           </td>
                           {/* <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
     {project?.themeColor}
@@ -267,12 +297,27 @@ export default function ProjectsPage({ user, projects }) {
               setValue={setTitle}
             />
 
-            <CustomInput
+            {/* <CustomInput
               label="description"
               type="text"
               value={desc}
               setValue={setDesc}
-            />
+            /> */}
+
+<div className="w-full mt-4 h-64">
+        <QuillNoSSRWrapper
+          modules={modules}
+          theme="snow"
+          className="h-full pb-[2.5rem] border-[2.5px] text-black font-medium rounded-md  border-indigo-600 hover:border-blue-600"
+          value={desc}
+          setValue={setDesc}
+          label={"Description"}
+          onChange={setDesc}
+        
+        />
+      </div>
+
+
           </DialogContent>
           <DialogActions>
             <Button className="   text-indigo-600" onClick={handleClose}>

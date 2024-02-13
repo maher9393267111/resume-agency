@@ -3,25 +3,33 @@ import { Inter } from "next/font/google";
 import AccordionComponent from "../../components/profilee/accordion";
 import SliderImages from "../../components/profilee/slider";
 const inter = Inter({ subsets: ["latin"] });
-import Link from 'next/link'
-import NextLink from 'next/link';
+import Link from "next/link";
+import NextLink from "next/link";
 import { FaPlus } from "react-icons/fa";
 
-import { FaWhatsapp ,FaInstagram ,FaTelegram ,FaTwitter , FaFacebookF  } from "react-icons/fa"
+import {
+  FaWhatsapp,
+  FaInstagram,
+  FaTelegram,
+  FaTwitter,
+  FaFacebookF,
+} from "react-icons/fa";
+import { LuExternalLink } from "react-icons/lu";
+import { FaLocationDot } from "react-icons/fa6";
 
 import Contact from "../../components/profilee/contact";
 import { useState } from "react";
 import { prisma } from "../../src/lib/prisma";
 import { ImageEndpoint, defaultImage } from "../../src/lib/globall";
+import parse from "html-react-parser";
 
 export default function Home3({ name, userdata }) {
   const [temp, setTemp] = useState(userdata[0]?.about[0]?.temp || 1);
 
-
-const status = userdata[0]?.status;
-console.log(status , "Status");
+  const status = userdata[0]?.status;
+  console.log(status, "Status");
   const about = userdata[0]?.about[0];
-  console.log(about?.bgImage , "A$$$$$$$$$$$$$$$$$$$$ASS");
+  console.log(about?.bgImage, "A$$$$$$$$$$$$$$$$$$$$ASS");
   const sliders = userdata[0]?.slider;
   console.log("slidersDatas", sliders);
   const projects = userdata[0]?.projects;
@@ -254,316 +262,298 @@ console.log(status , "Status");
       ? "border-temp4-contact_input_border_color"
       : temp === 5 && "border-temp5-contact_input_border_color";
 
-
-//contact_overlay_bg
-const contactBgOverlayColor =
-temp === 1
-  ? "bg-temp1-contact_overlay_bg"
-  : temp === 2
-  ? "bg-temp2-contact_overlay_bg"
-  : temp === 3
-  ? "bg-temp3-contact_overlay_bg"
-  : temp === 4
-  ? "bg-temp4-contact_overlay_bg"
-  : temp === 5 && "bg-temp5-contact_overlay_bg";
-
-
-
+  //contact_overlay_bg
+  const contactBgOverlayColor =
+    temp === 1
+      ? "bg-temp1-contact_overlay_bg"
+      : temp === 2
+      ? "bg-temp2-contact_overlay_bg"
+      : temp === 3
+      ? "bg-temp3-contact_overlay_bg"
+      : temp === 4
+      ? "bg-temp4-contact_overlay_bg"
+      : temp === 5 && "bg-temp5-contact_overlay_bg";
 
   return (
     <main className=" bg-gray-50 font-serif">
-
-{status  === 'accepted' ?
-
-      <div className="layoutContainer">
-        <div
-          // style={{ backgroundImage: 'url("https://media.istockphoto.com/id/1268759368/photo/close-up-of-a-black-slate-texture-background-stone-grunge-texture.webp?b=1&s=612x612&w=0&k=20&c=LfMAojas-XL8kBuLO-1av_2ITfr8am-Lmwgrla-yFRc=")' }}
-
-          className="contentContainer"
-        >
-          {/* -----cover--- */}
-          {/* // 🌐🌐  covercolor dynamic */}
+      {status === "accepted" ? (
+        <div className="layoutContainer">
           <div
-            className={`  relative   ${coverbg}    bg-temp${Number(
-              temp
-            )}-coverbg  coverb`}
+            // style={{ backgroundImage: 'url("https://media.istockphoto.com/id/1268759368/photo/close-up-of-a-black-slate-texture-background-stone-grunge-texture.webp?b=1&s=612x612&w=0&k=20&c=LfMAojas-XL8kBuLO-1av_2ITfr8am-Lmwgrla-yFRc=")' }}
+
+            className="contentContainer"
           >
-
-
-
-
-
-            <img
-              className="cove w-full h-[300px] lg:h-[400px] m-auto object-cover rounded-b-xl"
-              src={
-                (about?.headImage && `${ImageEndpoint}/${about?.headImage}`) ||
-                
-                "https://e0.pxfuel.com/wallpapers/393/237/desktop-wallpaper-facebook-cover-grey-abstract-3440x1440-abstract.jpg"}
-              alt=""
-            />
-
-
-
-
-            {/* ----userImage--- */}
-            <div className="  flex justify-center  ">
+            {/* -----cover--- */}
+            {/* // 🌐🌐  covercolor dynamic */}
+            <div
+              className={`  relative   ${coverbg}    bg-temp${Number(
+                temp
+              )}-coverbg  coverb`}
+            >
               <img
-                className="md:w-[13rem] relative -top-[80px] bg-white md:h-[13rem] w-[8rem] h-[8rem] shadow border-4 border-white rounded-full object-cover"
-                src=
-           {    about?.myImage
-            ? `${ImageEndpoint}/${about?.myImage}`
-            : defaultImage}
-                
-                // "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dXNlcnxlbnwwfHwwfHx8MA%3D%3D"
+                className="cove w-full h-[300px] lg:h-[500px] m-auto object-cover  object-center rounded-b-xl"
+                src={
+                  (about?.headImage &&
+                    `${ImageEndpoint}/${about?.headImage}`) ||
+                  "https://e0.pxfuel.com/wallpapers/393/237/desktop-wallpaper-facebook-cover-grey-abstract-3440x1440-abstract.jpg"
+                }
                 alt=""
               />
-            </div>
-          </div>
 
-          {/* -----Details---- */}
-          <div className={`  coverb pb-6 bg-temp${temp}-coverbg  pb-4  `}>
-            <div
-              className={` text-center text-whit  text-temp${temp}-main_text_color   font-semibold`}
-            >
-
-{about?.title && (
-                        <h1 className=" text-3xl md:text-5xl">{about?.title}</h1>
-                      )}
-
-
-            
-
-{about?.work && (
-
-
-              <h3 className=" text-2xl md:text-3xl my-3">{about?.work}</h3>
- )}
-
-
-
+              {/* ----userImage--- */}
+              <div className="  flex justify-center  ">
+                <img
+                  className="md:w-[13rem] relative -top-[80px] bg-white md:h-[13rem] w-[8rem] h-[8rem] shadow border-4 border-white rounded-full object-cover"
+                  src={
+                    about?.myImage
+                      ? `${ImageEndpoint}/${about?.myImage}`
+                      : defaultImage
+                  }
+                  // "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dXNlcnxlbnwwfHwwfHx8MA%3D%3D"
+                  alt=""
+                />
+              </div>
             </div>
 
-            {/* ----Social icons--- */}
-
-            <div className=" flex  mx-auto  container !justify-center flex-wrap  flex-initial ">
-
-
-            {about?.facebook && (
-           
+            {/* -----Details---- */}
+            <div className={`  coverb pb-6 bg-temp${temp}-coverbg  pb-4  `}>
               <div
-                className={` ${mainTextColor} iconsMain  w-[30%] md:w-1/6 text-center  text-[11px] md:text-lg  font-semibold `}
+                className={` text-center text-whit  text-temp${temp}-main_text_color   font-semibold`}
               >
-                <div className={`iconCircle ${iconBorderColor}`}>
+                {about?.title && (
+                  <h1 className=" text-3xl md:text-5xl">{about?.title}</h1>
+                )}
 
-                <a
-                                className=" "
-                                target="_blank"
-                                href={about?.facebook}
-                                rel="noreferrer nofollow"
-                                title="Portfolio"
-                              >
-               
-                  <FaFacebookF
-                    className={` ${iconColor} block w-[30px] top-[12px] left-[12px] md:left-[22px]  md:top-[22px] h-[30px] absolute  text-yellow-10`}
-                  />
-                  </a>
+                {about?.work && (
+                  <h3 className=" text-2xl md:text-3xl my-3">{about?.work}</h3>
+                )}
+              </div>
+
+              {/* ----Social icons--- */}
+
+              <div className=" flex  mx-auto  container !justify-center flex-wrap  flex-initial ">
+                {about?.facebook && (
+                  <div
+                    className={` ${mainTextColor} iconsMain  w-[30%] md:w-1/6 text-center  text-[11px] md:text-lg  font-semibold `}
+                  >
+                    <div className={`iconCircle ${iconBorderColor}`}>
+                      <a
+                        className=" "
+                        target="_blank"
+                        href={about?.facebook}
+                        rel="noreferrer nofollow"
+                        title="Portfolio"
+                      >
+                        <FaFacebookF
+                          className={` ${iconColor} block w-[30px] top-[12px] left-[12px] md:left-[22px]  md:top-[22px] h-[30px] absolute  text-yellow-10`}
+                        />
+                      </a>
+                    </div>
+
+                    {/* text */}
+                    <p className="w-[75px] mx-auto  ">Facebook</p>
+                  </div>
+                )}
+
+                {about?.whatsapp && (
+                  <div
+                    className={` ${mainTextColor} iconsMain  w-[30%] md:w-1/6 text-center  text-[11px] md:text-lg  font-semibold `}
+                  >
+                    <div className={`iconCircle ${iconBorderColor}`}>
+                      <a
+                        className=" "
+                        target="_blank"
+                        href={about?.whatsapp}
+                        rel="noreferrer nofollow"
+                        title="Portfolio"
+                      >
+                        <FaWhatsapp
+                          className={` ${iconColor} block w-[30px] top-[12px] left-[12px] md:left-[22px]  md:top-[22px] h-[30px] absolute  text-yellow-10`}
+                        />
+                      </a>
+                    </div>
+
+                    {/* text */}
+                    <p className="w-[75px] mx-auto  ">Whatsapp</p>
+                  </div>
+                )}
+
+                {about?.instagram && (
+                  <div
+                    className={` ${mainTextColor} iconsMain  w-[30%] md:w-1/6 text-center  text-[11px] md:text-lg  font-semibold `}
+                  >
+                    <div className={`iconCircle ${iconBorderColor}`}>
+                      <a
+                        className=" "
+                        target="_blank"
+                        href={about?.instagram}
+                        rel="noreferrer nofollow"
+                        title="Portfolio"
+                      >
+                        <FaInstagram
+                          className={` ${iconColor} block w-[30px] top-[12px] left-[12px] md:left-[22px]  md:top-[22px] h-[30px] absolute  text-yellow-10`}
+                        />
+                      </a>
+                    </div>
+
+                    {/* text */}
+                    <p className="w-[75px] mx-auto  ">Instagram</p>
+                  </div>
+                )}
+
+                {about?.twitter && (
+                  <div
+                    className={` ${mainTextColor} iconsMain  w-[30%] md:w-1/6 text-center  text-[11px] md:text-lg  font-semibold `}
+                  >
+                    <div className={`iconCircle ${iconBorderColor}`}>
+                      <a
+                        className=" "
+                        target="_blank"
+                        href={about?.twitter}
+                        rel="noreferrer nofollow"
+                        title="Portfolio"
+                      >
+                        <FaTwitter
+                          className={` ${iconColor} block w-[30px] top-[12px] left-[12px] md:left-[22px]  md:top-[22px] h-[30px] absolute  text-yellow-10`}
+                        />
+                      </a>
+                    </div>
+
+                    {/* text */}
+                    <p className="w-[75px] mx-auto  ">Twitter</p>
+                  </div>
+                )}
+
+                {about?.telgram && (
+                  <div
+                    className={` ${mainTextColor} iconsMain  w-[30%] md:w-1/6 text-center  text-[11px] md:text-lg  font-semibold `}
+                  >
+                    <div className={`iconCircle ${iconBorderColor}`}>
+                      <a
+                        className=" "
+                        target="_blank"
+                        href={about?.telgram}
+                        rel="noreferrer nofollow"
+                        title="Portfolio"
+                      >
+                        <FaTelegram
+                          className={` ${iconColor} block w-[30px] top-[12px] left-[12px] md:left-[22px]  md:top-[22px] h-[30px] absolute  text-yellow-10`}
+                        />
+                      </a>
+                    </div>
+
+                    {/* text */}
+                    <p className="w-[75px] mx-auto  ">Telgram</p>
+                  </div>
+                )}
+
+{/* <LuExternalLink /> */}
+
+
+{about?.link && (
+                  <div
+                    className={` ${mainTextColor} iconsMain  w-[30%] md:w-1/6 text-center  text-[11px] md:text-lg  font-semibold `}
+                  >
+                    <div className={`iconCircle ${iconBorderColor}`}>
+                      <a
+                        className=" "
+                        target="_blank"
+                        href={about?.link}
+                        rel="noreferrer nofollow"
+                        title="Portfolio"
+                      >
+                        <LuExternalLink
+                          className={` ${iconColor} block w-[30px] top-[12px] left-[12px] md:left-[22px]  md:top-[22px] h-[30px] absolute  text-yellow-10`}
+                        />
+                      </a>
+                    </div>
+
+                    {/* text */}
+                    <p className="w-[75px] mx-auto  ">Site</p>
+                  </div>
+                )}
+
+
+{/* import { FaLocationDot } from "react-icons/fa6"; */}
+
+
+{about?.location && (
+                  <div
+                    className={` ${mainTextColor} iconsMain  w-[30%] md:w-1/6 text-center  text-[11px] md:text-lg  font-semibold `}
+                  >
+                    <div className={`iconCircle ${iconBorderColor}`}>
+                      <a
+                        className=" "
+                        target="_blank"
+                        href={about?.location}
+                        rel="noreferrer nofollow"
+                        title="Portfolio"
+                      >
+                        <FaLocationDot
+                          className={` ${iconColor} block w-[30px] top-[12px] left-[12px] md:left-[22px]  md:top-[22px] h-[30px] absolute  text-yellow-10`}
+                        />
+                      </a>
+                    </div>
+
+                    {/* text */}
+                    <p className="w-[75px] mx-auto  ">Location</p>
+                  </div>
+                )}
+
+
+
+
+
+
+              </div>
+
+              {/* --- telephone button --- */}
+
+              {about?.phone && (
+                <div className=" my-6">
+                  {/* // 🌐🌐  text and Bg color dynamic */}
+
+                  <NextLink href={"tel:" + about?.phone} target={"_self"}>
+                    <div
+                      className={`telbtn ${phoneBtnBgColor} ${phoneBtnTextAndIconColor}`}
+                    >
+                      <div className=" flex items-center gap-2 justify-center px-4">
+                        <FaPlus />
+
+                        <span dir="rtl"> שמרו אותנו באנשי הקשר</span>
+                      </div>
+                    </div>
+                  </NextLink>
+                </div>
+              )}
+
+              {/* desc about 🌐🌐🌐🌐--- */}
+
+              <div
+                className={` ${mainTextColor} text-whit w-[90%] mx-auto  font-semibold text-center container`}
+              >
+                {/* title-- */}
+                <div>
+                  <h2 className=" text-2xl md:text-3xl mb-6  underline font-bold">
+                    {" "}
+                    קצת עלינו{" "}
+                  </h2>
                 </div>
 
-                {/* text */}
-                <p className="w-[75px] mx-auto  ">Facebook</p>
-              </div>
+                {about?.desc && (
+                  <div className="my-3">
+                    {parse(about?.desc)}
 
-        )    }
+                    {/* {about?.desc} */}
 
-
-{about?.whatsapp && (
-           
-           <div
-             className={` ${mainTextColor} iconsMain  w-[30%] md:w-1/6 text-center  text-[11px] md:text-lg  font-semibold `}
-           >
-             <div className={`iconCircle ${iconBorderColor}`}>
-
-             <a
-                             className=" "
-                             target="_blank"
-                             href={about?.whatsapp}
-                             rel="noreferrer nofollow"
-                             title="Portfolio"
-                           >
-            
-               <FaWhatsapp
-                 className={` ${iconColor} block w-[30px] top-[12px] left-[12px] md:left-[22px]  md:top-[22px] h-[30px] absolute  text-yellow-10`}
-               />
-               </a>
-             </div>
-
-             {/* text */}
-             <p className="w-[75px] mx-auto  ">Whatsapp</p>
-           </div>
-
-     )    }
-
-
-          
-{about?.instagram && (
-           
-           <div
-             className={` ${mainTextColor} iconsMain  w-[30%] md:w-1/6 text-center  text-[11px] md:text-lg  font-semibold `}
-           >
-             <div className={`iconCircle ${iconBorderColor}`}>
-
-             <a
-                             className=" "
-                             target="_blank"
-                             href={about?.instagram}
-                             rel="noreferrer nofollow"
-                             title="Portfolio"
-                           >
-            
-               <FaInstagram
-                 className={` ${iconColor} block w-[30px] top-[12px] left-[12px] md:left-[22px]  md:top-[22px] h-[30px] absolute  text-yellow-10`}
-               />
-               </a>
-             </div>
-
-             {/* text */}
-             <p className="w-[75px] mx-auto  ">Instagram</p>
-           </div>
-
-     )    }
-
-
-
-{about?.twitter && (
-           
-           <div
-             className={` ${mainTextColor} iconsMain  w-[30%] md:w-1/6 text-center  text-[11px] md:text-lg  font-semibold `}
-           >
-             <div className={`iconCircle ${iconBorderColor}`}>
-
-             <a
-                             className=" "
-                             target="_blank"
-                             href={about?.twitter}
-                             rel="noreferrer nofollow"
-                             title="Portfolio"
-                           >
-            
-               <FaTwitter
-                 className={` ${iconColor} block w-[30px] top-[12px] left-[12px] md:left-[22px]  md:top-[22px] h-[30px] absolute  text-yellow-10`}
-               />
-               </a>
-             </div>
-
-             {/* text */}
-             <p className="w-[75px] mx-auto  ">Twitter</p>
-           </div>
-
-     )    }
-
-           
-
-{about?.telgram && (
-           
-           <div
-             className={` ${mainTextColor} iconsMain  w-[30%] md:w-1/6 text-center  text-[11px] md:text-lg  font-semibold `}
-           >
-             <div className={`iconCircle ${iconBorderColor}`}>
-
-             <a
-                             className=" "
-                             target="_blank"
-                             href={about?.telgram}
-                             rel="noreferrer nofollow"
-                             title="Portfolio"
-                           >
-            
-               <FaTelegram
-                 className={` ${iconColor} block w-[30px] top-[12px] left-[12px] md:left-[22px]  md:top-[22px] h-[30px] absolute  text-yellow-10`}
-               />
-               </a>
-             </div>
-
-             {/* text */}
-             <p className="w-[75px] mx-auto  ">Telgram</p>
-           </div>
-
-     )    }
-
-
-
-              
-
-           
-
-
-
-            </div>
-
-            {/* --- telephone button --- */}
-
-{about?.phone &&
-
-            <div className=" my-6">
-              {/* // 🌐🌐  text and Bg color dynamic */}
-
-              <NextLink href={"tel:"+about?.phone}
-                target={'_self'}
-              
-              >
-             
-              <div
-                className={`telbtn ${phoneBtnBgColor} ${phoneBtnTextAndIconColor}`}
-              >
-                <div
-                  className=" flex items-center gap-2 justify-center px-4"
-                  
-                >
-                  <FaPlus />
-
-                  <span dir="rtl"> שמרו אותנו באנשי הקשר</span>
-                </div>
-              </div>
-              </NextLink>
-
-
-
-            </div>
-}
-
-
-
-
-            {/* desc about 🌐🌐🌐🌐--- */}
-            
-
-
-            <div
-              className={` ${mainTextColor} text-whit w-[90%] mx-auto  font-semibold text-center container`}
-            >
-              {/* title-- */}
-              <div>
-                <h2 className=" text-2xl md:text-3xl mb-6  underline font-bold">
-                  {" "}
-                  קצת עלינו{" "}
-                </h2>
-              </div>
-
-              {about?.desc &&
-
-              <div className="my-3">
-                {about?.desc}
-                {/* משה פסחוב- משרד עורכי דין הוא משרד מוביל במימוש זכויות רפואיות
+                    {/* משה פסחוב- משרד עורכי דין הוא משרד מוביל במימוש זכויות רפואיות
                 מול המוסד לביטוח לאומי, חברות הביטוח וקרנות הפנסיה. משרדנו מעניק
                 ללקוחותיו ליווי מלא וצמוד במימוש הזכויות הרפואיות, לרבות ייצוג
                 בוועדות הרפואיות, בבית */}
-              </div>
-}
+                  </div>
+                )}
 
-
-
-
-              {/* <div className="my-3">
+                {/* <div className="my-3">
                 משה פסחוב- משרד עורכי דין הוא משרד מוביל במימוש זכויות רפואיות
                 מול המוסד לביטוח לאומי, חברות הביטוח וקרנות הפנסיה. משרדנו מעניק
                 ללקוחותיו ליווי מלא וצמוד במימוש הזכויות הרפואיות, לרבות ייצוג
@@ -576,91 +566,60 @@ temp === 1
                 ללקוחותיו ליווי מלא וצמוד במימוש הזכויות הרפואיות, לרבות ייצוג
                 בוועדות הרפואיות, בבית
               </div> */}
+              </div>
 
-
-
+              {projects && projects?.length > 0 && (
+                <AccordionComponent
+                  projects={projects}
+                  mainTextColor={mainTextColor}
+                  accordionBorderColor={accordionBorderColor}
+                  accordionDescColor={accordionDescColor}
+                  accordionTitleColor={accordionTitleColor}
+                  accordionBgColor={accordionBgColor}
+                  accordionDescBgColor={accordionDescBgColor}
+                />
+              )}
             </div>
 
+            {/* ----SliderImages---- */}
 
+            <div className="   bg-gray-300 my-6">
+              <SliderImages
+                sliderTitleColor={sliderTitleColor}
+                sliderBgColor={sliderBgColor}
+                arrowsBgColor={arrowsBgColor}
+                arrowsColor={arrowsColor}
+                sliderUnderlineBorderColor={sliderUnderlineBorderColor}
+                video={about?.video}
+                sliders={sliders}
+              />
+            </div>
 
-
-
-{projects && projects?.length > 0 &&
-            <AccordionComponent
-            projects = {projects}
-              mainTextColor={mainTextColor}
-              accordionBorderColor={accordionBorderColor}
-              accordionDescColor={accordionDescColor}
-              accordionTitleColor={accordionTitleColor}
-              accordionBgColor={accordionBgColor}
-              accordionDescBgColor={accordionDescBgColor}
-            />
-
-}
-
-
-          </div>
-
-          {/* ----SliderImages---- */}
-    
-
-          <div className="   bg-gray-300 my-6">
-            <SliderImages
-              sliderTitleColor={sliderTitleColor}
-              sliderBgColor={sliderBgColor}
-              arrowsBgColor={arrowsBgColor}
-              arrowsColor={arrowsColor}
-              sliderUnderlineBorderColor={sliderUnderlineBorderColor}
-              video ={about?.video}
-              sliders={sliders}
-            />
-          </div>
-
-          <div>
-            <Contact
-
-
-
-            bgImage={ about?.bgImage}
-              mainTextColor={mainTextColor}
-              contactBtnTextColor={contactBtnTextColor}
-              contactBTnBgColor={contactBTnBgColor}
-              coverbg={contactBgOverlayColor}
-
-              tempBg={ coverbg}
-
-
-              contactInputBorderColor={contactInputBorderColor}
-              domainUrl={domainUrl }
-
-              portfoliemail={portfoliemail}
-             
-              user={userdata}
-              about={about}
-            />
+            <div>
+              <Contact
+                bgImage={about?.bgImage}
+                mainTextColor={mainTextColor}
+                contactBtnTextColor={contactBtnTextColor}
+                contactBTnBgColor={contactBTnBgColor}
+                coverbg={contactBgOverlayColor}
+                tempBg={coverbg}
+                contactInputBorderColor={contactInputBorderColor}
+                domainUrl={domainUrl}
+                portfoliemail={portfoliemail}
+                user={userdata}
+                about={about}
+              />
+            </div>
           </div>
         </div>
-      </div>
-
-:
-
-<div className=" text-center text-4xl mt-24  font-bold text-red-600">
-  <h1>Your Account is not accepted yet</h1>
-</div>
-
-
-}
-
-
-
-
+      ) : (
+        <div className=" text-center text-4xl mt-24  font-bold text-red-600">
+          <h1>Your Account is not accepted yet</h1>
+        </div>
+      )}
     </main>
   );
 }
-
-
-
-
 
 export async function getServerSideProps({ params }) {
   const name = params.name;
