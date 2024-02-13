@@ -324,7 +324,7 @@ export default function Home3({ name, userdata }) {
 function createVCFContent(contact) {
   return `BEGIN:VCARD
 VERSION:4.0
-N:${name};
+N:${name}
 
 TEL;TYPE=cell:${contact.phone}
 EMAIL:${contact.email}
