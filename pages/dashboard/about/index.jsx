@@ -31,7 +31,7 @@ import "react-quill/dist/quill.snow.css";
 import dynamic from "next/dynamic";
 const QuillNoSSRWrapper = dynamic(import("react-quill"), {
   ssr: false,
-  loading: () => <div>...Loading</div>,
+  // loading: () => <div>...Loading</div>,
 });
 
 const modules = {
