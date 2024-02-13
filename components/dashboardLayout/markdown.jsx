@@ -1,11 +1,13 @@
 import React from 'react'
+import { useState, useMemo } from "react";
 import dynamic from "next/dynamic";
 import "react-quill/dist/quill.snow.css";
 
-const  QuillNoSSRWrapper = dynamic(import('react-quill'), {
-  ssr: false,
-  loading: () => <p className="loading">Loading ...</p>,
-})
+
+// const  QuillNoSSRWrapper = dynamic(import('react-quill'), {
+//   ssr: false,
+//   loading: () => <p className="loading">Loading ...</p>,
+// })
 
 
 const modules = {
@@ -28,6 +30,10 @@ const modules = {
 
 
 export default function Markdown({setDesc ,desc}) {
+
+    const QuillNoSSRWrapper = useMemo(() => dynamic(() => import('react-quill'), { ssr: false }),[]);
+
+
   return (
     <div className="w-full h-64">
         <QuillNoSSRWrapper
