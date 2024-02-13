@@ -38,9 +38,9 @@ export default function Home3({ name, userdata }) {
 
   console.log(userdata);
 
-  const domainUrl1 = "https://resume-agency.vercel.app/profile";
+  const domainUrl1 = "https://www.ultratech.top/profile";
 
-  const domainUrl = `https://resume-agency.vercel.app/profile/${name}`;
+  const domainUrl = `https://www.ultratech.top/profile/${name}`;
 
   const coverbg =
     temp === 1
