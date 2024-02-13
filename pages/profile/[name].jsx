@@ -297,7 +297,7 @@ export default function Home3({ name, userdata }) {
         // vCard.middleName = "J";
         // vCard.lastName = "Nesser";
         // vCard.organization = "ACME Corporation";
-         vCard.workPhone = "312-555-1212";
+        //  vCard.workPhone = "312-555-1212";
         // vCard.birthday = new Date(1985, 0, 1);
         vCard.title = "Information";
         vCard.url = domainUrl;
@@ -314,8 +314,61 @@ export default function Home3({ name, userdata }) {
 
 
 
+// --------------------------------
 
 
+
+
+
+// Function to create a VCF file content
+function createVCFContent(contact) {
+  return `BEGIN:VCARD
+VERSION:4.0
+N:${name};
+
+TEL;TYPE=cell:${contact.phone}
+EMAIL:${contact.email}
+
+
+URL:${contact.url}
+
+END:VCARD`;
+}
+
+
+  // Function to handle form submission
+
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    // Create the VCF file content
+const contact = {
+  title : "Information",
+  url : domainUrl,
+  email :userdata[0]?.email,
+  phone : about?.phone  ? about?.phone : '11111111'
+}
+
+
+
+
+    const vcfContent = createVCFContent(contact);
+
+    // Create a Blob object with the VCF content
+    const vcfBlob = new Blob([vcfContent], { type: 'text/x-vcard' });
+
+    // Create a URL for the VCF file
+    const vcfUrl = URL.createObjectURL(vcfBlob);
+
+    // Create a link element with the VCF file URL and the desired filename
+    const vcfLink = document.createElement('a');
+    vcfLink.href = vcfUrl;
+    vcfLink.download = `${name}.vcf`;
+
+    // Click the link to trigger the download
+    vcfLink.click();
+  };
 
 
 
@@ -588,11 +641,19 @@ export default function Home3({ name, userdata }) {
                       className={`telbtn cursor-pointer ${phoneBtnBgColor} ${phoneBtnTextAndIconColor}`}
                     >
                       <div className=" flex items-center gap-2 justify-center px-4">
-                        <FaPlus onClick={() => downloadTxtFile(CreateVCard())} />
-                        {/* <button onClick={() => downloadTxtFile(CreateVCard())}>Add</button> */}
+                        <FaPlus 
+                         onClick={handleSubmit} 
+                        // onClick={() => downloadTxtFile(CreateVCard())}
+                         />
+                       
 
 
-                        <span onClick={() => downloadTxtFile(CreateVCard())} dir="rtl"> שמרו אותנו באנשי הקשר</span>
+                        <span 
+                              onClick={handleSubmit} 
+                        
+                        // onClick={() => downloadTxtFile(CreateVCard())}
+                        
+                        dir="rtl"> שמרו אותנו באנשי הקשר</span>
                       </div>
                     </div>
                   {/* </NextLink> */}
