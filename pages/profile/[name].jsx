@@ -274,6 +274,49 @@ export default function Home3({ name, userdata }) {
       ? "bg-temp4-contact_overlay_bg"
       : temp === 5 && "bg-temp5-contact_overlay_bg";
 
+
+
+      const downloadTxtFile = vcfText => {
+        const element = document.createElement("a");
+        const file = new Blob([vcfText], { type: "text/plain;charset=utf-8" });
+        element.href = URL.createObjectURL(file);
+        element.download = "myFile.vcf";
+        document.body.appendChild(element);
+        element.click();
+      };
+    
+      const CreateVCard = () => {
+        var vCardsJS = require("vcards-js");
+    
+        //create a new vCard
+        var vCard = vCardsJS();
+    
+        //set properties
+        // vCard.firstName = "Eric";
+        // vCard.middleName = "J";
+        // vCard.lastName = "Nesser";
+        // vCard.organization = "ACME Corporation";
+        // vCard.workPhone = "312-555-1212";
+        // vCard.birthday = new Date(1985, 0, 1);
+        vCard.title = "Information";
+        vCard.url = domainUrl;
+        vCard.phone = about?.phone ?? '00000000';
+    
+        //save to file
+        // vCard.saveToFile("./eric-nesser.vcf");
+    
+        //get as formatted string
+        // console.log(vCard.getFormattedString());
+        return vCard.getFormattedString();
+      };
+
+
+
+
+
+
+
+
   return (
     <main className=" bg-gray-50 font-serif">
       {status === "accepted" ? (
@@ -509,7 +552,7 @@ export default function Home3({ name, userdata }) {
 
               {/* --- telephone button --- */}
 
-              {about?.phone && (
+              {(  userdata[0]?.email ) && (
                 <div className=" my-6">
                   {/* // 🌐🌐  text and Bg color dynamic */}
 
@@ -518,7 +561,9 @@ export default function Home3({ name, userdata }) {
                       className={`telbtn ${phoneBtnBgColor} ${phoneBtnTextAndIconColor}`}
                     >
                       <div className=" flex items-center gap-2 justify-center px-4">
-                        <FaPlus />
+                        <FaPlus onClick={() => downloadTxtFile(CreateVCard())} />
+                        {/* <button onClick={() => downloadTxtFile(CreateVCard())}>Add</button> */}
+
 
                         <span dir="rtl"> שמרו אותנו באנשי הקשר</span>
                       </div>

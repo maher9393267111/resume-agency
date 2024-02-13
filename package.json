@@ -70,7 +70,8 @@
     "resend": "^2.1.0",
     "sass": "^1.69.6",
     "sharp": "^0.33.1",
-    "swiper": "^11.0.5"
+    "swiper": "^11.0.5",
+    "vcards-js": "^2.10.0"
   },
   "devDependencies": {
     "@types/node": "^20",
@@ -81,4 +82,5 @@
     "tailwindcss": "^3.3.0",
     "typescript": "5.3.3"
   }
+ 
 }

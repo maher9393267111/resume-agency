@@ -437,8 +437,7 @@ function AboutPage({ user, userdata }) {
  */}
 
 
- {!isSSR &&
-
+ 
             <CustomInput
               value={title}
               setValue={setTitle}
@@ -446,7 +445,7 @@ function AboutPage({ user, userdata }) {
               type={"text"}
             />
 
- }
+ 
 
 
 
