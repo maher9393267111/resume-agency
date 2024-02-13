@@ -297,11 +297,12 @@ export default function Home3({ name, userdata }) {
         // vCard.middleName = "J";
         // vCard.lastName = "Nesser";
         // vCard.organization = "ACME Corporation";
-        // vCard.workPhone = "312-555-1212";
+         vCard.workPhone = "312-555-1212";
         // vCard.birthday = new Date(1985, 0, 1);
         vCard.title = "Information";
         vCard.url = domainUrl;
-        vCard.phone = about?.phone ?? '00000000';
+        vCard.email = userdata[0]?.email
+        vCard.phone = about?.phone  ? about?.phone : '11111111';
     
         //save to file
         // vCard.saveToFile("./eric-nesser.vcf");
