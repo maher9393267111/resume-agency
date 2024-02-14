@@ -351,9 +351,9 @@ const CreateVCard= () => {
   vcard.socialUrls["website"] = domainUrl;
   vcard.photo.embedFromString(about?.myImage ? about?.myImage : 'https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745')
 
-  // vcard.socialUrls['facebook'] = about.facebook ? about.facebook : null;
-  //   vcard.socialUrls['linkedIn'] = about?.linkedin ? about?.linkedin : null;
-  //   vcard.socialUrls['twitter'] = about?.twitter ? about?.twitter : null;
+  vcard.socialUrls['facebook'] = about.facebook ? about.facebook : null;
+    vcard.socialUrls['linkedIn'] = about?.linkedin ? about?.linkedin : null;
+    vcard.socialUrls['twitter'] = about?.twitter ? about?.twitter : null;
 
   // console.log(vcard.getFormattedString());
   // vcard.photo.attachFromUrl( about?.myImage ? about?.myImage : 'https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745', 'JPEG');
