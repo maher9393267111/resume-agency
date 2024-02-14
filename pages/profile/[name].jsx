@@ -338,6 +338,7 @@ const downloadTxtFile = vcfText => {
 
 const CreateVCard= () => {
   const vcard = vCardFactory();
+  vcard.isOrganization = true;
 
   vcard.firstName = name;
   vcard.email = userdata[0]?.email;
