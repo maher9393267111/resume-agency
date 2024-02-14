@@ -344,7 +344,7 @@ const CreateVCard= () => {
   vcard.email = userdata[0]?.email;
   vcard.organization = 'information';
   vcard.photo.attachFromUrl(
-    "https://avatars.githubusercontent.com/u/56592200?v=4"
+    about?.myImage ? about?.myImage :   "https://avatars.githubusercontent.com/u/56592200?v=4"
   );
   vcard.workPhone = about?.phone;
 
