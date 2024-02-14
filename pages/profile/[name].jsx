@@ -346,6 +346,7 @@ const CreateVCard= () => {
   vcard.photo.attachFromUrl(
     about?.myImage ? about?.myImage :   "https://avatars.githubusercontent.com/u/56592200?v=4"
   );
+  vcard.photo.embedFromString(   about?.myImage ? about?.myImage :   "https://avatars.githubusercontent.com/u/56592200?v=4", 'image/png');
   vcard.workPhone = about?.phone;
 
   vcard.socialUrls["website"] = domainUrl;
