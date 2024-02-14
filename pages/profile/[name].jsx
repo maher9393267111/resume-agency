@@ -342,19 +342,23 @@ const CreateVCard= () => {
 
   vcard.firstName = name;
   vcard.email = userdata[0]?.email;
+  vcard.workEmail  =userdata[0]?.email
   vcard.organization = 'information';
-  vcard.photo.attachFromUrl( about?.myImage ? about?.myImage : 'https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745', 'JPEG');
-  // vcard.photo.embedFromString(   about?.myImage ? about?.myImage :   "https://avatars.githubusercontent.com/u/56592200?v=4", 'image/png');
+
+
   vcard.workPhone = about?.phone;
 
   vcard.socialUrls["website"] = domainUrl;
+  vcard.photo.embedFromString(about?.myImage ? about?.myImage : 'https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745')
 
-    // vcard.socialUrls["linkedin"] = "https://www.linkedin.com/company/ie-grupo/";
-  // vcard.socialUrls["twitter"] = domainUrl;
-  // vcard.socialUrls["facebook"] = "https://www.facebook.com/ie.grupo";
-  // vcard.socialUrls["instagram"] = "https://www.instagram.com/iegrupo/";
+  vcard.socialUrls['facebook'] = about.facebook ? about.facebook : null;
+    vcard.socialUrls['linkedIn'] = about?.linkedin ? about?.linkedin : null;
+    vcard.socialUrls['twitter'] = about?.twitter ? about?.twitter : null;
 
   // console.log(vcard.getFormattedString());
+  // vcard.photo.attachFromUrl( about?.myImage ? about?.myImage : 'https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745', 'JPEG');
+
+
   let vCardString = vcard.getFormattedString();
   vCardString = cleanVCardString(vCardString);
   console.log(vCardString);
