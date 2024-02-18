@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function CustomInput({ label, value, setValue, type }) {
+export default function CustomInput({ label, value, setValue, type  ,dir}) {
   return (
     <div>
       <label
@@ -11,6 +11,7 @@ export default function CustomInput({ label, value, setValue, type }) {
       </label>
       <div className="mt-1 relative rounded-md shadow-sm">
         <input
+        dir={dir === 'ar' ? 'rtl' : 'ltr' }
           onChange={(e) => {
             setValue(e.target.value);
           }}

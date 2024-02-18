@@ -223,7 +223,7 @@ export default function ProjectsPage({ user, projects }) {
                           <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">
                             {project?.id}
                           </td>
-                          <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                          <td dir="" className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                             {project?.title}
                           </td>
                           {/* <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
@@ -274,6 +274,7 @@ export default function ProjectsPage({ user, projects }) {
             </DialogContentText>
 
             <CustomInput
+            dir ={"ar"}
               label="title"
               type="text"
               value={title}
@@ -289,7 +290,7 @@ export default function ProjectsPage({ user, projects }) {
 
 
 
-<div>
+<div className=" mt-2">
 <MarkdownInput desc={desc}  setDesc={setDesc}/>
 </div>
 
