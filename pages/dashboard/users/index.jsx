@@ -274,7 +274,7 @@ export default function ProjectsPage({ user, projects, usersdata }) {
         <Dialog open={open} onClose={handleClose}>
           <DialogTitle>
             {isedit ? "Edit Project" : "Add Project"}
-            Id{id}
+            
           </DialogTitle>
           <DialogContent>
             <DialogContentText>
