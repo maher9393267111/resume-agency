@@ -668,8 +668,8 @@ const CreateVCard= () => {
               {/* desc about 🌐🌐🌐🌐--- */}
 
               <div
-              dir="rtl"
-                className={` ${mainTextColor} text-whit w-[90%] mx-auto  font-semibold text-center container`}
+               dir="rtl"
+                className={` ${mainTextColor} text-whit w-[90%] mx-auto  font-semibold text-cente container`}
               >
                 {/* title-- */}
                 <div>
@@ -680,7 +680,10 @@ const CreateVCard= () => {
                 </div>
 
                 {about?.desc && (
-                  <div dir={'rtl'} className="my-3   text-right">
+                  <div 
+                   dir={'rtl'} 
+                  
+                  className="my-3   text-righ">
                     {parse(about?.desc)}
 
                     {/* {about?.desc} */}

@@ -335,7 +335,9 @@ body {
 
 @layer components {
 
-
+  .text-righ .ql-align-center{
+  @apply !text-center
+}
 
   body {
     overflow-x: hidden;
