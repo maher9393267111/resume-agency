@@ -673,7 +673,7 @@ const CreateVCard= () => {
               >
                 {/* title-- */}
                 <div>
-                  <h2 className=" text-2xl md:text-3xl mb-6  underline font-bold">
+                  <h2 className="  text-center text-2xl md:text-3xl mb-6  underline font-bold">
                     {" "}
                     קצת עלינו{" "}
                   </h2>
