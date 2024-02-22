@@ -76,6 +76,8 @@ model About {
   headImage  String   @default("")
   bgImage  String   @default("")
   link       String   @default("")
+  email   String @default("")
+  link2       String @default("")
   work       String   @default("")
   phone      String   @default("")
   location     String   @default("")

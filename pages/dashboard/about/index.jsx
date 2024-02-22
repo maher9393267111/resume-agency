@@ -28,18 +28,8 @@ import ImageIcon from "@mui/icons-material/Image";
 import { MuiColorInput } from "mui-color-input";
 import MarkdownInput from "../../../components/dashboardLayout/markdown";
 
-
-
-
-
-
 function AboutPage({ user, userdata }) {
   console.log("userPrisma", userdata);
-
-  
-
-
-
 
   // const {
   //   handleSubmit,
@@ -51,11 +41,13 @@ function AboutPage({ user, userdata }) {
 
   const router = useRouter();
   const [temp, setTemp] = useState(userdata?.about[0]?.temp || 1);
-  console.log("TEMPssss----->" ,userdata, userdata?.about[0] )
+  console.log("TEMPssss----->", userdata, userdata?.about[0]);
   const [title, setTitle] = useState(userdata?.about[0]?.title || "");
   const [desc, setDesc] = useState(userdata?.about[0]?.desc || "");
   const [pdf, setPdf] = useState(userdata?.about[0]?.pdf || "");
   const [link, setLink] = useState(userdata?.about[0]?.link || "");
+  const [link2, setLink2] = useState(userdata?.about[0]?.link2 || "");
+  const [email, setEmail] = useState(userdata?.about[0]?.email || "");
   const [work, setWork] = useState(userdata?.about[0]?.work || "");
   const [phone, setPhone] = useState(userdata?.about[0]?.phone || "");
   const [location, setLocation] = useState(userdata?.about[0]?.location || "");
@@ -111,15 +103,9 @@ function AboutPage({ user, userdata }) {
     setTextColor(newColor.hex);
   };
 
-
-
   const handleTempChange = (selectedTemp) => {
-    setTemp(selectedTemp)
+    setTemp(selectedTemp);
   };
-
-
-
-
 
   const submitHandler = async (e) => {
     console.log("values-->");
@@ -156,6 +142,8 @@ function AboutPage({ user, userdata }) {
         twitter,
         pdf,
         link,
+        link2,
+        email,
         facebook,
         themeColor,
         iconColor,
@@ -177,7 +165,7 @@ function AboutPage({ user, userdata }) {
 
       console.log("AboutResponse Data", data);
 
-       router.reload();
+      router.reload();
 
       successHandler("Updated Successfully");
     } catch (error) {
@@ -266,13 +254,6 @@ function AboutPage({ user, userdata }) {
       console.error(error);
     }
   };
-
-
-
-
-
-
-
 
   return (
     <DashboardLayout user={user}>
@@ -397,7 +378,7 @@ function AboutPage({ user, userdata }) {
               </div>
 
               <div className=" w-[200px] h-[200px] object-cover ">
-                <h1 className=" mb-2 text-sm md:text-lg" >back </h1>
+                <h1 className=" mb-2 text-sm md:text-lg">back </h1>
 
                 <div className=" relative">
                   <img
@@ -436,18 +417,12 @@ function AboutPage({ user, userdata }) {
           )}
  */}
 
-
- 
             <CustomInput
               value={title}
               setValue={setTitle}
               label={"Name"}
               type={"text"}
             />
-
- 
-
-
 
             {/* <CustomInput
               value={desc}
@@ -456,7 +431,7 @@ function AboutPage({ user, userdata }) {
               type={"text"}
             /> */}
 
-{/* <div className="w-full h-64">
+            {/* <div className="w-full h-64">
         <QuillNoSSRWrapper
           modules={modules}
           theme="snow"
@@ -469,11 +444,7 @@ function AboutPage({ user, userdata }) {
         />
       </div> */}
 
-
-<MarkdownInput desc={desc}  setDesc={setDesc}/>
-
-
-
+            <MarkdownInput desc={desc} setDesc={setDesc} />
 
             <CustomInput
               value={work}
@@ -488,6 +459,22 @@ function AboutPage({ user, userdata }) {
               label={"Site Link"}
               type={"text"}
             />
+
+<CustomInput
+              value={link2}
+              setValue={setLink2}
+              label={"Site Link 2"}
+              type={"text"}
+            />
+
+<CustomInput
+              value={email}
+              setValue={setEmail}
+              label={"Email"}
+              type={"text"}
+            />
+
+
 
             <CustomInput
               value={location}
@@ -549,21 +536,23 @@ function AboutPage({ user, userdata }) {
 
             <div className="mx-auto w-full md:flex-row flex flex-col gap-12 justify-center  max-w-md  ">
               <div className=" mx-auto ">
-                <h2 className={`my-2  text-center  ${temp === 1 &&  'text-red-500 font-semibold'}`}>Dark </h2>
+                <h2
+                  className={`my-2  text-center  ${
+                    temp === 1 && "text-red-500 font-semibold"
+                  }`}
+                >
+                  Dark{" "}
+                </h2>
 
-
-
-<h1
-onClick={()=> handleTempChange(1)}
-
-className=" w-[90px] h-[90px] rounded-full  bg-temp1-coverbg"></h1>
-
+                <h1
+                  onClick={() => handleTempChange(1)}
+                  className=" w-[90px] h-[90px] rounded-full  bg-temp1-coverbg"
+                ></h1>
 
                 {/* <SketchPicker
                   color={themeColor}
                   onChangeComplete={handleColorChange}
                 /> */}
-
 
                 {/* <MuiColorInput
                   value={themeColor}
@@ -572,12 +561,17 @@ className=" w-[90px] h-[90px] rounded-full  bg-temp1-coverbg"></h1>
               </div>
 
               <div className="mt-6 mx-auto  md:mt-0">
-                <h2 className={`my-2 text-center  ${temp === 2 &&  'text-red-500 font-semibold'}`}>Black  </h2>
+                <h2
+                  className={`my-2 text-center  ${
+                    temp === 2 && "text-red-500 font-semibold"
+                  }`}
+                >
+                  Black{" "}
+                </h2>
                 <h1
-                onClick={()=> handleTempChange(2)}
-
-                className=" w-[90px] h-[90px] rounded-full mx-auto  bg-temp2-coverbg"></h1>
-
+                  onClick={() => handleTempChange(2)}
+                  className=" w-[90px] h-[90px] rounded-full mx-auto  bg-temp2-coverbg"
+                ></h1>
 
                 {/* <MuiColorInput
                   value={iconColor}
@@ -592,12 +586,18 @@ className=" w-[90px] h-[90px] rounded-full  bg-temp1-coverbg"></h1>
               </div>
 
               <div className="mt-6 mx-auto   md:mt-0">
-                <h2 className={`my-2 text-center ${temp === 3 &&  'text-red-500 font-semibold'}`}>Blue</h2>
+                <h2
+                  className={`my-2 text-center ${
+                    temp === 3 && "text-red-500 font-semibold"
+                  }`}
+                >
+                  Blue
+                </h2>
 
                 <h1
-                onClick={()=> handleTempChange(3)}
-
-                className=" w-[90px] h-[90px] rounded-full mx-auto   bg-temp3-icon_color"></h1>
+                  onClick={() => handleTempChange(3)}
+                  className=" w-[90px] h-[90px] rounded-full mx-auto   bg-temp3-icon_color"
+                ></h1>
 
                 {/* {textColor}
                 <MuiColorInput
@@ -612,54 +612,48 @@ className=" w-[90px] h-[90px] rounded-full  bg-temp1-coverbg"></h1>
                 /> */}
               </div>
 
-
               <div className="mt-6 mx-auto  md:mt-0">
-                <h2 className={`my-2 text-center  ${temp === 4 &&  'text-red-500 font-semibold'}`}>Red </h2>
+                <h2
+                  className={`my-2 text-center  ${
+                    temp === 4 && "text-red-500 font-semibold"
+                  }`}
+                >
+                  Red{" "}
+                </h2>
 
                 <h1
-                onClick={()=> handleTempChange(4)}
-
-                className=" w-[90px] h-[90px] rounded-full mx-auto    bg-temp4-icon_color"></h1>
-
-            
+                  onClick={() => handleTempChange(4)}
+                  className=" w-[90px] h-[90px] rounded-full mx-auto    bg-temp4-icon_color"
+                ></h1>
               </div>
-
 
               {/* #ccae32 */}
 
-
               <div className="mt-6 mx-auto  md:mt-0">
-                <h2 className={`my-2 text-center  ${temp === 5 &&  'text-red-500 font-semibold'}`}>Golden </h2>
+                <h2
+                  className={`my-2 text-center  ${
+                    temp === 5 && "text-red-500 font-semibold"
+                  }`}
+                >
+                  Golden{" "}
+                </h2>
 
                 <h1
-                onClick={()=> handleTempChange(5)}
-
-                className=" w-[90px] h-[90px] rounded-full mx-auto   bg-temp5-icon_color"></h1>
-
-            
+                  onClick={() => handleTempChange(5)}
+                  className=" w-[90px] h-[90px] rounded-full mx-auto   bg-temp5-icon_color"
+                ></h1>
               </div>
-
-
-
-
-
-
             </div>
 
-
-{/* -------ContactColor--- */}
-  <div className="my-4 mx-auto w-1/2 md:w-full   p-2">
-<h1 className="py-4  "> Contact text color </h1>
-     <SketchPicker
-                  // HuePicker
-                  color={textColor}
-                  onChangeComplete={handleTextolorChange}
-                /> 
- 
-
-
-  </div>
-
+            {/* -------ContactColor--- */}
+            <div className="my-4 mx-auto w-1/2 md:w-full   p-2">
+              <h1 className="py-4  "> Contact text color </h1>
+              <SketchPicker
+                // HuePicker
+                color={textColor}
+                onChangeComplete={handleTextolorChange}
+              />
+            </div>
 
             {/* Submit Button */}
             <div>
@@ -677,52 +671,44 @@ className=" w-[90px] h-[90px] rounded-full  bg-temp1-coverbg"></h1>
 }
 
 export const getServerSideProps = async ({ req, res }) => {
+  try {
+    const user = await getUser(req, res);
 
-try {
+    if (!user) {
+      return {
+        redirect: {
+          permanent: false,
+          destination: "/login",
+        },
+        props: {},
+      };
+    }
 
-  const user = await getUser(req, res);
-
-  if (!user) {
-    return {
-      redirect: {
-        permanent: false,
-        destination: "/login",
+    const userdata = await prisma.user.findUnique({
+      where: {
+        id: user.id,
       },
-      props: {},
+
+      include: {
+        about: true,
+      },
+    });
+
+    return {
+      props: {
+        user,
+        userdata: JSON.parse(JSON.stringify(userdata)),
+      },
+    };
+  } catch (e) {
+    console.error(e);
+    return {
+      props: {
+        user: {},
+        userdata: [],
+      },
     };
   }
-
-  const userdata = await prisma.user.findUnique({
-    where: {
-      id: user.id,
-    },
-
-    include: {
-      about: true,
-    },
-  });
-
-  return {
-    props: {
-      user,
-      userdata: JSON.parse(JSON.stringify(userdata)),
-    },
-  };
-
-}
-
-catch (e) {
-  console.error(e)
-  return {
-    props: { 
-      user:{},
-      userdata: []
-     },
-  }
-}
-
-
-
 };
 
 export default AboutPage;

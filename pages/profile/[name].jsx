@@ -17,6 +17,7 @@ import {
 } from "react-icons/fa";
 import { LuExternalLink } from "react-icons/lu";
 import { FaLocationDot } from "react-icons/fa6";
+import { MdOutlineMailOutline } from "react-icons/md";
 
 import Contact from "../../components/profilee/contact";
 import { useState } from "react";
@@ -571,6 +572,61 @@ const CreateVCard= () => {
                     <p className="w-[75px] mx-auto  ">Site</p>
                   </div>
                 )}
+
+
+
+{about?.link2 && (
+                  <div
+                    className={` ${mainTextColor} iconsMain  w-[30%] md:w-1/6 text-center  text-[11px] md:text-lg  font-semibold `}
+                  >
+                    <div className={`iconCircle ${iconBorderColor}`}>
+                      <a
+                        className=" "
+                        target="_blank"
+                        href={about?.link}
+                        rel="noreferrer nofollow"
+                        title="Portfolio"
+                      >
+                        <LuExternalLink
+                          className={` ${iconColor} block w-[30px] top-[12px] left-[12px] md:left-[22px]  md:top-[22px] h-[30px] absolute  text-yellow-10`}
+                        />
+                      </a>
+                    </div>
+
+                    {/* text */}
+                    <p className="w-[75px] mx-auto  ">Site 2</p>
+                  </div>
+                )}
+
+
+
+{/* <MdOutlineMailOutline /> */}
+
+{about?.email && (
+                  <div
+                    className={` ${mainTextColor} iconsMain  w-[30%] md:w-1/6 text-center  text-[11px] md:text-lg  font-semibold `}
+                  >
+                    <div className={`iconCircle ${iconBorderColor}`}>
+                      <a
+                        className=" "
+                        target="_blank"
+                        href={`mailto:${about.email}`}
+                        rel="noreferrer nofollow"
+                        title="Portfolio"
+                      >
+                        <MdOutlineMailOutline
+                          className={` ${iconColor} block w-[30px] top-[12px] left-[12px] md:left-[22px]  md:top-[22px] h-[30px] absolute  text-yellow-10`}
+                        />
+                      </a>
+                    </div>
+
+                    {/* text */}
+                    <p className="w-[75px] mx-auto  ">Email</p>
+                  </div>
+                )}
+
+
+
 
 
 {/* import { FaLocationDot } from "react-icons/fa6"; */}
