@@ -49,7 +49,7 @@ export default function MenuPrices({ locale }) {
       freemonth: "شهر فترة التجريبية المجانية",
       starter: "كل ما تحتاجه لبدء التدريس عبر الإنترنت",
       btn: "اشترك الان",
-      price: 250,
+      price: 300,
       priceYear: 2000,
       desc: "",
       list: [

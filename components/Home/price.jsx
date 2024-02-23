@@ -25,6 +25,7 @@ export default function Services() {
         "مصنوع من البلاستيك غير اللامع الفاخر",
         "بدون تصميم خارجي للكرت ",
         "يشمل موقع تعريفي ",
+        "يشمل اسم او علامة تجارية (لوجو) بخلفية الكرت"
       ],
 
       image: "/ahmadcartwhite.jpg",
@@ -40,6 +41,12 @@ export default function Services() {
         "تصميم الكرت من الجهتين ",
         "تصميم خاص بك حسب الطلب",
         "يشمل موقع تعريفي متقدم",
+        "تطبيق خاص لتعديل المعلومات",
+        "ملف لاستقبال المعلومات",
+        "10 روابط اضافة",
+        "30 صورة داخل الموقع التعريفي",
+        "3 فيديو داخل الموقع التعريفي",
+        "زر اضافة لجهات الاتصال"
       ],
       color: "#00B7B3",
 
@@ -50,6 +57,7 @@ export default function Services() {
       title: "برو ماكس 700 ش.ج",
       desc: "مصنوعة من البلاستيك غير اللامع الفاخر، وهذه البطاقة مصممة لتدوم مدى الحياة.",
       price: "700 شيكل",
+      priceyearly:700,
       list: [
         " لون كرت اختياري ",
         "اسود, ابيض ذهبي, ابيض كلاسيكي",
@@ -57,6 +65,16 @@ export default function Services() {
         "تصميم الكرت من الجهتين ",
         "تصميم خاص بك حسب الطلب",
         "يشمل موقع تعريفي متقدم دائم",
+        "تطبيق خاص لتعديل المعلومات",
+        "ملف لاستقبال المعلومات",
+        "15 رابط اضافة",
+        "بدون تحديد عدد من الصور داخل الموقع التعريفي",
+        "10 فيديو داخل الموقع التعريفي",
+        "زر اضافة لجهات الاتصال",
+        "اسم موقع شخصي او على اسم المصلحة",
+        "كرت معدن باضافة 200 شاقل",
+        "تخزين صور مجاني",
+        "تصميمات صور حسب الطلب"
       ],
       image: "/lacivert.jpg",
       color: "#FEBE10",
@@ -77,6 +95,7 @@ export default function Services() {
         "Made of premium matte plastic",
         "Without an external card design",
         "Include an introductory website",
+        "Includes a name or brand (logo) on the background of the card"
       ],
 
       // image: "/lacicart.png"
@@ -95,12 +114,19 @@ export default function Services() {
         "Made of premium matte plastic",
         "Design one side of the card your own design upon request",
         "Includes advanced introductory website",
+        "A special application to modify information",
+       "File to receive information",
+        "10 links added",
+        "30 photos inside the introductory website",
+        "3 videos inside the introductory website",
+        "Add to contacts button"
       ],
     },
     {
       title: "Pro Max 700 ILS ",
       desc: "Made of premium matte plastic,this card is designed to last a lifetime.",
       price: "700 ILS",
+      priceyearly:700,
 
       image: "/lacivert.jpg",
       list: [
@@ -109,7 +135,17 @@ export default function Services() {
         "black, golden white, classic white",
         "Made of premium matte plastic",
         "Card design on both sides your own design upon request",
-        "Includes permanent  some words "
+        "Includes permanent  some words ",
+        "A special application to modify information",
+        "File to receive information",
+        "15 add links",
+        "Without specifying the number of images within the introductory site",
+        "10 videos inside the introductory website",
+        "Add to contacts button",
+        "The name of a personal website or the name of an interest",
+        "Metal card with an additional charge of 200 shekels",
+        "Free photo storage",
+        "Custom photo designs"
         // "Includes permanent advanced introductory site",
       ],
       color: "#FEBE10",
@@ -216,7 +252,7 @@ export default function Services() {
 
 //     </div>
 
-<div>
+<div className=" relative">
 {/* ---title--- */}
 
 <div>
@@ -228,7 +264,7 @@ export default function Services() {
 <div className="mx-auto grid max-w-screen-lg gap-5 my-12 container bg-inherit py-5 md:grid-cols-3 lg:grid-cols-3">
   {currentprice.map((offer) => (
     <div
-      className="relative  flex flex-col overflow-hidden rounded-xl border-2 shadow-2xl border-gray-50"
+      className="relative   flex flex-col overflow-hidden rounded-xl border-2 shadow-2xl border-gray-50"
       key={offer.title}
     >
       <div
@@ -251,13 +287,26 @@ export default function Services() {
               {offer.price}
             </div>
             <div className="-mb-1 ml-2 text-white text-left text-3xl font-medium">
-              <div>/{locale === "ar" ? "شهريا" : "monthly"}</div>
+
+            {offer?.priceyearly === 700 &&  
+
+              <div>
+                {/* /{locale === "ar" ? "شهريا" : "monthly"} */}
+  /{locale === "ar" ? "سنويا" : "yearly"}
+
+
+              </div>
+
+            }
+
+
+
             </div>
           </div>
         </div>
       </div>
 
-      <div className="flex h-full flex-col justify-between gap-16 p-6">
+      <div className="flex h-full flex-col justify-betwee gap-16 p-6">
 
 <div className=" h-[177px]  w-[85%] my-3 mx-auto   ">
   <img className="w-full h-full object-cover rounded-md shadow-lg" src={offer.image} alt="" />
@@ -265,7 +314,7 @@ export default function Services() {
 
 
 
-        <ul className="space-y-2 text-lef text-md md:text-lg font-medium leading-normal">
+        <ul className="space-y-2 flex-1 text-lef text-md md:text-lg font-medium leading-normal">
           {offer.list.map((feature) => (
             <li className="flex items-start" key={feature}>
               {/* <Icons.check className="mr-3 h-5 w-5 shrink-0" /> */}
@@ -291,7 +340,7 @@ export default function Services() {
           ))}
         </ul>
 
-        <Link href='/login' className="bg-purple-100 text-center  text-white font-semibold  block  px-4 py-2 rounded-2xl ">
+        <Link href='/login' className="bg-purple-100 text-center   text-white font-semibold  block  px-4 py-2 rounded-2xl ">
         <button className=" ">
                 {locale === "ar" ? "اشتراك" : " Sign in"}
               </button>
