@@ -29,12 +29,16 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import ImageIcon from "@mui/icons-material/Image";
 import { MuiColorInput } from "mui-color-input";
 import MarkdownInput from "../../../components/dashboardLayout/markdown";
-//  import { Upload } from "antd";
-
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import CancelIcon from '@mui/icons-material/Cancel';
 
  import dynamic from "next/dynamic";
 
 const Upload = dynamic(() => import("antd").then((mod) => mod.Upload));
+
+
+
+
 
 function AboutPage({ user, userdata }) {
   console.log("userPrisma", userdata);
@@ -335,14 +339,14 @@ function AboutPage({ user, userdata }) {
                     console.log("files", files);
                   }}
                 >
-                  Upload Images {files?.length}
+                  <AddCircleOutlineIcon/>
                 </Upload>
               </div>
 
-              <div className="flex flex-wrap gap-3 mt-2 ">
+              <div className="flex flex-wrap  gap-5 mt-6 ">
                 {images?.map((data, index) => (
-                  <div key={index}>
-                    <img src={`${ImageEndpoint}/${data}`} className="w-20 h-20 rounded-full " />
+                  <div className="relative" key={index}>
+                    <img src={`${ImageEndpoint}/${data}`} className="w-24 h-24 rounded-md " />
                     <h1
                       onClick={() => {
                         // prev all previous images
@@ -357,7 +361,7 @@ function AboutPage({ user, userdata }) {
                       }}
                       className="text-center cursor-pointer text-red-600"
                     >
-                      remove
+                     <CancelIcon className="absolute top-[-7px] right-[-6px]"/>
                     </h1>
                   </div>
                 ))}
