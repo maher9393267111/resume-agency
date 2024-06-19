@@ -29,7 +29,12 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import ImageIcon from "@mui/icons-material/Image";
 import { MuiColorInput } from "mui-color-input";
 import MarkdownInput from "../../../components/dashboardLayout/markdown";
- import { Upload } from "antd";
+//  import { Upload } from "antd";
+
+
+ import dynamic from "next/dynamic";
+
+const Upload = dynamic(() => import("antd").then((mod) => mod.Upload));
 
 function AboutPage({ user, userdata }) {
   console.log("userPrisma", userdata);
@@ -142,7 +147,7 @@ function AboutPage({ user, userdata }) {
     }
   };
 
-  
+
 
   const submitHandler = async (e) => {
     console.log("values-->");
