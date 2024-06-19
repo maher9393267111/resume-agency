@@ -1,3 +1,5 @@
+
+
 import React from "react";
 import Hero from "../../../components/dashboardLayout/hero";
 import { DashboardLayout } from "../../../components/dashboardLayout";
@@ -27,20 +29,13 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import ImageIcon from "@mui/icons-material/Image";
 import { MuiColorInput } from "mui-color-input";
 import MarkdownInput from "../../../components/dashboardLayout/markdown";
-
+ import { Upload } from "antd";
 
 function AboutPage({ user, userdata }) {
   console.log("userPrisma", userdata);
 
-  // const {
-  //   handleSubmit,
-  //   formState: { errors },
-  //   register,
-  //   setValue,
-  //   watch,
-  // } = useForm();
-
   const router = useRouter();
+
   const [temp, setTemp] = useState(userdata?.about[0]?.temp || 1);
   console.log("TEMPssss----->", userdata, userdata?.about[0]);
   const [title, setTitle] = useState(userdata?.about[0]?.title || "");
@@ -53,9 +48,10 @@ function AboutPage({ user, userdata }) {
   const [phone, setPhone] = useState(userdata?.about[0]?.phone || "");
   const [location, setLocation] = useState(userdata?.about[0]?.location || "");
   const [video, setVideo] = useState(userdata?.about[0]?.video || "");
-  
+
   //userdata?.about[0]?.images || ["one" ,"two"]
-  const [images ,setImages] = useState(["one" ,"two"] )
+  const [images, setImages] = useState(userdata?.about[0]?.images || []);
+  const [files, setFiles] = useState([]);
 
   const [whatsapp, setWhatsapp] = useState(userdata?.about[0]?.whatsapp || "");
   const [telgram, setTelgram] = useState(userdata?.about[0]?.telgram || "");
@@ -111,33 +107,69 @@ function AboutPage({ user, userdata }) {
     setTemp(selectedTemp);
   };
 
+  // In your front-end code
+  const handleDelete = async (filesToDelete) => {
+    try {
+      const res = await axios.post(`${uploadApi}/file/delets`,  {filesToDelete} );
+      console.log("Files deleted successfully", res);
+    } catch (error) {
+      console.error("Error deleting files:", error);
+    }
+  };
+
+  const handleUploadImages = async (filesarray) => {
+    try {
+      const formData = new FormData();
+      filesarray.forEach((image) => {
+        formData.append("images", image);
+      });
+  
+      //?size=${(size = 1200)}&&hieghtsize=${(hieghtSize = 1000)}
+      const response = await axios.post(
+        `${uploadApi}/file/uploads`,
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+      console.log("Files Uplaoded successfully", response.data);
+  
+      return response.data;
+    } catch (error) {
+      console.error("Error deleting files:", error);
+    }
+  };
+
+
   const submitHandler = async (e) => {
     console.log("values-->");
-    e.preventDefault();
 
     e.preventDefault();
     try {
-      // const object = {
-      //   title,
-      //   desc,
-      //   whatsapp,
-      //   telgram,
-      //   instagram,
-      //   twitter,
-      //   pdf,
-      //   link,
-      //   facebook,
-      //   themeColor,
-      //   iconColor,
-      //   textColor,
-      //   work,
-      //   myImage,
-      //   headImage,
-      // };
+      // delete images
+      const imagesToDelete = userdata?.about[0]?.images.filter(
+        (image) => !images.includes(image)
+      );
+      if (imagesToDelete?.length > 0){
+      await handleDelete(imagesToDelete)}
+
+
+      let uploadResponse = null
+      if (files?.length > 0){
+       uploadResponse = await handleUploadImages(files);
+      }
+
+       const newImagesUploaded =  uploadResponse?.files || [] ;
+    //  const newImagesUploaded =files?.length > 0  ?  uploadResponse?.files : [] ;
+      console.log("REIMAGES---->" ,newImagesUploaded )
+      const imagedata = [...images, ...newImagesUploaded];
+
 
       console.log(textColor, "????????");
-      const { data } = await axios.post("/api/about", {
-        images,
+      const res = await axios.post("/api/about", {
+        images: imagedata,
         temp,
         title,
         desc,
@@ -168,9 +200,9 @@ function AboutPage({ user, userdata }) {
           : bgImage,
       });
 
-      console.log("AboutResponse Data", data);
+      console.log("AboutResponse Data", res);
 
-      router.reload();
+    //  router.reload();
 
       successHandler("Updated Successfully");
     } catch (error) {
@@ -273,52 +305,58 @@ function AboutPage({ user, userdata }) {
 "
       >
         <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-          {/* <div className="file-upload">
-            <label>Upload Profile Image</label>{" "}
-            <input type="file" onChange={handleImageSelect} />
-            {selectedImage && (
-              <button onClick={() => handleUploadImage("myImage")}>
-                Upload to api
-              </button>
-            )}
-          </div>
-
-          {previewImage && (
-            <img
-              className=" w-24 h-24  rounded-full"
-              src={previewImage}
-              alt=""
-            />
-          )} */}
-
+    
           <form className="space-y-6" onSubmit={submitHandler}>
-            {/* Name Field */}
+            <div>
+              <div>
+                <Upload
+                  accept="image/*"
+                  multiple
+                  beforeUpload={(file) => {
+                    setFiles((prev) => [...prev, file]);
+                    return false;
+                  }}
+                  listType="picture-card"
+                  onRemove={(file) => {
+                    console.log("fileDATA", file);
+                    setFiles((prev) => {
+                      const index = prev.indexOf(file);
+                      const newFileList = prev.slice();
+                      newFileList.splice(index, 1);
+                      return newFileList;
+                    });
 
-            {/* <label className="w-24 h-24 cursor-pointer text-center flex flex-col items-center justify-center text-sm gap-1 text-primary rounded-sm bg-white shadow-sm border border-primary">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-6 h-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"
-              />
-            </svg>
-            <div>Add Your image</div>
-            <input
-              type="file"
-              onChange={handleImageSelect}
-              className="hidden"
-            />
-            {/* <button
-          onClick={()=>handleUploadImage("myImage",setSelectedImage ,setMyImage)}
-          className=" bg-pink-500 text-white">Upload</button> */}
-            {/* </label>  */}
+                    console.log("files", files);
+                  }}
+                >
+                  Upload Images {files?.length}
+                </Upload>
+              </div>
+
+              <div className="flex flex-wrap gap-3 mt-2 ">
+                {images?.map((data, index) => (
+                  <div key={index}>
+                    <img src={`${ImageEndpoint}/${data}`} className="w-20 h-20 rounded-full " />
+                    <h1
+                      onClick={() => {
+                        // prev all previous images
+                        setImages((prev) => {
+                          // all images put into new array
+                          const temp = [...prev];
+                          // delete  image with clicked index
+                          temp.splice(index, 1);
+                          // return this new array after delete clicked image
+                          return temp;
+                        });
+                      }}
+                      className="text-center cursor-pointer text-red-600"
+                    >
+                      remove
+                    </h1>
+                  </div>
+                ))}
+              </div>
+            </div>
 
             <div className=" flex gap-12  my-12">
               {/* {`${ImageEndpoint}/${myImage}`} */}
