@@ -3,7 +3,6 @@
 
 generator client {
   provider = "prisma-client-js"
-
 }
 
 datasource db {
@@ -11,12 +10,13 @@ datasource db {
   // url      = env("DATABASE_URL")
 
   provider  = "postgresql"
-  url  	    = env("DATABASE_URL")
-  directUrl = env("DIRECT_URL")
 
+  // url="postgres://avnadmin:AVNS_MyuICj2oNpCAjOxN7mw@pg-16c9fe6e-basma94ghanem-17c0.d.aivencloud.com:10715/defaultdb?sslmode=require"
 
+  url       = env("DATABASE_URL")
+   directUrl = env("DIRECT_URL")
 
-   relationMode = "prisma"
+  relationMode = "prisma"
 }
 
 model User {
@@ -27,7 +27,7 @@ model User {
   password   String
   role       String       @default("user")
   status     String       @default("pending")
-  status4     String       @default("pending")
+  status4    String       @default("pending")
   // polls      Poll[]
   projects   Project[]
   appearence Appearence[]
@@ -42,28 +42,26 @@ model Project {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   title     String   @default("")
-  desc      String @db.VarChar(855)    @default("")
+  desc      String   @default("") @db.VarChar(855)
 
   themeColor String  @default("#1976D2")
   enable     Boolean @default(true)
-  user       User    @relation(fields: [userId], references: [id] ,onDelete: Cascade) 
+  user       User    @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId     Int
 }
-
 
 model Slider {
   id         Int      @id @default(autoincrement())
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
   themeColor String   @default("#1976D2")
- 
-  title      String   
-  link       String
 
-  user   User @relation(fields: [userId], references: [id] ,onDelete: Cascade)
+  title String
+  link  String
+
+  user   User @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId Int
 }
-
 
 model About {
   id         Int      @id @default(autoincrement())
@@ -71,20 +69,21 @@ model About {
   updatedAt  DateTime @updatedAt
   themeColor String   @default("#1976D2")
   title      String   @default("")
-  desc       String  @db.VarChar(2500)   @default("")
+  desc       String   @default("") @db.VarChar(2500)
   myImage    String   @default("")
   headImage  String   @default("")
-  bgImage  String   @default("")
+  bgImage    String   @default("")
   link       String   @default("")
-  email   String @default("")
-  link2       String @default("")
+  email      String   @default("")
+  link2      String   @default("")
   work       String   @default("")
   phone      String   @default("")
-  location     String   @default("")
-  video        String   @default("")
-  temp        Int   @default(2)
+  location   String   @default("")
+  video      String   @default("")
+  temp       Int      @default(2)
 
-  pdf String @default("")
+ images String[]  @default([])
+  pdf    String @default("")
 
   whatsapp  String @default("")
   telgram   String @default("")
@@ -92,15 +91,11 @@ model About {
   instagram String @default("")
   twitter   String @default("")
   iconColor String @default("#1976D2")
-  textColor String   @default("#000000")
+  textColor String @default("#000000")
 
-  user   User @relation(fields: [userId], references: [id] ,onDelete: Cascade)
+  user   User @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId Int
 }
-
-
-
-
 
 model Appearence {
   id           Int      @id @default(autoincrement())
@@ -135,9 +130,6 @@ model Social {
   user   User   @relation(fields: [userId], references: [id])
   userId Int
 }
-
-
-
 
 // model Poll {
 //   id            Int      @id @default(autoincrement())

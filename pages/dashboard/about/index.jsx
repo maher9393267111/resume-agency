@@ -28,6 +28,7 @@ import ImageIcon from "@mui/icons-material/Image";
 import { MuiColorInput } from "mui-color-input";
 import MarkdownInput from "../../../components/dashboardLayout/markdown";
 
+
 function AboutPage({ user, userdata }) {
   console.log("userPrisma", userdata);
 
@@ -52,6 +53,9 @@ function AboutPage({ user, userdata }) {
   const [phone, setPhone] = useState(userdata?.about[0]?.phone || "");
   const [location, setLocation] = useState(userdata?.about[0]?.location || "");
   const [video, setVideo] = useState(userdata?.about[0]?.video || "");
+  
+  //userdata?.about[0]?.images || ["one" ,"two"]
+  const [images ,setImages] = useState(["one" ,"two"] )
 
   const [whatsapp, setWhatsapp] = useState(userdata?.about[0]?.whatsapp || "");
   const [telgram, setTelgram] = useState(userdata?.about[0]?.telgram || "");
@@ -133,6 +137,7 @@ function AboutPage({ user, userdata }) {
 
       console.log(textColor, "????????");
       const { data } = await axios.post("/api/about", {
+        images,
         temp,
         title,
         desc,
@@ -460,21 +465,19 @@ function AboutPage({ user, userdata }) {
               type={"text"}
             />
 
-<CustomInput
+            <CustomInput
               value={link2}
               setValue={setLink2}
               label={"Site Link 2"}
               type={"text"}
             />
 
-<CustomInput
+            <CustomInput
               value={email}
               setValue={setEmail}
               label={"Email"}
               type={"text"}
             />
-
-
 
             <CustomInput
               value={location}

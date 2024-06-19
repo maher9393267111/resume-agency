@@ -11,6 +11,7 @@ handler.post(async (req, res) => {
 
   console.log(user.id, "user");
   const {
+    images,
     temp,
     desc,
     //image
@@ -47,6 +48,7 @@ handler.post(async (req, res) => {
     console.log("create");
     const about = await prisma.about.create({
       data: {
+        images,
         temp,
         desc,
         
@@ -94,6 +96,7 @@ handler.post(async (req, res) => {
         id: userAbout.id,
       },
       data: {
+        images,
         temp,
         desc,
         facebook,
