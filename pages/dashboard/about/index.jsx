@@ -68,12 +68,20 @@ function AboutPage({ user, userdata }) {
     userdata?.about[0]?.instagram || ""
   );
   const [myImage, setMyImage] = useState(userdata?.about[0]?.myImage || "");
+
+  const [myimagefile, setmyimageFile] = useState("");
+  const [headimagefile, setheadimageFile] = useState("");
+  const [bgimagefile, setbgimageFile] = useState("");
+
+
+
   const [headImage, setheadImage] = useState(
     userdata?.about[0]?.headImage || ""
   );
 
   //BG IMAGE
   const [bgImage, setBgImage] = useState(userdata?.about[0]?.bgImage || "");
+
   const [bgpreviewImage, setBgPreviewImage] = useState(null);
 
   const [bgSelectedImage, setBgSelectedImage] = useState(null);
@@ -116,7 +124,7 @@ function AboutPage({ user, userdata }) {
     setTemp(selectedTemp);
   };
 
-  // In your front-end code
+  // In your front-end code ARRAY IMAGES ADD DELETE 
   const handleDelete = async (filesToDelete) => {
     try {
       const res = await axios.post(`${uploadApi}/file/delets`,  {filesToDelete} );
@@ -153,12 +161,144 @@ function AboutPage({ user, userdata }) {
 
 
 
+  // ------------ SINGLE IMAGE ADD DELETE
+
+  const handleDelete2 = async (fileToDelete) => {
+    try {
+      console.log("FILE TO DLEETe-->" , fileToDelete)
+      const res = await axios.delete(`${uploadApi}/file/delete?fileName=${fileToDelete}`  );
+      console.log("File deleted successfully", res);
+    } catch (error) {
+      console.error("Error deleting files:", error);
+    }
+  };
+
+  const handleUploadImage2 = async (file) => {
+    try {
+      const formData = new FormData();
+      
+        formData.append("image", file);
+      
+  
+      //?size=${(size = 1200)}&&hieghtsize=${(hieghtSize = 1000)}
+      const response = await axios.post(
+        `${uploadApi}/file/upload`,
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+      console.log("File Uplaoded successfully", response.data);
+  
+      return response?.data?.file;
+    } catch (error) {
+      console.error("Error deleting files:", error);
+    }
+  }
+
+
+
+
+
   const submitHandler = async (e) => {
     console.log("values-->");
 
     e.preventDefault();
     try {
-      // delete images
+
+
+//🔍🔍🔍🔍 user Image Upload
+
+let userimagedata = myImage
+//delete old user image and upload new image
+if(myImage && myimagefile){
+console.log("^&&&&XXX" , myimagefile)
+  await handleDelete2(myImage)
+userimagedata  =   await handleUploadImage2(myimagefile)
+}
+
+else if (!myImage && myimagefile)
+  {
+    userimagedata  =   await handleUploadImage2(myimagefile)
+    if(userdata?.about[0]?.myImage){
+      await handleDelete2(userdata?.about[0]?.myImage)
+    }
+  }
+
+
+  else if (!myImage && !myimagefile)
+    {
+
+      if(userdata?.about[0]?.myImage){
+        await handleDelete2(userdata?.about[0]?.myImage)
+      }
+
+      userimagedata  =   ""
+    }
+  
+
+
+
+// Cover heade image Upload
+let headimagedata = headImage
+//delete old user image and upload new image
+if(headImage && headimagefile){
+
+  await handleDelete2(headImage)
+headimagedata  =   await handleUploadImage2(headimagefile)
+}
+
+else if (!headImage && headimagefile)
+  {
+    headimagedata  =   await handleUploadImage2(headimagefile)
+
+    if(userdata?.about[0]?.headImage){
+      await handleDelete2(userdata?.about[0]?.headImage)
+    }
+
+
+
+  }
+
+
+  else if (!headImage && !headimagefile)
+    {
+      headimagedata  =   ""
+      if(userdata?.about[0]?.headImage){
+        await handleDelete2(userdata?.about[0]?.headImage)
+      }
+    }
+  
+
+
+
+  let bgimagedata = bgImage
+//delete old user image and upload new image
+if(bgImage && bgimagefile){
+console.log("^&&&&XXX" , myimagefile)
+  await handleDelete2(bgImage)
+bgimagedata =   await handleUploadImage2(bgimagefile)
+}
+
+else if (!bgImage && bgimagefile)
+  {
+    bgimagedata  =   await handleUploadImage2(bgimagefile)
+    if(userdata?.about[0]?.bgImage){
+      await handleDelete2(userdata?.about[0]?.bgImage)
+    }
+  }
+
+
+  else if (!bgImage && !bgimagefile)
+    {
+      bgimagedata  =   ""
+    }
+  
+
+
+      // delete array of images
       const imagesToDelete = userdata?.about[0]?.images.filter(
         (image) => !images.includes(image)
       );
@@ -172,7 +312,7 @@ function AboutPage({ user, userdata }) {
       }
 
        const newImagesUploaded =  uploadResponse?.files || [] ;
-    //  const newImagesUploaded =files?.length > 0  ?  uploadResponse?.files : [] ;
+ 
       console.log("REIMAGES---->" ,newImagesUploaded )
       const imagedata = [...images, ...newImagesUploaded];
 
@@ -199,20 +339,18 @@ function AboutPage({ user, userdata }) {
         phone,
         location,
         video,
-        myImage: selectedImage
-          ? await handleUploadImage(selectedImage, "myImage")
-          : myImage,
-        headImage: headSelectedImage
-          ? await handleUploadImage(headSelectedImage, "headImage")
-          : headImage,
-        bgImage: bgSelectedImage
-          ? await handleUploadImage(bgSelectedImage, "bgImage")
-          : bgImage,
+        myImage:  userimagedata  ,
+      //  selectedImage ? await handleUploadImage(selectedImage, "myImage"): myImage,
+
+        headImage: headimagedata  ,
+      //   headSelectedImage? await handleUploadImage(headSelectedImage, "headImage"): headImage,
+        bgImage: bgimagedata  ,
+       //  bgSelectedImage ? await handleUploadImage(bgSelectedImage, "bgImage") : bgImage,
       });
 
       console.log("AboutResponse Data", res);
 
-      router.reload();
+    //  router.reload();
 
       successHandler("Updated Successfully");
     } catch (error) {
@@ -369,12 +507,12 @@ function AboutPage({ user, userdata }) {
             </div>
 
             <div className=" flex gap-12  my-12">
-              {/* {`${ImageEndpoint}/${myImage}`} */}
+              
 
               <div className=" w-[200px] h-[200px] object-cover ">
-                <h1 className=" mb-2 text-sm md:text-lg">user</h1>
+                {/* <h1 className=" mb-2 text-sm md:text-lg">user</h1> */}
 
-                <div className=" relative">
+                {/* <div className=" relative">
                   <img
                     className=" object-cover w-full h-full "
                     src={
@@ -396,14 +534,47 @@ function AboutPage({ user, userdata }) {
                       className="hidden"
                     />
                   </label>
-                  {/* <div>
-                    <DeleteIcon className=" top-2 right-2 rounded-full text-indigo-500 absolute" />
-                  </div> */}
-                </div>
+               
+                </div> */}
+<div>
+            <Upload
+              accept="image/*"
+              maxCount={1}
+              // file is data of image will be uploaded to firebase/storage
+              beforeUpload={(file) => {
+                setmyimageFile(file);
+                // setFiles((prev) => [...prev, file]);
+                return false;
+              }}
+              listType="picture-card"
+              onRemove={() => setmyimageFile("")}
+            >
+              Upload My image
+            </Upload>
+          </div>
+
+
+  
+
+{myImage &&
+<div className="relative w-24 h-24 mt-4" >
+                    <img src={`${ImageEndpoint}/${myImage}`} className="w-24 h-24 rounded-md " />
+                    <h1
+                      onClick={() => {
+                    setMyImage("")
+                      }}
+                      className="text-center cursor-pointer text-red-600"
+                    >
+                     <CancelIcon className="absolute top-[-7px] right-[-6px]"/>
+                    </h1>
+                  </div>
+}
+
+
               </div>
 
               <div className=" w-[200px] h-[200px] object-cover ">
-                <h1 className=" mb-2 text-sm md:text-lg">header </h1>
+                {/* <h1 className=" mb-2 text-sm md:text-lg">header </h1>
 
                 <div className=" relative">
                   <img
@@ -427,11 +598,46 @@ function AboutPage({ user, userdata }) {
                       className="hidden"
                     />
                   </label>
-                </div>
+                </div> */}
+
+<div>
+            <Upload
+              accept="image/*"
+              maxCount={1}
+              // file is data of image will be uploaded to firebase/storage
+              beforeUpload={(file) => {
+                setheadimageFile(file);
+                // setFiles((prev) => [...prev, file]);
+                return false;
+              }}
+              listType="picture-card"
+              onRemove={() => setheadimageFile("")}
+            >
+              Upload Head image
+            </Upload>
+          </div>
+
+
+
+          {headImage &&
+<div className="relative w-24 h-24 mt-4" >
+                    <img src={`${ImageEndpoint}/${headImage}`} className="w-24 h-24 rounded-md " />
+                    <h1
+                      onClick={() => {
+                    setheadImage("")
+                      }}
+                      className="text-center cursor-pointer text-red-600"
+                    >
+                     <CancelIcon className="absolute top-[-7px] right-[-6px]"/>
+                    </h1>
+                  </div>
+}
+
+
               </div>
 
               <div className=" w-[200px] h-[200px] object-cover ">
-                <h1 className=" mb-2 text-sm md:text-lg">back </h1>
+                {/* <h1 className=" mb-2 text-sm md:text-lg">back </h1>
 
                 <div className=" relative">
                   <img
@@ -455,20 +661,43 @@ function AboutPage({ user, userdata }) {
                       className="hidden"
                     />
                   </label>
-                </div>
+                </div> */}
+
+<div>
+            <Upload
+              accept="image/*"
+              maxCount={1}
+              // file is data of image will be uploaded to firebase/storage
+              beforeUpload={(file) => {
+                setbgimageFile(file);
+                // setFiles((prev) => [...prev, file]);
+                return false;
+              }}
+              listType="picture-card"
+              onRemove={() => setbgimageFile("")}
+            >
+              Upload Back image
+            </Upload>
+          </div>
+
+          {bgImage &&
+<div className="relative w-24 h-24 mt-4" >
+                    <img src={`${ImageEndpoint}/${bgImage}`} className="w-24 h-24 rounded-md " />
+                    <h1
+                      onClick={() => {
+                    setBgImage("")
+                      }}
+                      className="text-center cursor-pointer text-red-600"
+                    >
+                     <CancelIcon className="absolute top-[-7px] right-[-6px]"/>
+                    </h1>
+                  </div>
+}
+
               </div>
             </div>
 
-            {/* <img src={`${ImageEndpoint}/${myImage}`} alt="" /> */}
-
-            {/* {previewImage && (
-            <img
-              className=" w-24 h-24  rounded-full"
-              src={previewImage}
-              alt=""
-            />
-          )}
- */}
+    
 
             <CustomInput
               value={title}
@@ -477,25 +706,7 @@ function AboutPage({ user, userdata }) {
               type={"text"}
             />
 
-            {/* <CustomInput
-              value={desc}
-              setValue={setDesc}
-              label={"Description"}
-              type={"text"}
-            /> */}
-
-            {/* <div className="w-full h-64">
-        <QuillNoSSRWrapper
-          modules={modules}
-          theme="snow"
-          className="h-full pb-[2.5rem] border-[2.5px] text-black font-medium rounded-md    border-indigo-500 hover:border-blue-600"
-          value={desc}
-          // setValue={setDesc}
-          label={"Description"}
-          onChange={setDesc}
         
-        />
-      </div> */}
 
             <MarkdownInput desc={desc} setDesc={setDesc} />
 
