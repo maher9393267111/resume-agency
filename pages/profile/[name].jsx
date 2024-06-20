@@ -766,7 +766,7 @@ export default function Home3({ name, userdata }) {
 <div className={"wrapper"}>
 
 
-          {images?.slice(0, 3)?.map((img, i) => (
+          {images?.slice(0, 8)?.map((img, i) => (
               <div key={i} className={"img_holder"}>
                 <div
                   onClick={() => {
