@@ -13,7 +13,7 @@ import {
   FaTelegram,
   FaTwitter,
   FaFacebookF,
-  FaPhone
+  FaPhone,
 } from "react-icons/fa";
 import { LuExternalLink } from "react-icons/lu";
 import { FaLocationDot } from "react-icons/fa6";
@@ -25,12 +25,20 @@ import { prisma } from "../../src/lib/prisma";
 import { ImageEndpoint, defaultImage } from "../../src/lib/globall";
 import parse from "html-react-parser";
 import vCardFactory from "vcards-js";
+import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
+import FullViewImage from "../../components/profilee/fullImagePreview";
 export default function Home3({ name, userdata }) {
+
+
+  const [currentFullViewImageIndex, SetCurrentFullViewImageIndex] =
+  useState(null);
+
   const [temp, setTemp] = useState(userdata[0]?.about[0]?.temp || 1);
 
   const status = userdata[0]?.status;
-  console.log(status, "Status");
+  console.log("DATA@$$$$$$$-->>>>" , userdata[0]?.about);
   const about = userdata[0]?.about[0];
+  const images =userdata[0]?.about[0]?.images
   console.log(about?.bgImage, "A$$$$$$$$$$$$$$$$$$$$ASS");
   const sliders = userdata[0]?.slider;
   console.log("slidersDatas", sliders);
@@ -276,101 +284,90 @@ export default function Home3({ name, userdata }) {
       ? "bg-temp4-contact_overlay_bg"
       : temp === 5 && "bg-temp5-contact_overlay_bg";
 
+  const downloadTxtFile1 = (vcfText) => {
+    const element = document.createElement("a");
+    const file = new Blob([vcfText], { type: "text/plain;charset=utf-8" });
+    element.href = URL.createObjectURL(file);
+    element.download = "myFile.vcf";
+    document.body.appendChild(element);
+    element.click();
+  };
 
+  const CreateVCard1 = () => {
+    var vCardsJS = require("vcards-js");
 
-      const downloadTxtFile1 = vcfText => {
-        const element = document.createElement("a");
-        const file = new Blob([vcfText], { type: "text/plain;charset=utf-8" });
-        element.href = URL.createObjectURL(file);
-        element.download = "myFile.vcf";
-        document.body.appendChild(element);
-        element.click();
-      };
-    
-      const CreateVCard1 = () => {
-        var vCardsJS = require("vcards-js");
-    
-        //create a new vCard
-        var vCard = vCardsJS();
-    
-        //set properties
-        // vCard.firstName = "Eric";
-        // vCard.middleName = "J";
-        // vCard.lastName = "Nesser";
-        // vCard.organization = "ACME Corporation";
-        //  vCard.workPhone = "312-555-1212";
-        // vCard.birthday = new Date(1985, 0, 1);
-        vCard.title = "Information";
-        vCard.url = domainUrl;
-        vCard.email = userdata[0]?.email
-        vCard.phone = about?.phone  ? about?.phone : '11111111';
-    
-        //save to file
-        // vCard.saveToFile("./eric-nesser.vcf");
-    
-        //get as formatted string
-        // console.log(vCard.getFormattedString());
-        return vCard.getFormattedString();
-      };
+    //create a new vCard
+    var vCard = vCardsJS();
 
+    //set properties
+    // vCard.firstName = "Eric";
+    // vCard.middleName = "J";
+    // vCard.lastName = "Nesser";
+    // vCard.organization = "ACME Corporation";
+    //  vCard.workPhone = "312-555-1212";
+    // vCard.birthday = new Date(1985, 0, 1);
+    vCard.title = "Information";
+    vCard.url = domainUrl;
+    vCard.email = userdata[0]?.email;
+    vCard.phone = about?.phone ? about?.phone : "11111111";
 
+    //save to file
+    // vCard.saveToFile("./eric-nesser.vcf");
 
-// --------------------------------
+    //get as formatted string
+    // console.log(vCard.getFormattedString());
+    return vCard.getFormattedString();
+  };
 
-function cleanVCardString(vCardString) {
-  let vCardCleaner = vCardString.replace(/;CHARSET=UTF-8/g, '');
-  vCardCleaner = vCardCleaner.replace(/X-SOCIALPROFILE/g, 'URL');
-  console.log(vCardCleaner);
-  return vCardCleaner;
-}
+  // --------------------------------
 
+  function cleanVCardString(vCardString) {
+    let vCardCleaner = vCardString.replace(/;CHARSET=UTF-8/g, "");
+    vCardCleaner = vCardCleaner.replace(/X-SOCIALPROFILE/g, "URL");
+    console.log(vCardCleaner);
+    return vCardCleaner;
+  }
 
+  const downloadTxtFile = (vcfText) => {
+    console.log(vcfText);
+    const element = document.createElement("a");
+    const file = new Blob([vcfText], { type: "text/vcard;charset=utf-8" });
+    element.href = URL.createObjectURL(file);
+    element.download = "contact.vcf";
+    document.body.appendChild(element);
+    element.click();
+  };
 
-const downloadTxtFile = vcfText => {
-  console.log(vcfText)
-  const element = document.createElement("a");
-  const file = new Blob([vcfText], { type: "text/vcard;charset=utf-8" });
-  element.href = URL.createObjectURL(file);
-  element.download = "contact.vcf";
-  document.body.appendChild(element);
-  element.click();
-};
+  const CreateVCard = () => {
+    const vcard = vCardFactory();
+    vcard.isOrganization = true;
 
+    vcard.firstName = name;
+    vcard.email = userdata[0]?.email;
+    vcard.workEmail = userdata[0]?.email;
+    vcard.organization = "information";
 
-const CreateVCard= () => {
-  const vcard = vCardFactory();
-  vcard.isOrganization = true;
+    vcard.workPhone = about?.phone;
 
-  vcard.firstName = name;
-  vcard.email = userdata[0]?.email;
-  vcard.workEmail  =userdata[0]?.email
-  vcard.organization = 'information';
+    vcard.socialUrls["website"] = domainUrl;
+    vcard.photo.embedFromString(
+      about?.myImage
+        ? about?.myImage
+        : "https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745"
+    );
 
+    vcard.socialUrls["facebook"] = about.facebook ? about.facebook : null;
+    vcard.socialUrls["linkedIn"] = about?.linkedin ? about?.linkedin : null;
+    vcard.socialUrls["twitter"] = about?.twitter ? about?.twitter : null;
+    vcard.socialUrls["instagram"] = about?.instagram ? about?.instagram : null;
+    // console.log(vcard.getFormattedString());
+    // vcard.photo.attachFromUrl( about?.myImage ? about?.myImage : 'https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745', 'JPEG');
 
-  vcard.workPhone = about?.phone;
-
-  vcard.socialUrls["website"] = domainUrl;
-  vcard.photo.embedFromString(about?.myImage ? about?.myImage : 'https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745')
-
-  vcard.socialUrls['facebook'] = about.facebook ? about.facebook : null;
-    vcard.socialUrls['linkedIn'] = about?.linkedin ? about?.linkedin : null;
-    vcard.socialUrls['twitter'] = about?.twitter ? about?.twitter : null;
-    vcard.socialUrls['instagram'] = about?.instagram ? about?.instagram : null;
-  // console.log(vcard.getFormattedString());
-  // vcard.photo.attachFromUrl( about?.myImage ? about?.myImage : 'https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745', 'JPEG');
-
-
-  let vCardString = vcard.getFormattedString();
-  vCardString = cleanVCardString(vCardString);
-  console.log(vCardString);
-  return vCardString;
-};
-
-
-
-
-
-
+    let vCardString = vcard.getFormattedString();
+    vCardString = cleanVCardString(vCardString);
+    console.log(vCardString);
+    return vCardString;
+  };
 
   return (
     <main className=" bg-gray-50 font-serif">
@@ -547,10 +544,9 @@ const CreateVCard= () => {
                   </div>
                 )}
 
-{/* <LuExternalLink /> */}
+                {/* <LuExternalLink /> */}
 
-
-{about?.link && (
+                {about?.link && (
                   <div
                     className={` ${mainTextColor} iconsMain  w-[30%] md:w-1/6 text-center  text-[11px] md:text-lg  font-semibold `}
                   >
@@ -573,9 +569,7 @@ const CreateVCard= () => {
                   </div>
                 )}
 
-
-
-{about?.link2 && (
+                {about?.link2 && (
                   <div
                     className={` ${mainTextColor} iconsMain  w-[30%] md:w-1/6 text-center  text-[11px] md:text-lg  font-semibold `}
                   >
@@ -598,11 +592,9 @@ const CreateVCard= () => {
                   </div>
                 )}
 
+                {/* <MdOutlineMailOutline /> */}
 
-
-{/* <MdOutlineMailOutline /> */}
-
-{about?.email && (
+                {about?.email && (
                   <div
                     className={` ${mainTextColor} iconsMain  w-[30%] md:w-1/6 text-center  text-[11px] md:text-lg  font-semibold `}
                   >
@@ -625,14 +617,9 @@ const CreateVCard= () => {
                   </div>
                 )}
 
+                {/* import { FaLocationDot } from "react-icons/fa6"; */}
 
-
-
-
-{/* import { FaLocationDot } from "react-icons/fa6"; */}
-
-
-{about?.location && (
+                {about?.location && (
                   <div
                     className={` ${mainTextColor} iconsMain  w-[30%] md:w-1/6 text-center  text-[11px] md:text-lg  font-semibold `}
                   >
@@ -655,19 +642,14 @@ const CreateVCard= () => {
                   </div>
                 )}
 
+                {/* <NextLink href={"tel:" + about?.phone} target={"_self"}> */}
 
-
-
-                  {/* <NextLink href={"tel:" + about?.phone} target={"_self"}> */}
-
-
-
-                  {about?.location && (
+                {about?.location && (
                   <div
                     className={` ${mainTextColor} iconsMain  w-[30%] md:w-1/6 text-center  text-[11px] md:text-lg  font-semibold `}
                   >
                     <div className={`iconCircle ${iconBorderColor}`}>
-                    <NextLink href={"tel:" + about?.phone} target={"_self"}> 
+                      <NextLink href={"tel:" + about?.phone} target={"_self"}>
                         <FaPhone
                           className={` ${iconColor} block w-[30px] top-[12px] left-[12px] md:left-[22px]  md:top-[22px] h-[30px] absolute  text-yellow-10`}
                         />
@@ -678,53 +660,43 @@ const CreateVCard= () => {
                     <p className="w-[75px] mx-auto  ">Phone</p>
                   </div>
                 )}
-
-
-
-
-
-
               </div>
 
               {/* --- telephone button --- */}
 
-              {(  userdata[0]?.email ) && (
+              {userdata[0]?.email && (
                 <div dir="rt" className=" my-6">
                   {/* // 🌐🌐  text and Bg color dynamic */}
 
-
                   {/* <NextLink href={"tel:" + about?.phone} target={"_self"}> */}
-                    <div
-                      className={`telbtn cursor-pointer ${phoneBtnBgColor} ${phoneBtnTextAndIconColor}`}
-                    >
-                      <div className=" flex items-center gap-2 justify-center px-4">
-                        <FaPlus 
-                         // onClick={handleSubmit} 
-                          onClick={() => downloadTxtFile(CreateVCard())}
-                         />
-                       
+                  <div
+                    className={`telbtn cursor-pointer ${phoneBtnBgColor} ${phoneBtnTextAndIconColor}`}
+                  >
+                    <div className=" flex items-center gap-2 justify-center px-4">
+                      <FaPlus
+                        // onClick={handleSubmit}
+                        onClick={() => downloadTxtFile(CreateVCard())}
+                      />
 
+                      <span
+                        //  onClick={handleSubmit}
 
-                        <span 
-                            //  onClick={handleSubmit} 
-                        
-                         onClick={() => downloadTxtFile(CreateVCard())}
-                        
-                        dir="rtl"> שמרו אותנו באנשי הקשר</span>
-                      </div>
+                        onClick={() => downloadTxtFile(CreateVCard())}
+                        dir="rtl"
+                      >
+                        {" "}
+                        שמרו אותנו באנשי הקשר
+                      </span>
                     </div>
+                  </div>
                   {/* </NextLink> */}
-
-
-
-
                 </div>
               )}
 
               {/* desc about 🌐🌐🌐🌐--- */}
 
               <div
-               dir="rtl"
+                dir="rtl"
                 className={` ${mainTextColor} text-whit w-[90%] mx-auto  font-semibold text-cente container`}
               >
                 {/* title-- */}
@@ -736,10 +708,7 @@ const CreateVCard= () => {
                 </div>
 
                 {about?.desc && (
-                  <div 
-                   dir={'rtl'} 
-                  
-                  className="my-3   text-righ">
+                  <div dir={"rtl"} className="my-3   text-righ">
                     {parse(about?.desc)}
 
                     {/* {about?.desc} */}
@@ -781,8 +750,8 @@ const CreateVCard= () => {
 
             {/* ----SliderImages---- */}
 
-            <div className="   bg-gray-300 my-6">
-              <SliderImages
+            <div className="   bg-gray-300 mt-6  mb-24">
+              {/* <SliderImages
                 sliderTitleColor={sliderTitleColor}
                 sliderBgColor={sliderBgColor}
                 arrowsBgColor={arrowsBgColor}
@@ -790,19 +759,53 @@ const CreateVCard= () => {
                 sliderUnderlineBorderColor={sliderUnderlineBorderColor}
                 video={about?.video}
                 sliders={sliders}
-              />
+              /> */}
+
+
+
+<div className={"wrapper"}>
+
+
+          {images?.slice(0, 3)?.map((img, i) => (
+              <div key={i} className={"img_holder"}>
+                <div
+                  onClick={() => {
+                    SetCurrentFullViewImageIndex(`${ImageEndpoint}/${img}`);
+                  }}
+                >
+                  <RemoveRedEyeIcon/>
+                </div>
+                <Image
+                width={400}
+                height={400}
+                  src={`${ImageEndpoint}/${img}`}
+                  alt="a"
+                  fluid
+                />
+              </div>
+            ))}
+        </div>
+
+
+        {currentFullViewImageIndex !== null && (
+        <FullViewImage
+          currentFullViewImageIndex={currentFullViewImageIndex}
+          SetCurrentFullViewImageIndex={SetCurrentFullViewImageIndex}
+          
+        />
+      )}
+
+
             </div>
 
             <div>
               <Contact
                 bgImage={about?.bgImage}
-                mainTextColor={ about?.textColor
-               //   mainTextColor
+                mainTextColor={
+                  about?.textColor
+                  //   mainTextColor
                 }
-                contactBtnTextColor={
-                 
-                  contactBtnTextColor
-                }
+                contactBtnTextColor={contactBtnTextColor}
                 contactBTnBgColor={contactBTnBgColor}
                 coverbg={contactBgOverlayColor}
                 tempBg={coverbg}
