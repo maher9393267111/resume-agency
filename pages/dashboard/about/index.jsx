@@ -257,7 +257,8 @@ let imagedata =  images
 
 
       let uploadResponse = null;
-      if (files?.length > 0) {
+      //&& (files?.length + images?.length <= 8)
+      if (files?.length > 0 && (files?.length + images?.length <= 8) ) {
         uploadResponse = await handleUploadImages(files);
         setImages([...images ,uploadResponse.files])
       }
