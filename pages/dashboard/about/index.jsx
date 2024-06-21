@@ -307,7 +307,7 @@ errorHandler("You can only add 8 images")
 
       console.log("AboutResponse Data", res);
 
-      //  router.reload();
+       router.reload();
 
       successHandler("Updated Successfully");
     } catch (error) {
