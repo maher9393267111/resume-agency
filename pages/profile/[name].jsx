@@ -6,6 +6,7 @@ const inter = Inter({ subsets: ["latin"] });
 import Link from "next/link";
 import NextLink from "next/link";
 import { FaPlus } from "react-icons/fa";
+import { TypeAnimation } from "react-type-animation";
 
 import {
   FaWhatsapp,
@@ -39,6 +40,7 @@ export default function Home3({ name, userdata }) {
   console.log("DATA@$$$$$$$-->>>>" , userdata[0]?.about);
   const about = userdata[0]?.about[0];
   const images =userdata[0]?.about[0]?.images
+  const imagesTitle =userdata[0]?.about[0]?.imagesTitle
   console.log(about?.bgImage, "A$$$$$$$$$$$$$$$$$$$$ASS");
   const sliders = userdata[0]?.slider;
   console.log("slidersDatas", sliders);
@@ -411,7 +413,7 @@ export default function Home3({ name, userdata }) {
             </div>
 
             {/* -----Details---- */}
-            <div className={`  coverb pb-6 bg-temp${temp}-coverbg  pb-4  `}>
+            <div className={`  coverb pb-6 -mt-[13px] bg-temp${temp}-coverbg  pb-4  `}>
               <div
                 className={` text-center text-whit  text-temp${temp}-main_text_color   font-semibold`}
               >
@@ -442,7 +444,7 @@ export default function Home3({ name, userdata }) {
                         title="Portfolio"
                       >
                         <FaFacebookF
-                          className={` ${iconColor} block w-[30px] top-[12px] left-[12px] md:left-[22px]  md:top-[22px] h-[30px] absolute  text-yellow-10`}
+                          className={` ${iconColor} block w-[30px] top-[9px] left-[9px] md:left-[22px]  md:top-[22px] h-[30px] absolute  text-yellow-10`}
                         />
                       </a>
                     </div>
@@ -465,7 +467,7 @@ export default function Home3({ name, userdata }) {
                         title="Portfolio"
                       >
                         <FaWhatsapp
-                          className={` ${iconColor} block w-[30px] top-[12px] left-[12px] md:left-[22px]  md:top-[22px] h-[30px] absolute  text-yellow-10`}
+                          className={` ${iconColor} block w-[30px] top-[9px] left-[9px] md:left-[22px]  md:top-[22px] h-[30px] absolute  text-yellow-10`}
                         />
                       </a>
                     </div>
@@ -488,7 +490,7 @@ export default function Home3({ name, userdata }) {
                         title="Portfolio"
                       >
                         <FaInstagram
-                          className={` ${iconColor} block w-[30px] top-[12px] left-[12px] md:left-[22px]  md:top-[22px] h-[30px] absolute  text-yellow-10`}
+                          className={` ${iconColor} block w-[30px] top-[9px] left-[9px] md:left-[22px]  md:top-[22px] h-[30px] absolute  text-yellow-10`}
                         />
                       </a>
                     </div>
@@ -511,7 +513,7 @@ export default function Home3({ name, userdata }) {
                         title="Portfolio"
                       >
                         <FaTwitter
-                          className={` ${iconColor} block w-[30px] top-[12px] left-[12px] md:left-[22px]  md:top-[22px] h-[30px] absolute  text-yellow-10`}
+                          className={` ${iconColor} block w-[30px] top-[9px] left-[9px] md:left-[22px]  md:top-[22px] h-[30px] absolute  text-yellow-10`}
                         />
                       </a>
                     </div>
@@ -534,7 +536,7 @@ export default function Home3({ name, userdata }) {
                         title="Portfolio"
                       >
                         <FaTelegram
-                          className={` ${iconColor} block w-[30px] top-[12px] left-[12px] md:left-[22px]  md:top-[22px] h-[30px] absolute  text-yellow-10`}
+                          className={` ${iconColor} block w-[30px] top-[9px] left-[9px] md:left-[22px]  md:top-[22px] h-[30px] absolute  text-yellow-10`}
                         />
                       </a>
                     </div>
@@ -559,7 +561,7 @@ export default function Home3({ name, userdata }) {
                         title="Portfolio"
                       >
                         <LuExternalLink
-                          className={` ${iconColor} block w-[30px] top-[12px] left-[12px] md:left-[22px]  md:top-[22px] h-[30px] absolute  text-yellow-10`}
+                          className={` ${iconColor} block w-[30px] top-[9px] left-[9px] md:left-[22px]  md:top-[22px] h-[30px] absolute  text-yellow-10`}
                         />
                       </a>
                     </div>
@@ -582,7 +584,7 @@ export default function Home3({ name, userdata }) {
                         title="Portfolio"
                       >
                         <LuExternalLink
-                          className={` ${iconColor} block w-[30px] top-[12px] left-[12px] md:left-[22px]  md:top-[22px] h-[30px] absolute  text-yellow-10`}
+                          className={` ${iconColor} block w-[30px] top-[9px] left-[8px] md:left-[22px]  md:top-[22px] h-[30px] absolute  text-yellow-10`}
                         />
                       </a>
                     </div>
@@ -607,7 +609,7 @@ export default function Home3({ name, userdata }) {
                         title="Portfolio"
                       >
                         <MdOutlineMailOutline
-                          className={` ${iconColor} block w-[30px] top-[12px] left-[12px] md:left-[22px]  md:top-[22px] h-[30px] absolute  text-yellow-10`}
+                          className={` ${iconColor} block w-[30px] top-[9px] left-[9px] md:left-[22px]  md:top-[22px] h-[30px] absolute  text-yellow-10`}
                         />
                       </a>
                     </div>
@@ -632,7 +634,7 @@ export default function Home3({ name, userdata }) {
                         title="Portfolio"
                       >
                         <FaLocationDot
-                          className={` ${iconColor} block w-[30px] top-[12px] left-[12px] md:left-[22px]  md:top-[22px] h-[30px] absolute  text-yellow-10`}
+                          className={` ${iconColor} block w-[30px] top-[9px] left-[9px] md:left-[22px]  md:top-[22px] h-[30px] absolute  text-yellow-10`}
                         />
                       </a>
                     </div>
@@ -651,7 +653,7 @@ export default function Home3({ name, userdata }) {
                     <div className={`iconCircle ${iconBorderColor}`}>
                       <NextLink href={"tel:" + about?.phone} target={"_self"}>
                         <FaPhone
-                          className={` ${iconColor} block w-[30px] top-[12px] left-[12px] md:left-[22px]  md:top-[22px] h-[30px] absolute  text-yellow-10`}
+                          className={` ${iconColor} block w-[30px] top-[9px] left-[9px] md:left-[22px]  md:top-[22px] h-[30px] absolute  text-yellow-10`}
                         />
                       </NextLink>
                     </div>
@@ -750,7 +752,8 @@ export default function Home3({ name, userdata }) {
 
             {/* ----SliderImages---- */}
 
-            <div className="   bg-gray-300 mt-6  mb-24">
+            <div className="  text-center  bg-gray-300 mt-6  mb-24">
+
               {/* <SliderImages
                 sliderTitleColor={sliderTitleColor}
                 sliderBgColor={sliderBgColor}
@@ -762,12 +765,33 @@ export default function Home3({ name, userdata }) {
               /> */}
 
 
+<h3 className="font-semibold py-8   md:text-2xl  textColor text-medicus-2 dark:text-white">
+        {/* <TypeAnimation
+          sequence={[imagesTitle, 2000]}
+          wrapper="span"
+          className={`${sliderTitleColor} rainbow-border textColo text-2xl md:text-5xl leading-normal font-black sm:text-4xl  lg:text-6xl lg:leading-relaxed `}
+          cursor={true}
+          repeat={Infinity}
+        /> */}
+
+<p className={`${sliderTitleColor} rainbow-border textColo text-2xl md:text-5xl leading-normal font-black sm:text-4xl  lg:text-6xl lg:leading-relaxed `}
+
+>{imagesTitle}</p>
+
+
+        <hr
+          className={`${sliderUnderlineBorderColor} rainbow-border w-[22%] mx-auto borderColo`}
+        ></hr>
+      </h3>
+
+
+
 
 <div className={"wrapper"}>
 
 
           {images?.slice(0, 8)?.map((img, i) => (
-              <div key={i} className={"img_holder"}>
+              <div key={i} className={"img_holder rainbow-border"}>
                 <div
                   onClick={() => {
                     SetCurrentFullViewImageIndex(`${ImageEndpoint}/${img}`);

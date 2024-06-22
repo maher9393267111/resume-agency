@@ -83,6 +83,7 @@ model About {
   temp       Int      @default(2)
 
  images String[]  @default([])
+ imagesTitle String @default("")
   pdf    String @default("")
 
   whatsapp  String @default("")

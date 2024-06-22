@@ -585,3 +585,65 @@ body {
     padding: 0;
   }
 }
+
+
+
+
+.rainbow-border {
+	animation: 3s rainbow-rotate linear infinite !important;
+}
+
+@keyframes rainbow-rotate {
+	0% {
+		border-image: conic-gradient(
+				from 0deg,
+				red,
+				blue,
+				yellow,
+				lime,
+				aqua,
+				magenta,
+				red
+			)
+			1;
+	}
+	100% {
+		border-image: conic-gradient(
+				from 360deg,
+				red,
+				blue,
+				yellow,
+				lime,
+				aqua,
+				magenta,
+				red
+			)
+			1;
+	}
+}
+
+.rainbow-border:before,
+.rainbow-border:after {
+	content: '';
+	position: absolute;
+	left: -2px;
+	top: -2px;
+	background: linear-gradient(
+		45deg,
+		#fb0094,
+		#0000ff,
+		#00ff00,
+		#ffff00,
+		#ff0000,
+		#fb0094,
+		#0000ff,
+		#00ff00,
+		#ffff00,
+		#ff0000
+	);
+	background-size: 400%;
+	width: calc(100% + 4px);
+	height: calc(100% + 4px);
+	z-index: -1;
+	animation: steam 20s linear infinite;
+}

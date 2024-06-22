@@ -52,6 +52,9 @@ function AboutPage({ user, userdata }) {
   const [phone, setPhone] = useState(userdata?.about[0]?.phone || "");
   const [location, setLocation] = useState(userdata?.about[0]?.location || "");
   const [video, setVideo] = useState(userdata?.about[0]?.video || "");
+  const [imagesTitle, setImagesTitle] = useState(
+    userdata?.about[0]?.imagesTitle || ""
+  );
 
   //userdata?.about[0]?.images || ["one" ,"two"]
   const [images, setImages] = useState(userdata?.about[0]?.images || []);
@@ -244,40 +247,53 @@ function AboutPage({ user, userdata }) {
         bgimagedata = "";
       }
 
-
-let imagedata =  images
+      let imagedata = images;
       // delete array of images
-      if(images?.length < 8){
-      const imagesToDelete = userdata?.about[0]?.images.filter(
-        (image) => !images.includes(image)
-      );
-      if (imagesToDelete?.length > 0) {
-        await handleDelete(imagesToDelete);
+      if (images?.length < 8) {
+        const imagesToDelete = userdata?.about[0]?.images.filter(
+          (image) => !images.includes(image)
+        );
+        if (imagesToDelete?.length > 0) {
+          await handleDelete(imagesToDelete);
+        }
+
+        let uploadResponse = null;
+
+        //    if (files?.length + images?.length > 8){
+        //     message.error("You can only add 8 images")
+        //     return
+        //         }
+
+        //  else  if ( images?.length > 8){
+        //     message.error("You can only add 8 images")
+        //     return
+        //         }
+
+        //&& (files?.length + images?.length <= 8)
+        if (files?.length > 0 && files?.length + images?.length <= 8) {
+          console.log("UPLOAD CONDITIOn");
+          uploadResponse = await handleUploadImages(files);
+          setImages([...images, uploadResponse.files]);
+          successHandler("New images uploaded Successfully");
+        }
+
+        const newImagesUploaded = uploadResponse?.files || [];
+
+        console.log("REIMAGES---->", newImagesUploaded);
+        imagedata = [...images, ...newImagesUploaded];
+      } else if (images?.length === 8 && files) {
+        console.log("ERROR CONDITIOn");
+        errorHandler("You can only add 8 images");
+        return;
+      } else if (files?.length > 0 && files?.length + images?.length > 8) {
+        errorHandler(
+          "You have more than 8 images please delete some images first"
+        );
       }
 
-
-      let uploadResponse = null;
-      //&& (files?.length + images?.length <= 8)
-      if (files?.length > 0 && (files?.length + images?.length <= 8) ) {
-        uploadResponse = await handleUploadImages(files);
-        setImages([...images ,uploadResponse.files])
-      }
-
-      const newImagesUploaded = uploadResponse?.files || [];
-
-      console.log("REIMAGES---->", newImagesUploaded);
-       imagedata = [...images, ...newImagesUploaded];
-
-    }
-
-    else if (images?.length >= 8 && files){
-errorHandler("You can only add 8 images")
-    }
-
-
-      console.log(textColor, "????????");
       const res = await axios.post("/api/about", {
         images: imagedata,
+        imagesTitle,
         temp,
         title,
         desc,
@@ -308,7 +324,7 @@ errorHandler("You can only add 8 images")
 
       console.log("AboutResponse Data", res);
 
-       router.reload();
+      router.reload();
 
       successHandler("Updated Successfully");
     } catch (error) {
@@ -412,7 +428,15 @@ errorHandler("You can only add 8 images")
       >
         <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
           <form className="space-y-6" onSubmit={submitHandler}>
+            <CustomInput
+              value={imagesTitle}
+              setValue={setImagesTitle}
+              label={"imagesTitle"}
+              type={"text"}
+            />
+
             <div>
+              <h4 className=" text-red-400 font-semibold my-3">Note: you can only upload 8 image</h4>
               <div>
                 <Upload
                   accept="image/*"
@@ -434,7 +458,29 @@ errorHandler("You can only add 8 images")
                     console.log("files", files);
                   }}
                 >
-                  <AddCircleOutlineIcon />
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g
+                      id="SVGRepo_tracerCarrier"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></g>
+                    <g id="SVGRepo_iconCarrier">
+                      {" "}
+                      <path
+                        d="M12 7V17M7 12L17 12"
+                        stroke="#4ecc3e"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>{" "}
+                    </g>
+                  </svg>
+                  {/* <AddCircleOutlineIcon className=" !text-[40px]" /> */}
                 </Upload>
               </div>
 

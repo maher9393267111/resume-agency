@@ -9,7 +9,7 @@ export default function () {
                 required
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-          placeholder="name"
+          placeholder="الاسم"
           className={`${contactInputBorderColor} placeholdertext w-full py-[8px]     border-whit border outline-none `}
           type="text"
         />
@@ -20,7 +20,7 @@ export default function () {
                required
                value={email}
                onChange={(e) => setEmail(e.target.value)}
-          placeholder="email"
+          placeholder="الايميل"
           className={`${contactInputBorderColor} placeholdertext w-full py-[8px]     border-whit border outline-none `}
           type="email"
         />
@@ -36,7 +36,7 @@ export default function () {
              value={number}
 
              onChange={(e) => setNumber(e.target.value)}
-        placeholder="phone"
+        placeholder="رقم الهاتف"
         className={`${contactInputBorderColor} placeholdertext w-full py-[8px]     border-whit border outline-none `}
         // type="text"
       />
@@ -50,7 +50,7 @@ export default function () {
           
            value={message}
            onChange={(e) => setMessage(e.target.value)}
-        placeholder="message"
+        placeholder="الرسالة"
         rows="4"
         cols="50"
         className={`${contactInputBorderColor} placeholdertext w-full py-[8px]     border-whit border outline-none `}

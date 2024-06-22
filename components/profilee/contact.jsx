@@ -102,7 +102,7 @@ export default function Contact({
           dir="rtl"
             className={` text-[${mainTextColor}] text-whit text-2xl md:text-3xl py-8 text-center underline `}
           >
-            השאירו פרטים ונחזור אליכם:
+            השאירו פרטים ונחזור אליכם:  
           </p>
 
           <div className="   w-[90%] mx-auto ">
@@ -113,7 +113,7 @@ export default function Contact({
                     required
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    placeholder="name"
+                  placeholder="الاسم"
                     className={`${contactInputBorderColor} placeholdertext w-full py-[8px]     border-whit border outline-none `}
                     type="text"
                   />
@@ -124,7 +124,7 @@ export default function Contact({
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    placeholder="email"
+                     placeholder="الايميل"
                     className={`${contactInputBorderColor} placeholdertext w-full py-[8px]     border-whit border outline-none `}
                     type="email"
                   />
@@ -138,7 +138,8 @@ export default function Contact({
                   id="number"
                   value={number}
                   onChange={(e) => setNumber(e.target.value)}
-                  placeholder="phone"
+        placeholder="رقم الهاتف"
+               
                   className={`${contactInputBorderColor} placeholdertext w-full py-[8px]     border-whit border outline-none `}
                   // type="text"
                 />
@@ -150,7 +151,8 @@ export default function Contact({
                   required
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
-                  placeholder="message"
+        placeholder="الرسالة"
+                 
                   rows="4"
                   cols="50"
                   className={`${contactInputBorderColor} placeholdertext w-full py-[8px]     border-whit border outline-none `}
@@ -266,17 +268,18 @@ export default function Contact({
             dir="rtl"
               className={`text-${mainTextColor} text-whit text-2xl md:text-3xl py-8 text-center underline `}
             >
-              השאירו פרטים ונחזור אליכם:
+              השאירו פרטים ונחזור אליכם:  
             </p>
             <div className=" relative  w-[95%] mx-auto ">
               <form onSubmit={handleSubmit} action="">
-                <div className=" justify-center flex-col md:flex-row flex gap-4">
+                <div className=" justify-center  arabicfont flex-col md:flex-row flex gap-4">
                   <div className="w-full md:w-1/2">
                     <input
                       required
                       value={name}
                       onChange={(e) => setName(e.target.value)}
-                      placeholder="name"
+          placeholder="الاسم"
+                      
                       className={`${contactInputBorderColor} placeholdertext w-full py-[8px]     border-whit border outline-none `}
                       type="text"
                     />
@@ -287,33 +290,36 @@ export default function Contact({
                       required
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      placeholder="email"
+          placeholder="الايميل"
+                     
                       className={`${contactInputBorderColor} placeholdertext w-full py-[8px]     border-whit border outline-none `}
                       type="email"
                     />
                   </div>
                 </div>
 
-                <div className="w-full my-4">
+                <div className="w-full my-4 arabicfont">
                   <input
                     type="tel"
                     required
                     id="number"
                     value={number}
                     onChange={(e) => setNumber(e.target.value)}
-                    placeholder="phone"
+        placeholder="رقم الهاتف"
+                    
                     className={`${contactInputBorderColor} placeholdertext w-full py-[8px]     border-whit border outline-none `}
                     // type="text"
                   />
                 </div>
 
-                <div className="w-full my-4">
+                <div className="w-full my-4 arabicfont">
                   <textarea
                     name="message"
                     required
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
-                    placeholder="message"
+        placeholder="الرسالة"
+                    
                     rows="4"
                     cols="50"
                     className={`${contactInputBorderColor} placeholdertext w-full py-[8px]     border-whit border outline-none `}
