@@ -189,7 +189,7 @@ Users
                   Projects
                 </Link>
 
-                <Link
+                {/* <Link
                   href="/dashboard/sliders"
                   title="Manage Project"
                   className={
@@ -198,10 +198,10 @@ Users
                       : null
                   }
                 >
-                  {/* <HowToVoteIcon /> */}
+              
                   <AddBoxIcon />
                   Sliders
-                </Link>
+                </Link> */}
 
                 {/* <Link
                   href="/dashboard/skills"
