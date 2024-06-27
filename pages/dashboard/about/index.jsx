@@ -247,10 +247,37 @@ function AboutPage({ user, userdata }) {
         bgimagedata = "";
       }
 
-      let imagedata = images;
-      // delete array of images
-      if (images?.length <= 8) {
 
+      let imagedata = images;
+
+
+       if (images?.length === 8 && files) {
+        console.log("ERROR CONDITIOn");
+        errorHandler("You can only add 8 images");
+        return;
+      } 
+      
+      
+      
+      
+      else if (files?.length > 0 && files?.length + images?.length > 8) {
+        errorHandler(
+          "You have more than 8 images please delete some images first"
+        );
+        console.log("📊📊📊📊")
+        return
+      }
+
+
+
+
+     
+
+      // delete array of images
+      //  else  if (images?.length <= 8) {
+    else  {
+
+     
         const imagesToDelete = userdata?.about[0]?.images.filter(
           (image) => !images.includes(image)
         );
@@ -260,17 +287,7 @@ function AboutPage({ user, userdata }) {
 
         let uploadResponse = null;
 
-        //    if (files?.length + images?.length > 8){
-        //     message.error("You can only add 8 images")
-        //     return
-        //         }
-
-        //  else  if ( images?.length > 8){
-        //     message.error("You can only add 8 images")
-        //     return
-        //         }
-
-        //&& (files?.length + images?.length <= 8)
+      
         if (files?.length > 0 && files?.length + images?.length <= 8) {
           console.log("UPLOAD CONDITIOn");
           uploadResponse = await handleUploadImages(files);
@@ -284,15 +301,23 @@ function AboutPage({ user, userdata }) {
         imagedata = [...images, ...newImagesUploaded];
       }
       
-      else if (images?.length === 8 && files) {
-        console.log("ERROR CONDITIOn");
-        errorHandler("You can only add 8 images");
-        return;
-      } else if (files?.length > 0 && files?.length + images?.length > 8) {
-        errorHandler(
-          "You have more than 8 images please delete some images first"
-        );
-      }
+
+
+      // else if (images?.length === 8 && files) {
+      //   console.log("ERROR CONDITIOn");
+      //   errorHandler("You can only add 8 images");
+      //   return;
+      // } 
+      
+      
+      
+      
+      // else if (files?.length > 0 && files?.length + images?.length > 8) {
+      //   errorHandler(
+      //     "You have more than 8 images please delete some images first"
+      //   );
+      //   console.log("📊📊📊📊")
+      // }
 
       const res = await axios.post("/api/about", {
         images: imagedata,
