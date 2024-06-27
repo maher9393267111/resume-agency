@@ -191,14 +191,15 @@ export default function Home3({ name, userdata }) {
 
   const sliderTitleColor =
     temp === 1
-      ? "text-temp1-slider_title_color"
+      ? "text-temp1-slider_title_colo"
       : temp === 2
-      ? "text-temp2-slider_title_color"
+      ? "text-temp2-slider_title_colo"
       : temp === 3
-      ? "text-temp3-slider_title_color"
+      ? "text-temp3-slider_title_colo"
       : temp === 4
-      ? "text-temp4-slider_title_color"
-      : temp === 5 && "text-temp5-slider_title_color";
+      ? "text-temp4-slider_title_colo"
+      : temp === 5 &&
+       "text-temp5-slider_title_colo";
 
   // slider_underline_border
 
@@ -418,7 +419,7 @@ export default function Home3({ name, userdata }) {
                 className={` text-center text-whit  text-temp${temp}-main_text_color   font-semibold`}
               >
                 {about?.title && (
-                  <h1 className=" text-3xl md:text-5xl">{about?.title}</h1>
+                  <h1 className=" text-3xl md:text-5xl mt-3">{about?.title}</h1>
                 )}
 
                 {about?.work && (
