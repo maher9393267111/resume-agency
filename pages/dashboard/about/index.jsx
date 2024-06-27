@@ -251,7 +251,7 @@ function AboutPage({ user, userdata }) {
       let imagedata = images;
 
 
-       if (images?.length === 8 && files) {
+       if (images?.length === 8 && files?.length >  0) {
         console.log("ERROR CONDITIOn");
         errorHandler("You can only add 8 images");
         return;
