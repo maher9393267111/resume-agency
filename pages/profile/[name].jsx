@@ -646,7 +646,11 @@ export default function Home3({ name, userdata }) {
 
                 {/* <NextLink href={"tel:" + about?.phone} target={"_self"}> */}
 
-                {about?.location && (
+
+         
+
+
+                {about?.phone && (
                   <div
                     className={` ${mainTextColor} iconsMain  w-[30%] md:w-1/6 text-center  text-[11px] md:text-lg  font-semibold `}
                   >
@@ -662,6 +666,9 @@ export default function Home3({ name, userdata }) {
                     <p className="w-[75px] mx-auto  ">Phone</p>
                   </div>
                 )}
+
+
+
               </div>
 
               {/* --- telephone button --- */}
