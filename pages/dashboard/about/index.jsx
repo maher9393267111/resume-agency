@@ -249,7 +249,8 @@ function AboutPage({ user, userdata }) {
 
       let imagedata = images;
       // delete array of images
-      if (images?.length < 8) {
+      if (images?.length <= 8) {
+
         const imagesToDelete = userdata?.about[0]?.images.filter(
           (image) => !images.includes(image)
         );
@@ -281,7 +282,9 @@ function AboutPage({ user, userdata }) {
 
         console.log("REIMAGES---->", newImagesUploaded);
         imagedata = [...images, ...newImagesUploaded];
-      } else if (images?.length === 8 && files) {
+      }
+      
+      else if (images?.length === 8 && files) {
         console.log("ERROR CONDITIOn");
         errorHandler("You can only add 8 images");
         return;
