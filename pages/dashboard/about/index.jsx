@@ -5,6 +5,7 @@ import { getUser } from "../../../src/lib/getUser";
 import AboutForm from "../../../components/aboutMain/aboutForm";
 
 import CustomInput from "../../../components/common/customInput";
+import Checkbox from "@mui/material/Checkbox";
 
 import NextLink from "next/link";
 import { useRouter } from "next/router";
@@ -29,6 +30,14 @@ import { MuiColorInput } from "mui-color-input";
 import MarkdownInput from "../../../components/dashboardLayout/markdown";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import CancelIcon from "@mui/icons-material/Cancel";
+
+import {
+
+
+
+  FormControlLabel,
+
+} from "@mui/material";
 
 import dynamic from "next/dynamic";
 
@@ -66,6 +75,7 @@ function AboutPage({ user, userdata }) {
     userdata?.about[0]?.instagram || ""
   );
   const [myImage, setMyImage] = useState(userdata?.about[0]?.myImage || "");
+  const [imagesType  , setImagesType] = useState(userdata?.about[0]?.imagesType || "normal")
 
   const [myimagefile, setmyimageFile] = useState("");
   const [headimagefile, setheadimageFile] = useState("");
@@ -321,6 +331,7 @@ function AboutPage({ user, userdata }) {
 
       const res = await axios.post("/api/about", {
         images: imagedata,
+        imagesType ,
         imagesTitle,
         temp,
         title,
@@ -442,6 +453,22 @@ function AboutPage({ user, userdata }) {
     }
   };
 
+
+
+  function handleChange(e, key) {
+
+console.log("KEY-->" , key)
+
+
+setImagesType(key)
+
+
+  }
+
+
+
+
+
   return (
     <DashboardLayout user={user}>
       <Hero user={user} title="About Page" />
@@ -462,6 +489,40 @@ function AboutPage({ user, userdata }) {
               label={"imagesTitle"}
               type={"text"}
             />
+
+
+<FormControlLabel
+                control={
+                  <Checkbox
+                  color="primary"
+                  checked={imagesType === 'slider'}
+                  onChange={(e) => handleChange(e, "slider")}
+                  value={Boolean(images  === 'slider')}
+                  name="slider"
+                />
+                }
+                label="Slider"
+                labelPlacement="start"
+              />
+
+
+
+<FormControlLabel
+                control={
+                  <Checkbox
+                  color="primary"
+                  checked={imagesType === 'normal'}
+                  onChange={(e) => handleChange(e, "normal")}
+                  value={Boolean(imagesType ===  'normal')}
+                  name="normal"
+                />
+                }
+                label="Normal "
+                labelPlacement="start"
+              />
+
+
+
 
             <div>
               <h4 className=" text-red-400 font-semibold my-3">Note: you can only upload 8 image</h4>
@@ -539,6 +600,20 @@ function AboutPage({ user, userdata }) {
                 ))}
               </div>
             </div>
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
 
             <div className=" flex gap-12  my-12">
               <div className=" w-[200px] h-[200px] object-cover ">

@@ -2,13 +2,14 @@ import Image from "next/image";
 import { Inter } from "next/font/google";
 import AccordionComponent from "../../components/profilee/accordion";
 import SliderImages from "../../components/profilee/slider";
+import NormalSliderImages from "../../components/profilee/normalImagesSlider";
 const inter = Inter({ subsets: ["latin"] });
 import Link from "next/link";
 import NextLink from "next/link";
 import { FaPlus } from "react-icons/fa";
 import { TypeAnimation } from "react-type-animation";
 import Masnory, { ResponsiveMasonry } from "react-responsive-masonry";
-import clsx from 'clsx'
+import clsx from "clsx";
 
 import {
   FaWhatsapp,
@@ -43,6 +44,8 @@ export default function Home3({ name, userdata }) {
   console.log("DATA@$$$$$$$-->>>>", userdata[0]?.about);
   const about = userdata[0]?.about[0];
   const images = userdata[0]?.about[0]?.images;
+  const imagesType = userdata[0]?.about[0]?.imagesType;
+
   const imagesTitle = userdata[0]?.about[0]?.imagesTitle;
   console.log(about?.bgImage, "A$$$$$$$$$$$$$$$$$$$$ASS");
   const sliders = userdata[0]?.slider;
@@ -289,14 +292,6 @@ export default function Home3({ name, userdata }) {
       ? "bg-temp4-contact_overlay_bg"
       : temp === 5 && "bg-temp5-contact_overlay_bg";
 
-
-
- 
-      
-
-
-
-
   const downloadTxtFile1 = (vcfText) => {
     const element = document.createElement("a");
     const file = new Blob([vcfText], { type: "text/plain;charset=utf-8" });
@@ -431,11 +426,11 @@ export default function Home3({ name, userdata }) {
                 className={` text-center text-whit  text-temp${temp}-main_text_color   font-semibold`}
               >
                 {about?.title && (
-                  <h1 className=" text-3xl md:text-5xl mt-3">{about?.title}</h1>
+                  <h1 className=" text-3xl md:text-5xl mt-3 arabicfont">{about?.title}</h1>
                 )}
 
                 {about?.work && (
-                  <h3 className=" text-2xl md:text-3xl my-3">{about?.work}</h3>
+                  <h3 className=" text-2xl md:text-3xl my-3 arabicfont">{about?.work}</h3>
                 )}
               </div>
 
@@ -463,7 +458,7 @@ export default function Home3({ name, userdata }) {
                     </div>
 
                     {/* text */}
-                    <p className="w-[75px] mx-auto  ">Facebook</p>
+                    <p className="w-[75px] mx-auto arabicfont  ">Facebook</p>
                   </div>
                 )}
 
@@ -486,7 +481,7 @@ export default function Home3({ name, userdata }) {
                     </div>
 
                     {/* text */}
-                    <p className="w-[75px] mx-auto  ">Whatsapp</p>
+                    <p className="w-[75px] mx-auto  arabicfont">Whatsapp</p>
                   </div>
                 )}
 
@@ -509,7 +504,7 @@ export default function Home3({ name, userdata }) {
                     </div>
 
                     {/* text */}
-                    <p className="w-[75px] mx-auto  ">Instagram</p>
+                    <p className="w-[75px] mx-auto arabicfont ">Instagram</p>
                   </div>
                 )}
 
@@ -532,7 +527,7 @@ export default function Home3({ name, userdata }) {
                     </div>
 
                     {/* text */}
-                    <p className="w-[75px] mx-auto  ">Twitter</p>
+                    <p className="w-[75px] mx-auto  arabicfont">Twitter</p>
                   </div>
                 )}
 
@@ -555,7 +550,7 @@ export default function Home3({ name, userdata }) {
                     </div>
 
                     {/* text */}
-                    <p className="w-[75px] mx-auto  ">Telgram</p>
+                    <p className="w-[75px] mx-auto arabicfont ">Telgram</p>
                   </div>
                 )}
 
@@ -580,7 +575,7 @@ export default function Home3({ name, userdata }) {
                     </div>
 
                     {/* text */}
-                    <p className="w-[75px] mx-auto  ">Site</p>
+                    <p className="w-[75px] mx-auto arabicfont  ">Site</p>
                   </div>
                 )}
 
@@ -603,7 +598,7 @@ export default function Home3({ name, userdata }) {
                     </div>
 
                     {/* text */}
-                    <p className="w-[75px] mx-auto  ">Site 2</p>
+                    <p className="w-[75px] mx-auto arabicfont ">Site 2</p>
                   </div>
                 )}
 
@@ -628,7 +623,7 @@ export default function Home3({ name, userdata }) {
                     </div>
 
                     {/* text */}
-                    <p className="w-[75px] mx-auto  ">Email</p>
+                    <p className="w-[75px] mx-auto arabicfont ">Email</p>
                   </div>
                 )}
 
@@ -653,7 +648,7 @@ export default function Home3({ name, userdata }) {
                     </div>
 
                     {/* text */}
-                    <p className="w-[75px] mx-auto  ">Location</p>
+                    <p className="w-[75px] mx-auto arabicfont  ">Location</p>
                   </div>
                 )}
 
@@ -672,7 +667,7 @@ export default function Home3({ name, userdata }) {
                     </div>
 
                     {/* text */}
-                    <p className="w-[75px] mx-auto  ">Phone</p>
+                    <p className="w-[75px] mx-auto  arabicfont ">Phone</p>
                   </div>
                 )}
               </div>
@@ -776,17 +771,29 @@ export default function Home3({ name, userdata }) {
                 sliders={sliders}
               /> */}
 
+{imagesType === 'slider' ?
+
+          <NormalSliderImages
+                sliderTitleColor={sliderTitleColor}
+                sliderBgColor={sliderBgColor}
+                arrowsBgColor={arrowsBgColor}
+                arrowsColor={arrowsColor}
+                sliderUnderlineBorderColor={sliderUnderlineBorderColor}
+                title={imagesTitle}
+                sliders={images}
+              />
+
+:
+
+<div>
+
+
+
               <h3 className="font-semibold py-8   md:text-2xl  textColor text-medicus-2 dark:text-white">
-                {/* <TypeAnimation
-          sequence={[imagesTitle, 2000]}
-          wrapper="span"
-          className={`${sliderTitleColor} rainbow-border textColo text-2xl md:text-5xl leading-normal font-black sm:text-4xl  lg:text-6xl lg:leading-relaxed `}
-          cursor={true}
-          repeat={Infinity}
-        /> */}
+     
 
                 <p
-                  className={`${sliderTitleColor} rainbow-borde textColo text-2xl md:text-5xl leading-normal font-black sm:text-4xl  lg:text-6xl lg:leading-relaxed `}
+                  className={`${sliderTitleColor} arabicfont rainbow-borde textColo text-2xl md:text-5xl leading-normal font-black sm:text-4xl  lg:text-6xl lg:leading-relaxed `}
                 >
                   {imagesTitle}
                 </p>
@@ -797,64 +804,37 @@ export default function Home3({ name, userdata }) {
               </h3>
 
               <div className={"wrapper "}>
-               
-        
-              {/* <main
-        className={clsx(
-          'mt-4 columns-1 gap-x-4 gap-y-4',
-          'md:columns-2',
-          'lg:columns-3 lg:gap-x-8'
-        )}
-      >
-    {images?.map((img, index) => (
-  <NextImage
-    key={index} // Ensure unique keys for each image
-    image={`${ImageEndpoint}/${img}`} // Construct the image URL
-    alt="gallery" // Provide alternative text for accessibility
-    ar="ratio" // Maintain aspect ratio
-  />
-))}
-      </main> */}
+      
 
-
-
-
-
-
-
-                  {images?.slice(0, 8)?.map((img, i) => (
-                    <div key={i} className={`img_holder rainbow-borde ${i === 3 && ''}  `}>
-                      <div
-                        onClick={() => {
-                          SetCurrentFullViewImageIndex(
-                            `${ImageEndpoint}/${img}`
-                          );
-                        }}
-                      >
-                        <RemoveRedEyeIcon />
-                      </div>
-                      <Image
-                        width={400}
-                        height={400}
-                        src={`${ImageEndpoint}/${img}`}
-                        alt="a"
-                        fluid
-                      />
+                {images?.slice(0, 8)?.map((img, i) => (
+                  <div
+                    key={i}
+                    className={`img_holder rainbow-borde ${i === 3 && ""}  `}
+                  >
+                    <div
+                      onClick={() => {
+                        SetCurrentFullViewImageIndex(`${ImageEndpoint}/${img}`);
+                      }}
+                    >
+                      <RemoveRedEyeIcon />
                     </div>
-                  ))} 
-               
-
-
-
-
-
-
-
-
-
-
+                    <Image
+                      width={400}
+                      height={400}
+                      src={`${ImageEndpoint}/${img}`}
+                      alt="a"
+                      fluid
+                    />
+                  </div>
+                ))}
+              </div>
 
               </div>
+              }
+
+
+
+
 
               {currentFullViewImageIndex !== null && (
                 <FullViewImage
