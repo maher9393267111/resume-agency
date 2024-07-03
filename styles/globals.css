@@ -420,14 +420,21 @@ body {
 
 /* -------------------GRID NESTED------ */
 
-
-.wrapper {
-  line-height: 0;
+ 
+ .wrapper {
+  /* line-height: 0;
 
   height: auto;
   column-gap: 0px;
-  column-count: 4;
-}
+  column-count: 4; */
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: masonry;
+} 
+
+
+
 
 @media (max-width: 1199px) {
   .wrapper {

@@ -16,6 +16,7 @@ import SliderImages from "../../components/profile/sliderImages";
 import Image from "next/image";
 import ReactPlayer from "react-player";
 import { HiOutlineDocumentDownload } from "react-icons/hi";
+import {Masonry} from "@mui/lab";
 
 import {
   FaFacebookF,

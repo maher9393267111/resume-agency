@@ -7,6 +7,8 @@ import Link from "next/link";
 import NextLink from "next/link";
 import { FaPlus } from "react-icons/fa";
 import { TypeAnimation } from "react-type-animation";
+import Masnory, { ResponsiveMasonry } from "react-responsive-masonry";
+import clsx from 'clsx'
 
 import {
   FaWhatsapp,
@@ -19,6 +21,7 @@ import {
 import { LuExternalLink } from "react-icons/lu";
 import { FaLocationDot } from "react-icons/fa6";
 import { MdOutlineMailOutline } from "react-icons/md";
+import { Masonry } from "@mui/lab";
 
 import Contact from "../../components/profilee/contact";
 import { useState } from "react";
@@ -26,21 +29,21 @@ import { prisma } from "../../src/lib/prisma";
 import { ImageEndpoint, defaultImage } from "../../src/lib/globall";
 import parse from "html-react-parser";
 import vCardFactory from "vcards-js";
-import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
+import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import FullViewImage from "../../components/profilee/fullImagePreview";
+import NextImage from "../../src/lib/nextImage";
+
 export default function Home3({ name, userdata }) {
-
-
   const [currentFullViewImageIndex, SetCurrentFullViewImageIndex] =
-  useState(null);
+    useState(null);
 
   const [temp, setTemp] = useState(userdata[0]?.about[0]?.temp || 1);
 
   const status = userdata[0]?.status;
-  console.log("DATA@$$$$$$$-->>>>" , userdata[0]?.about);
+  console.log("DATA@$$$$$$$-->>>>", userdata[0]?.about);
   const about = userdata[0]?.about[0];
-  const images =userdata[0]?.about[0]?.images
-  const imagesTitle =userdata[0]?.about[0]?.imagesTitle
+  const images = userdata[0]?.about[0]?.images;
+  const imagesTitle = userdata[0]?.about[0]?.imagesTitle;
   console.log(about?.bgImage, "A$$$$$$$$$$$$$$$$$$$$ASS");
   const sliders = userdata[0]?.slider;
   console.log("slidersDatas", sliders);
@@ -198,8 +201,7 @@ export default function Home3({ name, userdata }) {
       ? "text-temp3-slider_title_colo"
       : temp === 4
       ? "text-temp4-slider_title_colo"
-      : temp === 5 &&
-       "text-temp5-slider_title_colo";
+      : temp === 5 && "text-temp5-slider_title_colo";
 
   // slider_underline_border
 
@@ -286,6 +288,14 @@ export default function Home3({ name, userdata }) {
       : temp === 4
       ? "bg-temp4-contact_overlay_bg"
       : temp === 5 && "bg-temp5-contact_overlay_bg";
+
+
+
+ 
+      
+
+
+
 
   const downloadTxtFile1 = (vcfText) => {
     const element = document.createElement("a");
@@ -414,7 +424,9 @@ export default function Home3({ name, userdata }) {
             </div>
 
             {/* -----Details---- */}
-            <div className={`  coverb pb-6 -mt-[13px] bg-temp${temp}-coverbg  pb-4  `}>
+            <div
+              className={`  coverb pb-6 -mt-[13px] bg-temp${temp}-coverbg  pb-4  `}
+            >
               <div
                 className={` text-center text-whit  text-temp${temp}-main_text_color   font-semibold`}
               >
@@ -647,10 +659,6 @@ export default function Home3({ name, userdata }) {
 
                 {/* <NextLink href={"tel:" + about?.phone} target={"_self"}> */}
 
-
-         
-
-
                 {about?.phone && (
                   <div
                     className={` ${mainTextColor} iconsMain  w-[30%] md:w-1/6 text-center  text-[11px] md:text-lg  font-semibold `}
@@ -667,9 +675,6 @@ export default function Home3({ name, userdata }) {
                     <p className="w-[75px] mx-auto  ">Phone</p>
                   </div>
                 )}
-
-
-
               </div>
 
               {/* --- telephone button --- */}
@@ -761,7 +766,6 @@ export default function Home3({ name, userdata }) {
             {/* ----SliderImages---- */}
 
             <div className="  text-center  bg-gray-300 mt-6  mb-24">
-
               {/* <SliderImages
                 sliderTitleColor={sliderTitleColor}
                 sliderBgColor={sliderBgColor}
@@ -772,9 +776,8 @@ export default function Home3({ name, userdata }) {
                 sliders={sliders}
               /> */}
 
-
-<h3 className="font-semibold py-8   md:text-2xl  textColor text-medicus-2 dark:text-white">
-        {/* <TypeAnimation
+              <h3 className="font-semibold py-8   md:text-2xl  textColor text-medicus-2 dark:text-white">
+                {/* <TypeAnimation
           sequence={[imagesTitle, 2000]}
           wrapper="span"
           className={`${sliderTitleColor} rainbow-border textColo text-2xl md:text-5xl leading-normal font-black sm:text-4xl  lg:text-6xl lg:leading-relaxed `}
@@ -782,52 +785,83 @@ export default function Home3({ name, userdata }) {
           repeat={Infinity}
         /> */}
 
-<p className={`${sliderTitleColor} rainbow-borde textColo text-2xl md:text-5xl leading-normal font-black sm:text-4xl  lg:text-6xl lg:leading-relaxed `}
-
->{imagesTitle}</p>
-
-
-        <hr
-          className={`${sliderUnderlineBorderColor} rainbow-borde w-[22%] mx-auto borderColo`}
-        ></hr>
-      </h3>
-
-
-
-
-<div className={"wrapper"}>
-
-
-          {images?.slice(0, 8)?.map((img, i) => (
-              <div key={i} className={"img_holder rainbow-borde"}>
-                <div
-                  onClick={() => {
-                    SetCurrentFullViewImageIndex(`${ImageEndpoint}/${img}`);
-                  }}
+                <p
+                  className={`${sliderTitleColor} rainbow-borde textColo text-2xl md:text-5xl leading-normal font-black sm:text-4xl  lg:text-6xl lg:leading-relaxed `}
                 >
-                  <RemoveRedEyeIcon/>
-                </div>
-                <Image
-                width={400}
-                height={400}
-                  src={`${ImageEndpoint}/${img}`}
-                  alt="a"
-                  fluid
-                />
+                  {imagesTitle}
+                </p>
+
+                <hr
+                  className={`${sliderUnderlineBorderColor} rainbow-borde w-[22%] mx-auto borderColo`}
+                ></hr>
+              </h3>
+
+              <div className={"wrapper "}>
+               
+        
+              {/* <main
+        className={clsx(
+          'mt-4 columns-1 gap-x-4 gap-y-4',
+          'md:columns-2',
+          'lg:columns-3 lg:gap-x-8'
+        )}
+      >
+    {images?.map((img, index) => (
+  <NextImage
+    key={index} // Ensure unique keys for each image
+    image={`${ImageEndpoint}/${img}`} // Construct the image URL
+    alt="gallery" // Provide alternative text for accessibility
+    ar="ratio" // Maintain aspect ratio
+  />
+))}
+      </main> */}
+
+
+
+
+
+
+
+                  {images?.slice(0, 8)?.map((img, i) => (
+                    <div key={i} className={`img_holder rainbow-borde ${i === 3 && ''}  `}>
+                      <div
+                        onClick={() => {
+                          SetCurrentFullViewImageIndex(
+                            `${ImageEndpoint}/${img}`
+                          );
+                        }}
+                      >
+                        <RemoveRedEyeIcon />
+                      </div>
+                      <Image
+                        width={400}
+                        height={400}
+                        src={`${ImageEndpoint}/${img}`}
+                        alt="a"
+                        fluid
+                      />
+                    </div>
+                  ))} 
+               
+
+
+
+
+
+
+
+
+
+
+
               </div>
-            ))}
-        </div>
 
-
-        {currentFullViewImageIndex !== null && (
-        <FullViewImage
-          currentFullViewImageIndex={currentFullViewImageIndex}
-          SetCurrentFullViewImageIndex={SetCurrentFullViewImageIndex}
-          
-        />
-      )}
-
-
+              {currentFullViewImageIndex !== null && (
+                <FullViewImage
+                  currentFullViewImageIndex={currentFullViewImageIndex}
+                  SetCurrentFullViewImageIndex={SetCurrentFullViewImageIndex}
+                />
+              )}
             </div>
 
             <div>
