@@ -51,7 +51,7 @@ export default async function handler(req, res) {
           //   skip: +page * +size,
           //   take: +size,
           orderBy: {
-            createdAt: "desc",
+            createdAt: "asc",
           },
         });
 
