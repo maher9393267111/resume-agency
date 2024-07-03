@@ -782,13 +782,13 @@ export default function Home3({ name, userdata }) {
           repeat={Infinity}
         /> */}
 
-<p className={`${sliderTitleColor} rainbow-border textColo text-2xl md:text-5xl leading-normal font-black sm:text-4xl  lg:text-6xl lg:leading-relaxed `}
+<p className={`${sliderTitleColor} rainbow-borde textColo text-2xl md:text-5xl leading-normal font-black sm:text-4xl  lg:text-6xl lg:leading-relaxed `}
 
 >{imagesTitle}</p>
 
 
         <hr
-          className={`${sliderUnderlineBorderColor} rainbow-border w-[22%] mx-auto borderColo`}
+          className={`${sliderUnderlineBorderColor} rainbow-borde w-[22%] mx-auto borderColo`}
         ></hr>
       </h3>
 
@@ -799,7 +799,7 @@ export default function Home3({ name, userdata }) {
 
 
           {images?.slice(0, 8)?.map((img, i) => (
-              <div key={i} className={"img_holder rainbow-border"}>
+              <div key={i} className={"img_holder rainbow-borde"}>
                 <div
                   onClick={() => {
                     SetCurrentFullViewImageIndex(`${ImageEndpoint}/${img}`);

@@ -380,6 +380,18 @@ const SignupPage = () => {
                     {/* Already have an account? */}
                   </Link>
                 </div>
+
+                
+                <div className="text-sm">
+                  <Link
+                    href="/forget"
+                    className="font-medium text-purple-600   hover:text-purple-700"
+                  >
+                    {fetchWord("forget", locale)}
+                    {/* Already have an account? */}
+                  </Link>
+                </div>
+
               </div>
 
               <div>

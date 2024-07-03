@@ -58,35 +58,26 @@ const ForgetPage = () => {
     try {
       //  await signInUser(email, password);
 
-      const response = await newPetition(
-        "POST",
-        "/api/auth/forget",
-        {
-          email,
-        }
-      );
+      const response = await newPetition("POST", "/api/auth/forget", {
+        email,
+      });
       console.log("Response");
 
       if (response.Error) {
         errorHandler(response.Error);
+      } else {
+        successHandler(
+          `${
+            locale === "ar"
+              ? "تم ارسال رسالة لتغيير كلمة السر الى ايميلك"
+              : "Reset password link sended to your email check it"
+          }`
+        );
+
+        //   router.replace("/"
+
+        //     );
       }
-
-
-      
-else {
-  successHandler(
-     `${locale === "ar" ? "تم ارسال رسالة لتغيير كلمة السر الى ايميلك" : "Reset password link sended to your email check it"}`
-   );
-
- //   router.replace("/"
-   
- //     );
-}
-
-
-
-
-
     } catch (error) {
       errorHandler(error);
     }
@@ -97,19 +88,19 @@ else {
   return (
     <ClientLayout>
       <div dir={dir} className=" englishfont">
-        <Seo title="SignIn" description="" />
+        <Seo title="Forget - ultratech" description="" />
 
         <PageHeaders
           pt={true}
           pb={true}
-          text={fetchWord("loginPageTitle", locale)}
+          text={fetchWord("forgetTitle", locale)}
           gradient
         />
 
-        <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+        <div className="min-h-screen flex items-cente justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
           <div className="max-w-md w-full space-y-8">
             <div>
-              <h2 className="mt-6 text-center text-2xl sm:text-4xl font-extrabold  shimmer">
+              <h2 className="mt-24 text-center text-2xl sm:text-4xl  font-extrabold  shimmer">
                 {/* Welcome to Driwwwle */}
                 {fetchWord("welcomeRegister", locale)}
               </h2>
@@ -150,7 +141,7 @@ else {
 
                 {/* Password */}
               </div>
-
+{/* 
               <div className="flex items-center justify-between">
                 <div className="text-sm">
                   <Link
@@ -158,10 +149,10 @@ else {
                     className="font-medium text-purple-600   hover:text-purple-700"
                   >
                     {fetchWord("nothaveAcoount", locale)}
-                    {/* Already have an account? */}
+                    
                   </Link>
                 </div>
-              </div>
+              </div> */}
 
               <div>
                 <button
@@ -178,7 +169,7 @@ else {
                       />
                     </span>
                   )}
-                  {fetchWord("login", locale)}
+                  {fetchWord("send", locale)}
                   {/* Sign Up */}
                 </button>
               </div>

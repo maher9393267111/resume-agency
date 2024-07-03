@@ -49,6 +49,14 @@ sec2Title:'ابتعد عن الكروت الورقية التقليدية، وا
   login:'تسجيل دخول',
   loginPageTitle:'صفحة تسجيل الدخول',
   nothaveAcoount:'ليس لديك حساب؟',
+  forget:'هل نسيت كلمة السر ؟',
+  reset:'اعاد',
+  forgetTitle:'صفحة نسيت كلمة السر',
+  resetTitle:'صفحة تعيين كلمة سر جديدة',
+  send:"ارسال",
+  resetsend:"اعادة تعيين",
+  newpass:"كلمة سر جديدة",
+
   contactUsTitle:"اتصل بنا"
 
   };

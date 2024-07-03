@@ -112,7 +112,7 @@ else {
         <PageHeaders
           pt={true}
           pb={true}
-          text={fetchWord("loginPageTitle", locale)}
+          text={fetchWord("resetTitle", locale)}
           gradient
         />
 
@@ -163,14 +163,16 @@ else {
 
 
 <div>
-                  <label
+                  {/* <label
                     htmlFor="password"
                     className="block text-sm font-medium text-gray-700"
                   >
-                    {/* Password */}
+                
 
-                    {fetchWord("passauth", locale)}
-                  </label>
+                    {fetchWord("newpass", locale)}
+                  </label> */}
+
+
                   <div className="mt-1 relative rounded-md shadow-sm">
                     <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                       <LockClosedIcon
@@ -201,7 +203,7 @@ else {
                       className="  focus:ring-purple-600 focus:border-purple-600  block w-full pl-10 sm:text-sm border-gray-300 rounded-md"
                       value={password}
                       onChange={handleChange}
-                      placeholder="Must be atleast 6 characters"
+                      placeholder=  {fetchWord("newpass", locale)}
                       required
                     />
                   </div>
@@ -214,7 +216,7 @@ else {
 
 
               
-
+{/* 
               <div className="flex items-center justify-between">
                 <div className="text-sm">
                   <Link
@@ -222,10 +224,10 @@ else {
                     className="font-medium text-purple-600   hover:text-purple-700"
                   >
                     {fetchWord("nothaveAcoount", locale)}
-                    {/* Already have an account? */}
+              
                   </Link>
                 </div>
-              </div>
+              </div> */}
 
               <div>
                 <button
@@ -242,7 +244,7 @@ else {
                       />
                     </span>
                   )}
-                  {fetchWord("login", locale)}
+                  {fetchWord("resetsend", locale)}
                   {/* Sign Up */}
                 </button>
               </div>

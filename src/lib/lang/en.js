@@ -51,7 +51,14 @@ export const en = {
   login:'login',
   loginPageTitle:'Login page',
   nothaveAcoount:'Dont have an account?',
-  contactUsTitle:'Contact Us'
+  contactUsTitle:'Contact Us',
+  forget:'Forget password ?',
+  reset:'اعاد',
+  forgetTitle:'Forget page',
+  resetTitle:'Reset page',
+  send:"Send",
+  resetsend:"Reset password",
+  newpass:"new password",
 };
 
 export const getWordEn = (key) => {
