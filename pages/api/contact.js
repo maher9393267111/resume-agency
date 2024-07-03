@@ -18,7 +18,7 @@
 //  const dataRes =   await resend.emails.send({
 //       from: 'onboarding@resend.dev',
 //       to:'gomemahero@gmail.com',
-     
+
 //     //  to:'kristalturkey@gmail.com',
 //       replyTo: data.email,
 //       subject: `${data.name} `,
@@ -32,36 +32,26 @@
 //   }
 // }
 
-
 const passw = "bbvh hors bgbq pxjm";
-  const email = "noreply.springworthbooks@gmail.com";
+const email = "noreply.springworthbooks@gmail.com";
 
-
-import nodemailer from 'nodemailer';
+import nodemailer from "nodemailer";
 
 const transporter = nodemailer.createTransport({
- 
-
   port: 465,
-  host: 'smtp.gmail.com',
-
-
+  host: "smtp.gmail.com",
 
   secure: true, // use SSL
   auth: {
-    
-      
-        // user: "itesa.getViral@gmail.com",
-        // pass: "rtspkviskcrhorey",
+    // user: "itesa.getViral@gmail.com",
+    // pass: "rtspkviskcrhorey",
 
-        user: email, // generated ethereal user
-        pass: passw, // generated ethereal password
-
+    user: email, // generated ethereal user
+    pass: passw, // generated ethereal password
   },
 });
 
-
-async function sendEmail({ name, email , phone , message ,portfoliemail }) {
+async function sendEmail({ name, email, phone, message, portfoliemail }) {
   const emailOptions = {
     form: `${name}`,
     to: portfoliemail,
@@ -82,15 +72,17 @@ async function sendEmail({ name, email , phone , message ,portfoliemail }) {
 }
 
 export default async function handler(req, res) {
-  if (req.method === 'POST') {
-    console.log('DATA-,' , req.body)
+  if (req.method === "POST") {
+    console.log("DATA-,", req.body);
     const emailRes = await sendEmail(req.body);
     if (emailRes.messageId) {
       return res.status(200).json({ message: `Email sent successfuly` });
     }
 
-    return res.status(400).json({ message: 'Error sending email' });
+    return res.status(400).json({ message: "Error sending email" });
   }
 
-  return res.status(400).json({ message: `Incorrect method: ${req.method}. Did you mean POST?` });
+  return res
+    .status(400)
+    .json({ message: `Incorrect method: ${req.method}. Did you mean POST?` });
 }

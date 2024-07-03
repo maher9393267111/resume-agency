@@ -13,12 +13,19 @@ const nextConfig = {
   i18n,
 
   webpack: (config) => {
-    config.resolve.fallback = { fs: false };
+    config.resolve.fallback = {
+      fs: false,
+      net: false,
+      dns: false,
+      tls: false,
+
+      assert: false,
+      process: false,
+      child_process: false,
+    };
 
     return config;
-},
-
-
+  },
 };
 
 module.exports = nextConfig;

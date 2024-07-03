@@ -14,6 +14,10 @@ handler.post(async (req, res) => {
 
   if (!user) return res.status(422).json({ message: "Wrong email!" });
   const rightPassword = await bcrypt.compare(password, user.password);
+
+console.log("passeord " , password , "user passowrd" , user.password )
+
+
   if (!rightPassword)
     return res.status(422).json({ message: "Wrong password!" });
 
