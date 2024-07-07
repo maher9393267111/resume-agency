@@ -329,7 +329,7 @@ export default function Contact({
 
                 <div className="w-full">
                   <button
-                    type="submit"
+                    type="submit arabicfont"
                     className={`${contactBTnBgColor} ${contactBtnTextColor} w-full mainBgColor text-whit font-bold text-center text-xl rounded-md  py-3 px-6`}
                   >
                     לִשְׁלוֹחַ
