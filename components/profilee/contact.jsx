@@ -332,7 +332,7 @@ export default function Contact({
                     type="submit"
                     className={`${contactBTnBgColor} ${contactBtnTextColor} w-full mainBgColor text-whit font-bold text-center text-xl rounded-md  py-3 px-6`}
                   >
-                    Submit
+                    לִשְׁלוֹחַ
                   </button>
                 </div>
               </form>
