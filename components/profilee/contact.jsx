@@ -278,7 +278,7 @@ export default function Contact({
                       required
                       value={name}
                       onChange={(e) => setName(e.target.value)}
-          placeholder="الاسم"
+          placeholder="שם פרטי"
                       
                       className={`${contactInputBorderColor} placeholdertext w-full py-[8px]     border-whit border outline-none `}
                       type="text"
@@ -290,7 +290,7 @@ export default function Contact({
                       required
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-          placeholder="الايميل"
+          placeholder="דואר אלקטרוני"
                      
                       className={`${contactInputBorderColor} placeholdertext w-full py-[8px]     border-whit border outline-none `}
                       type="email"
@@ -305,7 +305,7 @@ export default function Contact({
                     id="number"
                     value={number}
                     onChange={(e) => setNumber(e.target.value)}
-        placeholder="رقم الهاتف"
+        placeholder="מספר פלאפון"
                     
                     className={`${contactInputBorderColor} placeholdertext w-full py-[8px]     border-whit border outline-none `}
                     // type="text"
@@ -318,7 +318,7 @@ export default function Contact({
                     required
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
-        placeholder="الرسالة"
+        placeholder="הודעה"
                     
                     rows="4"
                     cols="50"
