@@ -860,17 +860,22 @@ export default function Home3({ name, userdata }) {
           <div className="pb-3">
             <div className=" flex justify-center items-center gap-3 arabicfont">
               <div>
+                <Link href={'/'}>
+           
                 <img
                   className="h-[38px] w-[38px] rounded-full"
                   src="/logo.jpg"
                   alt=""
                 />
+                     </Link>
               </div>
 
               <div>
+              <Link href={'/'}>
                 <p className=" font-s  arabicfont">
                   כרטיס ביקור דיגיטלי נבנה על ידי אולטרה טכנולוגי
                 </p>
+                </Link>
               </div>
             </div>
           </div>
