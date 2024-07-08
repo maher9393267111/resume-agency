@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function () {
   return (
-    <form onSubmit={handleSubmit}  action="">
+    <form dir='rtl' onSubmit={handleSubmit}  action="">
     <div className=" justify-center flex-col md:flex-row flex gap-4">
       <div className="w-full md:w-1/2">
         <input
@@ -26,8 +26,8 @@ export default function () {
         />
       </div>
     </div>
-
-    <div className="w-full my-4">
+{/* 
+    <div dir='rtl' className="w-full my-4">
       <input
              type="tel"
              required
@@ -38,10 +38,21 @@ export default function () {
              onChange={(e) => setNumber(e.target.value)}
         placeholder="מספר פלאפון"
         className={`${contactInputBorderColor} placeholdertext w-full py-[8px]     border-whit border outline-none `}
-        // type="text"
+       
       />
     </div>
-
+ */}
+sss
+<div className="w-full md:w-1/2">
+        <input
+               required
+               value={email}
+               onChange={(e) => setEmail(e.target.value)}
+          placeholder="דואר אלקטרוני"
+          className={`${contactInputBorderColor} placeholdertext w-full py-[8px]     border-whit border outline-none `}
+          type="email"
+        />
+      </div>
     <div className="w-full my-4">
       <textarea
            

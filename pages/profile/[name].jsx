@@ -837,7 +837,7 @@ export default function Home3({ name, userdata }) {
               )}
             </div>
 
-            <div>
+            <div dir="rtl">
               <Contact
                 bgImage={about?.bgImage}
                 mainTextColor={

@@ -90,7 +90,7 @@ export default function Contact({
   };
 
   return (
-    <div className={`${tempBg} relative -mt-[62px] bg-blac pb-1`}>
+    <div dir="rtl" className={`${tempBg} relative -mt-[62px] bg-blac pb-1`}>
       {/* without BACKGROUND 🐦  🐦  🐦 */}
 
       {!bgImage ? (
@@ -298,7 +298,7 @@ export default function Contact({
                   </div>
                 </div>
 
-                <div className="w-full my-4 arabicfont">
+                {/* <div dir="rtl" className="w-full my-4 arabicfont">
                   <input
                     type="tel"
                     required
@@ -308,9 +308,23 @@ export default function Contact({
         placeholder="מספר פלאפון"
                     
                     className={`${contactInputBorderColor} placeholdertext w-full py-[8px]     border-whit border outline-none `}
-                    // type="text"
+                  
                   />
-                </div>
+                </div> */}
+
+<div className="w-full my-4">
+                    <input
+                      required
+                      value={number}
+                      onChange={(e) => setNumber(e.target.value)}
+          placeholder=" נייד"
+                     
+                      className={`${contactInputBorderColor} placeholdertext w-full py-[8px]     border-whit border outline-none `}
+                      type="number"
+                    />
+                  </div>
+
+
 
                 <div className="w-full my-4 arabicfont">
                   <textarea
