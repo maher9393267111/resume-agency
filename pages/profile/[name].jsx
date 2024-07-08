@@ -863,6 +863,22 @@ export default function Home3({ name, userdata }) {
               />
             </div>
           </div>
+
+
+<div className="pb-3">
+  <div className=" flex justify-center items-center gap-3 arabicfont">
+<div>
+  <img className="h-[33px] w-[33px] rounded-full" src="/logo.jpg" alt="" />
+</div>
+
+<div>
+  <p className=" font-s">כרטיס ביקור דיגיטלי נבנה על ידי אולטרה טכנולוגי</p>
+</div>
+  </div>
+</div>
+
+
+
         </div>
       ) : (
         <div className=" text-center text-4xl mt-24  font-bold text-red-600">
