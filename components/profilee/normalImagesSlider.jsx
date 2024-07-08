@@ -57,9 +57,11 @@ export default function NormalSliderImages({
     </div>
   );
 
+  //${sliderBgColor}
+
   return (
     <section
-      className={`${sliderBgColor} !-mt-12 containe px-2 mx-auto my-12 lg:my-16 pb-20 text-center relative z-3 `}
+      className={` !-mt-12 containe px-2 mx-auto my-12 lg:my-16 pb-20 text-center relative z-3 `}
     >
 
 <h3 className="font-semibold py-8   md:text-2xl  textColor text-medicus-2 dark:text-white">

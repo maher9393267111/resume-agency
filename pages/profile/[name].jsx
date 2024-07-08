@@ -426,11 +426,15 @@ export default function Home3({ name, userdata }) {
                 className={` text-center text-whit  text-temp${temp}-main_text_color   font-semibold`}
               >
                 {about?.title && (
-                  <h1 className=" text-3xl md:text-5xl mt-3 arabicfont">{about?.title}</h1>
+                  <h1 className=" text-3xl md:text-5xl mt-3 arabicfont">
+                    {about?.title}
+                  </h1>
                 )}
 
                 {about?.work && (
-                  <h3 className=" text-2xl md:text-3xl my-3 arabicfont">{about?.work}</h3>
+                  <h3 className=" text-2xl md:text-3xl my-3 arabicfont">
+                    {about?.work}
+                  </h3>
                 )}
               </div>
 
@@ -760,7 +764,7 @@ export default function Home3({ name, userdata }) {
 
             {/* ----SliderImages---- */}
 
-            <div className="  text-center  bg-gray-300 mt-6  mb-24">
+            <div className="  text-center  bg-gay-300 mt-6  mb-24">
               {/* <SliderImages
                 sliderTitleColor={sliderTitleColor}
                 sliderBgColor={sliderBgColor}
@@ -771,70 +775,59 @@ export default function Home3({ name, userdata }) {
                 sliders={sliders}
               /> */}
 
-{imagesType === 'slider' ?
-
-          <NormalSliderImages
-                sliderTitleColor={sliderTitleColor}
-                sliderBgColor={sliderBgColor}
-                arrowsBgColor={arrowsBgColor}
-                arrowsColor={arrowsColor}
-                sliderUnderlineBorderColor={sliderUnderlineBorderColor}
-                title={imagesTitle}
-                sliders={images}
-              />
-
-:
-
-<div>
-
-
-
-              <h3 className="font-semibold py-8   md:text-2xl  textColor text-medicus-2 dark:text-white">
-     
-
-                <p
-                  className={`${sliderTitleColor} arabicfont rainbow-borde textColo text-2xl md:text-5xl leading-normal font-black sm:text-4xl  lg:text-6xl lg:leading-relaxed `}
-                >
-                  {imagesTitle}
-                </p>
-
-                <hr
-                  className={`${sliderUnderlineBorderColor} rainbow-borde w-[22%] mx-auto borderColo`}
-                ></hr>
-              </h3>
-
-              <div className={"wrapper "}>
-      
-
-                {images?.slice(0, 8)?.map((img, i) => (
-                  <div
-                    key={i}
-                    className={`img_holder rainbow-borde ${i === 3 && ""}  `}
-                  >
-                    <div
-                      onClick={() => {
-                        SetCurrentFullViewImageIndex(`${ImageEndpoint}/${img}`);
-                      }}
+              {imagesType === "slider" ? (
+                <NormalSliderImages
+                  sliderTitleColor={sliderTitleColor}
+                  sliderBgColor={sliderBgColor}
+                  arrowsBgColor={arrowsBgColor}
+                  arrowsColor={arrowsColor}
+                  sliderUnderlineBorderColor={sliderUnderlineBorderColor}
+                  title={imagesTitle}
+                  sliders={images}
+                />
+              ) : (
+                <div>
+                  <h3 className="font-semibold py-8   md:text-2xl  textColor text-medicus-2 dark:text-white">
+                    <p
+                      className={`${sliderTitleColor} arabicfont rainbow-borde textColo text-2xl md:text-5xl leading-normal font-black sm:text-4xl  lg:text-6xl lg:leading-relaxed `}
                     >
-                      <RemoveRedEyeIcon />
-                    </div>
-                    <Image
-                      width={400}
-                      height={400}
-                      src={`${ImageEndpoint}/${img}`}
-                      alt="a"
-                      fluid
-                    />
+                      {imagesTitle}
+                    </p>
+
+                    <hr
+                      className={`${sliderUnderlineBorderColor} rainbow-borde w-[22%] mx-auto borderColo`}
+                    ></hr>
+                  </h3>
+
+                  <div className={"wrapper "}>
+                    {images?.slice(0, 8)?.map((img, i) => (
+                      <div
+                        key={i}
+                        className={`img_holder rainbow-borde ${
+                          i === 3 && ""
+                        }  `}
+                      >
+                        <div
+                          onClick={() => {
+                            SetCurrentFullViewImageIndex(
+                              `${ImageEndpoint}/${img}`
+                            );
+                          }}
+                        >
+                          <RemoveRedEyeIcon />
+                        </div>
+                        <Image
+                          width={400}
+                          height={400}
+                          src={`${ImageEndpoint}/${img}`}
+                          alt="a"
+                          fluid
+                        />
+                      </div>
+                    ))}
                   </div>
-                ))}
-              </div>
-
-              </div>
-              }
-
-
-
-
+                </div>
+              )}
 
               {currentFullViewImageIndex !== null && (
                 <FullViewImage
@@ -864,21 +857,23 @@ export default function Home3({ name, userdata }) {
             </div>
           </div>
 
+          <div className="pb-3">
+            <div className=" flex justify-center items-center gap-3 arabicfont">
+              <div>
+                <img
+                  className="h-[38px] w-[38px] rounded-full"
+                  src="/logo.jpg"
+                  alt=""
+                />
+              </div>
 
-<div className="pb-3">
-  <div className=" flex justify-center items-center gap-3 arabicfont">
-<div>
-  <img className="h-[33px] w-[33px] rounded-full" src="/logo.jpg" alt="" />
-</div>
-
-<div>
-  <p className=" font-s">כרטיס ביקור דיגיטלי נבנה על ידי אולטרה טכנולוגי</p>
-</div>
-  </div>
-</div>
-
-
-
+              <div>
+                <p className=" font-s  arabicfont">
+                  כרטיס ביקור דיגיטלי נבנה על ידי אולטרה טכנולוגי
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       ) : (
         <div className=" text-center text-4xl mt-24  font-bold text-red-600">
