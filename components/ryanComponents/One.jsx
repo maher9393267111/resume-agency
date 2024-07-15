@@ -34,8 +34,9 @@ import {
   FaTwitter,
   FaFacebookF,
   FaPhone,
-} from "react-icons/fa";
 
+} from "react-icons/fa";
+import { BiArchiveIn } from "react-icons/bi";
 const RecentWorksFitness = dynamic(
   () => import("./components/sections/recentWorks/RecentWorksFitness"),
   {
@@ -80,7 +81,28 @@ const headerMenus = [
 
 const animationText = ["Veterinarian", "Animal Lover", "Dog Trainer"];
 
-const One = ({ about, temp, projects, images }) => {
+
+
+
+
+const One = ({ about, temp, projects, images ,downloadTxtFile,CreateVCard }) => {
+
+
+    const textColor =
+    temp === 5
+      ? "!text-[#957a4f]"
+      : temp === 6
+      ? "!text-[#957a4f]"
+      : temp === 7
+      ? "bg-temp3-contact_btn_bg"
+      : temp === 8
+      ? "bg-temp4-contact_btn_bg"
+      : temp === 9 && "bg-temp5-contact_btn_bg";
+    
+
+
+
+
   return (
     <Layout
       //   bg={"img"}
@@ -99,10 +121,10 @@ const One = ({ about, temp, projects, images }) => {
         <link rel="stylesheet" href="/ryan/css/gradient.css" />
         <link rel="stylesheet" href="/ryan/css/new-skin/new-skin.css" />
 
-        {/* {temp === 5 && <link rel="stylesheet" href="/ryan/css/demos/demo-5-colors.css" /> }
-        {temp === 4 && <link rel="stylesheet" href="/ryan/css/demos/demo-4-colors.css" /> } */}
+     {/* {temp === 5 && <link rel="stylesheet" href="/ryan/css/demos/demo-5-colors.css" /> }
+        {temp === 4 && <link rel="stylesheet" href="/ryan/css/demos/demo-4-colors.css" /> }  */}
         
-        <link rel="stylesheet" href="/ryan/css/demos/demo-5-colors.css" />
+        {/* <link rel="stylesheet" href="/ryan/css/demos/demo-5-colors.css" /> */}
         <link rel="stylesheet" href="/ryan/css/demos/ihab.css" />
       </Head>
 
@@ -134,28 +156,53 @@ const One = ({ about, temp, projects, images }) => {
             />
           </div>
 
-          <div className=" mt-8 text-[#957a4f]  font-serif mb-4 font-semibold !text-center mid-content  custscren  ">
+          <div className={` ${textColor} mt-8   font-serif mb-4 font-semibold !text-center mid-content  custscren  `}>
             {about?.title}.
           </div>
-          <div className="  text-[#957a4f]  font-serif mb-4 font-semibold !text-center mid-content  custscren  ">
+          <div className={` ${textColor} font-serif mb-4 font-semibold !text-center mid-content  custscren  `}>
             {about?.work}
           </div>
+
+          <div className="">
+<div className={`${textColor} mb-4 font-serif font-semibold  flex gap-1 justify-center items-center`}>
+
+<div>
+    <BiArchiveIn
+                        onClick={() => downloadTxtFile(CreateVCard())}
+    
+    
+    className=" w-8 h-8"/>
+</div>
+<p
+                        onClick={() => downloadTxtFile(CreateVCard())}
+
+
+>
+שמור אותנו באנשי קשר בטלפון 
+</p>
+
+
+</div>
+
+
+</div>
+
 
           {/* <TypingAnimation data={animationText} /> */}
 
           {/* -----Social links --- */}
-          <div class="cardicons mb-4 lg:!mb-12 !text-center mid-content arabicfont  custscren">
+          <div class="cardicons mb-8 lg:!mb-16 pb-12 !text-center mid-content arabicfont  custscren">
             {about?.facebook && (
               <div
                 style={{ width: "33%", float: "right", marginBottom: "7px" }}
               >
                 <a href={about?.facebook}>
-                <FaFacebookF className=" w-16  h-16  bg-[#8a6d3e]  rounded-full p-2  text-white"/>
+                <FaFacebookF className=" w-12  h-12  bg-[#8a6d3e]  rounded-full p-2  text-white"/>
 
                   {/* <img src="/ryan/images/facebook.png" /> */}
                 </a>
                 <span style={{ float: "left" }}>
-                  <a href={about?.facebook}>שיחה לנייד1</a>
+                Face
                 </span>
               </div>
             )}
@@ -172,15 +219,11 @@ const One = ({ about, temp, projects, images }) => {
                 >
                     
                   {/* <img src="/ryan/images/whatsapp.png" /> */}
-                  <FaWhatsapp className=" w-16  h-16  bg-[#8a6d3e]  rounded-full p-2  text-white"/>
+                  <FaWhatsapp className=" w-12  h-12  bg-[#8a6d3e]  rounded-full p-2  text-white"/>
 
                 </a>
                 <span style={{ float: "left" }}>
-                  <a 
-                        href={about?.whatsapp}
-n
-                  
-                  >שיחה לנייד1</a>
+           Whats
                 </span>
               </div>
             )}
@@ -195,15 +238,11 @@ n
                 
                 >
                   {/* <img src="/ryan/images/instagram.png" /> */}
-                  <FaInstagram className=" w-16  h-16  bg-[#8a6d3e]  rounded-full p-2  text-white"/>
+                  <FaInstagram className=" w-12  h-12  bg-[#8a6d3e]  rounded-full p-2  text-white"/>
 
                 </a>
                 <span style={{ float: "left" }}>
-                  <a 
-                        href={about?.instagram}
-
-                  
-                  >שיחה לנייד1</a>
+        Instagram
                 </span>
               </div>
             )}
@@ -218,15 +257,11 @@ n
                         href={about?.instagram}
                 
                 >
-                    <FaTwitter className=" w-16  h-16  bg-[#8a6d3e]  rounded-full p-2  text-white"/>
+                    <FaTwitter className=" w-12  h-12  bg-[#8a6d3e]  rounded-full p-2  text-white"/>
                   {/* <img src="/ryan/images/instagram.png" /> */}
                 </a>
                 <span style={{ float: "left" }}>
-                  <a 
-                        href={about?.instagram}
-
-                  
-                  >שיחה לנייד1</a>
+             Twitter
                 </span>
               </div>
             )}
@@ -236,13 +271,13 @@ n
               <div
                 style={{ width: "33%", float: "right", marginBottom: "7px" }}
               >
-                <a href={about?.facebook}>
-                <FaTelegram className=" w-16  h-16  bg-[#8a6d3e]  rounded-full p-2  text-white"/>
+                <a href={about?.telgram}>
+                <FaTelegram className=" w-12  h-12  bg-[#8a6d3e]  rounded-full p-2  text-white"/>
 
                   {/* <img src="/ryan/images/facebook.png" /> */}
                 </a>
                 <span style={{ float: "left" }}>
-                  <a href={about?.facebook}>שיחה לנייד1</a>
+                 Telgram
                 </span>
               </div>
             )}
@@ -253,18 +288,29 @@ n
                 style={{ width: "33%", float: "right", marginBottom: "7px" }}
               >
                 <a href={about?.link}>
-                <LuExternalLink className=" w-16  h-16  bg-[#8a6d3e]  rounded-full p-2  text-white"/>
+                <LuExternalLink className=" w-12  h-12  bg-[#8a6d3e]  rounded-full p-2  text-white"/>
 
                   {/* <img src="/ryan/images/facebook.png" /> */}
                 </a>
                 <span style={{ float: "left" }}>
-                  <a href={about?.link}>שיחה לנייד1</a>
+               Site
                 </span>
               </div>
             )}
 
 
+
+
+
+
           </div>
+
+
+
+
+
+
+
         </div>
       </Home>
       <ContentContainer>
