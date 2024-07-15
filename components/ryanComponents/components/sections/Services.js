@@ -46,11 +46,11 @@ const Services = ({ serviceList ,textColor }) => {
                 </div>
                 <div className="desc">
                   <div>
-                    <h4
-                    className={`${textColor} !text-center  arabicfont`}
+                    <div
+                    className={`${textColor} !text-center text-box  not arabicfont`}
 							 dangerouslySetInnerHTML={{ __html: service?.desc }}
                     
-                    ></h4>
+                    ></div>
                   </div>
                 </div>
               </div>

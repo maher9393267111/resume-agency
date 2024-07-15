@@ -125,6 +125,11 @@ body {
 
 
 
+    .col .p :not(.FunctionExpression) {
+      display:16px !important;
+    }
+
+
 
 
 
@@ -519,6 +524,8 @@ body {
 
 .normal .col p {
   color: #c6ab8a;
+
+
 }
 
 @media (max-width: 767px) {
@@ -528,9 +535,19 @@ body {
     text-align: center;
   }
 
-  .col p {
+  .col p  {
     font-size: 12px;
   }
+
+
+  
+.ryan .col p {
+  font-size: 16px;
+
+  
+}
+
+
 }
 
 
