@@ -124,7 +124,7 @@ const One = ({ about, temp, projects, images ,downloadTxtFile,CreateVCard }) => 
      {/* {temp === 5 && <link rel="stylesheet" href="/ryan/css/demos/demo-5-colors.css" /> }
         {temp === 4 && <link rel="stylesheet" href="/ryan/css/demos/demo-4-colors.css" /> }  */}
         
-        {/* <link rel="stylesheet" href="/ryan/css/demos/demo-5-colors.css" /> */}
+        <link rel="stylesheet" href="/ryan/css/demos/demo-5-colors.css" />
         <link rel="stylesheet" href="/ryan/css/demos/ihab.css" />
       </Head>
 

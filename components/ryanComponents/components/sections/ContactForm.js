@@ -88,17 +88,17 @@ const ContactForm = () => {
       {/* title */}
       <div className="title">Contact Form</div>
       {/* content */}
-      <div className="row">
+      <div className="row container">
         <div className="col col-d-12 col-t-12 col-m-12 border-line-v">
-          <div className="contact_form">
+          <div dir='' className="contact_form">
    
-            <form onSubmit={handleSubmit} id="contactForm" action={formData.formspreeURL}>
-              <div className="row">
+            <form dir=''  onSubmit={handleSubmit} id="contactForm" action={formData.formspreeURL}>
+              <div dir='rt' className="row">
                 <div className="col col-d-6 col-t-6 col-m-12">
                   <div className="group-val">
                     <input 
                         type="text" 
-                        placeholder="Full Name"
+                            placeholder="שם פרטי"
                         name="name" 
                         required
                         value={name}
@@ -112,7 +112,8 @@ const ContactForm = () => {
                   <div className="group-val">
                     <input 
                         type="email" 
-                        placeholder="Email Address"
+          placeholder="דואר אלקטרוני"
+                    
                         name="email"
                         required="required"
                         
@@ -126,7 +127,8 @@ const ContactForm = () => {
                   <div className="group-val">
                     <input 
                         type="number" 
-                        placeholder="Phone"
+          placeholder=" נייד"
+               
                         name="number"
                         required="required"
                         
@@ -140,8 +142,9 @@ const ContactForm = () => {
 
                 <div className="col col-d-12 col-t-12 col-m-12">
                   <div className="group-val">
-                    <textarea 
-                        placeholder="Your Message"
+                    <textarea
+        placeholder="הודעה"
+
                         name="message" 
                         required="required"
                         
@@ -153,15 +156,15 @@ const ContactForm = () => {
               </div>
               <div className="align-left">
                 <button type="submit" className="button">
-                  <span className="text">Send Message</span>
-                  <span className="arrow" />
+                  <span className="text text-2xl bg-[#957a4f] px-4 py-2  text-white font-semibold font-serif">  לִשְׁלוֹחַ</span>
+                  {/* <span className="arrow" /> */}
                 </button>
               </div>
             </form>
             
            
 
-            <div className="alert-success" id="contactFormStatus" />
+            <div className="alert-success " id="contactFormStatus" />
           </div>
         </div>
         <div className="clear" />
