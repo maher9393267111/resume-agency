@@ -21,12 +21,12 @@ const Header = ({ noSideBarBtn, menus, animationText }) => {
 
   return (
     <header className="header">
-      <div className="profile">
+      {/* <div className="profile">
         <div className="title">Ryan Adlard</div>
         <div className="subtitle subtitle-typed">
           <TypingAnimation data={animationText} />
         </div>
-      </div>
+      </div> */}
       {/* menu btn */}
       {!noSideBarBtn && (
         <a href="#" onClick={() => changeSideBar(true)} className="menu-btn">

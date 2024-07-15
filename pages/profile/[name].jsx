@@ -33,6 +33,7 @@ import vCardFactory from "vcards-js";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import FullViewImage from "../../components/profilee/fullImagePreview";
 import NextImage from "../../src/lib/nextImage";
+import One from "../../components/ryanComponents/One";
 
 export default function Home3({ name, userdata }) {
   const [currentFullViewImageIndex, SetCurrentFullViewImageIndex] =
@@ -376,6 +377,16 @@ export default function Home3({ name, userdata }) {
     console.log(vCardString);
     return vCardString;
   };
+
+
+  const ryan = false
+
+//temp ===
+  if(ryan){
+    return <One/>
+  }
+  
+
 
   return (
     <main className=" bg-gray-50 font-serif">
