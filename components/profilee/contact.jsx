@@ -89,6 +89,8 @@ export default function Contact({
     }
   };
 
+  
+
   return (
     <div dir="rtl" className={`${tempBg} relative -mt-[62px] bg-blac pb-1`}>
       {/* without BACKGROUND 🐦  🐦  🐦 */}

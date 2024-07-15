@@ -379,11 +379,11 @@ export default function Home3({ name, userdata }) {
   };
 
 
-  const ryan = false
+  const ryan = true
 
 //temp ===
   if(ryan){
-    return <One/>
+    return <One images={images} temp ={4} about ={about} projects ={projects}/>
   }
   
 

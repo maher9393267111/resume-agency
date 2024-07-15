@@ -19,8 +19,9 @@ import {
   RiTwitterFill,
 } from "react-icons/ri";
 import Carousel from "framer-motion-carousel";
+import { ImageEndpoint , defaultImage } from "../../../../src/lib/globall";
 
-export default function SliderImagess({ }) {
+export default function SliderImagess({ images}) {
 
 const imagesData =[
 	"https://mobilecard.co.il/ehabdaher/images/gallery/2.jpg",
@@ -69,7 +70,7 @@ const imagesData =[
             );
           }}
         >
-          {imagesData.map((image, index) => {
+          {images?.map((image, index) => {
             return (
               <div
                 key={index}
@@ -84,7 +85,9 @@ const imagesData =[
                   className={
                     " h-full mx-auto   object-fit rounded-md shadow-lg"
                   }
-                  src={`https://mobilecard.co.il/ehabdaher/images/gallery/2.jpg`}
+                  // src={`https://mobilecard.co.il/ehabdaher/images/gallery/2.jpg`}
+                  src={`${ImageEndpoint}/${image}`}
+
                   alt=""
                 />
               </div>

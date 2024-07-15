@@ -1,4 +1,5 @@
 import { Formik } from 'formik';
+import React from 'react';
 
 const ContactForm = () => {
   
@@ -6,6 +7,82 @@ const ContactForm = () => {
     "formspreeURL": "https://formspree.io/f/your_api_key"
   }
   
+
+
+  const [name, setName] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [number, setNumber] = React.useState("");
+  const [message, setMessage] = React.useState("");
+
+  const sendMessage = async (data) => {
+    try {
+      //  setIsLoading(true);
+
+      const res = await fetch(`/api/contact`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+
+        body: JSON.stringify({
+          title: "contact",
+          name: name,
+          email: email,
+          message: message,
+
+          phone: number,
+          portfoliemail: portfoliemail,
+        }),
+      });
+
+      console.log("response", res?.status);
+
+      if (res.status === 200) {
+        successHandler("message sended successfully");
+      }
+
+      //  setIsLoading(false);
+      setName("");
+      setEmail("");
+      //   setSubject("");
+      setMessage("");
+      setNumber("");
+      //   setPhone("")
+    } catch (error) {
+      //  setIsLoading(false);
+      errorHandler(error?.message);
+      console.log(error);
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(
+      "name",
+      name,
+      "email",
+      email,
+      "mesage",
+      message,
+      "phone",
+      number
+    );
+    if (name && email && message && number) {
+      sendMessage({
+        name,
+        email,
+
+        message,
+        number,
+      });
+    } else {
+      errorHandler("All fields is requeired");
+    }
+  };
+
+  
+
+
+
+
   return (
     <div className="content contacts">
       {/* title */}
@@ -14,72 +91,7 @@ const ContactForm = () => {
       <div className="row">
         <div className="col col-d-12 col-t-12 col-m-12 border-line-v">
           <div className="contact_form">
-          <Formik
-            initialValues = {{ email: '', name: '', message: '' }}
-            validate = { values => {
-                const errors = {};
-                if (!values.email) {
-                    errors.email = 'Required';
-                } else if (
-                    !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-                ) {
-                    errors.email = 'Invalid email address';
-                }
-                return errors;
-            }}
-            onSubmit = {( values, { setSubmitting, resetForm } ) => {
-                const form = document.getElementById("contactForm");
-                const status = document.getElementById("contactFormStatus");
-                const data = new FormData();
-
-                data.append('name', values.name);
-                data.append('email', values.email);
-                data.append('message', values.message);
-
-                fetch(form.action, {
-                    method: 'POST',
-                    body: data,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                }).then(response => {
-                    console.log(response);
-                    if (response.ok) {
-                        resetForm();
-                        status.innerHTML = "Thanks for your submission!";
-                        status.style.display = 'block';
-                        form.style.display = 'none';
-
-                        setTimeout(function(){
-                          status.style.display = 'none';
-                          form.style.display = 'block';
-                        }, 4000);
-                    } else {
-                        response.json().then(data => {
-                            if (Object.hasOwn(data, 'errors')) {
-                                status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
-                            } else {
-                                status.innerHTML = "Oops! There was a problem submitting your form"
-                            }
-                        })
-                    }
-                }).catch(error => {
-                    status.innerHTML = "Oops! There was a problem submitting your form"
-                });
-
-                setSubmitting(false);
-            }}
-            >
-            {({
-                values,
-                errors,
-                touched,
-                handleChange,
-                handleBlur,
-                handleSubmit,
-                isSubmitting,
-                /* and other goodies */
-            }) => (
+   
             <form onSubmit={handleSubmit} id="contactForm" action={formData.formspreeURL}>
               <div className="row">
                 <div className="col col-d-6 col-t-6 col-m-12">
@@ -88,12 +100,13 @@ const ContactForm = () => {
                         type="text" 
                         placeholder="Full Name"
                         name="name" 
-                        required="required" 
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        value={values.name} 
+                        required
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
                     />
                   </div>
+
+            
                 </div>
                 <div className="col col-d-6 col-t-6 col-m-12">
                   <div className="group-val">
@@ -102,21 +115,38 @@ const ContactForm = () => {
                         placeholder="Email Address"
                         name="email"
                         required="required"
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        value={values.email} 
+                        
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
                     />
                   </div>
                 </div>
+
+                <div className="col col-d-6 col-t-6 col-m-12">
+                  <div className="group-val">
+                    <input 
+                        type="number" 
+                        placeholder="Phone"
+                        name="number"
+                        required="required"
+                        
+                        value={number}
+                        onChange={(e) => setNumber(e.target.value)}
+                    />
+                  </div>
+                </div>
+
+
+
                 <div className="col col-d-12 col-t-12 col-m-12">
                   <div className="group-val">
                     <textarea 
                         placeholder="Your Message"
                         name="message" 
                         required="required"
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        value={values.message} 
+                        
+                        value={message}
+                        onChange={(e) => setMessage(e.target.value)}
                     />
                   </div>
                 </div>
@@ -128,8 +158,8 @@ const ContactForm = () => {
                 </button>
               </div>
             </form>
-            )}
-            </Formik>
+            
+           
 
             <div className="alert-success" id="contactFormStatus" />
           </div>

@@ -23,6 +23,8 @@ import Work from "./components/Work";
 import ContentContainer from "./layout/ContentContainer";
 import Header from "./layout/Header";
 import Layout from "./layout/Layout";
+import { ImageEndpoint, defaultImage } from "../../src/lib/globall";
+import { LuExternalLink } from "react-icons/lu";
 
 
 import {
@@ -35,10 +37,7 @@ import {
 } from "react-icons/fa";
 
 const RecentWorksFitness = dynamic(
-  () =>
-    import(
-      "./components/sections/recentWorks/RecentWorksFitness"
-    ),
+  () => import("./components/sections/recentWorks/RecentWorksFitness"),
   {
     ssr: false,
   }
@@ -72,25 +71,25 @@ const serviceList = [
 ];
 
 const headerMenus = [
-  { title: "About", link: "about", icon: "icon ion-person" },
-  { title: "Resume", link: "resume", icon: "icon ion-android-list" },
-  { title: "Gallery", link: "works", icon: "icon ion-images" },
-//   { title: "Blog", link: "blog", icon: "icon ion-chatbox-working" },
-  { title: "Contact", link: "contacts", icon: "icon ion-at" },
+  { title: "מי אנחנו", link: "about", icon: "icon ion-person" },
+  { title: "שירותים", link: "resume", icon: "icon ion-android-list" },
+  { title: "גלרייה", link: "works", icon: "icon ion-images" },
+  //   { title: "Blog", link: "blog", icon: "icon ion-chatbox-working" },
+  { title: "צור קשר", link: "contacts", icon: "icon ion-at" },
 ];
 
 const animationText = ["Veterinarian", "Animal Lover", "Dog Trainer"];
 
-const One= () => {
+const One = ({ about, temp, projects, images }) => {
   return (
     <Layout
-    //   bg={"img"}
-	  bg={"gradient"}
+      //   bg={"img"}
+      bg={"gradient"}
       bgImgUrl="images/bg5.jpg"
       animationIn={"rollIn"}
       animationOut={"rollOut"}
     >
-<Head>
+      <Head>
         <link rel="stylesheet" href="/ryan/css/basic.css" />
         <link rel="stylesheet" href="/ryan/css/layout.css" />
         <link rel="stylesheet" href="/ryan/css/blogs.css" />
@@ -99,114 +98,192 @@ const One= () => {
         <link rel="stylesheet" href="/ryan/css/animate.css" />
         <link rel="stylesheet" href="/ryan/css/gradient.css" />
         <link rel="stylesheet" href="/ryan/css/new-skin/new-skin.css" />
+
+        {/* {temp === 5 && <link rel="stylesheet" href="/ryan/css/demos/demo-5-colors.css" /> }
+        {temp === 4 && <link rel="stylesheet" href="/ryan/css/demos/demo-4-colors.css" /> } */}
+        
         <link rel="stylesheet" href="/ryan/css/demos/demo-5-colors.css" />
         <link rel="stylesheet" href="/ryan/css/demos/ihab.css" />
       </Head>
 
       <Header noSideBarBtn menus={headerMenus} animationText={animationText} />
       <Home>
-        <div className="profile no-photo ryan">
+        <div className="profile no-photo rya">
           {/* profile image */}
           <div
             className="slide"
             style={{
               backgroundImage:
-                "url(https://mobilecard.co.il/ehabdaher/images/bg.jpg)",
+                //https://mobilecard.co.il/ehabdaher/images/bg.jpg
+                `url(${ImageEndpoint}/${about?.headImage})`,
             }}
           />
           {/* profile titles */}
 
           {/* ---user image ryan --- */}
 
-          <div className="title !top-[-33px] !relative ">
+          <div className="title !top-[15px] !relative ">
             <img
-              className=" w-28 h-28  rounded-full  !top-12  shadow-2xl   "
-              src="https://mobilecard.co.il/ehabdaher/images/logo.jpg"
+              className=" w-[140px] h-[140px]  rounded-full relative  !top-6  shadow-2xl   "
+              src={
+                about?.myImage
+                  ? `${ImageEndpoint}/${about?.myImage}`
+                  : defaultImage
+              }
               alt=""
             />
           </div>
 
-          <div className="  text-[#957a4f] mb-4 font-semibold !text-center mid-content  custscren  ">Dr. Octavia H.</div>
+          <div className=" mt-8 text-[#957a4f]  font-serif mb-4 font-semibold !text-center mid-content  custscren  ">
+            {about?.title}.
+          </div>
+          <div className="  text-[#957a4f]  font-serif mb-4 font-semibold !text-center mid-content  custscren  ">
+            {about?.work}
+          </div>
 
           {/* <TypingAnimation data={animationText} /> */}
 
-          <div class="cardicons !text-center mid-content arabicfont  custscren">
-		  <div style={{ width: "33%", float: "right", marginBottom: "7px" }}>
-              <a href="tel:0522483919">
-                <img src="https://mobilecard.co.il/ehabdaher/images/mobile.png" />
-              </a>
-              <span style={{ float: "left" }}>
-                <a  href="tel:0522483919">שיחה לנייד1</a>
-              </span>
-            </div>
-			<div style={{ width: "33%", float: "right", marginBottom: "7px" }}>
-              <a href="tel:0522483919">
-                <img src="https://mobilecard.co.il/ehabdaher/images/mobile.png" />
-              </a>
-              <span style={{ float: "left" }}>
-                <a href="tel:0522483919">שיחה לנייד 1</a>
-              </span>
-            </div>
-            <div style={{ width: "33%", float: "right", marginBottom: "7px" }}>
-              <a href="tel:0522483919">
-                <img src="https://mobilecard.co.il/ehabdaher/images/mobile.png" />
-              </a>
-              <span style={{ float: "left" }}>
-                <a href="tel:0522483919">שיחה לנייד</a>
-              </span>
-            </div>
+          {/* -----Social links --- */}
+          <div class="cardicons mb-4 lg:!mb-12 !text-center mid-content arabicfont  custscren">
+            {about?.facebook && (
+              <div
+                style={{ width: "33%", float: "right", marginBottom: "7px" }}
+              >
+                <a href={about?.facebook}>
+                <FaFacebookF className=" w-16  h-16  bg-[#8a6d3e]  rounded-full p-2  text-white"/>
 
-            <div style={{ width: "33%", float: "right", marginBottom: "7px" }}>
-              <a href="tel:0522483919">
-                <img src="https://mobilecard.co.il/ehabdaher/images/mobile.png" />
-              </a>
-              <span style={{ float: "left" }}>
-                <a href="tel:0522483919">שיחה לנייד</a>
-              </span>
-            </div>
+                  {/* <img src="/ryan/images/facebook.png" /> */}
+                </a>
+                <span style={{ float: "left" }}>
+                  <a href={about?.facebook}>שיחה לנייד1</a>
+                </span>
+              </div>
+            )}
 
-            <div style={{ width: "33%", float: "right", marginBottom: "7px" }}>
-              <a href="tel:0522483919">
-                <img src="https://mobilecard.co.il/ehabdaher/images/mobile.png" />
-              </a>
-              <span style={{ float: "left" }}>
-                <a href="tel:0522483919">שיחה לנייד</a>
-              </span>
-            </div>
 
-            <div style={{ width: "33%", float: "right", marginBottom: "7px" }}>
-              <a href="tel:0522483919">
-                <img src="https://mobilecard.co.il/ehabdaher/images/mobile.png" />
-              </a>
-              <span style={{ float: "left" }}>
-                <a href="tel:0522483919">שיחה לנייד 1</a>
-              </span>
-            </div>
+{about?.whatsapp && (
+
+              <div
+                style={{ width: "33%", float: "right", marginBottom: "7px" }}
+              >
+                <a
+                        href={about?.whatsapp}
+                
+                >
+                    
+                  {/* <img src="/ryan/images/whatsapp.png" /> */}
+                  <FaWhatsapp className=" w-16  h-16  bg-[#8a6d3e]  rounded-full p-2  text-white"/>
+
+                </a>
+                <span style={{ float: "left" }}>
+                  <a 
+                        href={about?.whatsapp}
+n
+                  
+                  >שיחה לנייד1</a>
+                </span>
+              </div>
+            )}
+
+
+{about?.instagram && (
+              <div
+                style={{ width: "33%", float: "right", marginBottom: "7px" }}
+              >
+                <a
+                        href={about?.instagram}
+                
+                >
+                  {/* <img src="/ryan/images/instagram.png" /> */}
+                  <FaInstagram className=" w-16  h-16  bg-[#8a6d3e]  rounded-full p-2  text-white"/>
+
+                </a>
+                <span style={{ float: "left" }}>
+                  <a 
+                        href={about?.instagram}
+
+                  
+                  >שיחה לנייד1</a>
+                </span>
+              </div>
+            )}
+
+
+
+{about?.twitter && (
+              <div
+                style={{ width: "33%", float: "right", marginBottom: "7px" }}
+              >
+                <a
+                        href={about?.instagram}
+                
+                >
+                    <FaTwitter className=" w-16  h-16  bg-[#8a6d3e]  rounded-full p-2  text-white"/>
+                  {/* <img src="/ryan/images/instagram.png" /> */}
+                </a>
+                <span style={{ float: "left" }}>
+                  <a 
+                        href={about?.instagram}
+
+                  
+                  >שיחה לנייד1</a>
+                </span>
+              </div>
+            )}
+
+
+{about?.telgram && (
+              <div
+                style={{ width: "33%", float: "right", marginBottom: "7px" }}
+              >
+                <a href={about?.facebook}>
+                <FaTelegram className=" w-16  h-16  bg-[#8a6d3e]  rounded-full p-2  text-white"/>
+
+                  {/* <img src="/ryan/images/facebook.png" /> */}
+                </a>
+                <span style={{ float: "left" }}>
+                  <a href={about?.facebook}>שיחה לנייד1</a>
+                </span>
+              </div>
+            )}
+
+
+{about?.link && (
+              <div
+                style={{ width: "33%", float: "right", marginBottom: "7px" }}
+              >
+                <a href={about?.link}>
+                <LuExternalLink className=" w-16  h-16  bg-[#8a6d3e]  rounded-full p-2  text-white"/>
+
+                  {/* <img src="/ryan/images/facebook.png" /> */}
+                </a>
+                <span style={{ float: "left" }}>
+                  <a href={about?.link}>שיחה לנייד1</a>
+                </span>
+              </div>
+            )}
+
+
           </div>
         </div>
-
-        {/* -----social links ----- */}
       </Home>
       <ContentContainer>
         <About animationIn={"rollIn"} animationOut={"rollOut"}>
-          <AboutMe bio={bio} />
-        
-					{/* <FunFact />
+          <AboutMe bio={about?.desc} />
+
+          {/* <FunFact />
 					<Clients />
-					<Quote /> */} 
+					<Quote /> */}
         </About>
         <Resume animationIn={"rollIn"} animationOut={"rollOut"}>
-
-		<Services serviceList={serviceList} /> 
+          <Services serviceList={projects} />
 
           {/* <ResumeSectionFitness />
           <SkillsFitness />
           <Testimonials /> */}
         </Resume>
         <Work animationIn={"rollIn"} animationOut={"rollOut"}>
-
-<Testimonials/>
-
+          <Testimonials images={images} />
 
           {/* <RecentWorksFitness /> */}
         </Work>
@@ -221,4 +298,4 @@ const One= () => {
     </Layout>
   );
 };
-export default  One;
+export default One;

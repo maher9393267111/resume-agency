@@ -46,7 +46,11 @@ const Services = ({ serviceList }) => {
                 </div>
                 <div className="desc">
                   <div>
-                    <p>{service.desc}</p>
+                    <p
+                    
+							 dangerouslySetInnerHTML={{ __html: service?.desc }}
+                    
+                    ></p>
                   </div>
                 </div>
               </div>
