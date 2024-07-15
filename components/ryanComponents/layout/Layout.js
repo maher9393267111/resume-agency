@@ -24,6 +24,9 @@ const Layout = ({
   }, []);
 
   return (
+    <div  dir="" className="ryan">
+
+  
     <Fragment>
       <VideoPopup />
       <ImageView />
@@ -41,6 +44,7 @@ const Layout = ({
         <ContentSidebar />
       </div>
     </Fragment>
+    </div>
   );
 };
 export default Layout;

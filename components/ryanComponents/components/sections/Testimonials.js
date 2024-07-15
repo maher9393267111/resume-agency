@@ -1,100 +1,97 @@
-import SwiperCore, {
-	Autoplay,
-	EffectFade,
-	Grid,
-	Navigation,
-	Pagination,
-} from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
-SwiperCore.use([Pagination, Navigation, EffectFade, Autoplay, Grid]);
+import React from "react";
 
-const Testimonials = () => {
-	const props = {
-		loop: true,
-		autoplay: {
-			delay: 5000,
-			disableOnInteraction: false,
-		},
-		pagination: {
-			el: ".swiper-pagination",
-		},
-	};
-	return (
-		<div className="content testimonials">
-			{/* title */}
-			<div className="title">Testimonials</div>
-			{/* content */}
-			<div className="row testimonials-items">
-				{/* client item */}
-				<div className="col col-d-12 col-t-12 col-m-12 border-line-v">
-					<div className="revs-carousel default-revs">
-						<Swiper {...props} className="owl-carousel">
-							<SwiperSlide className="item">
-								<div className="revs-item">
-									<div className="text">
-										I can&apos;t thank the team at PHAH enough! Their
-										compassionate care and expertise helped my beloved furry
-										friend recover from a serious illness. They treated us like
-										family, and I wouldn&apos;t trust anyone else with my
-										dog&apos;s health.
-									</div>
-									<div className="user">
-										<div className="img">
-											<img src="images/testi1.jpg" alt="" />
-										</div>
-										<div className="info">
-											<div className="name">Mike Stewart</div>
-											<div className="company">Dog Owner</div>
-										</div>
-										<div className="clear" />
-									</div>
-								</div>
-							</SwiperSlide>
-							<SwiperSlide className="item">
-								<div className="revs-item">
-									<div className="text">
-										The staff and doctors at PHAH are the best! They take such
-										good care of our dogs that I&apos;d have a hard time
-										bringing them anywhere else.
-									</div>
-									<div className="user">
-										<div className="img">
-											<img src="images/testi2.jpg" alt="" />
-										</div>
-										<div className="info">
-											<div className="name">Tim Rollins</div>
-											<div className="company">Dog Owner / Farmer</div>
-										</div>
-										<div className="clear" />
-									</div>
-								</div>
-							</SwiperSlide>
-							<SwiperSlide className="item">
-								<div className="revs-item">
-									<div className="text">
-										This was the best vet experience! I was really nervous about
-										bringing my cat “tubs” to a new vet because I previously had
-										a horrible experience at a vet clinic that I worked at.
-									</div>
-									<div className="user">
-										<div className="img">
-											<img src="images/testi3.png" alt="" />
-										</div>
-										<div className="info">
-											<div className="name">Kim Busby</div>
-											<div className="company">Cat Owner</div>
-										</div>
-										<div className="clear" />
-									</div>
-								</div>
-							</SwiperSlide>
-							<div className="swiper-pagination"></div>
-						</Swiper>
-					</div>
-				</div>
-				<div className="clear" />
-			</div>
-		</div>
-	);
-};
-export default Testimonials;
+
+import { Swiper, SwiperSlide } from "swiper/react";
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+
+// import required modules
+import { Autoplay } from "swiper";
+import {
+  RiArticleLine,
+  RiBuildingFill,
+  RiCalendarTodoFill,
+  RiFacebookBoxFill,
+  RiMailFill,
+  RiMapPin2Fill,
+  RiPhoneFill,
+  RiTwitterFill,
+} from "react-icons/ri";
+import Carousel from "framer-motion-carousel";
+
+export default function SliderImagess({ }) {
+
+const imagesData =[
+	"https://mobilecard.co.il/ehabdaher/images/gallery/2.jpg",
+	"https://mobilecard.co.il/ehabdaher/images/gallery/2.jpg"
+
+	,
+	"https://mobilecard.co.il/ehabdaher/images/gallery/2.jpg"
+
+]
+
+
+  return (
+
+    <div className="mt-6">
+
+      <div
+        className={
+          " flex w-full h-[333px] md:h-[700px] px-1 rounded-lg overflow-hidden"
+        }
+      >
+        <Carousel
+          autoPlay={true}
+          interval={4000}
+          loop={true}
+        //   renderArrowLeft={() => null}
+        //   renderArrowRight={({ activeIndex, handleNext }) => null}
+          renderDots={({ setActiveIndex, activeIndex }) => {
+            return (
+              <div
+                className={
+                  "absolute bottom-0 left-0 w-full h-10 bg-gry-800 bg-opacity-20 flex flex-row gap-2 items-center justify-center rounded-lg"
+                }
+              >
+                {imagesData.map((image, index) => {
+                  return (
+                    <div
+                      key={index}
+                      className={`${
+                        index == activeIndex ? "bg-amber-400" : "bg-white"
+                      } w-3 h-3 rounded-full cursor-pointer hover:bg-red-600 transition duration-300 ease-in-out rounded-lg`}
+                      onClick={() => setActiveIndex(index)}
+                    ></div>
+                  );
+                })}
+              </div>
+            );
+          }}
+        >
+          {imagesData.map((image, index) => {
+            return (
+              <div
+                key={index}
+                className={
+                  "flex h-full w-full cursor-grab active:cursor-grabbing"
+                }
+              >
+                <img
+                  height={1000}
+                  width={1000}
+                  draggable={false}
+                  className={
+                    " h-full mx-auto   object-fit rounded-md shadow-lg"
+                  }
+                  src={`https://mobilecard.co.il/ehabdaher/images/gallery/2.jpg`}
+                  alt=""
+                />
+              </div>
+            );
+          })}
+        </Carousel>
+      </div>
+    </div>
+  );
+}

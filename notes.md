@@ -762,3 +762,7 @@ export const getServerSideProps = async ({ req, res }) => {
 
 export default AboutPage;
 
+
+-----------------
+
+gold color -->   #957a4f

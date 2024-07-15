@@ -399,6 +399,11 @@ body {
 
   }
 
+  .iconCircler{
+    /* border-[#F6ECA9] */
+    @apply p-[25px]  text-center mx-auto my-2 w-[30px] h-[30px]  md:p-9 rounded-full border-2 hover:scale-125 transition-all duration-200   relative
+
+  }
 
   .telbtn{
     /* text-[#1F2544]   bg-white    */
@@ -520,6 +525,12 @@ body {
     font-size: 12px;
   }
 }
+
+
+.ryan .col {
+  background-color: transparent !important;
+}
+
 
 
 .fullView {
