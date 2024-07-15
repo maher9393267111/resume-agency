@@ -157,6 +157,13 @@ body {
   @apply top-20
 }
 
+
+.ryan .header {
+  @apply !top-2 
+}
+
+
+
 .absolute-center {
   position: absolute;
   left: 50%;
@@ -510,7 +517,7 @@ body {
   color: #c5a880;
 }
 
-.col p {
+.normal .col p {
   color: #c6ab8a;
 }
 

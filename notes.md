@@ -766,3 +766,15 @@ export default AboutPage;
 -----------------
 
 gold color -->   #957a4f
+
+black dark ---> #edff20 !important
+
+orange 8  --> #f07038
+
+green 10 -->  #4c7753  !important
+
+
+
+
+
+https://ryancv-psi.vercel.app/index-demo-7#about

@@ -389,7 +389,7 @@ export default function Home3({ name, userdata }) {
 
 
   return (
-    <main className=" bg-gray-50 font-serif">
+    <main className="normal bg-gray-50 font-serif">
       {status === "accepted" ? (
         <div className="layoutContainer">
           <div

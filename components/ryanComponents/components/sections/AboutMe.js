@@ -5,7 +5,7 @@ Back-end &amp; Frond-end developer from UK, London. I have rich
 experience in wordpress, also I am good at Magento. I love to
 talk with you about our unique.
 </p>`;
-const AboutMe = ({ bio }) => {
+const AboutMe = ({ bio ,textColor }) => {
 	return (
 		<Fragment>
 			<div className="content about">
@@ -15,9 +15,10 @@ const AboutMe = ({ bio }) => {
 				</div>
 				{/* content */}
 				<div className="row">
-					<div className="col col-d-12 col-t-12 col-m-12 border-line-v">
+					<div className=" container  co col-d-12 col-t-12 col-m-12 border-line-v">
+
 						<div dir="rtl"
-							className="text-box arabicfont"
+							className={` ${textColor}  text-box arabicfont`}
 							 dangerouslySetInnerHTML={{ __html: bio ? bio : bio_ }}
 						>
 

@@ -1,7 +1,7 @@
 import { Formik } from 'formik';
 import React from 'react';
 
-const ContactForm = ({domainUrl}) => {
+const ContactForm = ({domainUrl ,textColor ,bgColor ,btnColor}) => {
   
   const formData = {
     "formspreeURL": "https://formspree.io/f/your_api_key"
@@ -14,7 +14,7 @@ const ContactForm = ({domainUrl}) => {
   const [number, setNumber] = React.useState("");
   const [message, setMessage] = React.useState("");
 
-  const sendMessage = async (data) => {
+  const sendMessage = async (data ) => {
     try {
       //  setIsLoading(true);
 
@@ -156,7 +156,7 @@ const ContactForm = ({domainUrl}) => {
               </div>
               <div className="align-left">
                 <button type="submit" className="button">
-                  <span className="text text-2xl bg-[#957a4f] px-4 py-2  text-white font-semibold font-serif">  לִשְׁלוֹחַ</span>
+                  <span className= {`text text-2xl  px-4 py-2  ${textColor} font-semibold font-serif`}>  לִשְׁלוֹחַ</span>
                   {/* <span className="arrow" /> */}
                 </button>
               </div>
@@ -174,12 +174,12 @@ const ContactForm = ({domainUrl}) => {
                 className={`black  text-whit font-semibold text-lg`}
               >
                 <p
-                className=' font-serif '
+                
                      style={{
                       color:`black`
                     }}
                 
-                dir="rtl">שתפו את כרטיס הביקור שלנו עם חברים:</p>
+                dir="rtl" className={`${textColor} font-serif `}>שתפו את כרטיס הביקור שלנו עם חברים:</p>
               </div>
 
               <div className="flex gap-2 justify-center mt-3 ">

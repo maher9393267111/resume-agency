@@ -391,7 +391,7 @@ textarea:focus:-ms-input-placeholder {
 }
 
 input, textarea, button, input[type="submit"] {
-	border-color: #666;
+	border-color: #666 !important;
 }
 
 .content-sidebar {

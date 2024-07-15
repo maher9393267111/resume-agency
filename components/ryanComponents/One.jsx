@@ -26,7 +26,6 @@ import Layout from "./layout/Layout";
 import { ImageEndpoint, defaultImage } from "../../src/lib/globall";
 import { LuExternalLink } from "react-icons/lu";
 
-
 import {
   FaWhatsapp,
   FaInstagram,
@@ -34,7 +33,6 @@ import {
   FaTwitter,
   FaFacebookF,
   FaPhone,
-
 } from "react-icons/fa";
 import { BiArchiveIn } from "react-icons/bi";
 const RecentWorksFitness = dynamic(
@@ -81,24 +79,52 @@ const headerMenus = [
 
 const animationText = ["Veterinarian", "Animal Lover", "Dog Trainer"];
 
-
-
-
-
-const One = ({ about, temp, projects, images ,downloadTxtFile,CreateVCard  , domainUrl}) => {
-
-
-    const textColor =
+const One = ({
+  about,
+  temp,
+  projects,
+  images,
+  downloadTxtFile,
+  CreateVCard,
+  domainUrl,
+}) => {
+  const textColor =
     temp === 5
       ? "!text-[#957a4f]"
       : temp === 6
       ? "!text-[#957a4f]"
       : temp === 7
-      ? "bg-temp3-contact_btn_bg"
+      ? "!text-[#edff20]"
       : temp === 8
-      ? "bg-temp4-contact_btn_bg"
-      : temp === 9 && "bg-temp5-contact_btn_bg";
-    
+      ? "text-[#f07038]"
+      : temp === 9 ? "!text-[#fff250]" : temp === 10 && "text-[#4c7753]";
+
+
+      const bgColor =
+      temp === 5
+        ? "!bg-[#957a4f]"
+        : temp === 6
+        ? "!bg-[#957a4f]"
+        : temp === 7
+        ? "!bg-[#edff21]"
+        : temp === 8
+        ? "bg-[#f07038]"
+        : temp === 9 ? "bg-[#fff250]" : temp === 10 && "bg-[#4c7753]";
+
+
+
+        
+      const iconTextColor =
+      temp === 5
+        ? "text-white"
+        : temp === 6
+        ? "text-white"
+        : temp === 7
+        ? "text-black"
+        : temp === 8
+        ? "text-white"
+        : temp === 9 ? "text-black" : temp === 10 && "text-white" ;
+
 
 
 
@@ -106,8 +132,8 @@ const One = ({ about, temp, projects, images ,downloadTxtFile,CreateVCard  , dom
   return (
     <Layout
       //   bg={"img"}
-    //   bg={"gradient"}
-    bg={"blured"}
+      //   bg={"gradient"}
+      bg={"blured"}
       bgImgUrl="images/bg7.jpg"
       animationIn={"rollIn"}
       animationOut={"rollOut"}
@@ -121,24 +147,75 @@ const One = ({ about, temp, projects, images ,downloadTxtFile,CreateVCard  , dom
         <link rel="stylesheet" href="/ryan/css/animate.css" />
         <link rel="stylesheet" href="/ryan/css/gradient.css" />
 
-
         {/* --------------- */}
 
-      
-       
-
-     {/* {temp === 5 && <link rel="stylesheet" href="/ryan/css/demos/demo-5-colors.css" /> }
+        {/* {temp === 5 && <link rel="stylesheet" href="/ryan/css/demos/demo-5-colors.css" /> }
         {temp === 4 && <link rel="stylesheet" href="/ryan/css/demos/demo-4-colors.css" /> }  */}
 
+        {temp === 6 && (
           <link rel="stylesheet" href="/ryan/css/new-skin/new-skin.css" />
-        <link rel="stylesheet" href="/ryan/css/demos/demo-5-colors.css" />
-        <link rel="stylesheet" href="/ryan/css/demos/ihab.css" />
+        )}
+        {temp === 6 && (
+          <link rel="stylesheet" href="/ryan/css/demos/demo-5-colors.css" />
+        )}
+        {temp === 6 && (
+          <link rel="stylesheet" href="/ryan/css/demos/ihab.css" />
+        )}
+
+        {temp === 7 && (
+          <link rel="stylesheet" href="/ryan/css/new-skin/new-skin.css" />
+        )}
+        {temp === 7 && (
+          <link rel="stylesheet" href="/ryan/css/template-dark/dark.css" />
+        )}
+        {temp === 7 && (
+          <link rel="stylesheet" href="/ryan/css/new-skin/minimal-skin.css" />
+        )}
+
+{temp === 8 && (<link rel="stylesheet" href="/ryan/css/new-skin/new-skin.css" />
+)}
+
+
+
+
+{temp === 8 && (
+
+
+<link rel="stylesheet" href="/ryan/css/demos/demo-8-colors.css" />
+
+)}
+
+
+{temp === 9 && (
+
+<link rel="stylesheet" href="/ryan/css/new-skin/new-skin.css" />
+
+ )}
+
+
+{temp === 9 && (
+        <link rel="stylesheet" href="/ryan/css/demos/demo-7-colors.css" /> )}
+        {temp === 9 && (
+        <link rel="stylesheet" href="/ryan/css/new-skin/classic-skin.css" /> )}
+
+{temp === 9 && (
+        <link rel="stylesheet" href="/ryan/css/template-dark/dark.css" /> )}
+
+
+{temp === 10 && (
+<link rel="stylesheet" href="/ryan/css/new-skin/new-skin.css" /> )}
+ {temp === 10 && (       <link rel="stylesheet" href="/ryan/css/demos/demo-3-colors.css" /> )}
+    {temp === 10 && (      <link rel="stylesheet" href="/ryan/css/new-skin/classic-skin.css" />)}
+
+
+
+
 
       </Head>
 
       <Header noSideBarBtn menus={headerMenus} animationText={animationText} />
       <Home>
-        <div className="profile no-photo rya">
+        <div className="profile no-photo ryan">
           {/* profile image */}
           <div
             className="slide"
@@ -152,7 +229,7 @@ const One = ({ about, temp, projects, images ,downloadTxtFile,CreateVCard  , dom
 
           {/* ---user image ryan --- */}
 
-          <div className="title !top-[81px] !relative ">
+          <div className="title !top-[110px] !relative ">
             <img
               className=" w-[140px] h-[140px]  rounded-full   shadow-2xl   "
               src={
@@ -164,37 +241,32 @@ const One = ({ about, temp, projects, images ,downloadTxtFile,CreateVCard  , dom
             />
           </div>
 
-          <div className={` ${textColor} mt-8   font-serif mb-4 font-semibold !text-center mid-content  custscren  `}>
-            {about?.title}.
+          <div
+            className={` ${textColor} pt-[100px]   !font-serif mb-4 font-semibold !text-center mid-content  custscren  `}
+          >
+            {about?.title}
           </div>
-          <div className={` ${textColor} font-serif mb-4 font-semibold !text-center mid-content  custscren  `}>
+          <div
+            className={` ${textColor} font-serif mb-2 !font-semibold !text-center mid-content  custscren  `}
+          >
             {about?.work}
           </div>
 
           <div className="">
-<div className={`${textColor} mb-4 font-serif font-semibold  flex gap-1 justify-center items-center`}>
-
-<div>
-    <BiArchiveIn
-                        onClick={() => downloadTxtFile(CreateVCard())}
-    
-    
-    className=" w-8 h-8"/>
-</div>
-<p
-                        onClick={() => downloadTxtFile(CreateVCard())}
-
-
->
-שמור אותנו באנשי קשר בטלפון 
-</p>
-
-
-</div>
-
-
-</div>
-
+            <div
+              className={`${textColor} mb-4 font-serif font-semibold  flex gap-1 justify-center items-center`}
+            >
+              <div>
+                <BiArchiveIn
+                  onClick={() => downloadTxtFile(CreateVCard())}
+                  className=" w-8 h-8"
+                />
+              </div>
+              <p onClick={() => downloadTxtFile(CreateVCard())}>
+                שמור אותנו באנשי קשר בטלפון
+              </p>
+            </div>
+          </div>
 
           {/* <TypingAnimation data={animationText} /> */}
 
@@ -205,132 +277,88 @@ const One = ({ about, temp, projects, images ,downloadTxtFile,CreateVCard  , dom
                 style={{ width: "33%", float: "right", marginBottom: "7px" }}
               >
                 <a href={about?.facebook}>
-                <FaFacebookF className=" w-12  h-12  bg-[#8a6d3e]  rounded-full p-2  text-white"/>
+                  <FaFacebookF  className={ `   w-12  h-12  ${bgColor}  rounded-full p-2  ${iconTextColor}`}  />
 
                   {/* <img src="/ryan/images/facebook.png" /> */}
                 </a>
-                <span style={{ float: "left" }}>
-                Face
-                </span>
+                <span style={{ float: "left" }}>Face</span>
               </div>
             )}
 
-
-{about?.whatsapp && (
-
+            {about?.whatsapp && (
               <div
                 style={{ width: "33%", float: "right", marginBottom: "7px" }}
               >
-                <a
-                        href={about?.whatsapp}
-                
-                >
-                    
+                <a href={about?.whatsapp}>
                   {/* <img src="/ryan/images/whatsapp.png" /> */}
-                  <FaWhatsapp className=" w-12  h-12  bg-[#8a6d3e]  rounded-full p-2  text-white"/>
-
+                  <FaWhatsapp  className={ ` w-12  h-12  ${bgColor}  rounded-full p-2  ${iconTextColor}`}  />
                 </a>
-                <span style={{ float: "left" }}>
-           Whats
-                </span>
+                <span style={{ float: "left" }}>Whats</span>
               </div>
             )}
 
-
-{about?.instagram && (
+            {about?.instagram && (
               <div
                 style={{ width: "33%", float: "right", marginBottom: "7px" }}
               >
-                <a
-                        href={about?.instagram}
-                
-                >
+                <a href={about?.instagram}>
                   {/* <img src="/ryan/images/instagram.png" /> */}
-                  <FaInstagram className=" w-12  h-12  bg-[#8a6d3e]  rounded-full p-2  text-white"/>
-
+                  <FaInstagram className={ `   w-12  h-12  ${bgColor}  rounded-full p-2  ${iconTextColor}`} />
                 </a>
-                <span style={{ float: "left" }}>
-        Instagram
-                </span>
+                <span style={{ float: "left" }}>Instagram</span>
               </div>
             )}
 
-
-
-{about?.twitter && (
+            {about?.twitter && (
               <div
                 style={{ width: "33%", float: "right", marginBottom: "7px" }}
               >
-                <a
-                        href={about?.instagram}
-                
-                >
-                    <FaTwitter className=" w-12  h-12  bg-[#8a6d3e]  rounded-full p-2  text-white"/>
+                <a href={about?.instagram}>
+                  <FaTwitter  className={ `   w-12  h-12  ${bgColor}  rounded-full p-2  ${iconTextColor}`}  />
                   {/* <img src="/ryan/images/instagram.png" /> */}
                 </a>
-                <span style={{ float: "left" }}>
-             Twitter
-                </span>
+                <span style={{ float: "left" }}>Twitter</span>
               </div>
             )}
 
-
-{about?.telgram && (
+            {about?.telgram && (
               <div
                 style={{ width: "33%", float: "right", marginBottom: "7px" }}
               >
                 <a href={about?.telgram}>
-                <FaTelegram className=" w-12  h-12  bg-[#8a6d3e]  rounded-full p-2  text-white"/>
+                  <FaTelegram  className={ `w-12  h-12  ${bgColor}  rounded-full p-2  ${iconTextColor}`} />
 
                   {/* <img src="/ryan/images/facebook.png" /> */}
                 </a>
-                <span style={{ float: "left" }}>
-                 Telgram
-                </span>
+                <span style={{ float: "left" }}>Telgram</span>
               </div>
             )}
 
-
-{about?.link && (
+            {about?.link && (
               <div
                 style={{ width: "33%", float: "right", marginBottom: "7px" }}
               >
                 <a href={about?.link}>
-                <LuExternalLink className=" w-12  h-12  bg-[#8a6d3e]  rounded-full p-2  text-white"/>
+                  <LuExternalLink  className={ ` w-12  h-12  ${bgColor}  rounded-full p-2  ${iconTextColor}`} />
 
                   {/* <img src="/ryan/images/facebook.png" /> */}
                 </a>
-                <span style={{ float: "left" }}>
-               Site
-                </span>
+                <span style={{ float: "left" }}>Site</span>
               </div>
             )}
-
-
-
-
-
-
           </div>
-
-
-
-
-
-
-
         </div>
       </Home>
       <ContentContainer>
         <About animationIn={"rollIn"} animationOut={"rollOut"}>
-          <AboutMe bio={about?.desc} />
+          <AboutMe textColor={textColor} bio={about?.desc} />
 
           {/* <FunFact />
 					<Clients />
 					<Quote /> */}
         </About>
         <Resume animationIn={"rollIn"} animationOut={"rollOut"}>
-          <Services serviceList={projects} />
+          <Services  textColor={textColor} serviceList={projects} />
 
           {/* <ResumeSectionFitness />
           <SkillsFitness />
@@ -346,7 +374,7 @@ const One = ({ about, temp, projects, images ,downloadTxtFile,CreateVCard  , dom
         </Blog> */}
         <Contact animationIn={"rollIn"} animationOut={"rollOut"}>
           <ContactInfo />
-          <ContactForm domainUrl={domainUrl} />
+          <ContactForm btnColor={iconTextColor} textColor={textColor} bgColor={bgColor} domainUrl={domainUrl} />
         </Contact>
       </ContentContainer>
     </Layout>

@@ -898,7 +898,7 @@ setImagesType(key)
 
             {/* ----------colors----- */}
 
-            <div className="mx-auto w-full md:flex-row flex flex-col gap-12 justify-center  max-w-md  ">
+            <div className="mx-auto w-full flex-wrap md:flex-row flex flex-col gap-12 justify-center  max-w-md  ">
               <div className=" mx-auto ">
                 <h2
                   className={`my-2  text-center  ${
@@ -1025,6 +1025,82 @@ setImagesType(key)
                 <h1
                   onClick={() => handleTempChange(6)}
                   className=" w-[90px] h-[90px] rounded-full mx-auto   bg-[#957a4f]"
+                ></h1>
+              </div>
+
+
+
+              <div className="mt-6 mx-auto  md:mt-0">
+                <h2
+                  className={`my-2 text-center  ${
+                    temp === 8 && "text-red-500 font-semibold"
+                  }`}
+                >
+                  Black Pro
+                </h2>
+
+                
+
+                <h1
+                  onClick={() => handleTempChange(7)}
+                  className=" w-[90px] h-[90px] rounded-full mx-auto    bg-black"
+                ></h1>
+              </div>
+
+
+              <div className="mt-6 mx-auto  md:mt-0">
+                <h2
+                  className={`my-2 text-center  ${
+                    temp === 7 && "text-red-500 font-semibold"
+                  }`}
+                >
+                  Orange Pro
+                </h2>
+
+                
+
+                <h1
+                  onClick={() => handleTempChange(8)}
+                  className=" w-[90px] h-[90px] rounded-full mx-auto    bg-[#f07038]"
+                ></h1>
+              </div>
+
+
+              
+              <div className="mt-6 mx-auto  md:mt-0">
+                <h2
+                  className={`my-2 text-center  ${
+                    temp === 9 && "text-red-500 font-semibold"
+                  }`}
+                >
+                  Black Golden Pro
+                </h2>
+
+                
+
+                <h1
+                  onClick={() => handleTempChange(9)}
+                  className=" w-[90px] h-[90px] rounded-full mx-auto    bg-[#31313a]"
+                ></h1>
+              </div>
+
+
+
+
+              <div className="mt-6 mx-auto  md:mt-0">
+                <h2
+                  className={`my-2 text-center  ${
+                    temp === 10 && "text-red-500 font-semibold"
+                  }`}
+                >
+                  Green Pro
+                </h2>
+
+                
+
+                <h1
+                  onClick={() => handleTempChange(10)}
+                  className=" w-[90px] h-[90px] rounded-full mx-auto    bg-[#4c7753]"
                 ></h1>
               </div>
 

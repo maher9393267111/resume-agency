@@ -23,7 +23,7 @@ const data = [
   },
 ];
 
-const Services = ({ serviceList }) => {
+const Services = ({ serviceList ,textColor }) => {
   const services = serviceList ? serviceList : data;
   return (
     <Fragment>
@@ -35,22 +35,22 @@ const Services = ({ serviceList }) => {
         {/* content */}
         <div className="row service-items border-line-v">
           {/* service item */}
-          {services.map((service, i) => (
+          {services?.map((service, i) => (
             <div key={i} className="col col-d-6 col-t-6 col-m-12 border-line-h">
-              <div className="service-item">
+              <div className="service-item !text-center">
                 <div className="icon">
                   <span className={service.icon} />
                 </div>
-                <div className="name">
+                <div dir="rtl" className="name !text-center font-serif">
                   <span>{service.title}</span>
                 </div>
                 <div className="desc">
                   <div>
-                    <p
-                    
+                    <h4
+                    className={`${textColor} !text-center  arabicfont`}
 							 dangerouslySetInnerHTML={{ __html: service?.desc }}
                     
-                    ></p>
+                    ></h4>
                   </div>
                 </div>
               </div>
