@@ -78,7 +78,19 @@
     "sass": "^1.69.6",
     "sharp": "^0.33.1",
     "swiper": "^11.0.5",
-    "vcards-js": "^2.10.0"
+    "vcards-js": "^2.10.0",
+
+    
+    "@fortawesome/fontawesome-svg-core": "^6.5.1",
+    "@fortawesome/free-brands-svg-icons": "^6.5.1",
+    "@fortawesome/free-regular-svg-icons": "^6.5.1",
+    "@fortawesome/free-solid-svg-icons": "^6.5.1",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "font-awesome": "^4.7.0",
+    "formik": "^2.4.2",
+    "isotope-layout": "^3.0.6",
+    
+    "typed.js": "^2.0.12"
   },
   "devDependencies": {
     "@types/node": "^20",
