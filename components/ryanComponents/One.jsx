@@ -85,7 +85,7 @@ const animationText = ["Veterinarian", "Animal Lover", "Dog Trainer"];
 
 
 
-const One = ({ about, temp, projects, images ,downloadTxtFile,CreateVCard }) => {
+const One = ({ about, temp, projects, images ,downloadTxtFile,CreateVCard  , domainUrl}) => {
 
 
     const textColor =
@@ -106,8 +106,9 @@ const One = ({ about, temp, projects, images ,downloadTxtFile,CreateVCard }) => 
   return (
     <Layout
       //   bg={"img"}
-      bg={"gradient"}
-      bgImgUrl="images/bg5.jpg"
+    //   bg={"gradient"}
+    bg={"blured"}
+      bgImgUrl="images/bg7.jpg"
       animationIn={"rollIn"}
       animationOut={"rollOut"}
     >
@@ -119,13 +120,20 @@ const One = ({ about, temp, projects, images ,downloadTxtFile,CreateVCard }) => 
         <link rel="stylesheet" href="/ryan/css/magnific-popup.css" />
         <link rel="stylesheet" href="/ryan/css/animate.css" />
         <link rel="stylesheet" href="/ryan/css/gradient.css" />
-        <link rel="stylesheet" href="/ryan/css/new-skin/new-skin.css" />
+
+
+        {/* --------------- */}
+
+      
+       
 
      {/* {temp === 5 && <link rel="stylesheet" href="/ryan/css/demos/demo-5-colors.css" /> }
         {temp === 4 && <link rel="stylesheet" href="/ryan/css/demos/demo-4-colors.css" /> }  */}
-        
+
+          <link rel="stylesheet" href="/ryan/css/new-skin/new-skin.css" />
         <link rel="stylesheet" href="/ryan/css/demos/demo-5-colors.css" />
         <link rel="stylesheet" href="/ryan/css/demos/ihab.css" />
+
       </Head>
 
       <Header noSideBarBtn menus={headerMenus} animationText={animationText} />
@@ -338,7 +346,7 @@ const One = ({ about, temp, projects, images ,downloadTxtFile,CreateVCard }) => 
         </Blog> */}
         <Contact animationIn={"rollIn"} animationOut={"rollOut"}>
           <ContactInfo />
-          <ContactForm />
+          <ContactForm domainUrl={domainUrl} />
         </Contact>
       </ContentContainer>
     </Layout>

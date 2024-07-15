@@ -1,7 +1,7 @@
 import { Formik } from 'formik';
 import React from 'react';
 
-const ContactForm = () => {
+const ContactForm = ({domainUrl}) => {
   
   const formData = {
     "formspreeURL": "https://formspree.io/f/your_api_key"
@@ -92,8 +92,8 @@ const ContactForm = () => {
         <div className="col col-d-12 col-t-12 col-m-12 border-line-v">
           <div dir='' className="contact_form">
    
-            <form dir=''  onSubmit={handleSubmit} id="contactForm" action={formData.formspreeURL}>
-              <div dir='rt' className="row">
+            <form dir='rtl'  onSubmit={handleSubmit} id="contactForm" action={formData.formspreeURL}>
+              <div dir='' className="row">
                 <div className="col col-d-6 col-t-6 col-m-12">
                   <div className="group-val">
                     <input 
@@ -123,7 +123,7 @@ const ContactForm = () => {
                   </div>
                 </div>
 
-                <div className="col col-d-6 col-t-6 col-m-12">
+                <div className="col col-d-12 col-t-12 col-m-12">
                   <div className="group-val">
                     <input 
                         type="number" 
@@ -167,6 +167,87 @@ const ContactForm = () => {
             <div className="alert-success " id="contactFormStatus" />
           </div>
         </div>
+
+
+        <div className="text-center my-8">
+              <div
+                className={`black  text-whit font-semibold text-lg`}
+              >
+                <p
+                className=' font-serif '
+                     style={{
+                      color:`black`
+                    }}
+                
+                dir="rtl">שתפו את כרטיס הביקור שלנו עם חברים:</p>
+              </div>
+
+              <div className="flex gap-2 justify-center mt-3 ">
+                <a
+                  href={`https://api.whatsapp.com/send?text=${encodeURIComponent(
+                    "Hello"
+                  )}%20${encodeURIComponent(domainUrl)}`}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <img
+                    className="w-12 h-12 object-cover"
+                    src="https://cdn3.iconfinder.com/data/icons/social-media-2169/24/social_media_social_media_logo_whatsapp-256.png"
+                    alt=""
+                  />
+                </a>
+
+                <a
+                  href={`https://www.facebook.com/sharer/sharer.php?u=${domainUrl}`}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <img
+                    className="w-12 h-12 object-cover"
+                    src="https://cdn4.iconfinder.com/data/icons/iconsimple-logotypes/512/facebook-256.png"
+                    alt=""
+                  />
+                </a>
+
+                <a
+                  href={`https://twitter.com/intent/tweet?text=share&url=${domainUrl}`}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <img
+                    className="w-12 h-12 object-cover"
+                    src="https://cdn4.iconfinder.com/data/icons/social-media-icons-the-circle-set/48/twitter_circle-256.png"
+                    alt=""
+                  />
+                </a>
+
+                <a
+                  href={`mailto:?subject=sahre&body=Share your website: ${domainUrl}`}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <img
+                    className="w-12 h-12 object-cover"
+                    src="https://cdn3.iconfinder.com/data/icons/social-network-flat-3/100/Google_Mail-256.png"
+                    alt=""
+                  />
+                </a>
+
+                <a
+                  href={`mailto:?subject=sahre&body=Share your website: ${domainUrl}`}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <img
+                    className="w-12 h-12 object-cover"
+                    src="https://cdn3.iconfinder.com/data/icons/illustricon-tech/512/mobile.sms.communication-256.png"
+                    alt=""
+                  />
+                </a>
+              </div>
+            </div>
+
+
         <div className="clear" />
       </div>
     </div>

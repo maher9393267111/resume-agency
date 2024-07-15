@@ -383,7 +383,7 @@ export default function Home3({ name, userdata }) {
 
 //temp ===
   if(temp > 5){
-    return <One CreateVCard={CreateVCard} downloadTxtFile={downloadTxtFile} images={images} temp ={temp} about ={about} projects ={projects}/>
+    return <One domainUrl= {domainUrl} CreateVCard={CreateVCard} downloadTxtFile={downloadTxtFile} images={images} temp ={temp} about ={about} projects ={projects}/>
   }
   
 
