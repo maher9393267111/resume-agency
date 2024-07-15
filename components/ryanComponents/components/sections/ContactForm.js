@@ -86,7 +86,7 @@ const ContactForm = ({domainUrl ,textColor ,bgColor ,btnColor}) => {
   return (
     <div className="content contacts">
       {/* title */}
-      <div className="title">Contact Form</div>
+      <div className="title text-center">Contact Form</div>
       {/* content */}
       <div className="row container">
         <div className="col col-d-12 col-t-12 col-m-12 border-line-v">

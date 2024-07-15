@@ -1033,7 +1033,7 @@ setImagesType(key)
               <div className="mt-6 mx-auto  md:mt-0">
                 <h2
                   className={`my-2 text-center  ${
-                    temp === 8 && "text-red-500 font-semibold"
+                    temp === 7 && "text-red-500 font-semibold"
                   }`}
                 >
                   Black Pro
@@ -1051,7 +1051,7 @@ setImagesType(key)
               <div className="mt-6 mx-auto  md:mt-0">
                 <h2
                   className={`my-2 text-center  ${
-                    temp === 7 && "text-red-500 font-semibold"
+                    temp === 8 && "text-red-500 font-semibold"
                   }`}
                 >
                   Orange Pro

@@ -167,6 +167,6 @@ const config: Config = {
       }
     },
   },
-  plugins: [require('@tailwindcss/forms')],
+  // plugins: [require('@tailwindcss/forms')],
 }
 export default config

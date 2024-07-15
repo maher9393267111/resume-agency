@@ -29,7 +29,7 @@ const Services = ({ serviceList ,textColor }) => {
     <Fragment>
       <div className="content services">
         {/* title */}
-        <div className="title">
+        <div className="title !text-center">
           <span className="first-word">My</span> Services
         </div>
         {/* content */}

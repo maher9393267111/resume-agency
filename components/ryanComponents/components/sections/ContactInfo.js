@@ -2,7 +2,7 @@ const ContactInfo = () => {
   return (
     <div className="content contacts">
       {/* title */}
-      <div className="title">Get in Touch</div>
+      {/* <div className="title">Get in Touch</div> */}
       {/* content */}
 
 
