@@ -382,8 +382,8 @@ export default function Home3({ name, userdata }) {
   const ryan = true
 
 //temp ===
-  if(ryan){
-    return <One CreateVCard={CreateVCard} downloadTxtFile={downloadTxtFile} images={images} temp ={5} about ={about} projects ={projects}/>
+  if(temp > 5){
+    return <One CreateVCard={CreateVCard} downloadTxtFile={downloadTxtFile} images={images} temp ={temp} about ={about} projects ={projects}/>
   }
   
 

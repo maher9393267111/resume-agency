@@ -1002,11 +1002,36 @@ setImagesType(key)
                   Golden{" "}
                 </h2>
 
+
+
                 <h1
                   onClick={() => handleTempChange(5)}
                   className=" w-[90px] h-[90px] rounded-full mx-auto   bg-temp5-icon_color"
                 ></h1>
               </div>
+
+
+              <div className="mt-6 mx-auto  md:mt-0">
+                <h2
+                  className={`my-2 text-center  ${
+                    temp === 6 && "text-red-500 font-semibold"
+                  }`}
+                >
+                  Golden Pro
+                </h2>
+
+                
+
+                <h1
+                  onClick={() => handleTempChange(6)}
+                  className=" w-[90px] h-[90px] rounded-full mx-auto   bg-[#957a4f]"
+                ></h1>
+              </div>
+
+
+
+
+
             </div>
 
             {/* -------ContactColor--- */}

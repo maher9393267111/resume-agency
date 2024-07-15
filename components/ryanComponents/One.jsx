@@ -144,9 +144,9 @@ const One = ({ about, temp, projects, images ,downloadTxtFile,CreateVCard }) => 
 
           {/* ---user image ryan --- */}
 
-          <div className="title !top-[15px] !relative ">
+          <div className="title !top-[81px] !relative ">
             <img
-              className=" w-[140px] h-[140px]  rounded-full relative  !top-6  shadow-2xl   "
+              className=" w-[140px] h-[140px]  rounded-full   shadow-2xl   "
               src={
                 about?.myImage
                   ? `${ImageEndpoint}/${about?.myImage}`
