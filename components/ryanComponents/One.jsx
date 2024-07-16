@@ -235,9 +235,9 @@ const btnbgColor =   temp === 5
 
           {/* ---user image ryan --- */}
 
-          <div className="title !top-[110px] md:!top-[88px] !relative ">
+          <div className="title  !top-[110px] md:!top-[88px] !relative ">
             <img
-              className=" w-[150px] h-[150px]    rounded-full   !shadow-4xl   "
+              className=" w-[150px] myimage h-[150px]  !border-3 border-[#eaeaea]   rounded-full   !shadow-4xl   "
               src={
                 about?.myImage
                   ? `${ImageEndpoint}/${about?.myImage}`

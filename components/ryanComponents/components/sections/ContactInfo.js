@@ -22,13 +22,13 @@ const ContactInfo = ({about ,email}) => {
 
           <div className="info-list">
             <ul>
-              <li className=" font-serif">
-                <strong>Address :</strong> {about?.location}
+              <li className=" font-serif font-[700]">
+                <strong className="font-serif font-[700]">Address :</strong> {about?.location}
               </li>
-              <li>
+              <li className=" ">
                 <strong>Email : </strong> {email}
               </li>
-              <li>
+              <li className="">
                 <strong>Phone :</strong> {about?.phone}
               </li>
               {/* <li>

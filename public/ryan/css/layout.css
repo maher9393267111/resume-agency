@@ -526,16 +526,27 @@
 }
 
 .card-started .profile .image img {
-  position: relative;
+   position: relative;
   display: block;
-  width: 100%;
-  height: auto;
+   width: 100%;
+  height: auto; 
   border: 3px solid #ffffff;
   border-radius: 100%;
   -moz-border-radius: 100%;
   -webkit-border-radius: 100%;
   -khtml-border-radius: 100%;
 }
+
+
+.myimage{
+  border: 4px solid #ffffff !important;
+  border-radius: 100% !important;
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%;
+  -khtml-border-radius: 100%;
+}
+
+
 
 .card-started .profile .title {
   margin: 0 0 10px;
