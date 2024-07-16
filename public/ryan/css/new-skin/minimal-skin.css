@@ -588,7 +588,7 @@ textarea:focus,
 }
 
 .layout-rounded-style .card-started .profile .slide:after {
-    position: absolute;
+    /* position: absolute; */
     left: -20px;
     bottom: -65px;
     right: -20px;

@@ -43,6 +43,7 @@ export default function Home3({ name, userdata }) {
 
   const status = userdata[0]?.status;
   console.log("DATA@$$$$$$$-->>>>", userdata[0]?.about);
+  const email = userdata[0]?.email
   const about = userdata[0]?.about[0];
   const images = userdata[0]?.about[0]?.images;
   const imagesType = userdata[0]?.about[0]?.imagesType;
@@ -383,7 +384,7 @@ export default function Home3({ name, userdata }) {
 
 //temp ===
   if(temp > 5){
-    return <One domainUrl= {domainUrl} CreateVCard={CreateVCard} downloadTxtFile={downloadTxtFile} images={images} temp ={temp} about ={about} projects ={projects}/>
+    return <One email={email} domainUrl= {domainUrl} CreateVCard={CreateVCard} downloadTxtFile={downloadTxtFile} images={images} temp ={temp} about ={about} projects ={projects}/>
   }
   
 

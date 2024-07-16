@@ -1,7 +1,7 @@
 import { Formik } from 'formik';
 import React from 'react';
 
-const ContactForm = ({domainUrl ,textColor ,bgColor ,btnColor}) => {
+const ContactForm = ({domainUrl ,textColor ,bgColor ,btnColor ,btnbgColor}) => {
   
   const formData = {
     "formspreeURL": "https://formspree.io/f/your_api_key"
@@ -92,7 +92,7 @@ const ContactForm = ({domainUrl ,textColor ,bgColor ,btnColor}) => {
         <div className="col col-d-12 col-t-12 col-m-12 border-line-v">
           <div dir='' className="contact_form">
    
-            <form dir='rtl'  onSubmit={handleSubmit} id="contactForm" action={formData.formspreeURL}>
+            <form dir=''  onSubmit={handleSubmit} id="contactForm" action={formData.formspreeURL}>
               <div dir='' className="row">
                 <div className="col col-d-6 col-t-6 col-m-12">
                   <div className="group-val">
@@ -154,8 +154,8 @@ const ContactForm = ({domainUrl ,textColor ,bgColor ,btnColor}) => {
                   </div>
                 </div>
               </div>
-              <div className="align-left">
-                <button type="submit" className="button">
+              <div className="align-lef">
+                <button type="submit" className={`butto !block !text-center  rounded-lg !hover-none !w-full ${btnbgColor}  `}>
                   <span className= {`text text-2xl  px-4 py-2  ${textColor} font-semibold font-serif`}>  לִשְׁלוֹחַ</span>
                   {/* <span className="arrow" /> */}
                 </button>

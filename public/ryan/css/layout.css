@@ -469,7 +469,7 @@
 .card-started .profile .slide:before,
 .card-started .profile .slide:after {
   content: "";
-  position: absolute;
+  /* position: absolute; */
   left: -25%;
   bottom: -198px;
   width: 700px;

@@ -87,6 +87,7 @@ const One = ({
   downloadTxtFile,
   CreateVCard,
   domainUrl,
+  email,
 }) => {
   const textColor =
     temp === 5
@@ -97,42 +98,54 @@ const One = ({
       ? "!text-[#edff20]"
       : temp === 8
       ? "text-[#f07038]"
-      : temp === 9 ? "!text-[#fff250]" : temp === 10 && "text-[#4c7753]";
+      : temp === 9
+      ? "!text-[#fff250]"
+      : temp === 10 && "text-[#4c7753]";
+
+  const bgColor =
+    temp === 5
+      ? "!bg-[#957a4f]"
+      : temp === 6
+      ? "!bg-[#957a4f]"
+      : temp === 7
+      ? "!bg-[#edff21]"
+      : temp === 8
+      ? "bg-[#f07038]"
+      : temp === 9
+      ? "bg-[#fff250]"
+      : temp === 10 && "bg-[#4c7753]";
+
+  const iconTextColor =
+    temp === 5
+      ? "text-white"
+      : temp === 6
+      ? "text-white"
+      : temp === 7
+      ? "text-black"
+      : temp === 8
+      ? "text-white"
+      : temp === 9
+      ? "text-black"
+      : temp === 10 && "text-white";
 
 
-      const bgColor =
-      temp === 5
-        ? "!bg-[#957a4f]"
-        : temp === 6
-        ? "!bg-[#957a4f]"
-        : temp === 7
-        ? "!bg-[#edff21]"
-        : temp === 8
-        ? "bg-[#f07038]"
-        : temp === 9 ? "bg-[#fff250]" : temp === 10 && "bg-[#4c7753]";
-
-
-
-        
-      const iconTextColor =
-      temp === 5
-        ? "text-white"
-        : temp === 6
-        ? "text-white"
-        : temp === 7
-        ? "text-black"
-        : temp === 8
-        ? "text-white"
-        : temp === 9 ? "text-black" : temp === 10 && "text-white" ;
-
-
-
+const btnbgColor =   temp === 5
+? "bg-white"
+: temp === 6
+? "bg-[#c0a77f]"
+: temp === 7
+? "bg-black"
+: temp === 8
+? "bg-[bisque]"
+: temp === 9
+? "bg-black"
+: temp === 10 && "bg-[#c8ffc4]";
 
 
   return (
     <Layout
-      //   bg={"img"}
-      //   bg={"gradient"}
+      //  bg={"img"}
+      // bg={"gradient"}
       bg={"blured"}
       bgImgUrl="images/bg7.jpg"
       animationIn={"rollIn"}
@@ -158,9 +171,9 @@ const One = ({
         {temp === 6 && (
           <link rel="stylesheet" href="/ryan/css/demos/demo-5-colors.css" />
         )}
-        {temp === 6 && (
+        {/* {temp === 6 && (
           <link rel="stylesheet" href="/ryan/css/demos/ihab.css" />
-        )}
+        )} */}
 
         {temp === 7 && (
           <link rel="stylesheet" href="/ryan/css/new-skin/new-skin.css" />
@@ -172,45 +185,38 @@ const One = ({
           <link rel="stylesheet" href="/ryan/css/new-skin/minimal-skin.css" />
         )}
 
-{temp === 8 && (<link rel="stylesheet" href="/ryan/css/new-skin/new-skin.css" />
-)}
+        {temp === 8 && (
+          <link rel="stylesheet" href="/ryan/css/new-skin/new-skin.css" />
+        )}
 
+        {temp === 8 && (
+          <link rel="stylesheet" href="/ryan/css/demos/demo-8-colors.css" />
+        )}
 
-
-
-{temp === 8 && (
-
-
-<link rel="stylesheet" href="/ryan/css/demos/demo-8-colors.css" />
-
-)}
-
-
-{temp === 9 && (
-
-<link rel="stylesheet" href="/ryan/css/new-skin/new-skin.css" />
-
- )}
-
-
-{temp === 9 && (
-        <link rel="stylesheet" href="/ryan/css/demos/demo-7-colors.css" /> )}
         {temp === 9 && (
-        <link rel="stylesheet" href="/ryan/css/new-skin/classic-skin.css" /> )}
+          <link rel="stylesheet" href="/ryan/css/new-skin/new-skin.css" />
+        )}
 
-{temp === 9 && (
-        <link rel="stylesheet" href="/ryan/css/template-dark/dark.css" /> )}
+        {temp === 9 && (
+          <link rel="stylesheet" href="/ryan/css/demos/demo-7-colors.css" />
+        )}
+        {temp === 9 && (
+          <link rel="stylesheet" href="/ryan/css/new-skin/classic-skin.css" />
+        )}
 
+        {temp === 9 && (
+          <link rel="stylesheet" href="/ryan/css/template-dark/dark.css" />
+        )}
 
-{temp === 10 && (
-<link rel="stylesheet" href="/ryan/css/new-skin/new-skin.css" /> )}
- {temp === 10 && (       <link rel="stylesheet" href="/ryan/css/demos/demo-3-colors.css" /> )}
-    {temp === 10 && (      <link rel="stylesheet" href="/ryan/css/new-skin/classic-skin.css" />)}
-
-
-
-
-
+        {temp === 10 && (
+          <link rel="stylesheet" href="/ryan/css/new-skin/new-skin.css" />
+        )}
+        {temp === 10 && (
+          <link rel="stylesheet" href="/ryan/css/demos/demo-3-colors.css" />
+        )}
+        {temp === 10 && (
+          <link rel="stylesheet" href="/ryan/css/new-skin/classic-skin.css" />
+        )}
       </Head>
 
       <Header noSideBarBtn menus={headerMenus} animationText={animationText} />
@@ -229,9 +235,9 @@ const One = ({
 
           {/* ---user image ryan --- */}
 
-          <div className="title !top-[110px] !relative ">
+          <div className="title !top-[110px] md:!top-[88px] !relative ">
             <img
-              className=" w-[140px] h-[140px]  rounded-full   shadow-2xl   "
+              className=" w-[150px] h-[150px]    rounded-full   !shadow-4xl   "
               src={
                 about?.myImage
                   ? `${ImageEndpoint}/${about?.myImage}`
@@ -242,12 +248,15 @@ const One = ({
           </div>
 
           <div
-            className={` ${textColor} pt-[100px]   !font-serif mb-4 font-semibold !text-center mid-content  custscren  `}
+            className={` ${textColor} pt-[100px]  text-xl md:text-2xl   !font-serif mb-2 font-semibold !text-center mid-content  custscren  `}
           >
             {about?.title}
           </div>
+
+          {/* --------------------------XXXX----------------------- */}
+
           <div
-            className={` ${textColor} font-serif mb-2 !font-semibold !text-center mid-content  custscren  `}
+            className={` ${textColor}  text-xl md:text-2xl font-serif mb-2 !font-semibold !text-center mid-content  custscren  `}
           >
             {about?.work}
           </div>
@@ -268,20 +277,19 @@ const One = ({
             </div>
           </div>
 
-          {/* <TypingAnimation data={animationText} /> */}
-
-          {/* -----Social links --- */}
-          <div class="cardicons mb-8 lg:!mb-16 pb-12 !text-center mid-content arabicfont  custscren">
+          <div class="cardicons  !mb-20 lg:!mb-16 pb-14 !text-center mid-content arabicfont  custscren">
             {about?.facebook && (
               <div
                 style={{ width: "33%", float: "right", marginBottom: "7px" }}
               >
                 <a href={about?.facebook}>
-                  <FaFacebookF  className={ `   w-12  h-12  ${bgColor}  rounded-full p-2  ${iconTextColor}`}  />
+                  <FaFacebookF
+                    className={`   w-12  h-12  ${bgColor}  rounded-full p-2  ${iconTextColor}`}
+                  />
 
                   {/* <img src="/ryan/images/facebook.png" /> */}
                 </a>
-                <span style={{ float: "left" }}>Face</span>
+                {/* <span style={{ float: "left" }}>Face</span> */}
               </div>
             )}
 
@@ -291,9 +299,11 @@ const One = ({
               >
                 <a href={about?.whatsapp}>
                   {/* <img src="/ryan/images/whatsapp.png" /> */}
-                  <FaWhatsapp  className={ ` w-12  h-12  ${bgColor}  rounded-full p-2  ${iconTextColor}`}  />
+                  <FaWhatsapp
+                    className={` w-12  h-12  ${bgColor}  rounded-full p-2  ${iconTextColor}`}
+                  />
                 </a>
-                <span style={{ float: "left" }}>Whats</span>
+                {/* <span style={{ float: "left" }}>Whats</span> */}
               </div>
             )}
 
@@ -303,9 +313,11 @@ const One = ({
               >
                 <a href={about?.instagram}>
                   {/* <img src="/ryan/images/instagram.png" /> */}
-                  <FaInstagram className={ `   w-12  h-12  ${bgColor}  rounded-full p-2  ${iconTextColor}`} />
+                  <FaInstagram
+                    className={`   w-12  h-12  ${bgColor}  rounded-full p-2  ${iconTextColor}`}
+                  />
                 </a>
-                <span style={{ float: "left" }}>Instagram</span>
+                {/* <span style={{ float: "left" }}>Instagram</span> */}
               </div>
             )}
 
@@ -314,10 +326,12 @@ const One = ({
                 style={{ width: "33%", float: "right", marginBottom: "7px" }}
               >
                 <a href={about?.instagram}>
-                  <FaTwitter  className={ `   w-12  h-12  ${bgColor}  rounded-full p-2  ${iconTextColor}`}  />
+                  <FaTwitter
+                    className={`   w-12  h-12  ${bgColor}  rounded-full p-2  ${iconTextColor}`}
+                  />
                   {/* <img src="/ryan/images/instagram.png" /> */}
                 </a>
-                <span style={{ float: "left" }}>Twitter</span>
+                {/* <span style={{ float: "left" }}>Twitter</span> */}
               </div>
             )}
 
@@ -326,11 +340,13 @@ const One = ({
                 style={{ width: "33%", float: "right", marginBottom: "7px" }}
               >
                 <a href={about?.telgram}>
-                  <FaTelegram  className={ `w-12  h-12  ${bgColor}  rounded-full p-2  ${iconTextColor}`} />
+                  <FaTelegram
+                    className={`w-12  h-12  ${bgColor}  rounded-full p-2  ${iconTextColor}`}
+                  />
 
                   {/* <img src="/ryan/images/facebook.png" /> */}
                 </a>
-                <span style={{ float: "left" }}>Telgram</span>
+                {/* <span style={{ float: "left" }}>Telgram</span> */}
               </div>
             )}
 
@@ -339,14 +355,18 @@ const One = ({
                 style={{ width: "33%", float: "right", marginBottom: "7px" }}
               >
                 <a href={about?.link}>
-                  <LuExternalLink  className={ ` w-12  h-12  ${bgColor}  rounded-full p-2  ${iconTextColor}`} />
+                  <LuExternalLink
+                    className={` w-12  h-12  ${bgColor}  rounded-full p-2  ${iconTextColor}`}
+                  />
 
                   {/* <img src="/ryan/images/facebook.png" /> */}
                 </a>
-                <span style={{ float: "left" }}>Site</span>
+                {/* <span style={{ float: "left" }}>Site</span> */}
               </div>
             )}
           </div>
+
+          {/* </div> */}
         </div>
       </Home>
       <ContentContainer>
@@ -358,7 +378,7 @@ const One = ({
 					<Quote /> */}
         </About>
         <Resume animationIn={"rollIn"} animationOut={"rollOut"}>
-          <Services  textColor={textColor} serviceList={projects} />
+          <Services textColor={textColor} serviceList={projects} />
 
           {/* <ResumeSectionFitness />
           <SkillsFitness />
@@ -373,8 +393,14 @@ const One = ({
           <BlogSection />
         </Blog> */}
         <Contact animationIn={"rollIn"} animationOut={"rollOut"}>
-          <ContactInfo />
-          <ContactForm btnColor={iconTextColor} textColor={textColor} bgColor={bgColor} domainUrl={domainUrl} />
+          <ContactInfo about={about} email={email} />
+          <ContactForm
+          btnbgColor={btnbgColor}
+            btnColor={iconTextColor}
+            textColor={textColor}
+            bgColor={bgColor}
+            domainUrl={domainUrl}
+          />
         </Contact>
       </ContentContainer>
     </Layout>
