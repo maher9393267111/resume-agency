@@ -734,11 +734,11 @@ input[type="file"] {
 }
 
 .card-started .profile .slide {
-	height: 42%;
+	height: 35%;
 }
 
 .card-started .profile.no-photo .slide {
-	height: 42%;
+	height: 35%;
 }
 
 .card-started .profile .slide:before,

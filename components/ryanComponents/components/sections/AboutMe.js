@@ -10,7 +10,7 @@ const AboutMe = ({ bio ,textColor }) => {
 		<Fragment>
 			<div className="content about">
 				{/* title */}
-				<div className="title">
+				<div className="title text-center">
 					<span className="first-word">About</span> Me
 				</div>
 				{/* content */}
