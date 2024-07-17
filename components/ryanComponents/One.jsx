@@ -145,8 +145,13 @@ const btnbgColor =   temp === 5
   return (
     <Layout
       //  bg={"img"}
-      // bg={"gradient"}
-      bg={"blured"}
+     // bg={"gradient"}
+      // bg={"blured"}
+
+       bg={ temp === 6 ? "gradient" : "blured"}
+
+
+
       bgImgUrl="images/bg7.jpg"
       animationIn={"rollIn"}
       animationOut={"rollOut"}

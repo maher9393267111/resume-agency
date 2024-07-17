@@ -20,10 +20,10 @@ const ContactInfo = ({about ,email}) => {
 
 
 
-          <div className="info-list">
+          <div className="info-list font-serif">
             <ul>
-              <li className=" font-serif font-[700]">
-                <strong className="font-serif font-[700]">Address :</strong> {about?.location}
+              <li className="">
+                <strong className="">Address :</strong> {about?.location}
               </li>
               <li className=" ">
                 <strong>Email : </strong> {email}
