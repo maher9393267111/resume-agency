@@ -778,3 +778,8 @@ green 10 -->  #4c7753  !important
 
 
 https://ryancv-psi.vercel.app/index-demo-7#about
+
+
+same make ihab site :  https://mobilecard.co.il/ehabdaher/
+
+github repo ryan code : https://github.dev/CodeLikeAGirl29/ryancv/blob/0b50254d82bb12b9eab991659157828413f29a83/pages/_app.js

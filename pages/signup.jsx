@@ -236,7 +236,7 @@ const SignupPage = () => {
                       type="text"
                       name="name"
                       id="name"
-                      className="focus:ring-purple-600 focus:border-purple-600  block w-full pl-10 sm:text-sm border-gray-300 rounded-md"
+                      className="appearance-none block w-full px-3 py-2 border-2 border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none  border-purple-400 focus:!ring-purple-600 sm:text-sm"
                       placeholder="John Doe"
                       value={name}
                       onChange={handleChange}
@@ -314,7 +314,7 @@ const SignupPage = () => {
                       type="email"
                       name="email"
                       id="email"
-                      className="focus:ring-purple-600 focus:border-purple-600  block w-full pl-10 sm:text-sm border-gray-300 rounded-md"
+                      className="appearance-none block w-full px-3 py-2 border-2 border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none  border-purple-400 focus:!ring-purple-600 sm:text-sm"
                       placeholder="you@example.com"
                       value={email}
                       onChange={handleChange}
@@ -360,7 +360,7 @@ const SignupPage = () => {
                       type={showPassword ? "text" : "password"}
                       name="password"
                       id="password"
-                      className="  focus:ring-purple-600 focus:border-purple-600  block w-full pl-10 sm:text-sm border-gray-300 rounded-md"
+                      className="  appearance-none block w-full px-3 py-2 border-2 border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none  border-purple-400 focus:!ring-purple-600 sm:text-sm"
                       value={password}
                       onChange={handleChange}
                       placeholder="Must be atleast 6 characters"
