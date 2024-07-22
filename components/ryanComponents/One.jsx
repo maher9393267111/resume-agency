@@ -242,7 +242,7 @@ const btnbgColor =   temp === 5
 
           <div className="title  !top-[110px] md:!top-[88px] !relative ">
             <img
-              className=" w-[150px] myimage h-[150px]  !border-3 border-[#eaeaea]   rounded-full   !shadow-4xl   "
+              className=" w-[150px] lg:-mt-[100px] myimage h-[150px]  !border-3 border-[#eaeaea]   rounded-full   !shadow-4xl   "
               src={
                 about?.myImage
                   ? `${ImageEndpoint}/${about?.myImage}`
