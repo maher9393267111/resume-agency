@@ -142,6 +142,21 @@ const btnbgColor =   temp === 5
 : temp === 10 && "bg-[#c8ffc4]";
 
 
+const profileBg =   temp === 5
+? "bg-white"
+: temp === 6
+? "!bg-[#103842]"
+: temp === 7
+? "bg-black"
+: temp === 8
+? "!bg-[#103842]"
+: temp === 9
+? "bg-black"
+: temp === 10 && "!bg-[#8a6d3]";
+
+
+
+
   return (
     <Layout
       //  bg={"img"}
@@ -226,7 +241,7 @@ const btnbgColor =   temp === 5
 
       <Header noSideBarBtn menus={headerMenus} animationText={animationText} />
       <Home>
-        <div className="profile no-photo ryan">
+        <div className={`profile ${profileBg} no-photo ryan`}>
           {/* profile image */}
           <div
             className="slide"
@@ -282,14 +297,14 @@ const btnbgColor =   temp === 5
             </div>
           </div>
 
-          <div class="cardicons  !mb-20 lg:!mb-16 pb-14 !text-center mid-content arabicfont  custscren">
+          <div class="cardicons !gap-3  !mb-20 lg:!mb-16 pb-14 !text-center mid-content arabicfont  custscren">
             {about?.facebook && (
               <div
                 style={{ width: "33%", float: "right", marginBottom: "7px" }}
               >
                 <a href={about?.facebook}>
                   <FaFacebookF
-                    className={`   w-12  h-12  ${bgColor}  rounded-full p-2  ${iconTextColor}`}
+                    className={`   w-14  h-14  ${bgColor}  rounded-full p-2  ${iconTextColor}`}
                   />
 
                   {/* <img src="/ryan/images/facebook.png" /> */}
@@ -305,7 +320,7 @@ const btnbgColor =   temp === 5
                 <a href={about?.whatsapp}>
                   {/* <img src="/ryan/images/whatsapp.png" /> */}
                   <FaWhatsapp
-                    className={` w-12  h-12  ${bgColor}  rounded-full p-2  ${iconTextColor}`}
+                    className={` w-14  h-14  ${bgColor}  rounded-full p-2  ${iconTextColor}`}
                   />
                 </a>
                 {/* <span style={{ float: "left" }}>Whats</span> */}
@@ -319,7 +334,7 @@ const btnbgColor =   temp === 5
                 <a href={about?.instagram}>
                   {/* <img src="/ryan/images/instagram.png" /> */}
                   <FaInstagram
-                    className={`   w-12  h-12  ${bgColor}  rounded-full p-2  ${iconTextColor}`}
+                    className={`   w-14  h-14  ${bgColor}  rounded-full p-2  ${iconTextColor}`}
                   />
                 </a>
                 {/* <span style={{ float: "left" }}>Instagram</span> */}
@@ -332,7 +347,7 @@ const btnbgColor =   temp === 5
               >
                 <a href={about?.instagram}>
                   <FaTwitter
-                    className={`   w-12  h-12  ${bgColor}  rounded-full p-2  ${iconTextColor}`}
+                    className={`   w-14  h-14  ${bgColor}  rounded-full p-2  ${iconTextColor}`}
                   />
                   {/* <img src="/ryan/images/instagram.png" /> */}
                 </a>
@@ -346,7 +361,7 @@ const btnbgColor =   temp === 5
               >
                 <a href={about?.telgram}>
                   <FaTelegram
-                    className={`w-12  h-12  ${bgColor}  rounded-full p-2  ${iconTextColor}`}
+                    className={`w-14  h-14  ${bgColor}  rounded-full p-2  ${iconTextColor}`}
                   />
 
                   {/* <img src="/ryan/images/facebook.png" /> */}
@@ -361,7 +376,7 @@ const btnbgColor =   temp === 5
               >
                 <a href={about?.link}>
                   <LuExternalLink
-                    className={` w-12  h-12  ${bgColor}  rounded-full p-2  ${iconTextColor}`}
+                    className={` w-14  h-14  ${bgColor}  rounded-full p-2  ${iconTextColor}`}
                   />
 
                   {/* <img src="/ryan/images/facebook.png" /> */}
