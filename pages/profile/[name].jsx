@@ -734,7 +734,7 @@ export default function Home3({ name, userdata }) {
                 </div>
 
                 {about?.desc && (
-                  <div dir={"rtl"} className="my-3   text-righ">
+                  <div dir={"rtl"} className="my-3  arabicfont  text-righ">
                     {parse(about?.desc)}
 
                     {/* {about?.desc} */}

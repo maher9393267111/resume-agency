@@ -177,14 +177,15 @@ function AboutPage({ user, userdata }) {
     }
   };
 
-  const handleUploadImage2 = async (file) => {
+  const handleUploadImage2 = async (file ,logo) => {
     try {
       const formData = new FormData();
 
       formData.append("image", file);
 
+      const endpoint = logo ? `${uploadApi}/file/upload?size=150&&hieghtsize=150` : `${uploadApi}/file/upload`
       //?size=${(size = 1200)}&&hieghtsize=${(hieghtSize = 1000)}
-      const response = await axios.post(`${uploadApi}/file/upload`, formData, {
+      const response = await axios.post(endpoint, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -209,9 +210,9 @@ function AboutPage({ user, userdata }) {
       if (myImage && myimagefile) {
         console.log("^&&&&XXX", myimagefile);
         await handleDelete2(myImage);
-        userimagedata = await handleUploadImage2(myimagefile);
+        userimagedata = await handleUploadImage2(myimagefile ,true);
       } else if (!myImage && myimagefile) {
-        userimagedata = await handleUploadImage2(myimagefile);
+        userimagedata = await handleUploadImage2(myimagefile ,true);
         if (userdata?.about[0]?.myImage) {
           await handleDelete2(userdata?.about[0]?.myImage);
         }

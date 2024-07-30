@@ -7,10 +7,10 @@ const REACT_APP_BASE_URL1 = "https://file-uploader-red.vercel.app";
 const REACT_APP_BASE_URL = "http://localhost:8000";
 
 export const uploadApi =
- REACT_APP_BASE_URL1
-  // process.env.NODE_ENV === "development"
-  //   ? REACT_APP_BASE_URL
-  //   : REACT_APP_BASE_URL1;
+  REACT_APP_BASE_URL1
+//   process.env.NODE_ENV === "development"
+//     ? REACT_APP_BASE_URL
+//     : REACT_APP_BASE_URL1;
 
 
 

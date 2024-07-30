@@ -300,6 +300,7 @@ const profileBg =   temp === 5
           <div class="cardicons !gap-3  !mb-20 lg:!mb-16 pb-14 !text-center mid-content arabicfont  custscren">
             {about?.facebook && (
               <div
+              className="px-4 py-2"
                 style={{ width: "33%", float: "right", marginBottom: "7px" }}
               >
                 <a href={about?.facebook}>
@@ -315,6 +316,7 @@ const profileBg =   temp === 5
 
             {about?.whatsapp && (
               <div
+                className="px-4 py-2"
                 style={{ width: "33%", float: "right", marginBottom: "7px" }}
               >
                 <a href={about?.whatsapp}>
@@ -329,6 +331,7 @@ const profileBg =   temp === 5
 
             {about?.instagram && (
               <div
+                className="px-4 py-2"
                 style={{ width: "33%", float: "right", marginBottom: "7px" }}
               >
                 <a href={about?.instagram}>
@@ -343,6 +346,7 @@ const profileBg =   temp === 5
 
             {about?.twitter && (
               <div
+                className="px-4 py-2"
                 style={{ width: "33%", float: "right", marginBottom: "7px" }}
               >
                 <a href={about?.instagram}>
@@ -357,6 +361,7 @@ const profileBg =   temp === 5
 
             {about?.telgram && (
               <div
+                className="px-4 py-2"
                 style={{ width: "33%", float: "right", marginBottom: "7px" }}
               >
                 <a href={about?.telgram}>
@@ -372,6 +377,7 @@ const profileBg =   temp === 5
 
             {about?.link && (
               <div
+                className="px-4 py-2 "
                 style={{ width: "33%", float: "right", marginBottom: "7px" }}
               >
                 <a href={about?.link}>
