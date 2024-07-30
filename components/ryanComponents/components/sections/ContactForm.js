@@ -1,6 +1,10 @@
 import { Formik } from 'formik';
+import { Philosopher } from 'next/font/google';
 import React from 'react';
 
+import { FaPhoneAlt } from "react-icons/fa";
+import { MdOutlineMailOutline } from "react-icons/md";
+import { FaUser } from "react-icons/fa";
 const ContactForm = ({domainUrl ,textColor ,bgColor ,btnColor ,btnbgColor}) => {
   
   const formData = {
@@ -95,7 +99,10 @@ const ContactForm = ({domainUrl ,textColor ,bgColor ,btnColor ,btnbgColor}) => {
             <form dir=''  onSubmit={handleSubmit} id="contactForm" action={formData.formspreeURL}>
               <div dir='' className="row">
                 <div className="col col-d-6 col-t-6 col-m-12">
-                  <div className="group-val">
+                  <div dir='rtl' className="group-val border gap-1 flex items-center">
+                  <div className='px-2 borde w-[40px] !h-full  '>
+                    <FaUser  className={` bg-gray-300 ${textColor} border h-full border-gray-300 !w-[30px]  absolut`}/>
+</div>
                     <input 
                         type="text" 
                             placeholder="שם פרטי"
@@ -108,8 +115,14 @@ const ContactForm = ({domainUrl ,textColor ,bgColor ,btnColor ,btnbgColor}) => {
 
             
                 </div>
-                <div className="col col-d-6 col-t-6 col-m-12">
-                  <div className="group-val">
+                <div dir='rtl' className="col col-d-6 col-t-6 col-m-12">
+                  <div className="group-val gap-1 flex items-center border">
+
+                  <div className='px-2 borde w-[40px] !h-full  '>
+                    <MdOutlineMailOutline  className={` bg-gray-300 ${textColor} border h-full border-gray-300 !w-[30px]  absolut`}/>
+</div>
+
+
                     <input 
                         type="email" 
           placeholder="דואר אלקטרוני"
@@ -124,7 +137,13 @@ const ContactForm = ({domainUrl ,textColor ,bgColor ,btnColor ,btnbgColor}) => {
                 </div>
 
                 <div className="col col-d-12 col-t-12 col-m-12">
-                  <div className="group-val">
+                  <div dir='rtl' className="group-val gap-1 border !bg-gray-300 relative flex items-center">
+
+<div className='px-2 borde w-[40px] !h-full  '>
+                    <FaPhoneAlt  className={` bg-gray-300 ${textColor} border h-full border-gray-300 !w-[30px]  absolut`}/>
+</div>
+
+
                     <input 
                         type="number" 
           placeholder=" נייד"
@@ -141,7 +160,7 @@ const ContactForm = ({domainUrl ,textColor ,bgColor ,btnColor ,btnbgColor}) => {
 
 
                 <div className="col col-d-12 col-t-12 col-m-12">
-                  <div className="group-val">
+                  <div dir='rtl' className="group-val">
                     <textarea
         placeholder="הודעה"
 

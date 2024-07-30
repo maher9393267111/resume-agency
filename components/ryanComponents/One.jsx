@@ -297,7 +297,7 @@ const profileBg =   temp === 5
             </div>
           </div>
 
-          <div class="cardicons !gap-3  !mb-20 lg:!mb-16 pb-14 !text-center mid-content arabicfont  custscren">
+          <div class="cardicons !gap-3  !mb-20 lg:!mb-16 pb-20 !text-center mid-content arabicfont  custscren">
             {about?.facebook && (
               <div
               className="px-4 py-2"

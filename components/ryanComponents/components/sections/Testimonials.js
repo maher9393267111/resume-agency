@@ -39,7 +39,7 @@ const imagesData =[
 
       <div
         className={
-          " flex w-full h-[333px] md:h-[700px] px-1 rounded-lg overflow-hidden"
+          " flex w-full h-[455px] md:h-[700px] px-1 rounded-lg overflow-hidden"
         }
       >
         <Carousel
