@@ -1,41 +1,72 @@
-const ContactInfo = ({about ,email}) => {
+const ContactInfo = ({about ,email ,bgColor ,iconTextColor}) => {
   return (
-    <div dir="" className="content contacts">
+    <div dir="rtl" className="conten contac">
       {/* title */}
       {/* <div className="title">Get in Touch</div> */}
       {/* content */}
 
 
-      <div className="row">
+      <div dir="" className="row">
         <div dir='' className="col col-d-12 col-t-12 col-m-12 border-line-v">
-          {/* <div className="map">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d136834.1519573059!2d-74.0154445224086!3d40.7260256534837!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1639991650837!5m2!1sen!2sbd"
-              style={{ border: 0, width: "100%", height: "100%" }}
-              allowFullScreen=""
-              loading="lazy"
-            />
-          </div> */}
 
 
 
 
-          <div dir='' className="info-list font-serif ">
-            <ul>
-              <li dir="" className="">
-              <strong className="">Address :</strong> 
-              {about?.location}
-        
-              </li>
-              <li className=" ">
+          <div dir='' className="info-lis font-serif ">
+            <ul className=" flex flex-col md:flex-wrap  md:flex-row gap-">
+         
+
+
+              <li dir="" className=" md:!w-1/2 my-2">
+
+<strong className={` ${bgColor} ${iconTextColor} rounded-md py-1 px-3 ml-4`}>כתובת:</strong> 
+
+
+{about?.adress}
+
+
+</li>
+
+
+<li dir="" className="my-2 md:!w-1/2">
+
+<strong className={` ${bgColor} ${iconTextColor} rounded-md py-1 px-3 ml-4`}>אימייל:</strong> 
+
+
+{email}
+
+
+</li>
+
+
+<li dir="" className=" md:w-1/2 my-2 border-b pb-2 !border-b-gray-300 !border-b-1">
+
+<strong className={` ${bgColor} ${iconTextColor} rounded-md py-1 px-3 ml-4`}>נייד:</strong> 
+
+
+{about?.phone}
+
+
+</li>
+
+
+<li dir="" className=" md:w-1/2 my-2 border-b pb-2 !border-b-gray-300 !border-b-1">
+
+<strong className={` ${bgColor} ${iconTextColor} rounded-md py-1 px-3 ml-4`}>משרד:</strong> 
+
+
+{about?.phone2}
+
+
+</li>
+
+              {/* <li className=" ">
                 <strong>Email : </strong> {email}
               </li>
               <li className="">
                 <strong>Phone :</strong> {about?.phone}
-              </li>
-              {/* <li>
-                <strong>Freelance : </strong> Available
               </li> */}
+            
             </ul>
           </div>
 

@@ -33,7 +33,9 @@ import {
   FaTwitter,
   FaFacebookF,
   FaPhone,
+  FaWaze
 } from "react-icons/fa";
+
 import { BiArchiveIn } from "react-icons/bi";
 const RecentWorksFitness = dynamic(
   () => import("./components/sections/recentWorks/RecentWorksFitness"),
@@ -314,6 +316,22 @@ const profileBg =   temp === 5
               </div>
             )}
 
+{about?.location && (
+              <div
+              className="px-4 py-2"
+                style={{ width: "33%", float: "right", marginBottom: "7px" }}
+              >
+                <a href={about?.location}>
+                  <FaWaze
+                    className={`   w-14  h-14  ${bgColor}  rounded-full p-2  ${iconTextColor}`}
+                  />
+
+                  {/* <img src="/ryan/images/facebook.png" /> */}
+                </a>
+                {/* <span style={{ float: "left" }}>Face</span> */}
+              </div>
+            )}
+
             {about?.whatsapp && (
               <div
                 className="px-4 py-2"
@@ -419,7 +437,7 @@ const profileBg =   temp === 5
           <BlogSection />
         </Blog> */}
         <Contact animationIn={"rollIn"} animationOut={"rollOut"}>
-          <ContactInfo about={about} email={email} />
+          <ContactInfo bgColor={bgColor} iconTextColor={iconTextColor} about={about} email={email} />
           <ContactForm
           btnbgColor={btnbgColor}
             btnColor={iconTextColor}

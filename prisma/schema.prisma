@@ -79,6 +79,8 @@ model About {
   work       String   @default("")
   phone      String   @default("")
   location   String   @default("")
+  adress   String   @default("")
+  phone2   String   @default("")
   video      String   @default("")
   temp       Int      @default(2)
 

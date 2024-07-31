@@ -35,6 +35,8 @@ handler.post(async (req, res) => {
     iconColor, 
     textColor,
     phone,
+    phone2,
+    adress,
     location,
     work,
     video
@@ -57,6 +59,8 @@ handler.post(async (req, res) => {
         images,
         temp,
         desc,
+        phone2,
+        adress,
         
         instagram,
         pdf,
@@ -111,6 +115,8 @@ handler.post(async (req, res) => {
         facebook,
     instagram,
     pdf,
+    phone2,
+    adress,
     telgram,
     title,
     twitter,

@@ -6,7 +6,7 @@ import NormalSliderImages from "../../components/profilee/normalImagesSlider";
 const inter = Inter({ subsets: ["latin"] });
 import Link from "next/link";
 import NextLink from "next/link";
-import { FaPlus } from "react-icons/fa";
+import { FaPlus, FaWaze } from "react-icons/fa";
 import { TypeAnimation } from "react-type-animation";
 import Masnory, { ResponsiveMasonry } from "react-responsive-masonry";
 import clsx from "clsx";
@@ -657,7 +657,7 @@ export default function Home3({ name, userdata }) {
                         rel="noreferrer nofollow"
                         title="Portfolio"
                       >
-                        <FaLocationDot
+                        <FaWaze
                           className={` ${iconColor} block w-[30px] top-[9px] left-[9px] md:left-[22px]  md:top-[22px] h-[30px] absolute  text-yellow-10`}
                         />
                       </a>

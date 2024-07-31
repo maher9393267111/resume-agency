@@ -59,7 +59,9 @@ function AboutPage({ user, userdata }) {
   const [email, setEmail] = useState(userdata?.about[0]?.email || "");
   const [work, setWork] = useState(userdata?.about[0]?.work || "");
   const [phone, setPhone] = useState(userdata?.about[0]?.phone || "");
+  const [phone2, setPhone2] = useState(userdata?.about[0]?.phone2 || "");
   const [location, setLocation] = useState(userdata?.about[0]?.location || "");
+  const [adress, setAdress] = useState(userdata?.about[0]?.adress || "");
   const [video, setVideo] = useState(userdata?.about[0]?.video || "");
   const [imagesTitle, setImagesTitle] = useState(
     userdata?.about[0]?.imagesTitle || ""
@@ -353,6 +355,8 @@ function AboutPage({ user, userdata }) {
         phone,
         location,
         video,
+        adress,
+        phone2,
         myImage: userimagedata,
         //  selectedImage ? await handleUploadImage(selectedImage, "myImage"): myImage,
 
@@ -848,12 +852,28 @@ setImagesType(key)
               type={"text"}
             />
 
+
+<CustomInput
+              value={adress}
+              setValue={setAdress}
+              label={"Adress"}
+              type={"text"}
+            />
             <CustomInput
               value={phone}
               setValue={setPhone}
               label={"Phone Number"}
               type={"text"}
             />
+
+
+<CustomInput
+              value={phone2}
+              setValue={setPhone2}
+              label={"Phone Number 2"}
+              type={"text"}
+            />
+
 
             <CustomInput
               value={video}
