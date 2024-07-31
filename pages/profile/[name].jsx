@@ -884,7 +884,7 @@ export default function Home3({ name, userdata }) {
 
               <div>
               <Link href={'/'}>
-                <p className=" font-s  arabicfont">
+                <p className=" font-s  arabicfon  font-serif">
                   כרטיס ביקור דיגיטלי נבנה על ידי אולטרה טכנולוגי
                 </p>
                 </Link>

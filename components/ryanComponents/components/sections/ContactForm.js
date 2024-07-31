@@ -1,6 +1,7 @@
 import { Formik } from 'formik';
 import { Philosopher } from 'next/font/google';
 import React from 'react';
+import Link from 'next/link'
 
 import { FaPhoneAlt } from "react-icons/fa";
 import { MdOutlineMailOutline } from "react-icons/md";
@@ -264,8 +265,36 @@ const ContactForm = ({domainUrl ,textColor ,bgColor ,btnColor ,btnbgColor}) => {
                   />
                 </a>
               </div>
+
+
+              {/* <div className="pb-3 mt-2">
+            <div className=" flex justify-center items-center gap-3 arabicfont">
+              <div>
+                <Link href={'/'}>
+           
+                <img
+                  className="h-[38px] w-[38px] rounded-full"
+                  src="/logo.jpg"
+                  alt=""
+                />
+                     </Link>
+              </div>
+
+              <div>
+              <Link href={'/'}>
+                <p className=" font-s  arabicfon  font-serif">
+                  כרטיס ביקור דיגיטלי נבנה על ידי אולטרה טכנולוגי
+                </p>
+                </Link>
+              </div>
+            </div>
+          </div> */}
+
+
             </div>
 
+
+       
 
         <div className="clear" />
       </div>

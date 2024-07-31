@@ -6,6 +6,7 @@ import VideoPopup from "../components/popup/VideoPopup.js";
 import { createSkillsDot, dotResize } from "../utils.js";
 import Background from "./Background.js";
 import ContentSidebar from "./ContentSidebar.js";
+import Link from "next/link";
 
 const Layout = ({
   children,
@@ -24,27 +25,35 @@ const Layout = ({
   }, []);
 
   return (
-    <div  dir="" className="ryan">
-
-  
-    <Fragment>
-      <VideoPopup />
-      <ImageView />
-      <ImageGallery />
-      <ContentModal />
-      <div className={`page ${!noSkin ? "new-skin" : ""}`}>
-        <Background bg={bg} img={bgImgUrl} />
-        <div
-          className={`${containerCls ? containerCls : "container opened layout-rounded-style minimal-icons-style"}`}
-          data-animation-in={animationIn ? animationIn : "fadeInLeft"}
-          data-animation-out={animationOut ? animationOut : "fadeOutLeft"}
-        >
-          {children}
-        </div>
-        <ContentSidebar />
+    <>
+      <div dir="" className="ryan">
+        <Fragment>
+          <VideoPopup />
+          <ImageView />
+          <ImageGallery />
+          <ContentModal />
+          <div className={`page ${!noSkin ? "new-skin" : ""}`}>
+            <Background bg={bg} img={bgImgUrl} />
+            <div
+              className={`${
+                containerCls
+                  ? containerCls
+                  : "container opened layout-rounded-style minimal-icons-style"
+              }`}
+              data-animation-in={animationIn ? animationIn : "fadeInLeft"}
+              data-animation-out={animationOut ? animationOut : "fadeOutLeft"}
+            >
+              {children}
+            </div>
+            <ContentSidebar />
+          </div>
+        </Fragment>
       </div>
-    </Fragment>
-    </div>
+
+      <div className=" hellpo z-50">
+        sssss
+      </div>
+    </>
   );
 };
 export default Layout;

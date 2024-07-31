@@ -25,6 +25,7 @@ import Header from "./layout/Header";
 import Layout from "./layout/Layout";
 import { ImageEndpoint, defaultImage } from "../../src/lib/globall";
 import { LuExternalLink } from "react-icons/lu";
+import Link from 'next/link'
 
 import {
   FaWhatsapp,
@@ -160,6 +161,8 @@ const profileBg =   temp === 5
 
 
   return (
+    <>
+    
     <Layout
       //  bg={"img"}
      // bg={"gradient"}
@@ -447,7 +450,14 @@ const profileBg =   temp === 5
           />
         </Contact>
       </ContentContainer>
+    
     </Layout>
+
+
+      
+
+    </>
+
   );
 };
 export default One;
