@@ -185,7 +185,10 @@ function AboutPage({ user, userdata }) {
 
       formData.append("image", file);
 
-      const endpoint = logo ? `${uploadApi}/file/upload?size=150&&hieghtsize=150` : `${uploadApi}/file/upload`
+
+      console.log("File Data", file);
+
+      const endpoint = logo ? `${uploadApi}/file/upload?size=1&&hieghtsize=1` : `${uploadApi}/file/upload`
       //?size=${(size = 1200)}&&hieghtsize=${(hieghtSize = 1000)}
       const response = await axios.post(endpoint, formData, {
         headers: {
@@ -368,7 +371,7 @@ function AboutPage({ user, userdata }) {
 
       console.log("AboutResponse Data", res);
 
-      router.reload();
+    //  router.reload();
 
       successHandler("Updated Successfully");
     } catch (error) {
