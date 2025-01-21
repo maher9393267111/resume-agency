@@ -127,6 +127,7 @@ export default function Contact({
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="דואר אלקטרוני"
+                    dir="rtl"
                     className={`${contactInputBorderColor} placeholdertext w-full py-[8px]     border-whit border outline-none `}
                     type="email"
                   />
@@ -289,6 +290,7 @@ export default function Contact({
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="דואר אלקטרוני"
+                      dir="rtl"
                       className={`${contactInputBorderColor} placeholdertext w-full py-[8px]     border-whit border outline-none `}
                       type="email"
                     />
