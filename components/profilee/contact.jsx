@@ -139,6 +139,7 @@ export default function Contact({
                   type="tel"
                   required
                   id="number"
+                  dir="rtl"
                   value={number}
                   onChange={(e) => setNumber(e.target.value)}
                   placeholder="מספר פלאפון"
