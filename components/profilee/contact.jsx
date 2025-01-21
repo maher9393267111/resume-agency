@@ -115,7 +115,7 @@ export default function Contact({
                     required
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                  placeholder="الاسم"
+                    placeholder="שם פרטי"
                     className={`${contactInputBorderColor} placeholdertext w-full py-[8px]     border-whit border outline-none `}
                     type="text"
                   />
@@ -126,7 +126,7 @@ export default function Contact({
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                     placeholder="الايميل"
+                    placeholder="דואר אלקטרוני"
                     className={`${contactInputBorderColor} placeholdertext w-full py-[8px]     border-whit border outline-none `}
                     type="email"
                   />
@@ -140,10 +140,8 @@ export default function Contact({
                   id="number"
                   value={number}
                   onChange={(e) => setNumber(e.target.value)}
-        placeholder="رقم الهاتف"
-               
+                  placeholder="מספר פלאפון"
                   className={`${contactInputBorderColor} placeholdertext w-full py-[8px]     border-whit border outline-none `}
-                  // type="text"
                 />
               </div>
 
@@ -153,8 +151,7 @@ export default function Contact({
                   required
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
-        placeholder="الرسالة"
-                 
+                  placeholder="הודעה"
                   rows="4"
                   cols="50"
                   className={`${contactInputBorderColor} placeholdertext w-full py-[8px]     border-whit border outline-none `}
@@ -280,8 +277,7 @@ export default function Contact({
                       required
                       value={name}
                       onChange={(e) => setName(e.target.value)}
-          placeholder="שם פרטי"
-                      
+                      placeholder="שם פרטי"
                       className={`${contactInputBorderColor} placeholdertext w-full py-[8px]     border-whit border outline-none `}
                       type="text"
                     />
@@ -292,41 +288,23 @@ export default function Contact({
                       required
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-          placeholder="דואר אלקטרוני"
-                     
+                      placeholder="דואר אלקטרוני"
                       className={`${contactInputBorderColor} placeholdertext w-full py-[8px]     border-whit border outline-none `}
                       type="email"
                     />
                   </div>
                 </div>
 
-                {/* <div dir="rtl" className="w-full my-4 arabicfont">
-                  <input
-                    type="tel"
-                    required
-                    id="number"
-                    value={number}
-                    onChange={(e) => setNumber(e.target.value)}
-        placeholder="מספר פלאפון"
-                    
-                    className={`${contactInputBorderColor} placeholdertext w-full py-[8px]     border-whit border outline-none `}
-                  
-                  />
-                </div> */}
-
-<div className="w-full my-4">
+                <div className="w-full my-4">
                     <input
                       required
                       value={number}
                       onChange={(e) => setNumber(e.target.value)}
-          placeholder=" נייד"
-                     
+                      placeholder=" נייד"
                       className={`${contactInputBorderColor} placeholdertext w-full py-[8px]     border-whit border outline-none `}
                       type="number"
                     />
                   </div>
-
-
 
                 <div className="w-full my-4 arabicfont">
                   <textarea
@@ -334,8 +312,7 @@ export default function Contact({
                     required
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
-        placeholder="הודעה"
-                    
+                    placeholder="הודעה"
                     rows="4"
                     cols="50"
                     className={`${contactInputBorderColor} placeholdertext w-full py-[8px]     border-whit border outline-none `}
