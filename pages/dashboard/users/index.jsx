@@ -36,6 +36,8 @@ export default function ProjectsPage({ user, projects, usersdata }) {
   const [desc, setDesc] = useState("");
   const [id, setId] = useState(null);
   const [selectedProject, setSelectedProject] = useState(null);
+  const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
+  const [userToDelete, setUserToDelete] = useState(null);
 
   const router = useRouter();
 
@@ -89,26 +91,36 @@ export default function ProjectsPage({ user, projects, usersdata }) {
     // setLoading(false);
   };
 
-  const HandleDelete = async (id, e) => {
-    e.preventDefault();
+  const handleDeleteClick = (userId) => {
+    setUserToDelete(userId);
+    setDeleteDialogOpen(true);
+  };
 
-    //setLoading(true);
+  const handleDeleteCancel = () => {
+    setDeleteDialogOpen(false);
+    setUserToDelete(null);
+  };
 
+  const handleDeleteConfirm = async () => {
     try {
-      const { data } = await axios.delete(`/api/admin/status?userid=${id}`);
-
-      //    console.log("Add", data?.cats);
-      // setAllData(data?.cats);
-
-      setId(null);
+      await HandleDelete(userToDelete);
+      setDeleteDialogOpen(false);
+      setUserToDelete(null);
       successHandler("User deleted successfully");
-
       router.reload();
     } catch (error) {
       errorHandler(error?.message);
     }
+  };
 
-    // setLoading(false);
+  const HandleDelete = async (id) => {
+    try {
+      const { data } = await axios.delete(`/api/admin/status?userid=${id}`);
+      setId(null);
+      return data;
+    } catch (error) {
+      throw error;
+    }
   };
 
   return (
@@ -254,11 +266,10 @@ export default function ProjectsPage({ user, projects, usersdata }) {
                               </p>
 
                               <p
-                                onClick={(e) => HandleDelete(project?.id, e)}
-                                className=" cursor-pointer  py-2 px-4 rounded-lg hover:bg-red-700 bg-red-500 text-white"
+                                onClick={() => handleDeleteClick(project?.id)}
+                                className="cursor-pointer py-2 px-4 rounded-lg hover:bg-red-700 bg-red-500 text-white"
                               >
                                 Delete
-                                {/* <span className="sr-only">, {.name}</span> */}
                               </p>
                             </div>
                           </td>
@@ -304,6 +315,21 @@ export default function ProjectsPage({ user, projects, usersdata }) {
             </Button>
             <Button className="   text-indigo-600" onClick={HandlerAdd}>
               Add
+            </Button>
+          </DialogActions>
+        </Dialog>
+
+        <Dialog open={deleteDialogOpen} onClose={handleDeleteCancel}>
+          <DialogTitle>Confirm Delete</DialogTitle>
+          <DialogContent>
+            <DialogContentText>
+              Are you sure you want to delete this user? This action cannot be undone.
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={handleDeleteCancel}>Cancel</Button>
+            <Button onClick={handleDeleteConfirm} color="error">
+              Delete
             </Button>
           </DialogActions>
         </Dialog>

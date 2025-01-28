@@ -123,6 +123,7 @@ export const getServerSideProps = async ({ req, res }) => {
       projects: {},
     },
   });
+  
 
   return {
     props: {

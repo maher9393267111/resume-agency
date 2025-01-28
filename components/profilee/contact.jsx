@@ -215,11 +215,15 @@ export default function Contact({
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <img
+                  {/* <img
                     className="w-12 h-12 object-cover"
                     src="https://cdn4.iconfinder.com/data/icons/social-media-icons-the-circle-set/48/twitter_circle-256.png"
                     alt=""
-                  />
+                  /> */}
+
+<img
+className="w-12 h-12 object-cover"
+src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/X_icon_2.svg/1483px-X_icon_2.svg.png" alt="X (formerly Twitter)" />
                 </a>
 
                 <a

@@ -8,7 +8,7 @@ import Link from "next/link";
 import NextLink from "next/link";
 import { FaPlus, FaWaze } from "react-icons/fa";
 import { TypeAnimation } from "react-type-animation";
-import Masnory, { ResponsiveMasonry } from "react-responsive-masonry";
+// import Masnory, { ResponsiveMasonry } from "react-responsive-masonry";
 import clsx from "clsx";
 
 import {
@@ -454,7 +454,7 @@ export default function Home3({ name, userdata }) {
               {/* flex  mx-auto  container !justify-center flex-wrap  flex-initial  */}
 
               {/* flex  mx-auto  container md:!justify-center flex-wrap  flex-initial */}
-              <div className="flex  mx-auto  container  md:justify-center justify-left flex-wrap  flex-initial  ">
+              <div className="flex mx-auto container justify-center flex-wrap flex-initial">
                 {about?.facebook && (
                   <div
                     className={` ${mainTextColor} iconsMain  w-[30%] md:w-1/6 text-center  text-[11px] md:text-lg  font-semibold `}
