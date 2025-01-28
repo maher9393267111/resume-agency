@@ -17,7 +17,7 @@ import { classNames } from "../../../src/lib/classes";
 import { errorHandler, successHandler } from "../../../src/lib/errorHandler";
 import axios from "axios";
 import { prisma } from "../../../src/lib/prisma";
-import { HuePicker, SketchPicker } from "react-color";
+import { HuePicker } from "react-color";
 import {
   ImageEndpoint,
   defaultImage,
@@ -26,23 +26,34 @@ import {
 import DriveFolderUploadIcon from "@mui/icons-material/DriveFolderUpload";
 import DeleteIcon from "@mui/icons-material/Delete";
 import ImageIcon from "@mui/icons-material/Image";
-import { MuiColorInput } from "mui-color-input";
+
 import MarkdownInput from "../../../components/dashboardLayout/markdown";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import CancelIcon from "@mui/icons-material/Cancel";
 
 import {
-
-
-
   FormControlLabel,
-
 } from "@mui/material";
 
 import dynamic from "next/dynamic";
 
-const message = dynamic(() => import("antd").then((mod) => mod.message));
-const Upload = dynamic(() => import("antd").then((mod) => mod.Upload));
+const message = dynamic(() => import("antd").then((mod) => mod.message), {
+  ssr: false
+});
+
+const Upload = dynamic(() => import("antd").then((mod) => mod.Upload), {
+  ssr: false
+});
+
+const MuiColorInput = dynamic(() => 
+  import('mui-color-input').then((mod) => mod.MuiColorInput), 
+  { ssr: false }
+);
+
+const SketchPicker = dynamic(() => 
+  import('react-color').then((mod) => mod.SketchPicker), 
+  { ssr: false }
+);
 
 function AboutPage({ user, userdata }) {
   console.log("userPrisma", userdata);
@@ -464,17 +475,15 @@ function AboutPage({ user, userdata }) {
 
 
   function handleChange(e, key) {
-
-console.log("KEY-->" , key)
-
-
-setImagesType(key)
-
-
+    setImagesType(key);
   }
 
 
+  const [isClient, setIsClient] = useState(false);
 
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
 
   return (
@@ -483,6 +492,7 @@ setImagesType(key)
 
       {/* {`${ImageEndpoint}/${myImage}`} */}
 
+{isClient && (
       <div
         // sm:mx-auto sm:w-full sm:max-w-md
         className="mt-4 
@@ -505,7 +515,7 @@ setImagesType(key)
                   color="primary"
                   checked={imagesType === 'slider'}
                   onChange={(e) => handleChange(e, "slider")}
-                  value={Boolean(images  === 'slider')}
+                  value="slider"
                   name="slider"
                 />
                 }
@@ -521,11 +531,11 @@ setImagesType(key)
                   color="primary"
                   checked={imagesType === 'normal'}
                   onChange={(e) => handleChange(e, "normal")}
-                  value={Boolean(imagesType ===  'normal')}
+                  value="normal"
                   name="normal"
                 />
                 }
-                label="Normal "
+                label="Normal"
                 labelPlacement="start"
               />
 
@@ -1155,6 +1165,7 @@ setImagesType(key)
           </form>
         </div>
       </div>
+)}
     </DashboardLayout>
   );
 }
