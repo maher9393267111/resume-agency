@@ -774,18 +774,34 @@ export default function Home3({ name, userdata }) {
               )}
             </div>
 
+          
+            {about?.video && (
+              <div className="my-8">
+                <h3 className={`${sliderTitleColor} arabicfont text-2xl md:text-3xl text-center mb-4`}>
+                  וידאו
+                </h3>
+                <div className="w-full max-w-full h-[350px] md:h-[455px] mx-auto">
+                  <iframe
+                    className="w-full h-full"
+                    src={`https://www.youtube.com/embed/${about?.video}`}
+                    title="YouTube video player"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              </div>
+            )}
+
+
             {/* ----SliderImages---- */}
 
             <div className="  text-center  bg-gay-300 mt-6  mb-24">
-              {/* <SliderImages
-                sliderTitleColor={sliderTitleColor}
-                sliderBgColor={sliderBgColor}
-                arrowsBgColor={arrowsBgColor}
-                arrowsColor={arrowsColor}
-                sliderUnderlineBorderColor={sliderUnderlineBorderColor}
-                video={about?.video}
-                sliders={sliders}
-              /> */}
+      
+
+
+
+
 
               {imagesType === "slider" ? (
                 <NormalSliderImages
@@ -848,6 +864,9 @@ export default function Home3({ name, userdata }) {
                 />
               )}
             </div>
+
+            {/* Video Section */}
+       
 
             <div dir="rtl">
               <Contact
